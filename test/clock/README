@@ -1,0 +1,25 @@
+clock configuration test
+
+apb1 low speed bus 42M, also called pclk1
+apb2 fast speed bus 84M, pclk2
+ahb 168M, hclk
+
+systick set, period 1m
+one timer set each periph bus, 1m
+
+led_green, systick, each 100m after toggle, pd12
+led_blue, tim1, pclk2, 1m, pd15
+led_red, tim2, pclk1, 1m, pd14
+
+*************************************************
+results
+
+after apb prescaler, another multiplier exist for timers
+tim1 and tim2 freq = relavent bus * 2
+
+{SYSCLK_Frequency = 168000000, HCLK_Frequency = 168000000, 
+  PCLK1_Frequency = 42000000, PCLK2_Frequency = 84000000}
+
+
+
+
