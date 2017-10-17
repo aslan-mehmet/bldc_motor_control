@@ -1,5 +1,5 @@
 /* STM32F407vgt6 */
-/* lqfp100 */
+
 MEMORY
 {
 	rom (rx) : ORIGIN = 0x08000000, LENGTH = 1024K
