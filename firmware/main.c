@@ -1,3 +1,9 @@
+/*
+ * author: Mehmet ASLAN
+ * date: October 14, 2017
+ * no warranty, no licence agreement
+ * use it at your own risk
+ */
 #include "main.h"
 #include "stm32f4xx_it.h"
 #include "f4board.h"
@@ -41,7 +47,7 @@ void tim_init(void)
 
 	/* tim2, apb1 bus = 42M */
 	/* but tim2 at 84M */
-	/* update event in 1ms */
+	/* update event in 0.5ms */
 	TIM_TimeBaseStructure.TIM_Period = 1000;
 	/* clock_out = clock_in/(prescaler + 1)  */
 	TIM_TimeBaseStructure.TIM_Prescaler = 83;
@@ -53,7 +59,7 @@ void tim_init(void)
 	
         /* tim1, apb2 bus = 84M */
 	/* but tim at 168M */
-	/* update event in 1ms */
+	/* update event in 0.5ms */
 	TIM_TimeBaseStructure.TIM_Period = 1000;
 	/* clock_out = clock_in/(prescaler + 1)  */
 	TIM_TimeBaseStructure.TIM_Prescaler = 167;

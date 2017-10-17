@@ -1,3 +1,9 @@
+/*
+ * author: Mehmet ASLAN
+ * date: October 14, 2017
+ * no warranty, no licence agreement
+ * use it at your own risk
+ */
 #include "f4board.h"
 #include "stm32f4xx.h"
 
