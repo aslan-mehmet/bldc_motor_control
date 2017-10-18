@@ -142,8 +142,17 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
+uint64_t msTicks = 0;
 void SysTick_Handler(void)
 {
+	/* overflows in eternity */
+	++msTicks;
+}
+
+/* return time in ms, from startup */
+uint64_t get_time(void)
+{
+	return msTicks;
 }
 
 /******************************************************************************/

@@ -77,7 +77,7 @@ SRCS += stm32f4xx_rcc.c
 #SRCS += stm32f4xx_spi.c
 #SRCS += stm32f4xx_syscfg.c
 SRCS += stm32f4xx_tim.c
-#SRCS += stm32f4xx_usart.c
+SRCS += stm32f4xx_usart.c
 #SRCS += stm32f4xx_wwdg.c
 
 # SRCS WORKS WITH VPATH
