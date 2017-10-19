@@ -1,0 +1,13 @@
+DM
+B	external control
+0	no encoder
+2	model2, torque 10 oz-in
+24	24 volts
+C	curve C
+1	size 17 mount
+000	--
+2	external cables
+
+10 pole
+
+power gnd connected motor chasis

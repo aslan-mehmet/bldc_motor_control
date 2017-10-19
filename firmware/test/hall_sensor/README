@@ -1,0 +1,11 @@
+hall sensor readings for one mechanical rotation
+cw
+623154
+623154
+623154
+623154
+623154
+
+so motor is 10 pole
+
+periph settings done. green led pin(stm32f4disco) used for hall

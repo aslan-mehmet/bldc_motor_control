@@ -1,8 +1,13 @@
 usart1
-pb6
-pb7
+pb6 - tx
+pb7 - rx
 
 hall sensor input
-pd10
-pd11
-pd12
+pd10 - s3
+pd11 - s2
+pd12 - s1 - led_green
+
+pd13 - led_orange
+pd14 - led_red
+pd15 - led_blue
+
