@@ -1,4 +1,4 @@
-PROJ_NAME = template
+PROJ_NAME = sensored
 
 LIBRARY_DIR = ./lib
 BUILD_DIR = build
@@ -75,9 +75,9 @@ SRCS += stm32f4xx_rcc.c
 #SRCS += stm32f4xx_sdio.c
 #SRCS += stm32f4xx_spdifrx.c
 #SRCS += stm32f4xx_spi.c
-#SRCS += stm32f4xx_syscfg.c
+SRCS += stm32f4xx_syscfg.c
 SRCS += stm32f4xx_tim.c
-#SRCS += stm32f4xx_usart.c
+SRCS += stm32f4xx_usart.c
 #SRCS += stm32f4xx_wwdg.c
 
 # SRCS WORKS WITH VPATH
@@ -87,7 +87,7 @@ $(PROJ_NAME).elf: $(SRCS)
 	$(CC) $(INCLUDE) $(DEFS) $(CFLAGS) $(LFLAGS) $^ -g -o $(BUILD_DIR)/$(PROJ_NAME).elf
 	$(OBJCOPY) -O ihex $(BUILD_DIR)/$(PROJ_NAME).elf   $(BUILD_DIR)/$(PROJ_NAME).hex
 	$(OBJCOPY) -O binary $(BUILD_DIR)/$(PROJ_NAME).elf $(BUILD_DIR)/$(PROJ_NAME).bin
-
+	arm-none-eabi-size --format=sysv $(BUILD_DIR)/$(PROJ_NAME).elf
 clean:
 	rm $(BUILD_DIR)/*
 flash:
@@ -95,4 +95,4 @@ flash:
 	arm-none-eabi-size --format=sysv $(BUILD_DIR)/$(PROJ_NAME).elf
 debug:
 	gnome-terminal --command="st-util"
-	arm-none-eabi-gdb ./build/template.elf -ex "tar extended-remote :4242"
+	arm-none-eabi-gdb -q $(BUILD_DIR)/$(PROJ_NAME).elf -ex "tar extended-remote :4242" -ex "load"
