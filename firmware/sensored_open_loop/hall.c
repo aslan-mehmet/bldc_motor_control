@@ -1,17 +1,9 @@
-/*
- * author: Mehmet ASLAN
- * date: October 28, 2017
- * no warranty, no licence agreement
- * use it at your own risk
- */
-
 #include "hall.h"
+#include "motor.h"
 #include "stm32f4xx.h"
 #include "f4board.h"
-#include "motor.h"
 
-/* init pins */
-void hall_init(void)
+void hall_sensor_init(void)
 {
 /* setup 3 pin change interrupts */
 /* 5v tolerant */
@@ -67,24 +59,25 @@ void hall_init(void)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 
 	NVIC_Init(&NVIC_InitStructure);
+
 }
 
-/* interrupt, which calls commutation */
+/* isr : read pins, print to uart */
 void EXTI15_10_IRQHandler(void)
 {
 	/* does not matter who gave the interrupt */
 	EXTI_ClearITPendingBit(EXTI_Line10 | EXTI_Line11 | EXTI_Line12);
 
-        uint16_t step_number = GPIO_ReadInputData(GPIOD);
+        uint16_t data = GPIO_ReadInputData(GPIOD);
 
-	step_number = (step_number >> 10) & 0x0007;
+	data = (data >> 10) & 0x0007;
 
+	if (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == SET) {
+		/* dont expect to motor catch, playing safe */
+		USART_SendData(USART1, '0' + data);
+	}
+
+	motor_commutate(data);
+	
 	GPIOD->ODR ^= LED_RED_ODR;
-	motor_commutate(step_number);
-}
-
-/* return speed in rpm */
-uint16_t hall_get_speed(void)
-{
-	return 12;
 }

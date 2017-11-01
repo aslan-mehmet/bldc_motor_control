@@ -1,6 +1,6 @@
 /*
  * author: Mehmet ASLAN
- * date: October 28, 2017
+ * date: November 1, 2017
  * no warranty, no licence agreement
  * use it at your own risk
  */
@@ -8,16 +8,20 @@
 
 int main(void)
 {
-	/* 1ms tick */
 	if (SysTick_Config(SystemCoreClock / 1000)) {
 		while (1)
 			;
 	}
-	
+
 	board_led_init();
-	hall_init();
 	motor_init();
-	
+	motor_start();
+	motor_set_pwm(500);
+
+	hall_sensor_init();
+
+	uart_init();
+
 	while (1)
 		;
 	

@@ -1,4 +1,12 @@
-#include "motor.h"
+/*
+ * author: Mehmet ASLAN
+ * date: October 17, 2017
+ * no warranty, no licence agreement
+ * use it at your own risk
+ */
+#include "stm32f4xx.h"
+#include "f4board.h"
+#include "delay.h"
 
 #define PORT_IN GPIOE
 #define PIN_IN1 GPIO_ODR_ODR_9
@@ -10,50 +18,9 @@
 #define TIM_CH2 TIM_CCER_CC2E
 #define TIM_CH3 TIM_CCER_CC3E
 #define TIM_CH_MASK (TIM_CH1 | TIM_CH2 | TIM_CH3)
+#define PWM_MAX 2000
 
-uint8_t motor_state = ENABLE;
-/* cw 
- * pha out1
- * phb out2
- * phc out3
- */
-uint32_t pwm_en_seq[] = {TIM_CH2, TIM_CH1, TIM_CH1, TIM_CH3, TIM_CH2, TIM_CH3};
-
-/* 
- * l6230 enable
- * pa1 - en1
- * pa2 - en2
- * pa3 - en3
- * pa5 - diag/en -- open drain
- */
-#define PORT_EN GPIOA
-#define PIN_EN1 GPIO_ODR_ODR_1
-#define PIN_EN2 GPIO_ODR_ODR_2
-#define PIN_EN3 GPIO_ODR_ODR_3
-#define PIN_DIAG GPIO_ODR_ODR_5
-#define EN_MASK (PIN_EN1 | PIN_EN2 | PIN_EN3)
-
-#define EN_S5 (PIN_EN1 | PIN_EN2)
-#define EN_S4 (PIN_EN1 | PIN_EN3)
-#define EN_S6 (PIN_EN2 | PIN_EN3)
-#define EN_S2 (PIN_EN1 | PIN_EN2)
-#define EN_S3 (PIN_EN1 | PIN_EN3)
-#define EN_S1 (PIN_EN2 | PIN_EN3)
-
-uint32_t fet_en_seq[] = {EN_S1, EN_S2, EN_S3, EN_S4, EN_S5, EN_S6};
-
-void motor_start(void)
-{
-	motor_state = ENABLE;	
-}
-
-void motor_stop(void)
-{
-	motor_state = DISABLE;
-	TIM_PWM->CCER &= ~TIM_CH_MASK;
-}
-
-void tim_pwm_init(void)
+void tim1_pwm_init(void)
 {
 	/* clock */
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOE, ENABLE);
@@ -93,7 +60,7 @@ void tim_pwm_init(void)
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Disable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable;
-	TIM_OCInitStructure.TIM_Pulse = 1;
+	TIM_OCInitStructure.TIM_Pulse = 0;
 	/* ccer, cc1p active high */
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 	TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
@@ -114,54 +81,29 @@ void tim_pwm_init(void)
 	TIM_Cmd(TIM1, ENABLE);
 }
 
-void motor_init(void)
+int main(void)
 {
-	tim_pwm_init();
-
-		/* set up a timer(one pulse mode) and pins */
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
-
-	GPIO_InitTypeDef GPIO_InitStructure;
-
-	/* checked init function iterates, each pin */
-	GPIO_InitStructure.GPIO_Pin = PIN_EN1 | PIN_EN2 | PIN_EN3;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(PORT_EN, &GPIO_InitStructure);
-	PORT_EN->ODR &= ~EN_MASK;
-	
-	GPIO_InitStructure.GPIO_Pin = PIN_DIAG;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-	GPIO_Init(PORT_EN, &GPIO_InitStructure);
-	/* carefull because open drain */
-	PORT_EN->ODR |= PIN_DIAG;
-}
-
-void motor_set_pwm(uint16_t val)
-{
-	if (val >= PWM_MAX) {
-		val = PWM_MAX -1;
-	} else if (val == 0){
-		val = 1;
+	/* 1ms tick */
+	if (SysTick_Config(SystemCoreClock / 1000)) {
+		while (1)
+			;
 	}
-	
-	TIM_SetCompare1(TIM1, val);
-	TIM_SetCompare2(TIM1, val);
-	TIM_SetCompare3(TIM1, val);
-}
 
-void motor_commutate(uint8_t step_number)
-{
-	if (motor_state == DISABLE) {
-		return;
+	board_led_init();
+	tim1_pwm_init();
+
+	uint16_t val = 0;
+	while (1) {
+		val += 200;
+		if (val > PWM_MAX) {
+			val = PWM_MAX;
+		}
+		
+		TIM_SetCompare1(TIM1, val);
+		TIM_SetCompare2(TIM1, val);
+		TIM_SetCompare3(TIM1, val);
+		
+		TIM_PWM->CCER ^= TIM_CH_MASK;
+		delay(1000);
 	}
-	
-	PORT_EN->ODR &= ~EN_MASK;
-	TIM_PWM->CCER &= ~TIM_CH_MASK;
-
-	PORT_EN->ODR |= fet_en_seq[step_number-1];
-        TIM_PWM->CCER |= pwm_en_seq[step_number-1];
 }

@@ -1,6 +1,6 @@
-PROJ_NAME = sensored
+PROJ_NAME = template
 
-LIBRARY_DIR = ./lib
+LIBRARY_DIR = ../../lib
 BUILD_DIR = build
 
 SRC_DIRS = $(LIBRARY_DIR)/std_periph/src/
@@ -95,4 +95,4 @@ flash:
 	arm-none-eabi-size --format=sysv $(BUILD_DIR)/$(PROJ_NAME).elf
 debug:
 	gnome-terminal --command="st-util"
-	arm-none-eabi-gdb -q $(BUILD_DIR)/$(PROJ_NAME).elf -ex "tar extended-remote :4242" -ex "load"
+	arm-none-eabi-gdb ./build/template.elf -ex "tar extended-remote :4242" -ex "load"

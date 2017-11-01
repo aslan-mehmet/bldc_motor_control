@@ -55,17 +55,17 @@ Linker script and memory map
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
-LOAD /tmp/ccexgbhn.o
-LOAD /tmp/ccWIdQYJ.o
-LOAD /tmp/ccWfAtS6.o
-LOAD /tmp/ccJpdYXt.o
-LOAD /tmp/cczVaO4Q.o
-LOAD /tmp/ccdRnkne.o
-LOAD /tmp/ccRQmERB.o
-LOAD /tmp/cciRckxZ.o
-LOAD /tmp/ccVXZdqn.o
-LOAD /tmp/ccr3oZAL.o
-LOAD /tmp/cc3coPaa.o
+LOAD /tmp/cc8tN0pE.o
+LOAD /tmp/ccWXB7Tn.o
+LOAD /tmp/ccQm5vA7.o
+LOAD /tmp/ccQHhlsR.o
+LOAD /tmp/cclyvSlB.o
+LOAD /tmp/ccxff5ql.o
+LOAD /tmp/ccsjgwI5.o
+LOAD /tmp/ccl7i0cQ.o
+LOAD /tmp/cc5lCOTA.o
+LOAD /tmp/ccEZsbSl.o
+LOAD /tmp/cc9PSIf7.o
 START GROUP
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a
@@ -81,7 +81,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
 .isr_vector     0x0000000008000000      0x188
  *(.isr_vector)
- .isr_vector    0x0000000008000000      0x188 /tmp/cczVaO4Q.o
+ .isr_vector    0x0000000008000000      0x188 /tmp/cclyvSlB.o
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000188                . = ALIGN (0x4)
 
@@ -103,13 +103,13 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .text          0x0000000008000200       0x74 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
                 0x0000000008000200                _mainCRTStartup
                 0x0000000008000200                _start
- .text          0x0000000008000274      0x248 /tmp/ccexgbhn.o
+ .text          0x0000000008000274      0x248 /tmp/cc8tN0pE.o
                 0x000000000800030c                main
                 0x000000000800035c                delay
                 0x0000000008000398                tim_init
                 0x0000000008000454                TIM1_UP_TIM10_IRQHandler
                 0x0000000008000488                TIM2_IRQHandler
- .text          0x00000000080004bc       0x8c /tmp/ccWIdQYJ.o
+ .text          0x00000000080004bc       0x8c /tmp/ccWXB7Tn.o
                 0x00000000080004bc                NMI_Handler
                 0x00000000080004ca                HardFault_Handler
                 0x00000000080004d0                MemManage_Handler
@@ -120,17 +120,17 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x00000000080004fe                PendSV_Handler
                 0x000000000800050c                SysTick_Handler
                 0x0000000008000530                get_time
- .text          0x0000000008000548      0x25c /tmp/ccWfAtS6.o
+ .text          0x0000000008000548      0x25c /tmp/ccQm5vA7.o
                 0x0000000008000548                SystemInit
                 0x00000000080005b4                SystemCoreClockUpdate
- .text          0x00000000080007a4       0x3c /tmp/ccJpdYXt.o
+ .text          0x00000000080007a4       0x3c /tmp/ccQHhlsR.o
                 0x00000000080007a4                board_led_init
- .text          0x00000000080007e0       0x14 /tmp/cczVaO4Q.o
+ .text          0x00000000080007e0       0x14 /tmp/cclyvSlB.o
  .text.Reset_Handler
-                0x00000000080007f4       0x48 /tmp/cczVaO4Q.o
+                0x00000000080007f4       0x48 /tmp/cclyvSlB.o
                 0x00000000080007f4                Reset_Handler
  .text.Default_Handler
-                0x000000000800083c        0x2 /tmp/cczVaO4Q.o
+                0x000000000800083c        0x2 /tmp/cclyvSlB.o
                 0x000000000800083c                RTC_Alarm_IRQHandler
                 0x000000000800083c                HASH_RNG_IRQHandler
                 0x000000000800083c                EXTI2_IRQHandler
@@ -213,19 +213,19 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x000000000800083c                DMA2_Stream6_IRQHandler
                 0x000000000800083c                DMA1_Stream3_IRQHandler
  *fill*         0x000000000800083e        0x2 
- .text          0x0000000008000840      0x194 /tmp/ccdRnkne.o
+ .text          0x0000000008000840      0x194 /tmp/ccxff5ql.o
                 0x0000000008000840                NVIC_PriorityGroupConfig
                 0x0000000008000868                NVIC_Init
                 0x000000000800092c                NVIC_SetVectorTable
                 0x0000000008000958                NVIC_SystemLPConfig
                 0x000000000800099c                SysTick_CLKSourceConfig
- .text          0x00000000080009d4       0xf4 /tmp/ccRQmERB.o
+ .text          0x00000000080009d4       0xf4 /tmp/ccsjgwI5.o
                 0x00000000080009d4                DBGMCU_GetREVID
                 0x00000000080009ec                DBGMCU_GetDEVID
                 0x0000000008000a08                DBGMCU_Config
                 0x0000000008000a48                DBGMCU_APB1PeriphConfig
                 0x0000000008000a88                DBGMCU_APB2PeriphConfig
- .text          0x0000000008000ac8      0x210 /tmp/cciRckxZ.o
+ .text          0x0000000008000ac8      0x210 /tmp/ccl7i0cQ.o
                 0x0000000008000ac8                EXTI_DeInit
                 0x0000000008000afc                EXTI_Init
                 0x0000000008000be0                EXTI_StructInit
@@ -234,7 +234,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x0000000008000c64                EXTI_ClearFlag
                 0x0000000008000c84                EXTI_GetITStatus
                 0x0000000008000cb8                EXTI_ClearITPendingBit
- .text          0x0000000008000cd8      0x4d4 /tmp/ccVXZdqn.o
+ .text          0x0000000008000cd8      0x4d4 /tmp/cc5lCOTA.o
                 0x0000000008000cd8                GPIO_DeInit
                 0x0000000008000e3c                GPIO_Init
                 0x0000000008000f58                GPIO_StructInit
@@ -249,7 +249,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x00000000080010d8                GPIO_Write
                 0x00000000080010f6                GPIO_ToggleBits
                 0x000000000800111a                GPIO_PinAFConfig
- .text          0x00000000080011ac      0xce0 /tmp/ccr3oZAL.o
+ .text          0x00000000080011ac      0xce0 /tmp/ccEZsbSl.o
                 0x00000000080011ac                RCC_DeInit
                 0x000000000800121c                RCC_HSEConfig
                 0x0000000008001244                RCC_WaitForHSEStartUp
@@ -303,7 +303,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x0000000008001e14                RCC_ClearFlag
                 0x0000000008001e34                RCC_GetITStatus
                 0x0000000008001e6c                RCC_ClearITPendingBit
- .text          0x0000000008001e8c     0x1c18 /tmp/cc3coPaa.o
+ .text          0x0000000008001e8c     0x1c18 /tmp/cc9PSIf7.o
                 0x0000000008001e8c                TIM_DeInit
                 0x000000000800204c                TIM_TimeBaseInit
                 0x0000000008002124                TIM_TimeBaseStructInit
@@ -500,19 +500,19 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .data          0x0000000020000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 0x0000000020000000                __dso_handle
  .data          0x0000000020000004        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
- .data          0x0000000020000004        0x0 /tmp/ccexgbhn.o
- .data          0x0000000020000004        0x0 /tmp/ccWIdQYJ.o
- .data          0x0000000020000004       0x14 /tmp/ccWfAtS6.o
+ .data          0x0000000020000004        0x0 /tmp/cc8tN0pE.o
+ .data          0x0000000020000004        0x0 /tmp/ccWXB7Tn.o
+ .data          0x0000000020000004       0x14 /tmp/ccQm5vA7.o
                 0x0000000020000004                SystemCoreClock
                 0x0000000020000008                AHBPrescTable
- .data          0x0000000020000018        0x0 /tmp/ccJpdYXt.o
- .data          0x0000000020000018        0x0 /tmp/cczVaO4Q.o
- .data          0x0000000020000018        0x0 /tmp/ccdRnkne.o
- .data          0x0000000020000018        0x0 /tmp/ccRQmERB.o
- .data          0x0000000020000018        0x0 /tmp/cciRckxZ.o
- .data          0x0000000020000018        0x0 /tmp/ccVXZdqn.o
- .data          0x0000000020000018       0x10 /tmp/ccr3oZAL.o
- .data          0x0000000020000028        0x0 /tmp/cc3coPaa.o
+ .data          0x0000000020000018        0x0 /tmp/ccQHhlsR.o
+ .data          0x0000000020000018        0x0 /tmp/cclyvSlB.o
+ .data          0x0000000020000018        0x0 /tmp/ccxff5ql.o
+ .data          0x0000000020000018        0x0 /tmp/ccsjgwI5.o
+ .data          0x0000000020000018        0x0 /tmp/ccl7i0cQ.o
+ .data          0x0000000020000018        0x0 /tmp/cc5lCOTA.o
+ .data          0x0000000020000018       0x10 /tmp/ccEZsbSl.o
+ .data          0x0000000020000028        0x0 /tmp/cc9PSIf7.o
  .data          0x0000000020000028        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .data          0x0000000020000028        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
  .data._impure_ptr
@@ -563,19 +563,19 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .bss           0x0000000020000470        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
  .bss           0x0000000020000470       0x1c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .bss           0x000000002000048c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
- .bss           0x000000002000048c        0x0 /tmp/ccexgbhn.o
+ .bss           0x000000002000048c        0x0 /tmp/cc8tN0pE.o
  *fill*         0x000000002000048c        0x4 
- .bss           0x0000000020000490        0x8 /tmp/ccWIdQYJ.o
+ .bss           0x0000000020000490        0x8 /tmp/ccWXB7Tn.o
                 0x0000000020000490                msTicks
- .bss           0x0000000020000498        0x0 /tmp/ccWfAtS6.o
- .bss           0x0000000020000498        0x0 /tmp/ccJpdYXt.o
- .bss           0x0000000020000498        0x0 /tmp/cczVaO4Q.o
- .bss           0x0000000020000498        0x0 /tmp/ccdRnkne.o
- .bss           0x0000000020000498        0x0 /tmp/ccRQmERB.o
- .bss           0x0000000020000498        0x0 /tmp/cciRckxZ.o
- .bss           0x0000000020000498        0x0 /tmp/ccVXZdqn.o
- .bss           0x0000000020000498        0x0 /tmp/ccr3oZAL.o
- .bss           0x0000000020000498        0x0 /tmp/cc3coPaa.o
+ .bss           0x0000000020000498        0x0 /tmp/ccQm5vA7.o
+ .bss           0x0000000020000498        0x0 /tmp/ccQHhlsR.o
+ .bss           0x0000000020000498        0x0 /tmp/cclyvSlB.o
+ .bss           0x0000000020000498        0x0 /tmp/ccxff5ql.o
+ .bss           0x0000000020000498        0x0 /tmp/ccsjgwI5.o
+ .bss           0x0000000020000498        0x0 /tmp/ccl7i0cQ.o
+ .bss           0x0000000020000498        0x0 /tmp/cc5lCOTA.o
+ .bss           0x0000000020000498        0x0 /tmp/ccEZsbSl.o
+ .bss           0x0000000020000498        0x0 /tmp/cc9PSIf7.o
  .bss           0x0000000020000498        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .bss           0x0000000020000498        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
  .bss           0x0000000020000498        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
@@ -617,27 +617,27 @@ OUTPUT(build/template.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000056       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
  .ARM.attributes
-                0x0000000000000076       0x39 /tmp/ccexgbhn.o
+                0x0000000000000076       0x39 /tmp/cc8tN0pE.o
  .ARM.attributes
-                0x00000000000000af       0x39 /tmp/ccWIdQYJ.o
+                0x00000000000000af       0x39 /tmp/ccWXB7Tn.o
  .ARM.attributes
-                0x00000000000000e8       0x39 /tmp/ccWfAtS6.o
+                0x00000000000000e8       0x39 /tmp/ccQm5vA7.o
  .ARM.attributes
-                0x0000000000000121       0x39 /tmp/ccJpdYXt.o
+                0x0000000000000121       0x39 /tmp/ccQHhlsR.o
  .ARM.attributes
-                0x000000000000015a       0x21 /tmp/cczVaO4Q.o
+                0x000000000000015a       0x21 /tmp/cclyvSlB.o
  .ARM.attributes
-                0x000000000000017b       0x39 /tmp/ccdRnkne.o
+                0x000000000000017b       0x39 /tmp/ccxff5ql.o
  .ARM.attributes
-                0x00000000000001b4       0x39 /tmp/ccRQmERB.o
+                0x00000000000001b4       0x39 /tmp/ccsjgwI5.o
  .ARM.attributes
-                0x00000000000001ed       0x39 /tmp/cciRckxZ.o
+                0x00000000000001ed       0x39 /tmp/ccl7i0cQ.o
  .ARM.attributes
-                0x0000000000000226       0x39 /tmp/ccVXZdqn.o
+                0x0000000000000226       0x39 /tmp/cc5lCOTA.o
  .ARM.attributes
-                0x000000000000025f       0x39 /tmp/ccr3oZAL.o
+                0x000000000000025f       0x39 /tmp/ccEZsbSl.o
  .ARM.attributes
-                0x0000000000000298       0x39 /tmp/cc3coPaa.o
+                0x0000000000000298       0x39 /tmp/cc9PSIf7.o
  .ARM.attributes
                 0x00000000000002d1       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .ARM.attributes
@@ -664,114 +664,114 @@ OUTPUT(build/template.elf elf32-littlearm)
                 0x000000000000050d       0x22 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
 .comment        0x0000000000000000       0x7f
- .comment       0x0000000000000000       0x7f /tmp/ccexgbhn.o
+ .comment       0x0000000000000000       0x7f /tmp/cc8tN0pE.o
                                          0x80 (size before relaxing)
- .comment       0x000000000000007f       0x80 /tmp/ccWIdQYJ.o
- .comment       0x000000000000007f       0x80 /tmp/ccWfAtS6.o
- .comment       0x000000000000007f       0x80 /tmp/ccJpdYXt.o
- .comment       0x000000000000007f       0x80 /tmp/ccdRnkne.o
- .comment       0x000000000000007f       0x80 /tmp/ccRQmERB.o
- .comment       0x000000000000007f       0x80 /tmp/cciRckxZ.o
- .comment       0x000000000000007f       0x80 /tmp/ccVXZdqn.o
- .comment       0x000000000000007f       0x80 /tmp/ccr3oZAL.o
- .comment       0x000000000000007f       0x80 /tmp/cc3coPaa.o
+ .comment       0x000000000000007f       0x80 /tmp/ccWXB7Tn.o
+ .comment       0x000000000000007f       0x80 /tmp/ccQm5vA7.o
+ .comment       0x000000000000007f       0x80 /tmp/ccQHhlsR.o
+ .comment       0x000000000000007f       0x80 /tmp/ccxff5ql.o
+ .comment       0x000000000000007f       0x80 /tmp/ccsjgwI5.o
+ .comment       0x000000000000007f       0x80 /tmp/ccl7i0cQ.o
+ .comment       0x000000000000007f       0x80 /tmp/cc5lCOTA.o
+ .comment       0x000000000000007f       0x80 /tmp/ccEZsbSl.o
+ .comment       0x000000000000007f       0x80 /tmp/cc9PSIf7.o
 
-.debug_info     0x0000000000000000     0x515e
- .debug_info    0x0000000000000000      0xb04 /tmp/ccexgbhn.o
- .debug_info    0x0000000000000b04      0x190 /tmp/ccWIdQYJ.o
- .debug_info    0x0000000000000c94      0x614 /tmp/ccWfAtS6.o
- .debug_info    0x00000000000012a8      0x2be /tmp/ccJpdYXt.o
- .debug_info    0x0000000000001566       0x62 /tmp/cczVaO4Q.o
- .debug_info    0x00000000000015c8      0x54d /tmp/ccdRnkne.o
- .debug_info    0x0000000000001b15      0x1ef /tmp/ccRQmERB.o
- .debug_info    0x0000000000001d04      0x357 /tmp/cciRckxZ.o
- .debug_info    0x000000000000205b      0x628 /tmp/ccVXZdqn.o
- .debug_info    0x0000000000002683      0xe67 /tmp/ccr3oZAL.o
- .debug_info    0x00000000000034ea     0x1c74 /tmp/cc3coPaa.o
+.debug_info     0x0000000000000000     0x518a
+ .debug_info    0x0000000000000000      0xb04 /tmp/cc8tN0pE.o
+ .debug_info    0x0000000000000b04      0x190 /tmp/ccWXB7Tn.o
+ .debug_info    0x0000000000000c94      0x614 /tmp/ccQm5vA7.o
+ .debug_info    0x00000000000012a8      0x2be /tmp/ccQHhlsR.o
+ .debug_info    0x0000000000001566       0x8e /tmp/cclyvSlB.o
+ .debug_info    0x00000000000015f4      0x54d /tmp/ccxff5ql.o
+ .debug_info    0x0000000000001b41      0x1ef /tmp/ccsjgwI5.o
+ .debug_info    0x0000000000001d30      0x357 /tmp/ccl7i0cQ.o
+ .debug_info    0x0000000000002087      0x628 /tmp/cc5lCOTA.o
+ .debug_info    0x00000000000026af      0xe67 /tmp/ccEZsbSl.o
+ .debug_info    0x0000000000003516     0x1c74 /tmp/cc9PSIf7.o
 
 .debug_abbrev   0x0000000000000000      0xe59
- .debug_abbrev  0x0000000000000000      0x1f6 /tmp/ccexgbhn.o
- .debug_abbrev  0x00000000000001f6       0xa3 /tmp/ccWIdQYJ.o
- .debug_abbrev  0x0000000000000299      0x158 /tmp/ccWfAtS6.o
- .debug_abbrev  0x00000000000003f1      0x114 /tmp/ccJpdYXt.o
- .debug_abbrev  0x0000000000000505       0x12 /tmp/cczVaO4Q.o
- .debug_abbrev  0x0000000000000517      0x172 /tmp/ccdRnkne.o
- .debug_abbrev  0x0000000000000689       0xf3 /tmp/ccRQmERB.o
- .debug_abbrev  0x000000000000077c      0x1bc /tmp/cciRckxZ.o
- .debug_abbrev  0x0000000000000938      0x1b8 /tmp/ccVXZdqn.o
- .debug_abbrev  0x0000000000000af0      0x1cf /tmp/ccr3oZAL.o
- .debug_abbrev  0x0000000000000cbf      0x19a /tmp/cc3coPaa.o
+ .debug_abbrev  0x0000000000000000      0x1f6 /tmp/cc8tN0pE.o
+ .debug_abbrev  0x00000000000001f6       0xa3 /tmp/ccWXB7Tn.o
+ .debug_abbrev  0x0000000000000299      0x158 /tmp/ccQm5vA7.o
+ .debug_abbrev  0x00000000000003f1      0x114 /tmp/ccQHhlsR.o
+ .debug_abbrev  0x0000000000000505       0x12 /tmp/cclyvSlB.o
+ .debug_abbrev  0x0000000000000517      0x172 /tmp/ccxff5ql.o
+ .debug_abbrev  0x0000000000000689       0xf3 /tmp/ccsjgwI5.o
+ .debug_abbrev  0x000000000000077c      0x1bc /tmp/ccl7i0cQ.o
+ .debug_abbrev  0x0000000000000938      0x1b8 /tmp/cc5lCOTA.o
+ .debug_abbrev  0x0000000000000af0      0x1cf /tmp/ccEZsbSl.o
+ .debug_abbrev  0x0000000000000cbf      0x19a /tmp/cc9PSIf7.o
 
 .debug_aranges  0x0000000000000000      0x168
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccexgbhn.o
+                0x0000000000000000       0x20 /tmp/cc8tN0pE.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/ccWIdQYJ.o
+                0x0000000000000020       0x20 /tmp/ccWXB7Tn.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccWfAtS6.o
+                0x0000000000000040       0x20 /tmp/ccQm5vA7.o
  .debug_aranges
-                0x0000000000000060       0x20 /tmp/ccJpdYXt.o
+                0x0000000000000060       0x20 /tmp/ccQHhlsR.o
  .debug_aranges
-                0x0000000000000080       0x28 /tmp/cczVaO4Q.o
+                0x0000000000000080       0x28 /tmp/cclyvSlB.o
  .debug_aranges
-                0x00000000000000a8       0x20 /tmp/ccdRnkne.o
+                0x00000000000000a8       0x20 /tmp/ccxff5ql.o
  .debug_aranges
-                0x00000000000000c8       0x20 /tmp/ccRQmERB.o
+                0x00000000000000c8       0x20 /tmp/ccsjgwI5.o
  .debug_aranges
-                0x00000000000000e8       0x20 /tmp/cciRckxZ.o
+                0x00000000000000e8       0x20 /tmp/ccl7i0cQ.o
  .debug_aranges
-                0x0000000000000108       0x20 /tmp/ccVXZdqn.o
+                0x0000000000000108       0x20 /tmp/cc5lCOTA.o
  .debug_aranges
-                0x0000000000000128       0x20 /tmp/ccr3oZAL.o
+                0x0000000000000128       0x20 /tmp/ccEZsbSl.o
  .debug_aranges
-                0x0000000000000148       0x20 /tmp/cc3coPaa.o
+                0x0000000000000148       0x20 /tmp/cc9PSIf7.o
 
-.debug_line     0x0000000000000000     0x13d5
- .debug_line    0x0000000000000000      0x192 /tmp/ccexgbhn.o
- .debug_line    0x0000000000000192      0x108 /tmp/ccWIdQYJ.o
- .debug_line    0x000000000000029a      0x151 /tmp/ccWfAtS6.o
- .debug_line    0x00000000000003eb      0x116 /tmp/ccJpdYXt.o
- .debug_line    0x0000000000000501       0x75 /tmp/cczVaO4Q.o
- .debug_line    0x0000000000000576      0x14c /tmp/ccdRnkne.o
- .debug_line    0x00000000000006c2      0x124 /tmp/ccRQmERB.o
- .debug_line    0x00000000000007e6      0x17f /tmp/cciRckxZ.o
- .debug_line    0x0000000000000965      0x209 /tmp/ccVXZdqn.o
- .debug_line    0x0000000000000b6e      0x309 /tmp/ccr3oZAL.o
- .debug_line    0x0000000000000e77      0x55e /tmp/cc3coPaa.o
+.debug_line     0x0000000000000000     0x13d7
+ .debug_line    0x0000000000000000      0x192 /tmp/cc8tN0pE.o
+ .debug_line    0x0000000000000192      0x108 /tmp/ccWXB7Tn.o
+ .debug_line    0x000000000000029a      0x151 /tmp/ccQm5vA7.o
+ .debug_line    0x00000000000003eb      0x118 /tmp/ccQHhlsR.o
+ .debug_line    0x0000000000000503       0x75 /tmp/cclyvSlB.o
+ .debug_line    0x0000000000000578      0x14c /tmp/ccxff5ql.o
+ .debug_line    0x00000000000006c4      0x124 /tmp/ccsjgwI5.o
+ .debug_line    0x00000000000007e8      0x17f /tmp/ccl7i0cQ.o
+ .debug_line    0x0000000000000967      0x209 /tmp/cc5lCOTA.o
+ .debug_line    0x0000000000000b70      0x309 /tmp/ccEZsbSl.o
+ .debug_line    0x0000000000000e79      0x55e /tmp/cc9PSIf7.o
 
-.debug_str      0x0000000000000000     0x235c
- .debug_str     0x0000000000000000      0xa2e /tmp/ccexgbhn.o
-                                        0xaa1 (size before relaxing)
- .debug_str     0x0000000000000a2e       0xb0 /tmp/ccWIdQYJ.o
-                                        0x26d (size before relaxing)
- .debug_str     0x0000000000000ade      0x179 /tmp/ccWfAtS6.o
-                                        0x400 (size before relaxing)
- .debug_str     0x0000000000000c57      0x162 /tmp/ccJpdYXt.o
-                                        0x367 (size before relaxing)
- .debug_str     0x0000000000000db9       0xfc /tmp/ccdRnkne.o
-                                        0x41b (size before relaxing)
- .debug_str     0x0000000000000eb5       0xbc /tmp/ccRQmERB.o
-                                        0x28d (size before relaxing)
- .debug_str     0x0000000000000f71      0x1b7 /tmp/cciRckxZ.o
-                                        0x399 (size before relaxing)
- .debug_str     0x0000000000001128      0x183 /tmp/ccVXZdqn.o
-                                        0x4ed (size before relaxing)
- .debug_str     0x00000000000012ab      0x64b /tmp/ccr3oZAL.o
-                                        0xa0f (size before relaxing)
- .debug_str     0x00000000000018f6      0xa66 /tmp/cc3coPaa.o
-                                        0xe1d (size before relaxing)
+.debug_str      0x0000000000000000     0x2388
+ .debug_str     0x0000000000000000      0xa5a /tmp/cc8tN0pE.o
+                                        0xacd (size before relaxing)
+ .debug_str     0x0000000000000a5a       0xb0 /tmp/ccWXB7Tn.o
+                                        0x299 (size before relaxing)
+ .debug_str     0x0000000000000b0a      0x179 /tmp/ccQm5vA7.o
+                                        0x42c (size before relaxing)
+ .debug_str     0x0000000000000c83      0x162 /tmp/ccQHhlsR.o
+                                        0x393 (size before relaxing)
+ .debug_str     0x0000000000000de5       0xfc /tmp/ccxff5ql.o
+                                        0x447 (size before relaxing)
+ .debug_str     0x0000000000000ee1       0xbc /tmp/ccsjgwI5.o
+                                        0x2b9 (size before relaxing)
+ .debug_str     0x0000000000000f9d      0x1b7 /tmp/ccl7i0cQ.o
+                                        0x3c5 (size before relaxing)
+ .debug_str     0x0000000000001154      0x183 /tmp/cc5lCOTA.o
+                                        0x519 (size before relaxing)
+ .debug_str     0x00000000000012d7      0x64b /tmp/ccEZsbSl.o
+                                        0xa3b (size before relaxing)
+ .debug_str     0x0000000000001922      0xa66 /tmp/cc9PSIf7.o
+                                        0xe49 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x20d8
- .debug_frame   0x0000000000000000      0x100 /tmp/ccexgbhn.o
- .debug_frame   0x0000000000000100      0x138 /tmp/ccWIdQYJ.o
- .debug_frame   0x0000000000000238       0x7c /tmp/ccWfAtS6.o
- .debug_frame   0x00000000000002b4       0x34 /tmp/ccJpdYXt.o
- .debug_frame   0x00000000000002e8       0xd8 /tmp/ccdRnkne.o
- .debug_frame   0x00000000000003c0       0xc8 /tmp/ccRQmERB.o
- .debug_frame   0x0000000000000488      0x148 /tmp/cciRckxZ.o
- .debug_frame   0x00000000000005d0      0x23c /tmp/ccVXZdqn.o
- .debug_frame   0x000000000000080c      0x83c /tmp/ccr3oZAL.o
- .debug_frame   0x0000000000001048      0xe54 /tmp/cc3coPaa.o
+ .debug_frame   0x0000000000000000      0x100 /tmp/cc8tN0pE.o
+ .debug_frame   0x0000000000000100      0x138 /tmp/ccWXB7Tn.o
+ .debug_frame   0x0000000000000238       0x7c /tmp/ccQm5vA7.o
+ .debug_frame   0x00000000000002b4       0x34 /tmp/ccQHhlsR.o
+ .debug_frame   0x00000000000002e8       0xd8 /tmp/ccxff5ql.o
+ .debug_frame   0x00000000000003c0       0xc8 /tmp/ccsjgwI5.o
+ .debug_frame   0x0000000000000488      0x148 /tmp/ccl7i0cQ.o
+ .debug_frame   0x00000000000005d0      0x23c /tmp/cc5lCOTA.o
+ .debug_frame   0x000000000000080c      0x83c /tmp/ccEZsbSl.o
+ .debug_frame   0x0000000000001048      0xe54 /tmp/cc9PSIf7.o
  .debug_frame   0x0000000000001e9c       0x28 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .debug_frame   0x0000000000001ec4       0x2c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
  .debug_frame   0x0000000000001ef0       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
@@ -783,4 +783,4 @@ OUTPUT(build/template.elf elf32-littlearm)
  .debug_frame   0x00000000000020b8       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
 
 .debug_ranges   0x0000000000000000       0x20
- .debug_ranges  0x0000000000000000       0x20 /tmp/cczVaO4Q.o
+ .debug_ranges  0x0000000000000000       0x20 /tmp/cclyvSlB.o
