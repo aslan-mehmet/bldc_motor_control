@@ -1,0 +1,35 @@
+pa0 - user button
+
+l6230 enable
+pa1 - en1
+pa2 - en2
+pa3 - en3
+
+pa5 - diag/en
+
+pb0 - pot_speed
+pb1 - vbus_sense
+
+stlink
+pa14 - swclk
+pa13 - swdio
+
+usart1
+pb6 - tx
+pb7 - rx
+
+hall sensor input
+pd10 - s3
+pd11 - s2
+pd12 - s1 - led_green
+
+pd13 - led_orange
+pd14 - led_red
+pd15 - led_blue
+
+pe7 - temp_fdbck
+
+timer1 pwm
+pe9 - ch1
+pe11 - ch2
+pe13 - ch3

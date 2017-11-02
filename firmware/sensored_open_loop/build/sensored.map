@@ -55,23 +55,23 @@ Linker script and memory map
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
-LOAD /tmp/ccF0O4EZ.o
-LOAD /tmp/ccU3JPZR.o
-LOAD /tmp/ccyfZsuK.o
-LOAD /tmp/ccSysB8C.o
-LOAD /tmp/cc5D3kYv.o
-LOAD /tmp/ccP7mMZo.o
-LOAD /tmp/ccnjD2ci.o
-LOAD /tmp/ccTzjyBb.o
-LOAD /tmp/ccpp3u14.o
-LOAD /tmp/ccnpjdDY.o
-LOAD /tmp/ccEHa1pS.o
-LOAD /tmp/cc3AMfoM.o
-LOAD /tmp/cckgRlzG.o
-LOAD /tmp/cc4HCm2A.o
-LOAD /tmp/ccAkZWHv.o
-LOAD /tmp/ccNVIkKq.o
-LOAD /tmp/cczwMB3l.o
+LOAD /tmp/ccKOwQex.o
+LOAD /tmp/cciSMKGn.o
+LOAD /tmp/ccd8xike.o
+LOAD /tmp/ccRbIv94.o
+LOAD /tmp/ccO0Fq9V.o
+LOAD /tmp/ccOEYZjN.o
+LOAD /tmp/ccdrN0FE.o
+LOAD /tmp/cc2WPJcw.o
+LOAD /tmp/cciUNmKn.o
+LOAD /tmp/ccmhdOsf.o
+LOAD /tmp/ccEiCvm7.o
+LOAD /tmp/ccA55zsZ.o
+LOAD /tmp/ccTV8ALR.o
+LOAD /tmp/cczi1glK.o
+LOAD /tmp/ccXd1F8C.o
+LOAD /tmp/cc4LERjw.o
+LOAD /tmp/ccNPE7Lp.o
 START GROUP
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a
 LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a
@@ -87,7 +87,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
 .isr_vector     0x0000000008000000      0x188
  *(.isr_vector)
- .isr_vector    0x0000000008000000      0x188 /tmp/ccpp3u14.o
+ .isr_vector    0x0000000008000000      0x188 /tmp/cciUNmKn.o
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000188                . = ALIGN (0x4)
 
@@ -101,7 +101,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 .ARM.exidx      0x000000000800018c        0x8
  .ARM.exidx     0x000000000800018c        0x8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
 
-.text           0x0000000008000194     0x4b20
+.text           0x0000000008000194     0x4afc
  *(.vectors)
  *(.text*)
  .text          0x0000000008000194        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
@@ -109,476 +109,474 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .text          0x0000000008000200       0x74 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
                 0x0000000008000200                _mainCRTStartup
                 0x0000000008000200                _start
- .text          0x0000000008000274      0x2ac /tmp/ccF0O4EZ.o
+ .text          0x0000000008000274      0x284 /tmp/ccKOwQex.o
                 0x0000000008000274                motor_start
                 0x000000000800028c                motor_stop
                 0x00000000080002bc                tim_pwm_init
                 0x00000000080003b4                motor_init
                 0x0000000008000424                motor_set_pwm
-                0x0000000008000474                motor_set_direction
-                0x0000000008000494                motor_commutate
- .text          0x0000000008000520      0x15c /tmp/ccU3JPZR.o
-                0x0000000008000520                uart_init
-                0x00000000080005e4                USART1_IRQHandler
- .text          0x000000000800067c       0xdc /tmp/ccyfZsuK.o
-                0x0000000008000714                main
- .text          0x0000000008000758       0x3c /tmp/ccSysB8C.o
-                0x0000000008000758                delay
- .text          0x0000000008000794       0x8c /tmp/cc5D3kYv.o
-                0x0000000008000794                NMI_Handler
-                0x00000000080007a2                HardFault_Handler
-                0x00000000080007a8                MemManage_Handler
-                0x00000000080007ae                BusFault_Handler
-                0x00000000080007b4                UsageFault_Handler
-                0x00000000080007ba                SVC_Handler
-                0x00000000080007c8                DebugMon_Handler
-                0x00000000080007d6                PendSV_Handler
-                0x00000000080007e4                SysTick_Handler
-                0x0000000008000808                get_time
- .text          0x0000000008000820      0x138 /tmp/ccP7mMZo.o
-                0x0000000008000820                hall_sensor_init
-                0x00000000080008f0                EXTI15_10_IRQHandler
- .text          0x0000000008000958      0x25c /tmp/ccnjD2ci.o
-                0x0000000008000958                SystemInit
-                0x00000000080009c4                SystemCoreClockUpdate
- .text          0x0000000008000bb4       0x3c /tmp/ccTzjyBb.o
-                0x0000000008000bb4                board_led_init
- .text          0x0000000008000bf0       0x14 /tmp/ccpp3u14.o
+                0x0000000008000474                motor_commutate
+ .text          0x00000000080004f8      0x15c /tmp/cciSMKGn.o
+                0x00000000080004f8                uart_init
+                0x00000000080005bc                USART1_IRQHandler
+ .text          0x0000000008000654       0xdc /tmp/ccd8xike.o
+                0x00000000080006ec                main
+ .text          0x0000000008000730       0x3c /tmp/ccRbIv94.o
+                0x0000000008000730                delay
+ .text          0x000000000800076c       0x8c /tmp/ccO0Fq9V.o
+                0x000000000800076c                NMI_Handler
+                0x000000000800077a                HardFault_Handler
+                0x0000000008000780                MemManage_Handler
+                0x0000000008000786                BusFault_Handler
+                0x000000000800078c                UsageFault_Handler
+                0x0000000008000792                SVC_Handler
+                0x00000000080007a0                DebugMon_Handler
+                0x00000000080007ae                PendSV_Handler
+                0x00000000080007bc                SysTick_Handler
+                0x00000000080007e0                get_time
+ .text          0x00000000080007f8      0x13c /tmp/ccOEYZjN.o
+                0x00000000080007f8                hall_sensor_init
+                0x00000000080008c8                EXTI15_10_IRQHandler
+ .text          0x0000000008000934      0x25c /tmp/ccdrN0FE.o
+                0x0000000008000934                SystemInit
+                0x00000000080009a0                SystemCoreClockUpdate
+ .text          0x0000000008000b90       0x3c /tmp/cc2WPJcw.o
+                0x0000000008000b90                board_led_init
+ .text          0x0000000008000bcc       0x14 /tmp/cciUNmKn.o
  .text.Reset_Handler
-                0x0000000008000c04       0x48 /tmp/ccpp3u14.o
-                0x0000000008000c04                Reset_Handler
+                0x0000000008000be0       0x48 /tmp/cciUNmKn.o
+                0x0000000008000be0                Reset_Handler
  .text.Default_Handler
-                0x0000000008000c4c        0x2 /tmp/ccpp3u14.o
-                0x0000000008000c4c                RTC_Alarm_IRQHandler
-                0x0000000008000c4c                HASH_RNG_IRQHandler
-                0x0000000008000c4c                EXTI2_IRQHandler
-                0x0000000008000c4c                TIM8_CC_IRQHandler
-                0x0000000008000c4c                TIM1_CC_IRQHandler
-                0x0000000008000c4c                DMA2_Stream5_IRQHandler
-                0x0000000008000c4c                DMA1_Stream5_IRQHandler
-                0x0000000008000c4c                PVD_IRQHandler
-                0x0000000008000c4c                SDIO_IRQHandler
-                0x0000000008000c4c                TAMP_STAMP_IRQHandler
-                0x0000000008000c4c                CAN2_RX1_IRQHandler
-                0x0000000008000c4c                EXTI3_IRQHandler
-                0x0000000008000c4c                TIM8_TRG_COM_TIM14_IRQHandler
-                0x0000000008000c4c                TIM1_UP_TIM10_IRQHandler
-                0x0000000008000c4c                TIM8_UP_TIM13_IRQHandler
-                0x0000000008000c4c                I2C3_ER_IRQHandler
-                0x0000000008000c4c                EXTI0_IRQHandler
-                0x0000000008000c4c                I2C2_EV_IRQHandler
-                0x0000000008000c4c                DMA1_Stream2_IRQHandler
-                0x0000000008000c4c                CAN1_RX0_IRQHandler
-                0x0000000008000c4c                FPU_IRQHandler
-                0x0000000008000c4c                OTG_HS_WKUP_IRQHandler
-                0x0000000008000c4c                CAN2_SCE_IRQHandler
-                0x0000000008000c4c                DMA2_Stream2_IRQHandler
-                0x0000000008000c4c                SPI1_IRQHandler
-                0x0000000008000c4c                TIM6_DAC_IRQHandler
-                0x0000000008000c4c                TIM1_BRK_TIM9_IRQHandler
-                0x0000000008000c4c                DCMI_IRQHandler
-                0x0000000008000c4c                CAN2_RX0_IRQHandler
-                0x0000000008000c4c                DMA2_Stream3_IRQHandler
-                0x0000000008000c4c                USART6_IRQHandler
-                0x0000000008000c4c                USART3_IRQHandler
-                0x0000000008000c4c                CRYP_IRQHandler
-                0x0000000008000c4c                CAN1_RX1_IRQHandler
-                0x0000000008000c4c                UART5_IRQHandler
-                0x0000000008000c4c                DMA2_Stream0_IRQHandler
-                0x0000000008000c4c                TIM4_IRQHandler
-                0x0000000008000c4c                I2C1_EV_IRQHandler
-                0x0000000008000c4c                DMA1_Stream6_IRQHandler
-                0x0000000008000c4c                DMA1_Stream1_IRQHandler
-                0x0000000008000c4c                UART4_IRQHandler
-                0x0000000008000c4c                TIM3_IRQHandler
-                0x0000000008000c4c                RCC_IRQHandler
-                0x0000000008000c4c                TIM8_BRK_TIM12_IRQHandler
-                0x0000000008000c4c                Default_Handler
-                0x0000000008000c4c                ADC_IRQHandler
-                0x0000000008000c4c                DMA1_Stream7_IRQHandler
-                0x0000000008000c4c                TIM7_IRQHandler
-                0x0000000008000c4c                CAN2_TX_IRQHandler
-                0x0000000008000c4c                TIM5_IRQHandler
-                0x0000000008000c4c                DMA2_Stream7_IRQHandler
-                0x0000000008000c4c                I2C3_EV_IRQHandler
-                0x0000000008000c4c                EXTI9_5_IRQHandler
-                0x0000000008000c4c                RTC_WKUP_IRQHandler
-                0x0000000008000c4c                ETH_WKUP_IRQHandler
-                0x0000000008000c4c                SPI2_IRQHandler
-                0x0000000008000c4c                OTG_HS_EP1_IN_IRQHandler
-                0x0000000008000c4c                DMA1_Stream0_IRQHandler
-                0x0000000008000c4c                CAN1_TX_IRQHandler
-                0x0000000008000c4c                EXTI4_IRQHandler
-                0x0000000008000c4c                FSMC_IRQHandler
-                0x0000000008000c4c                ETH_IRQHandler
-                0x0000000008000c4c                OTG_HS_EP1_OUT_IRQHandler
-                0x0000000008000c4c                WWDG_IRQHandler
-                0x0000000008000c4c                TIM2_IRQHandler
-                0x0000000008000c4c                OTG_FS_WKUP_IRQHandler
-                0x0000000008000c4c                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0000000008000c4c                OTG_HS_IRQHandler
-                0x0000000008000c4c                EXTI1_IRQHandler
-                0x0000000008000c4c                USART2_IRQHandler
-                0x0000000008000c4c                I2C2_ER_IRQHandler
-                0x0000000008000c4c                DMA2_Stream1_IRQHandler
-                0x0000000008000c4c                CAN1_SCE_IRQHandler
-                0x0000000008000c4c                FLASH_IRQHandler
-                0x0000000008000c4c                DMA2_Stream4_IRQHandler
-                0x0000000008000c4c                OTG_FS_IRQHandler
-                0x0000000008000c4c                SPI3_IRQHandler
-                0x0000000008000c4c                DMA1_Stream4_IRQHandler
-                0x0000000008000c4c                I2C1_ER_IRQHandler
-                0x0000000008000c4c                DMA2_Stream6_IRQHandler
-                0x0000000008000c4c                DMA1_Stream3_IRQHandler
- *fill*         0x0000000008000c4e        0x2 
- .text          0x0000000008000c50      0x194 /tmp/ccnpjdDY.o
-                0x0000000008000c50                NVIC_PriorityGroupConfig
-                0x0000000008000c78                NVIC_Init
-                0x0000000008000d3c                NVIC_SetVectorTable
-                0x0000000008000d68                NVIC_SystemLPConfig
-                0x0000000008000dac                SysTick_CLKSourceConfig
- .text          0x0000000008000de4       0xf4 /tmp/ccEHa1pS.o
-                0x0000000008000de4                DBGMCU_GetREVID
-                0x0000000008000dfc                DBGMCU_GetDEVID
-                0x0000000008000e18                DBGMCU_Config
-                0x0000000008000e58                DBGMCU_APB1PeriphConfig
-                0x0000000008000e98                DBGMCU_APB2PeriphConfig
- .text          0x0000000008000ed8      0x210 /tmp/cc3AMfoM.o
-                0x0000000008000ed8                EXTI_DeInit
-                0x0000000008000f0c                EXTI_Init
-                0x0000000008000ff0                EXTI_StructInit
-                0x000000000800101c                EXTI_GenerateSWInterrupt
-                0x0000000008001040                EXTI_GetFlagStatus
-                0x0000000008001074                EXTI_ClearFlag
-                0x0000000008001094                EXTI_GetITStatus
-                0x00000000080010c8                EXTI_ClearITPendingBit
- .text          0x00000000080010e8      0x4d4 /tmp/cckgRlzG.o
-                0x00000000080010e8                GPIO_DeInit
-                0x000000000800124c                GPIO_Init
-                0x0000000008001368                GPIO_StructInit
-                0x000000000800139c                GPIO_PinLockConfig
-                0x00000000080013e0                GPIO_ReadInputDataBit
-                0x0000000008001414                GPIO_ReadInputData
-                0x000000000800142e                GPIO_ReadOutputDataBit
-                0x0000000008001462                GPIO_ReadOutputData
-                0x000000000800147c                GPIO_SetBits
-                0x000000000800149a                GPIO_ResetBits
-                0x00000000080014b8                GPIO_WriteBit
-                0x00000000080014e8                GPIO_Write
-                0x0000000008001506                GPIO_ToggleBits
-                0x000000000800152a                GPIO_PinAFConfig
- .text          0x00000000080015bc      0xce0 /tmp/cc4HCm2A.o
-                0x00000000080015bc                RCC_DeInit
-                0x000000000800162c                RCC_HSEConfig
-                0x0000000008001654                RCC_WaitForHSEStartUp
-                0x00000000080016a4                RCC_AdjustHSICalibrationValue
-                0x00000000080016e0                RCC_HSICmd
-                0x0000000008001700                RCC_LSEConfig
-                0x0000000008001744                RCC_LSICmd
-                0x0000000008001764                RCC_PLLConfig
-                0x00000000080017a4                RCC_PLLCmd
-                0x00000000080017c4                RCC_PLLI2SConfig
-                0x00000000080017f0                RCC_PLLI2SCmd
-                0x0000000008001810                RCC_PLLSAIConfig
-                0x0000000008001844                RCC_PLLSAICmd
-                0x0000000008001864                RCC_ClockSecuritySystemCmd
-                0x0000000008001884                RCC_MCO1Config
-                0x00000000080018c4                RCC_MCO2Config
-                0x0000000008001904                RCC_SYSCLKConfig
-                0x000000000800193c                RCC_GetSYSCLKSource
-                0x000000000800195c                RCC_HCLKConfig
-                0x0000000008001994                RCC_PCLK1Config
-                0x00000000080019cc                RCC_PCLK2Config
-                0x0000000008001a08                RCC_GetClocksFreq
-                0x0000000008001b58                RCC_RTCCLKConfig
-                0x0000000008001bb4                RCC_RTCCLKCmd
-                0x0000000008001bd4                RCC_BackupResetCmd
-                0x0000000008001bf4                RCC_I2SCLKConfig
-                0x0000000008001c14                RCC_SAIBlockACLKConfig
-                0x0000000008001c50                RCC_SAIBlockBCLKConfig
-                0x0000000008001c8c                RCC_SAIPLLI2SClkDivConfig
-                0x0000000008001ccc                RCC_SAIPLLSAIClkDivConfig
-                0x0000000008001d0c                RCC_LTDCCLKDivConfig
-                0x0000000008001d48                RCC_TIMCLKPresConfig
-                0x0000000008001d68                RCC_AHB1PeriphClockCmd
-                0x0000000008001da8                RCC_AHB2PeriphClockCmd
-                0x0000000008001de8                RCC_AHB3PeriphClockCmd
-                0x0000000008001e28                RCC_APB1PeriphClockCmd
-                0x0000000008001e68                RCC_APB2PeriphClockCmd
-                0x0000000008001ea8                RCC_AHB1PeriphResetCmd
-                0x0000000008001ee8                RCC_AHB2PeriphResetCmd
-                0x0000000008001f28                RCC_AHB3PeriphResetCmd
-                0x0000000008001f68                RCC_APB1PeriphResetCmd
-                0x0000000008001fa8                RCC_APB2PeriphResetCmd
-                0x0000000008001fe8                RCC_AHB1PeriphClockLPModeCmd
-                0x0000000008002028                RCC_AHB2PeriphClockLPModeCmd
-                0x0000000008002068                RCC_AHB3PeriphClockLPModeCmd
-                0x00000000080020a8                RCC_APB1PeriphClockLPModeCmd
-                0x00000000080020e8                RCC_APB2PeriphClockLPModeCmd
-                0x0000000008002128                RCC_LSEModeConfig
-                0x0000000008002164                RCC_ITConfig
-                0x00000000080021b0                RCC_GetFlagStatus
-                0x0000000008002224                RCC_ClearFlag
-                0x0000000008002244                RCC_GetITStatus
-                0x000000000800227c                RCC_ClearITPendingBit
- .text          0x000000000800229c      0x154 /tmp/ccAkZWHv.o
-                0x000000000800229c                SYSCFG_DeInit
-                0x00000000080022b8                SYSCFG_MemoryRemapConfig
-                0x00000000080022d8                SYSCFG_MemorySwappingBank
-                0x00000000080022f8                SYSCFG_EXTILineConfig
-                0x000000000800237c                SYSCFG_ETH_MediaInterfaceConfig
-                0x000000000800239c                SYSCFG_CompensationCellCmd
-                0x00000000080023bc                SYSCFG_GetCompensationCellStatus
- .text          0x00000000080023f0     0x1c18 /tmp/ccNVIkKq.o
-                0x00000000080023f0                TIM_DeInit
-                0x00000000080025b0                TIM_TimeBaseInit
-                0x0000000008002688                TIM_TimeBaseStructInit
-                0x00000000080026bc                TIM_PrescalerConfig
-                0x00000000080026e4                TIM_CounterModeConfig
-                0x000000000800271c                TIM_SetCounter
-                0x0000000008002738                TIM_SetAutoreload
-                0x0000000008002754                TIM_GetCounter
-                0x000000000800276c                TIM_GetPrescaler
-                0x0000000008002786                TIM_UpdateDisableConfig
-                0x00000000080027c6                TIM_UpdateRequestConfig
-                0x0000000008002806                TIM_ARRPreloadConfig
-                0x0000000008002846                TIM_SelectOnePulseMode
-                0x000000000800287e                TIM_SetClockDivision
-                0x00000000080028b6                TIM_Cmd
-                0x00000000080028f6                TIM_OC1Init
-                0x00000000080029ec                TIM_OC2Init
-                0x0000000008002afc                TIM_OC3Init
-                0x0000000008002c08                TIM_OC4Init
-                0x0000000008002cd8                TIM_OCStructInit
-                0x0000000008002d1c                TIM_SelectOCxM
-                0x0000000008002dce                TIM_SetCompare1
-                0x0000000008002dea                TIM_SetCompare2
-                0x0000000008002e06                TIM_SetCompare3
-                0x0000000008002e22                TIM_SetCompare4
-                0x0000000008002e3e                TIM_ForcedOC1Config
-                0x0000000008002e76                TIM_ForcedOC2Config
-                0x0000000008002eb2                TIM_ForcedOC3Config
-                0x0000000008002eea                TIM_ForcedOC4Config
-                0x0000000008002f26                TIM_OC1PreloadConfig
-                0x0000000008002f5e                TIM_OC2PreloadConfig
-                0x0000000008002f9a                TIM_OC3PreloadConfig
-                0x0000000008002fd2                TIM_OC4PreloadConfig
-                0x000000000800300e                TIM_OC1FastConfig
-                0x0000000008003046                TIM_OC2FastConfig
-                0x0000000008003082                TIM_OC3FastConfig
-                0x00000000080030ba                TIM_OC4FastConfig
-                0x00000000080030f6                TIM_ClearOC1Ref
-                0x000000000800312e                TIM_ClearOC2Ref
-                0x000000000800316a                TIM_ClearOC3Ref
-                0x00000000080031a2                TIM_ClearOC4Ref
-                0x00000000080031de                TIM_OC1PolarityConfig
-                0x0000000008003216                TIM_OC1NPolarityConfig
-                0x000000000800324e                TIM_OC2PolarityConfig
-                0x000000000800328a                TIM_OC2NPolarityConfig
-                0x00000000080032c6                TIM_OC3PolarityConfig
-                0x0000000008003302                TIM_OC3NPolarityConfig
-                0x000000000800333e                TIM_OC4PolarityConfig
-                0x000000000800337a                TIM_CCxCmd
-                0x00000000080033d0                TIM_CCxNCmd
-                0x0000000008003426                TIM_ICInit
-                0x00000000080034ce                TIM_ICStructInit
-                0x0000000008003500                TIM_PWMIConfig
-                0x00000000080035b8                TIM_GetCapture1
-                0x00000000080035d0                TIM_GetCapture2
-                0x00000000080035e8                TIM_GetCapture3
-                0x0000000008003600                TIM_GetCapture4
-                0x0000000008003618                TIM_SetIC1Prescaler
-                0x0000000008003650                TIM_SetIC2Prescaler
-                0x000000000800368c                TIM_SetIC3Prescaler
-                0x00000000080036c4                TIM_SetIC4Prescaler
-                0x0000000008003700                TIM_BDTRConfig
-                0x0000000008003750                TIM_BDTRStructInit
-                0x000000000800378e                TIM_CtrlPWMOutputs
-                0x00000000080037da                TIM_SelectCOM
-                0x000000000800381a                TIM_CCPreloadControl
-                0x000000000800385a                TIM_ITConfig
-                0x00000000080038a2                TIM_GenerateEvent
-                0x00000000080038c0                TIM_GetFlagStatus
-                0x00000000080038f8                TIM_ClearFlag
-                0x000000000800391a                TIM_GetITStatus
-                0x000000000800396e                TIM_ClearITPendingBit
-                0x0000000008003990                TIM_DMAConfig
-                0x00000000080039ba                TIM_DMACmd
-                0x0000000008003a02                TIM_SelectCCDMA
-                0x0000000008003a42                TIM_InternalClockConfig
-                0x0000000008003a66                TIM_ITRxExternalClockConfig
-                0x0000000008003a94                TIM_TIxExternalClockConfig
-                0x0000000008003af0                TIM_ETRClockMode1Config
-                0x0000000008003b4e                TIM_ETRClockMode2Config
-                0x0000000008003b8c                TIM_SelectInputTrigger
-                0x0000000008003bc4                TIM_SelectOutputTrigger
-                0x0000000008003bfc                TIM_SelectSlaveMode
-                0x0000000008003c34                TIM_SelectMasterSlaveMode
-                0x0000000008003c6c                TIM_ETRConfig
-                0x0000000008003cc0                TIM_EncoderInterfaceConfig
-                0x0000000008003d58                TIM_SelectHallSensor
-                0x0000000008003d98                TIM_RemapConfig
- .text          0x0000000008004008      0x970 /tmp/cczwMB3l.o
-                0x0000000008004008                USART_DeInit
-                0x0000000008004120                USART_Init
-                0x0000000008004294                USART_StructInit
-                0x00000000080042ce                USART_ClockInit
-                0x0000000008004324                USART_ClockStructInit
-                0x0000000008004350                USART_Cmd
-                0x0000000008004390                USART_SetPrescaler
-                0x00000000080043ca                USART_OverSampling8Cmd
-                0x000000000800440e                USART_OneBitMethodCmd
-                0x000000000800444e                USART_SendData
-                0x0000000008004472                USART_ReceiveData
-                0x0000000008004492                USART_SetAddress
-                0x00000000080044cc                USART_ReceiverWakeUpCmd
-                0x000000000800450c                USART_WakeUpConfig
-                0x0000000008004544                USART_LINBreakDetectLengthConfig
-                0x000000000800457c                USART_LINCmd
-                0x00000000080045bc                USART_SendBreak
-                0x00000000080045e0                USART_HalfDuplexCmd
-                0x0000000008004620                USART_SetGuardTime
-                0x000000000800465c                USART_SmartCardCmd
-                0x000000000800469c                USART_SmartCardNACKCmd
-                0x00000000080046dc                USART_IrDAConfig
-                0x0000000008004714                USART_IrDACmd
-                0x0000000008004754                USART_DMACmd
-                0x000000000800479c                USART_ITConfig
-                0x000000000800482c                USART_GetFlagStatus
-                0x0000000008004864                USART_ClearFlag
-                0x0000000008004886                USART_GetITStatus
-                0x000000000800493c                USART_ClearITPendingBit
- .text          0x0000000008004978        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
- .text.exit     0x0000000008004978       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
-                0x0000000008004978                exit
- .text          0x0000000008004998        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
- .text          0x0000000008004998        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+                0x0000000008000c28        0x2 /tmp/cciUNmKn.o
+                0x0000000008000c28                RTC_Alarm_IRQHandler
+                0x0000000008000c28                HASH_RNG_IRQHandler
+                0x0000000008000c28                EXTI2_IRQHandler
+                0x0000000008000c28                TIM8_CC_IRQHandler
+                0x0000000008000c28                TIM1_CC_IRQHandler
+                0x0000000008000c28                DMA2_Stream5_IRQHandler
+                0x0000000008000c28                DMA1_Stream5_IRQHandler
+                0x0000000008000c28                PVD_IRQHandler
+                0x0000000008000c28                SDIO_IRQHandler
+                0x0000000008000c28                TAMP_STAMP_IRQHandler
+                0x0000000008000c28                CAN2_RX1_IRQHandler
+                0x0000000008000c28                EXTI3_IRQHandler
+                0x0000000008000c28                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0000000008000c28                TIM1_UP_TIM10_IRQHandler
+                0x0000000008000c28                TIM8_UP_TIM13_IRQHandler
+                0x0000000008000c28                I2C3_ER_IRQHandler
+                0x0000000008000c28                EXTI0_IRQHandler
+                0x0000000008000c28                I2C2_EV_IRQHandler
+                0x0000000008000c28                DMA1_Stream2_IRQHandler
+                0x0000000008000c28                CAN1_RX0_IRQHandler
+                0x0000000008000c28                FPU_IRQHandler
+                0x0000000008000c28                OTG_HS_WKUP_IRQHandler
+                0x0000000008000c28                CAN2_SCE_IRQHandler
+                0x0000000008000c28                DMA2_Stream2_IRQHandler
+                0x0000000008000c28                SPI1_IRQHandler
+                0x0000000008000c28                TIM6_DAC_IRQHandler
+                0x0000000008000c28                TIM1_BRK_TIM9_IRQHandler
+                0x0000000008000c28                DCMI_IRQHandler
+                0x0000000008000c28                CAN2_RX0_IRQHandler
+                0x0000000008000c28                DMA2_Stream3_IRQHandler
+                0x0000000008000c28                USART6_IRQHandler
+                0x0000000008000c28                USART3_IRQHandler
+                0x0000000008000c28                CRYP_IRQHandler
+                0x0000000008000c28                CAN1_RX1_IRQHandler
+                0x0000000008000c28                UART5_IRQHandler
+                0x0000000008000c28                DMA2_Stream0_IRQHandler
+                0x0000000008000c28                TIM4_IRQHandler
+                0x0000000008000c28                I2C1_EV_IRQHandler
+                0x0000000008000c28                DMA1_Stream6_IRQHandler
+                0x0000000008000c28                DMA1_Stream1_IRQHandler
+                0x0000000008000c28                UART4_IRQHandler
+                0x0000000008000c28                TIM3_IRQHandler
+                0x0000000008000c28                RCC_IRQHandler
+                0x0000000008000c28                TIM8_BRK_TIM12_IRQHandler
+                0x0000000008000c28                Default_Handler
+                0x0000000008000c28                ADC_IRQHandler
+                0x0000000008000c28                DMA1_Stream7_IRQHandler
+                0x0000000008000c28                TIM7_IRQHandler
+                0x0000000008000c28                CAN2_TX_IRQHandler
+                0x0000000008000c28                TIM5_IRQHandler
+                0x0000000008000c28                DMA2_Stream7_IRQHandler
+                0x0000000008000c28                I2C3_EV_IRQHandler
+                0x0000000008000c28                EXTI9_5_IRQHandler
+                0x0000000008000c28                RTC_WKUP_IRQHandler
+                0x0000000008000c28                ETH_WKUP_IRQHandler
+                0x0000000008000c28                SPI2_IRQHandler
+                0x0000000008000c28                OTG_HS_EP1_IN_IRQHandler
+                0x0000000008000c28                DMA1_Stream0_IRQHandler
+                0x0000000008000c28                CAN1_TX_IRQHandler
+                0x0000000008000c28                EXTI4_IRQHandler
+                0x0000000008000c28                FSMC_IRQHandler
+                0x0000000008000c28                ETH_IRQHandler
+                0x0000000008000c28                OTG_HS_EP1_OUT_IRQHandler
+                0x0000000008000c28                WWDG_IRQHandler
+                0x0000000008000c28                TIM2_IRQHandler
+                0x0000000008000c28                OTG_FS_WKUP_IRQHandler
+                0x0000000008000c28                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0000000008000c28                OTG_HS_IRQHandler
+                0x0000000008000c28                EXTI1_IRQHandler
+                0x0000000008000c28                USART2_IRQHandler
+                0x0000000008000c28                I2C2_ER_IRQHandler
+                0x0000000008000c28                DMA2_Stream1_IRQHandler
+                0x0000000008000c28                CAN1_SCE_IRQHandler
+                0x0000000008000c28                FLASH_IRQHandler
+                0x0000000008000c28                DMA2_Stream4_IRQHandler
+                0x0000000008000c28                OTG_FS_IRQHandler
+                0x0000000008000c28                SPI3_IRQHandler
+                0x0000000008000c28                DMA1_Stream4_IRQHandler
+                0x0000000008000c28                I2C1_ER_IRQHandler
+                0x0000000008000c28                DMA2_Stream6_IRQHandler
+                0x0000000008000c28                DMA1_Stream3_IRQHandler
+ *fill*         0x0000000008000c2a        0x2 
+ .text          0x0000000008000c2c      0x194 /tmp/ccmhdOsf.o
+                0x0000000008000c2c                NVIC_PriorityGroupConfig
+                0x0000000008000c54                NVIC_Init
+                0x0000000008000d18                NVIC_SetVectorTable
+                0x0000000008000d44                NVIC_SystemLPConfig
+                0x0000000008000d88                SysTick_CLKSourceConfig
+ .text          0x0000000008000dc0       0xf4 /tmp/ccEiCvm7.o
+                0x0000000008000dc0                DBGMCU_GetREVID
+                0x0000000008000dd8                DBGMCU_GetDEVID
+                0x0000000008000df4                DBGMCU_Config
+                0x0000000008000e34                DBGMCU_APB1PeriphConfig
+                0x0000000008000e74                DBGMCU_APB2PeriphConfig
+ .text          0x0000000008000eb4      0x210 /tmp/ccA55zsZ.o
+                0x0000000008000eb4                EXTI_DeInit
+                0x0000000008000ee8                EXTI_Init
+                0x0000000008000fcc                EXTI_StructInit
+                0x0000000008000ff8                EXTI_GenerateSWInterrupt
+                0x000000000800101c                EXTI_GetFlagStatus
+                0x0000000008001050                EXTI_ClearFlag
+                0x0000000008001070                EXTI_GetITStatus
+                0x00000000080010a4                EXTI_ClearITPendingBit
+ .text          0x00000000080010c4      0x4d4 /tmp/ccTV8ALR.o
+                0x00000000080010c4                GPIO_DeInit
+                0x0000000008001228                GPIO_Init
+                0x0000000008001344                GPIO_StructInit
+                0x0000000008001378                GPIO_PinLockConfig
+                0x00000000080013bc                GPIO_ReadInputDataBit
+                0x00000000080013f0                GPIO_ReadInputData
+                0x000000000800140a                GPIO_ReadOutputDataBit
+                0x000000000800143e                GPIO_ReadOutputData
+                0x0000000008001458                GPIO_SetBits
+                0x0000000008001476                GPIO_ResetBits
+                0x0000000008001494                GPIO_WriteBit
+                0x00000000080014c4                GPIO_Write
+                0x00000000080014e2                GPIO_ToggleBits
+                0x0000000008001506                GPIO_PinAFConfig
+ .text          0x0000000008001598      0xce0 /tmp/cczi1glK.o
+                0x0000000008001598                RCC_DeInit
+                0x0000000008001608                RCC_HSEConfig
+                0x0000000008001630                RCC_WaitForHSEStartUp
+                0x0000000008001680                RCC_AdjustHSICalibrationValue
+                0x00000000080016bc                RCC_HSICmd
+                0x00000000080016dc                RCC_LSEConfig
+                0x0000000008001720                RCC_LSICmd
+                0x0000000008001740                RCC_PLLConfig
+                0x0000000008001780                RCC_PLLCmd
+                0x00000000080017a0                RCC_PLLI2SConfig
+                0x00000000080017cc                RCC_PLLI2SCmd
+                0x00000000080017ec                RCC_PLLSAIConfig
+                0x0000000008001820                RCC_PLLSAICmd
+                0x0000000008001840                RCC_ClockSecuritySystemCmd
+                0x0000000008001860                RCC_MCO1Config
+                0x00000000080018a0                RCC_MCO2Config
+                0x00000000080018e0                RCC_SYSCLKConfig
+                0x0000000008001918                RCC_GetSYSCLKSource
+                0x0000000008001938                RCC_HCLKConfig
+                0x0000000008001970                RCC_PCLK1Config
+                0x00000000080019a8                RCC_PCLK2Config
+                0x00000000080019e4                RCC_GetClocksFreq
+                0x0000000008001b34                RCC_RTCCLKConfig
+                0x0000000008001b90                RCC_RTCCLKCmd
+                0x0000000008001bb0                RCC_BackupResetCmd
+                0x0000000008001bd0                RCC_I2SCLKConfig
+                0x0000000008001bf0                RCC_SAIBlockACLKConfig
+                0x0000000008001c2c                RCC_SAIBlockBCLKConfig
+                0x0000000008001c68                RCC_SAIPLLI2SClkDivConfig
+                0x0000000008001ca8                RCC_SAIPLLSAIClkDivConfig
+                0x0000000008001ce8                RCC_LTDCCLKDivConfig
+                0x0000000008001d24                RCC_TIMCLKPresConfig
+                0x0000000008001d44                RCC_AHB1PeriphClockCmd
+                0x0000000008001d84                RCC_AHB2PeriphClockCmd
+                0x0000000008001dc4                RCC_AHB3PeriphClockCmd
+                0x0000000008001e04                RCC_APB1PeriphClockCmd
+                0x0000000008001e44                RCC_APB2PeriphClockCmd
+                0x0000000008001e84                RCC_AHB1PeriphResetCmd
+                0x0000000008001ec4                RCC_AHB2PeriphResetCmd
+                0x0000000008001f04                RCC_AHB3PeriphResetCmd
+                0x0000000008001f44                RCC_APB1PeriphResetCmd
+                0x0000000008001f84                RCC_APB2PeriphResetCmd
+                0x0000000008001fc4                RCC_AHB1PeriphClockLPModeCmd
+                0x0000000008002004                RCC_AHB2PeriphClockLPModeCmd
+                0x0000000008002044                RCC_AHB3PeriphClockLPModeCmd
+                0x0000000008002084                RCC_APB1PeriphClockLPModeCmd
+                0x00000000080020c4                RCC_APB2PeriphClockLPModeCmd
+                0x0000000008002104                RCC_LSEModeConfig
+                0x0000000008002140                RCC_ITConfig
+                0x000000000800218c                RCC_GetFlagStatus
+                0x0000000008002200                RCC_ClearFlag
+                0x0000000008002220                RCC_GetITStatus
+                0x0000000008002258                RCC_ClearITPendingBit
+ .text          0x0000000008002278      0x154 /tmp/ccXd1F8C.o
+                0x0000000008002278                SYSCFG_DeInit
+                0x0000000008002294                SYSCFG_MemoryRemapConfig
+                0x00000000080022b4                SYSCFG_MemorySwappingBank
+                0x00000000080022d4                SYSCFG_EXTILineConfig
+                0x0000000008002358                SYSCFG_ETH_MediaInterfaceConfig
+                0x0000000008002378                SYSCFG_CompensationCellCmd
+                0x0000000008002398                SYSCFG_GetCompensationCellStatus
+ .text          0x00000000080023cc     0x1c18 /tmp/cc4LERjw.o
+                0x00000000080023cc                TIM_DeInit
+                0x000000000800258c                TIM_TimeBaseInit
+                0x0000000008002664                TIM_TimeBaseStructInit
+                0x0000000008002698                TIM_PrescalerConfig
+                0x00000000080026c0                TIM_CounterModeConfig
+                0x00000000080026f8                TIM_SetCounter
+                0x0000000008002714                TIM_SetAutoreload
+                0x0000000008002730                TIM_GetCounter
+                0x0000000008002748                TIM_GetPrescaler
+                0x0000000008002762                TIM_UpdateDisableConfig
+                0x00000000080027a2                TIM_UpdateRequestConfig
+                0x00000000080027e2                TIM_ARRPreloadConfig
+                0x0000000008002822                TIM_SelectOnePulseMode
+                0x000000000800285a                TIM_SetClockDivision
+                0x0000000008002892                TIM_Cmd
+                0x00000000080028d2                TIM_OC1Init
+                0x00000000080029c8                TIM_OC2Init
+                0x0000000008002ad8                TIM_OC3Init
+                0x0000000008002be4                TIM_OC4Init
+                0x0000000008002cb4                TIM_OCStructInit
+                0x0000000008002cf8                TIM_SelectOCxM
+                0x0000000008002daa                TIM_SetCompare1
+                0x0000000008002dc6                TIM_SetCompare2
+                0x0000000008002de2                TIM_SetCompare3
+                0x0000000008002dfe                TIM_SetCompare4
+                0x0000000008002e1a                TIM_ForcedOC1Config
+                0x0000000008002e52                TIM_ForcedOC2Config
+                0x0000000008002e8e                TIM_ForcedOC3Config
+                0x0000000008002ec6                TIM_ForcedOC4Config
+                0x0000000008002f02                TIM_OC1PreloadConfig
+                0x0000000008002f3a                TIM_OC2PreloadConfig
+                0x0000000008002f76                TIM_OC3PreloadConfig
+                0x0000000008002fae                TIM_OC4PreloadConfig
+                0x0000000008002fea                TIM_OC1FastConfig
+                0x0000000008003022                TIM_OC2FastConfig
+                0x000000000800305e                TIM_OC3FastConfig
+                0x0000000008003096                TIM_OC4FastConfig
+                0x00000000080030d2                TIM_ClearOC1Ref
+                0x000000000800310a                TIM_ClearOC2Ref
+                0x0000000008003146                TIM_ClearOC3Ref
+                0x000000000800317e                TIM_ClearOC4Ref
+                0x00000000080031ba                TIM_OC1PolarityConfig
+                0x00000000080031f2                TIM_OC1NPolarityConfig
+                0x000000000800322a                TIM_OC2PolarityConfig
+                0x0000000008003266                TIM_OC2NPolarityConfig
+                0x00000000080032a2                TIM_OC3PolarityConfig
+                0x00000000080032de                TIM_OC3NPolarityConfig
+                0x000000000800331a                TIM_OC4PolarityConfig
+                0x0000000008003356                TIM_CCxCmd
+                0x00000000080033ac                TIM_CCxNCmd
+                0x0000000008003402                TIM_ICInit
+                0x00000000080034aa                TIM_ICStructInit
+                0x00000000080034dc                TIM_PWMIConfig
+                0x0000000008003594                TIM_GetCapture1
+                0x00000000080035ac                TIM_GetCapture2
+                0x00000000080035c4                TIM_GetCapture3
+                0x00000000080035dc                TIM_GetCapture4
+                0x00000000080035f4                TIM_SetIC1Prescaler
+                0x000000000800362c                TIM_SetIC2Prescaler
+                0x0000000008003668                TIM_SetIC3Prescaler
+                0x00000000080036a0                TIM_SetIC4Prescaler
+                0x00000000080036dc                TIM_BDTRConfig
+                0x000000000800372c                TIM_BDTRStructInit
+                0x000000000800376a                TIM_CtrlPWMOutputs
+                0x00000000080037b6                TIM_SelectCOM
+                0x00000000080037f6                TIM_CCPreloadControl
+                0x0000000008003836                TIM_ITConfig
+                0x000000000800387e                TIM_GenerateEvent
+                0x000000000800389c                TIM_GetFlagStatus
+                0x00000000080038d4                TIM_ClearFlag
+                0x00000000080038f6                TIM_GetITStatus
+                0x000000000800394a                TIM_ClearITPendingBit
+                0x000000000800396c                TIM_DMAConfig
+                0x0000000008003996                TIM_DMACmd
+                0x00000000080039de                TIM_SelectCCDMA
+                0x0000000008003a1e                TIM_InternalClockConfig
+                0x0000000008003a42                TIM_ITRxExternalClockConfig
+                0x0000000008003a70                TIM_TIxExternalClockConfig
+                0x0000000008003acc                TIM_ETRClockMode1Config
+                0x0000000008003b2a                TIM_ETRClockMode2Config
+                0x0000000008003b68                TIM_SelectInputTrigger
+                0x0000000008003ba0                TIM_SelectOutputTrigger
+                0x0000000008003bd8                TIM_SelectSlaveMode
+                0x0000000008003c10                TIM_SelectMasterSlaveMode
+                0x0000000008003c48                TIM_ETRConfig
+                0x0000000008003c9c                TIM_EncoderInterfaceConfig
+                0x0000000008003d34                TIM_SelectHallSensor
+                0x0000000008003d74                TIM_RemapConfig
+ .text          0x0000000008003fe4      0x970 /tmp/ccNPE7Lp.o
+                0x0000000008003fe4                USART_DeInit
+                0x00000000080040fc                USART_Init
+                0x0000000008004270                USART_StructInit
+                0x00000000080042aa                USART_ClockInit
+                0x0000000008004300                USART_ClockStructInit
+                0x000000000800432c                USART_Cmd
+                0x000000000800436c                USART_SetPrescaler
+                0x00000000080043a6                USART_OverSampling8Cmd
+                0x00000000080043ea                USART_OneBitMethodCmd
+                0x000000000800442a                USART_SendData
+                0x000000000800444e                USART_ReceiveData
+                0x000000000800446e                USART_SetAddress
+                0x00000000080044a8                USART_ReceiverWakeUpCmd
+                0x00000000080044e8                USART_WakeUpConfig
+                0x0000000008004520                USART_LINBreakDetectLengthConfig
+                0x0000000008004558                USART_LINCmd
+                0x0000000008004598                USART_SendBreak
+                0x00000000080045bc                USART_HalfDuplexCmd
+                0x00000000080045fc                USART_SetGuardTime
+                0x0000000008004638                USART_SmartCardCmd
+                0x0000000008004678                USART_SmartCardNACKCmd
+                0x00000000080046b8                USART_IrDAConfig
+                0x00000000080046f0                USART_IrDACmd
+                0x0000000008004730                USART_DMACmd
+                0x0000000008004778                USART_ITConfig
+                0x0000000008004808                USART_GetFlagStatus
+                0x0000000008004840                USART_ClearFlag
+                0x0000000008004862                USART_GetITStatus
+                0x0000000008004918                USART_ClearITPendingBit
+ .text          0x0000000008004954        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .text.exit     0x0000000008004954       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+                0x0000000008004954                exit
+ .text          0x0000000008004974        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .text          0x0000000008004974        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
  .text.__libc_init_array
-                0x0000000008004998       0x50 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
-                0x0000000008004998                __libc_init_array
- .text          0x00000000080049e8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
- .text.memset   0x00000000080049e8       0x9c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
-                0x00000000080049e8                memset
- .text          0x0000000008004a84        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000008004974       0x50 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+                0x0000000008004974                __libc_init_array
+ .text          0x00000000080049c4        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .text.memset   0x00000000080049c4       0x9c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+                0x00000000080049c4                memset
+ .text          0x0000000008004a60        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
  .text.startup.register_fini
-                0x0000000008004a84       0x14 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000008004a60       0x14 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000008004a98       0xe8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
-                0x0000000008004a98                __call_exitprocs
- .text          0x0000000008004b80        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
- .text.atexit   0x0000000008004b80        0xc /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
-                0x0000000008004b80                atexit
- .text          0x0000000008004b8c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+                0x0000000008004a74       0xe8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000008004a74                __call_exitprocs
+ .text          0x0000000008004b5c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .text.atexit   0x0000000008004b5c        0xc /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+                0x0000000008004b5c                atexit
+ .text          0x0000000008004b68        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
  .text.__libc_fini_array
-                0x0000000008004b8c       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
-                0x0000000008004b8c                __libc_fini_array
- .text          0x0000000008004bc0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004b68       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+                0x0000000008004b68                __libc_fini_array
+ .text          0x0000000008004b9c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
  .text.__retarget_lock_init
-                0x0000000008004bc0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bc0                __retarget_lock_init
+                0x0000000008004b9c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004b9c                __retarget_lock_init
  .text.__retarget_lock_init_recursive
-                0x0000000008004bc4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bc4                __retarget_lock_init_recursive
+                0x0000000008004ba0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004ba0                __retarget_lock_init_recursive
  .text.__retarget_lock_close
-                0x0000000008004bc8        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bc8                __retarget_lock_close
+                0x0000000008004ba4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004ba4                __retarget_lock_close
  .text.__retarget_lock_close_recursive
-                0x0000000008004bcc        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bcc                __retarget_lock_close_recursive
+                0x0000000008004ba8        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004ba8                __retarget_lock_close_recursive
  .text.__retarget_lock_acquire
-                0x0000000008004bd0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bd0                __retarget_lock_acquire
+                0x0000000008004bac        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bac                __retarget_lock_acquire
  .text.__retarget_lock_acquire_recursive
-                0x0000000008004bd4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bd4                __retarget_lock_acquire_recursive
+                0x0000000008004bb0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bb0                __retarget_lock_acquire_recursive
  .text.__retarget_lock_try_acquire
-                0x0000000008004bd8        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bd8                __retarget_lock_try_acquire
+                0x0000000008004bb4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bb4                __retarget_lock_try_acquire
  .text.__retarget_lock_try_acquire_recursive
-                0x0000000008004bdc        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004bdc                __retarget_lock_try_acquire_recursive
+                0x0000000008004bb8        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bb8                __retarget_lock_try_acquire_recursive
  .text.__retarget_lock_release
-                0x0000000008004be0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004be0                __retarget_lock_release
+                0x0000000008004bbc        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bbc                __retarget_lock_release
  .text.__retarget_lock_release_recursive
-                0x0000000008004be4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
-                0x0000000008004be4                __retarget_lock_release_recursive
- .text          0x0000000008004be8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+                0x0000000008004bc0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000008004bc0                __retarget_lock_release_recursive
+ .text          0x0000000008004bc4        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x0000000008004be8       0xc4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
-                0x0000000008004be8                __register_exitproc
- .text          0x0000000008004cac        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
- .text._exit    0x0000000008004cac        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
-                0x0000000008004cac                _exit
- .text          0x0000000008004cb0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
- .text          0x0000000008004cb0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
-                0x0000000008004cb0                . = ALIGN (0x4)
+                0x0000000008004bc4       0xc4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+                0x0000000008004bc4                __register_exitproc
+ .text          0x0000000008004c88        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .text._exit    0x0000000008004c88        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+                0x0000000008004c88                _exit
+ .text          0x0000000008004c8c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+ .text          0x0000000008004c8c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                0x0000000008004c8c                . = ALIGN (0x4)
  *(.rodata*)
  .rodata._global_impure_ptr
-                0x0000000008004cb0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
-                0x0000000008004cb0                _global_impure_ptr
-                0x0000000008004cb4                . = ALIGN (0x4)
+                0x0000000008004c8c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+                0x0000000008004c8c                _global_impure_ptr
+                0x0000000008004c90                . = ALIGN (0x4)
 
-.glue_7         0x0000000008004cb4        0x0
- .glue_7        0x0000000008004cb4        0x0 linker stubs
+.glue_7         0x0000000008004c90        0x0
+ .glue_7        0x0000000008004c90        0x0 linker stubs
 
-.glue_7t        0x0000000008004cb4        0x0
- .glue_7t       0x0000000008004cb4        0x0 linker stubs
+.glue_7t        0x0000000008004c90        0x0
+ .glue_7t       0x0000000008004c90        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008004cb4        0x0
- .vfp11_veneer  0x0000000008004cb4        0x0 linker stubs
+.vfp11_veneer   0x0000000008004c90        0x0
+ .vfp11_veneer  0x0000000008004c90        0x0 linker stubs
 
-.v4_bx          0x0000000008004cb4        0x0
- .v4_bx         0x0000000008004cb4        0x0 linker stubs
+.v4_bx          0x0000000008004c90        0x0
+ .v4_bx         0x0000000008004c90        0x0 linker stubs
 
-.init           0x0000000008004cb4        0xc
- .init          0x0000000008004cb4        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x0000000008004cb4                _init
- .init          0x0000000008004cb8        0x8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+.init           0x0000000008004c90        0xc
+ .init          0x0000000008004c90        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008004c90                _init
+ .init          0x0000000008004c94        0x8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
-.fini           0x0000000008004cc0        0xc
- .fini          0x0000000008004cc0        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x0000000008004cc0                _fini
- .fini          0x0000000008004cc4        0x8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+.fini           0x0000000008004c9c        0xc
+ .fini          0x0000000008004c9c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000008004c9c                _fini
+ .fini          0x0000000008004ca0        0x8 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
-.iplt           0x0000000008004ccc        0x0
- .iplt          0x0000000008004ccc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.iplt           0x0000000008004ca8        0x0
+ .iplt          0x0000000008004ca8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.rel.dyn        0x0000000008004ccc        0x0
- .rel.iplt      0x0000000008004ccc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
-                0x0000000008004ccc                . = ALIGN (0x4)
-                0x0000000008004ccc                _etext = .
+.rel.dyn        0x0000000008004ca8        0x0
+ .rel.iplt      0x0000000008004ca8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x0000000008004ca8                . = ALIGN (0x4)
+                0x0000000008004ca8                _etext = .
 
-.data           0x0000000020000000      0x48c load address 0x0000000008004ccc
+.data           0x0000000020000000      0x48c load address 0x0000000008004ca8
                 0x0000000020000000                _sdata = .
  *(.data*)
  .data          0x0000000020000000        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
  .data          0x0000000020000000        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 0x0000000020000000                __dso_handle
  .data          0x0000000020000004        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
- .data          0x0000000020000004       0x34 /tmp/ccF0O4EZ.o
-                0x0000000020000004                motor_dir
-                0x0000000020000005                motor_state
+ .data          0x0000000020000004       0x34 /tmp/ccKOwQex.o
+                0x0000000020000004                motor_state
                 0x0000000020000008                pwm_en_seq
                 0x0000000020000020                fet_en_seq
- .data          0x0000000020000038        0x0 /tmp/ccU3JPZR.o
- .data          0x0000000020000038        0x0 /tmp/ccyfZsuK.o
- .data          0x0000000020000038        0x0 /tmp/ccSysB8C.o
- .data          0x0000000020000038        0x0 /tmp/cc5D3kYv.o
- .data          0x0000000020000038        0x0 /tmp/ccP7mMZo.o
- .data          0x0000000020000038       0x14 /tmp/ccnjD2ci.o
+ .data          0x0000000020000038        0x0 /tmp/cciSMKGn.o
+ .data          0x0000000020000038        0x0 /tmp/ccd8xike.o
+ .data          0x0000000020000038        0x0 /tmp/ccRbIv94.o
+ .data          0x0000000020000038        0x0 /tmp/ccO0Fq9V.o
+ .data          0x0000000020000038        0x0 /tmp/ccOEYZjN.o
+ .data          0x0000000020000038       0x14 /tmp/ccdrN0FE.o
                 0x0000000020000038                SystemCoreClock
                 0x000000002000003c                AHBPrescTable
- .data          0x000000002000004c        0x0 /tmp/ccTzjyBb.o
- .data          0x000000002000004c        0x0 /tmp/ccpp3u14.o
- .data          0x000000002000004c        0x0 /tmp/ccnpjdDY.o
- .data          0x000000002000004c        0x0 /tmp/ccEHa1pS.o
- .data          0x000000002000004c        0x0 /tmp/cc3AMfoM.o
- .data          0x000000002000004c        0x0 /tmp/cckgRlzG.o
- .data          0x000000002000004c       0x10 /tmp/cc4HCm2A.o
- .data          0x000000002000005c        0x0 /tmp/ccAkZWHv.o
- .data          0x000000002000005c        0x0 /tmp/ccNVIkKq.o
- .data          0x000000002000005c        0x0 /tmp/cczwMB3l.o
+ .data          0x000000002000004c        0x0 /tmp/cc2WPJcw.o
+ .data          0x000000002000004c        0x0 /tmp/cciUNmKn.o
+ .data          0x000000002000004c        0x0 /tmp/ccmhdOsf.o
+ .data          0x000000002000004c        0x0 /tmp/ccEiCvm7.o
+ .data          0x000000002000004c        0x0 /tmp/ccA55zsZ.o
+ .data          0x000000002000004c        0x0 /tmp/ccTV8ALR.o
+ .data          0x000000002000004c       0x10 /tmp/cczi1glK.o
+ .data          0x000000002000005c        0x0 /tmp/ccXd1F8C.o
+ .data          0x000000002000005c        0x0 /tmp/cc4LERjw.o
+ .data          0x000000002000005c        0x0 /tmp/ccNPE7Lp.o
  .data          0x000000002000005c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .data          0x000000002000005c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
  .data._impure_ptr
@@ -601,53 +599,53 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  .data          0x000000002000048c        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
                 0x000000002000048c                . = ALIGN (0x4)
                 0x000000002000048c                _edata = .
-                0x0000000008004ccc                _sidata = LOADADDR (.data)
+                0x0000000008004ca8                _sidata = LOADADDR (.data)
 
-.init_array     0x000000002000048c        0x4 load address 0x0000000008005158
+.init_array     0x000000002000048c        0x4 load address 0x0000000008005134
  .init_array    0x000000002000048c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.fini_array     0x0000000020000490        0x4 load address 0x000000000800515c
+.fini_array     0x0000000020000490        0x4 load address 0x0000000008005138
  .fini_array    0x0000000020000490        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.jcr            0x0000000020000494        0x4 load address 0x0000000008005160
+.jcr            0x0000000020000494        0x4 load address 0x000000000800513c
  .jcr           0x0000000020000494        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .jcr           0x0000000020000494        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
 
-.igot.plt       0x0000000020000498        0x0 load address 0x0000000008005164
+.igot.plt       0x0000000020000498        0x0 load address 0x0000000008005140
  .igot.plt      0x0000000020000498        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
 .init_array.00000
-                0x0000000020000498        0x4 load address 0x0000000008005164
+                0x0000000020000498        0x4 load address 0x0000000008005140
  .init_array.00000
                 0x0000000020000498        0x4 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
 
-.bss            0x00000000200004a0       0x4c load address 0x0000000008005168
+.bss            0x00000000200004a0       0x4c load address 0x0000000008005144
                 0x00000000200004a0                __bss_start__ = .
                 0x00000000200004a0                _sbss = .
  *(.bss*)
  .bss           0x00000000200004a0        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
  .bss           0x00000000200004a0       0x1c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  .bss           0x00000000200004bc        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
- .bss           0x00000000200004bc        0x0 /tmp/ccF0O4EZ.o
- .bss           0x00000000200004bc        0x2 /tmp/ccU3JPZR.o
+ .bss           0x00000000200004bc        0x0 /tmp/ccKOwQex.o
+ .bss           0x00000000200004bc        0x2 /tmp/cciSMKGn.o
                 0x00000000200004bc                val
- .bss           0x00000000200004be        0x0 /tmp/ccyfZsuK.o
- .bss           0x00000000200004be        0x0 /tmp/ccSysB8C.o
+ .bss           0x00000000200004be        0x0 /tmp/ccd8xike.o
+ .bss           0x00000000200004be        0x0 /tmp/ccRbIv94.o
  *fill*         0x00000000200004be        0x2 
- .bss           0x00000000200004c0        0x8 /tmp/cc5D3kYv.o
+ .bss           0x00000000200004c0        0x8 /tmp/ccO0Fq9V.o
                 0x00000000200004c0                msTicks
- .bss           0x00000000200004c8        0x0 /tmp/ccP7mMZo.o
- .bss           0x00000000200004c8        0x0 /tmp/ccnjD2ci.o
- .bss           0x00000000200004c8        0x0 /tmp/ccTzjyBb.o
- .bss           0x00000000200004c8        0x0 /tmp/ccpp3u14.o
- .bss           0x00000000200004c8        0x0 /tmp/ccnpjdDY.o
- .bss           0x00000000200004c8        0x0 /tmp/ccEHa1pS.o
- .bss           0x00000000200004c8        0x0 /tmp/cc3AMfoM.o
- .bss           0x00000000200004c8        0x0 /tmp/cckgRlzG.o
- .bss           0x00000000200004c8        0x0 /tmp/cc4HCm2A.o
- .bss           0x00000000200004c8        0x0 /tmp/ccAkZWHv.o
- .bss           0x00000000200004c8        0x0 /tmp/ccNVIkKq.o
- .bss           0x00000000200004c8        0x0 /tmp/cczwMB3l.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccOEYZjN.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccdrN0FE.o
+ .bss           0x00000000200004c8        0x0 /tmp/cc2WPJcw.o
+ .bss           0x00000000200004c8        0x0 /tmp/cciUNmKn.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccmhdOsf.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccEiCvm7.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccA55zsZ.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccTV8ALR.o
+ .bss           0x00000000200004c8        0x0 /tmp/cczi1glK.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccXd1F8C.o
+ .bss           0x00000000200004c8        0x0 /tmp/cc4LERjw.o
+ .bss           0x00000000200004c8        0x0 /tmp/ccNPE7Lp.o
  .bss           0x00000000200004c8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .bss           0x00000000200004c8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
  .bss           0x00000000200004c8        0x0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
@@ -689,39 +687,39 @@ OUTPUT(build/sensored.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000056       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
  .ARM.attributes
-                0x0000000000000076       0x39 /tmp/ccF0O4EZ.o
+                0x0000000000000076       0x39 /tmp/ccKOwQex.o
  .ARM.attributes
-                0x00000000000000af       0x39 /tmp/ccU3JPZR.o
+                0x00000000000000af       0x39 /tmp/cciSMKGn.o
  .ARM.attributes
-                0x00000000000000e8       0x39 /tmp/ccyfZsuK.o
+                0x00000000000000e8       0x39 /tmp/ccd8xike.o
  .ARM.attributes
-                0x0000000000000121       0x39 /tmp/ccSysB8C.o
+                0x0000000000000121       0x39 /tmp/ccRbIv94.o
  .ARM.attributes
-                0x000000000000015a       0x39 /tmp/cc5D3kYv.o
+                0x000000000000015a       0x39 /tmp/ccO0Fq9V.o
  .ARM.attributes
-                0x0000000000000193       0x39 /tmp/ccP7mMZo.o
+                0x0000000000000193       0x39 /tmp/ccOEYZjN.o
  .ARM.attributes
-                0x00000000000001cc       0x39 /tmp/ccnjD2ci.o
+                0x00000000000001cc       0x39 /tmp/ccdrN0FE.o
  .ARM.attributes
-                0x0000000000000205       0x39 /tmp/ccTzjyBb.o
+                0x0000000000000205       0x39 /tmp/cc2WPJcw.o
  .ARM.attributes
-                0x000000000000023e       0x21 /tmp/ccpp3u14.o
+                0x000000000000023e       0x21 /tmp/cciUNmKn.o
  .ARM.attributes
-                0x000000000000025f       0x39 /tmp/ccnpjdDY.o
+                0x000000000000025f       0x39 /tmp/ccmhdOsf.o
  .ARM.attributes
-                0x0000000000000298       0x39 /tmp/ccEHa1pS.o
+                0x0000000000000298       0x39 /tmp/ccEiCvm7.o
  .ARM.attributes
-                0x00000000000002d1       0x39 /tmp/cc3AMfoM.o
+                0x00000000000002d1       0x39 /tmp/ccA55zsZ.o
  .ARM.attributes
-                0x000000000000030a       0x39 /tmp/cckgRlzG.o
+                0x000000000000030a       0x39 /tmp/ccTV8ALR.o
  .ARM.attributes
-                0x0000000000000343       0x39 /tmp/cc4HCm2A.o
+                0x0000000000000343       0x39 /tmp/cczi1glK.o
  .ARM.attributes
-                0x000000000000037c       0x39 /tmp/ccAkZWHv.o
+                0x000000000000037c       0x39 /tmp/ccXd1F8C.o
  .ARM.attributes
-                0x00000000000003b5       0x39 /tmp/ccNVIkKq.o
+                0x00000000000003b5       0x39 /tmp/cc4LERjw.o
  .ARM.attributes
-                0x00000000000003ee       0x39 /tmp/cczwMB3l.o
+                0x00000000000003ee       0x39 /tmp/ccNPE7Lp.o
  .ARM.attributes
                 0x0000000000000427       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
  .ARM.attributes
@@ -748,178 +746,178 @@ OUTPUT(build/sensored.elf elf32-littlearm)
                 0x0000000000000663       0x22 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 
 .comment        0x0000000000000000       0x7f
- .comment       0x0000000000000000       0x7f /tmp/ccF0O4EZ.o
+ .comment       0x0000000000000000       0x7f /tmp/ccKOwQex.o
                                          0x80 (size before relaxing)
- .comment       0x000000000000007f       0x80 /tmp/ccU3JPZR.o
- .comment       0x000000000000007f       0x80 /tmp/ccyfZsuK.o
- .comment       0x000000000000007f       0x80 /tmp/ccSysB8C.o
- .comment       0x000000000000007f       0x80 /tmp/cc5D3kYv.o
- .comment       0x000000000000007f       0x80 /tmp/ccP7mMZo.o
- .comment       0x000000000000007f       0x80 /tmp/ccnjD2ci.o
- .comment       0x000000000000007f       0x80 /tmp/ccTzjyBb.o
- .comment       0x000000000000007f       0x80 /tmp/ccnpjdDY.o
- .comment       0x000000000000007f       0x80 /tmp/ccEHa1pS.o
- .comment       0x000000000000007f       0x80 /tmp/cc3AMfoM.o
- .comment       0x000000000000007f       0x80 /tmp/cckgRlzG.o
- .comment       0x000000000000007f       0x80 /tmp/cc4HCm2A.o
- .comment       0x000000000000007f       0x80 /tmp/ccAkZWHv.o
- .comment       0x000000000000007f       0x80 /tmp/ccNVIkKq.o
- .comment       0x000000000000007f       0x80 /tmp/cczwMB3l.o
+ .comment       0x000000000000007f       0x80 /tmp/cciSMKGn.o
+ .comment       0x000000000000007f       0x80 /tmp/ccd8xike.o
+ .comment       0x000000000000007f       0x80 /tmp/ccRbIv94.o
+ .comment       0x000000000000007f       0x80 /tmp/ccO0Fq9V.o
+ .comment       0x000000000000007f       0x80 /tmp/ccOEYZjN.o
+ .comment       0x000000000000007f       0x80 /tmp/ccdrN0FE.o
+ .comment       0x000000000000007f       0x80 /tmp/cc2WPJcw.o
+ .comment       0x000000000000007f       0x80 /tmp/ccmhdOsf.o
+ .comment       0x000000000000007f       0x80 /tmp/ccEiCvm7.o
+ .comment       0x000000000000007f       0x80 /tmp/ccA55zsZ.o
+ .comment       0x000000000000007f       0x80 /tmp/ccTV8ALR.o
+ .comment       0x000000000000007f       0x80 /tmp/cczi1glK.o
+ .comment       0x000000000000007f       0x80 /tmp/ccXd1F8C.o
+ .comment       0x000000000000007f       0x80 /tmp/cc4LERjw.o
+ .comment       0x000000000000007f       0x80 /tmp/ccNPE7Lp.o
 
-.debug_info     0x0000000000000000     0x6f36
- .debug_info    0x0000000000000000      0x6be /tmp/ccF0O4EZ.o
- .debug_info    0x00000000000006be      0x6ea /tmp/ccU3JPZR.o
- .debug_info    0x0000000000000da8      0x690 /tmp/ccyfZsuK.o
- .debug_info    0x0000000000001438       0xfe /tmp/ccSysB8C.o
- .debug_info    0x0000000000001536      0x190 /tmp/cc5D3kYv.o
- .debug_info    0x00000000000016c6      0x709 /tmp/ccP7mMZo.o
- .debug_info    0x0000000000001dcf      0x614 /tmp/ccnjD2ci.o
- .debug_info    0x00000000000023e3      0x2be /tmp/ccTzjyBb.o
- .debug_info    0x00000000000026a1       0x83 /tmp/ccpp3u14.o
- .debug_info    0x0000000000002724      0x54d /tmp/ccnpjdDY.o
- .debug_info    0x0000000000002c71      0x1ef /tmp/ccEHa1pS.o
- .debug_info    0x0000000000002e60      0x357 /tmp/cc3AMfoM.o
- .debug_info    0x00000000000031b7      0x628 /tmp/cckgRlzG.o
- .debug_info    0x00000000000037df      0xe67 /tmp/cc4HCm2A.o
- .debug_info    0x0000000000004646      0x2a7 /tmp/ccAkZWHv.o
- .debug_info    0x00000000000048ed     0x1c74 /tmp/ccNVIkKq.o
- .debug_info    0x0000000000006561      0x9d5 /tmp/cczwMB3l.o
+.debug_info     0x0000000000000000     0x6eeb
+ .debug_info    0x0000000000000000      0x673 /tmp/ccKOwQex.o
+ .debug_info    0x0000000000000673      0x6ea /tmp/cciSMKGn.o
+ .debug_info    0x0000000000000d5d      0x690 /tmp/ccd8xike.o
+ .debug_info    0x00000000000013ed       0xfe /tmp/ccRbIv94.o
+ .debug_info    0x00000000000014eb      0x190 /tmp/ccO0Fq9V.o
+ .debug_info    0x000000000000167b      0x709 /tmp/ccOEYZjN.o
+ .debug_info    0x0000000000001d84      0x614 /tmp/ccdrN0FE.o
+ .debug_info    0x0000000000002398      0x2be /tmp/cc2WPJcw.o
+ .debug_info    0x0000000000002656       0x83 /tmp/cciUNmKn.o
+ .debug_info    0x00000000000026d9      0x54d /tmp/ccmhdOsf.o
+ .debug_info    0x0000000000002c26      0x1ef /tmp/ccEiCvm7.o
+ .debug_info    0x0000000000002e15      0x357 /tmp/ccA55zsZ.o
+ .debug_info    0x000000000000316c      0x628 /tmp/ccTV8ALR.o
+ .debug_info    0x0000000000003794      0xe67 /tmp/cczi1glK.o
+ .debug_info    0x00000000000045fb      0x2a7 /tmp/ccXd1F8C.o
+ .debug_info    0x00000000000048a2     0x1c74 /tmp/cc4LERjw.o
+ .debug_info    0x0000000000006516      0x9d5 /tmp/ccNPE7Lp.o
 
-.debug_abbrev   0x0000000000000000     0x156b
- .debug_abbrev  0x0000000000000000      0x18f /tmp/ccF0O4EZ.o
- .debug_abbrev  0x000000000000018f      0x169 /tmp/ccU3JPZR.o
- .debug_abbrev  0x00000000000002f8      0x161 /tmp/ccyfZsuK.o
- .debug_abbrev  0x0000000000000459       0x96 /tmp/ccSysB8C.o
- .debug_abbrev  0x00000000000004ef       0xa3 /tmp/cc5D3kYv.o
- .debug_abbrev  0x0000000000000592      0x151 /tmp/ccP7mMZo.o
- .debug_abbrev  0x00000000000006e3      0x158 /tmp/ccnjD2ci.o
- .debug_abbrev  0x000000000000083b      0x114 /tmp/ccTzjyBb.o
- .debug_abbrev  0x000000000000094f       0x12 /tmp/ccpp3u14.o
- .debug_abbrev  0x0000000000000961      0x172 /tmp/ccnpjdDY.o
- .debug_abbrev  0x0000000000000ad3       0xf3 /tmp/ccEHa1pS.o
- .debug_abbrev  0x0000000000000bc6      0x1bc /tmp/cc3AMfoM.o
- .debug_abbrev  0x0000000000000d82      0x1b8 /tmp/cckgRlzG.o
- .debug_abbrev  0x0000000000000f3a      0x1cf /tmp/cc4HCm2A.o
- .debug_abbrev  0x0000000000001109      0x146 /tmp/ccAkZWHv.o
- .debug_abbrev  0x000000000000124f      0x19a /tmp/ccNVIkKq.o
- .debug_abbrev  0x00000000000013e9      0x182 /tmp/cczwMB3l.o
+.debug_abbrev   0x0000000000000000     0x1553
+ .debug_abbrev  0x0000000000000000      0x177 /tmp/ccKOwQex.o
+ .debug_abbrev  0x0000000000000177      0x169 /tmp/cciSMKGn.o
+ .debug_abbrev  0x00000000000002e0      0x161 /tmp/ccd8xike.o
+ .debug_abbrev  0x0000000000000441       0x96 /tmp/ccRbIv94.o
+ .debug_abbrev  0x00000000000004d7       0xa3 /tmp/ccO0Fq9V.o
+ .debug_abbrev  0x000000000000057a      0x151 /tmp/ccOEYZjN.o
+ .debug_abbrev  0x00000000000006cb      0x158 /tmp/ccdrN0FE.o
+ .debug_abbrev  0x0000000000000823      0x114 /tmp/cc2WPJcw.o
+ .debug_abbrev  0x0000000000000937       0x12 /tmp/cciUNmKn.o
+ .debug_abbrev  0x0000000000000949      0x172 /tmp/ccmhdOsf.o
+ .debug_abbrev  0x0000000000000abb       0xf3 /tmp/ccEiCvm7.o
+ .debug_abbrev  0x0000000000000bae      0x1bc /tmp/ccA55zsZ.o
+ .debug_abbrev  0x0000000000000d6a      0x1b8 /tmp/ccTV8ALR.o
+ .debug_abbrev  0x0000000000000f22      0x1cf /tmp/cczi1glK.o
+ .debug_abbrev  0x00000000000010f1      0x146 /tmp/ccXd1F8C.o
+ .debug_abbrev  0x0000000000001237      0x19a /tmp/cc4LERjw.o
+ .debug_abbrev  0x00000000000013d1      0x182 /tmp/ccNPE7Lp.o
 
 .debug_aranges  0x0000000000000000      0x228
  .debug_aranges
-                0x0000000000000000       0x20 /tmp/ccF0O4EZ.o
+                0x0000000000000000       0x20 /tmp/ccKOwQex.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/ccU3JPZR.o
+                0x0000000000000020       0x20 /tmp/cciSMKGn.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccyfZsuK.o
+                0x0000000000000040       0x20 /tmp/ccd8xike.o
  .debug_aranges
-                0x0000000000000060       0x20 /tmp/ccSysB8C.o
+                0x0000000000000060       0x20 /tmp/ccRbIv94.o
  .debug_aranges
-                0x0000000000000080       0x20 /tmp/cc5D3kYv.o
+                0x0000000000000080       0x20 /tmp/ccO0Fq9V.o
  .debug_aranges
-                0x00000000000000a0       0x20 /tmp/ccP7mMZo.o
+                0x00000000000000a0       0x20 /tmp/ccOEYZjN.o
  .debug_aranges
-                0x00000000000000c0       0x20 /tmp/ccnjD2ci.o
+                0x00000000000000c0       0x20 /tmp/ccdrN0FE.o
  .debug_aranges
-                0x00000000000000e0       0x20 /tmp/ccTzjyBb.o
+                0x00000000000000e0       0x20 /tmp/cc2WPJcw.o
  .debug_aranges
-                0x0000000000000100       0x28 /tmp/ccpp3u14.o
+                0x0000000000000100       0x28 /tmp/cciUNmKn.o
  .debug_aranges
-                0x0000000000000128       0x20 /tmp/ccnpjdDY.o
+                0x0000000000000128       0x20 /tmp/ccmhdOsf.o
  .debug_aranges
-                0x0000000000000148       0x20 /tmp/ccEHa1pS.o
+                0x0000000000000148       0x20 /tmp/ccEiCvm7.o
  .debug_aranges
-                0x0000000000000168       0x20 /tmp/cc3AMfoM.o
+                0x0000000000000168       0x20 /tmp/ccA55zsZ.o
  .debug_aranges
-                0x0000000000000188       0x20 /tmp/cckgRlzG.o
+                0x0000000000000188       0x20 /tmp/ccTV8ALR.o
  .debug_aranges
-                0x00000000000001a8       0x20 /tmp/cc4HCm2A.o
+                0x00000000000001a8       0x20 /tmp/cczi1glK.o
  .debug_aranges
-                0x00000000000001c8       0x20 /tmp/ccAkZWHv.o
+                0x00000000000001c8       0x20 /tmp/ccXd1F8C.o
  .debug_aranges
-                0x00000000000001e8       0x20 /tmp/ccNVIkKq.o
+                0x00000000000001e8       0x20 /tmp/cc4LERjw.o
  .debug_aranges
-                0x0000000000000208       0x20 /tmp/cczwMB3l.o
+                0x0000000000000208       0x20 /tmp/ccNPE7Lp.o
 
-.debug_line     0x0000000000000000     0x1ba4
- .debug_line    0x0000000000000000      0x176 /tmp/ccF0O4EZ.o
- .debug_line    0x0000000000000176      0x154 /tmp/ccU3JPZR.o
- .debug_line    0x00000000000002ca      0x10b /tmp/ccyfZsuK.o
- .debug_line    0x00000000000003d5       0xd7 /tmp/ccSysB8C.o
- .debug_line    0x00000000000004ac      0x104 /tmp/cc5D3kYv.o
- .debug_line    0x00000000000005b0      0x148 /tmp/ccP7mMZo.o
- .debug_line    0x00000000000006f8      0x14d /tmp/ccnjD2ci.o
- .debug_line    0x0000000000000845      0x110 /tmp/ccTzjyBb.o
- .debug_line    0x0000000000000955       0x75 /tmp/ccpp3u14.o
- .debug_line    0x00000000000009ca      0x140 /tmp/ccnpjdDY.o
- .debug_line    0x0000000000000b0a      0x11c /tmp/ccEHa1pS.o
- .debug_line    0x0000000000000c26      0x173 /tmp/cc3AMfoM.o
- .debug_line    0x0000000000000d99      0x1fd /tmp/cckgRlzG.o
- .debug_line    0x0000000000000f96      0x2fd /tmp/cc4HCm2A.o
- .debug_line    0x0000000000001293      0x128 /tmp/ccAkZWHv.o
- .debug_line    0x00000000000013bb      0x552 /tmp/ccNVIkKq.o
- .debug_line    0x000000000000190d      0x297 /tmp/cczwMB3l.o
+.debug_line     0x0000000000000000     0x1b94
+ .debug_line    0x0000000000000000      0x165 /tmp/ccKOwQex.o
+ .debug_line    0x0000000000000165      0x154 /tmp/cciSMKGn.o
+ .debug_line    0x00000000000002b9      0x10b /tmp/ccd8xike.o
+ .debug_line    0x00000000000003c4       0xd7 /tmp/ccRbIv94.o
+ .debug_line    0x000000000000049b      0x104 /tmp/ccO0Fq9V.o
+ .debug_line    0x000000000000059f      0x149 /tmp/ccOEYZjN.o
+ .debug_line    0x00000000000006e8      0x14d /tmp/ccdrN0FE.o
+ .debug_line    0x0000000000000835      0x110 /tmp/cc2WPJcw.o
+ .debug_line    0x0000000000000945       0x75 /tmp/cciUNmKn.o
+ .debug_line    0x00000000000009ba      0x140 /tmp/ccmhdOsf.o
+ .debug_line    0x0000000000000afa      0x11c /tmp/ccEiCvm7.o
+ .debug_line    0x0000000000000c16      0x173 /tmp/ccA55zsZ.o
+ .debug_line    0x0000000000000d89      0x1fd /tmp/ccTV8ALR.o
+ .debug_line    0x0000000000000f86      0x2fd /tmp/cczi1glK.o
+ .debug_line    0x0000000000001283      0x128 /tmp/ccXd1F8C.o
+ .debug_line    0x00000000000013ab      0x552 /tmp/cc4LERjw.o
+ .debug_line    0x00000000000018fd      0x297 /tmp/ccNPE7Lp.o
 
-.debug_str      0x0000000000000000     0x29e5
- .debug_str     0x0000000000000000      0x5da /tmp/ccF0O4EZ.o
-                                        0x630 (size before relaxing)
- .debug_str     0x00000000000005da      0x653 /tmp/ccU3JPZR.o
+.debug_str      0x0000000000000000     0x29c7
+ .debug_str     0x0000000000000000      0x5bc /tmp/ccKOwQex.o
+                                        0x612 (size before relaxing)
+ .debug_str     0x00000000000005bc      0x653 /tmp/cciSMKGn.o
                                         0xa38 (size before relaxing)
- .debug_str     0x0000000000000c2d       0xde /tmp/ccyfZsuK.o
+ .debug_str     0x0000000000000c0f       0xde /tmp/ccd8xike.o
                                         0x7f7 (size before relaxing)
- .debug_str     0x0000000000000d0b       0x23 /tmp/ccSysB8C.o
+ .debug_str     0x0000000000000ced       0x23 /tmp/ccRbIv94.o
                                         0x1f6 (size before relaxing)
- .debug_str     0x0000000000000d2e       0xb0 /tmp/cc5D3kYv.o
+ .debug_str     0x0000000000000d10       0xb0 /tmp/ccO0Fq9V.o
                                         0x28e (size before relaxing)
- .debug_str     0x0000000000000dde      0x10d /tmp/ccP7mMZo.o
+ .debug_str     0x0000000000000dc0      0x10d /tmp/ccOEYZjN.o
                                         0xa9b (size before relaxing)
- .debug_str     0x0000000000000eeb      0x179 /tmp/ccnjD2ci.o
+ .debug_str     0x0000000000000ecd      0x179 /tmp/ccdrN0FE.o
                                         0x421 (size before relaxing)
- .debug_str     0x0000000000001064       0x19 /tmp/ccTzjyBb.o
+ .debug_str     0x0000000000001046       0x19 /tmp/cc2WPJcw.o
                                         0x388 (size before relaxing)
- .debug_str     0x000000000000107d       0xf8 /tmp/ccnpjdDY.o
+ .debug_str     0x000000000000105f       0xf8 /tmp/ccmhdOsf.o
                                         0x438 (size before relaxing)
- .debug_str     0x0000000000001175       0xb8 /tmp/ccEHa1pS.o
+ .debug_str     0x0000000000001157       0xb8 /tmp/ccEiCvm7.o
                                         0x2aa (size before relaxing)
- .debug_str     0x000000000000122d       0xe6 /tmp/cc3AMfoM.o
+ .debug_str     0x000000000000120f       0xe6 /tmp/ccA55zsZ.o
                                         0x3b6 (size before relaxing)
- .debug_str     0x0000000000001313      0x179 /tmp/cckgRlzG.o
+ .debug_str     0x00000000000012f5      0x179 /tmp/ccTV8ALR.o
                                         0x50a (size before relaxing)
- .debug_str     0x000000000000148c      0x699 /tmp/cc4HCm2A.o
+ .debug_str     0x000000000000146e      0x699 /tmp/cczi1glK.o
                                         0xa2c (size before relaxing)
- .debug_str     0x0000000000001b25      0x159 /tmp/ccAkZWHv.o
+ .debug_str     0x0000000000001b07      0x159 /tmp/ccXd1F8C.o
                                         0x378 (size before relaxing)
- .debug_str     0x0000000000001c7e      0x9da /tmp/ccNVIkKq.o
+ .debug_str     0x0000000000001c60      0x9da /tmp/cc4LERjw.o
                                         0xe3a (size before relaxing)
- .debug_str     0x0000000000002658      0x38d /tmp/cczwMB3l.o
+ .debug_str     0x000000000000263a      0x38d /tmp/ccNPE7Lp.o
                                         0x6f9 (size before relaxing)
 
-.debug_frame    0x0000000000000000     0x27f0
- .debug_frame   0x0000000000000000      0x10c /tmp/ccF0O4EZ.o
- .debug_frame   0x000000000000010c       0x58 /tmp/ccU3JPZR.o
- .debug_frame   0x0000000000000164       0x78 /tmp/ccyfZsuK.o
- .debug_frame   0x00000000000001dc       0x38 /tmp/ccSysB8C.o
- .debug_frame   0x0000000000000214      0x138 /tmp/cc5D3kYv.o
- .debug_frame   0x000000000000034c       0x58 /tmp/ccP7mMZo.o
- .debug_frame   0x00000000000003a4       0x7c /tmp/ccnjD2ci.o
- .debug_frame   0x0000000000000420       0x34 /tmp/ccTzjyBb.o
- .debug_frame   0x0000000000000454       0xd8 /tmp/ccnpjdDY.o
- .debug_frame   0x000000000000052c       0xc8 /tmp/ccEHa1pS.o
- .debug_frame   0x00000000000005f4      0x148 /tmp/cc3AMfoM.o
- .debug_frame   0x000000000000073c      0x23c /tmp/cckgRlzG.o
- .debug_frame   0x0000000000000978      0x83c /tmp/cc4HCm2A.o
- .debug_frame   0x00000000000011b4      0x11c /tmp/ccAkZWHv.o
- .debug_frame   0x00000000000012d0      0xe54 /tmp/ccNVIkKq.o
- .debug_frame   0x0000000000002124      0x490 /tmp/cczwMB3l.o
- .debug_frame   0x00000000000025b4       0x28 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
- .debug_frame   0x00000000000025dc       0x2c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
- .debug_frame   0x0000000000002608       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
- .debug_frame   0x000000000000263c       0x5c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
- .debug_frame   0x0000000000002698       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
- .debug_frame   0x00000000000026b8       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
- .debug_frame   0x00000000000026ec       0xb0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
- .debug_frame   0x000000000000279c       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
- .debug_frame   0x00000000000027d0       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+.debug_frame    0x0000000000000000     0x27c8
+ .debug_frame   0x0000000000000000       0xe4 /tmp/ccKOwQex.o
+ .debug_frame   0x00000000000000e4       0x58 /tmp/cciSMKGn.o
+ .debug_frame   0x000000000000013c       0x78 /tmp/ccd8xike.o
+ .debug_frame   0x00000000000001b4       0x38 /tmp/ccRbIv94.o
+ .debug_frame   0x00000000000001ec      0x138 /tmp/ccO0Fq9V.o
+ .debug_frame   0x0000000000000324       0x58 /tmp/ccOEYZjN.o
+ .debug_frame   0x000000000000037c       0x7c /tmp/ccdrN0FE.o
+ .debug_frame   0x00000000000003f8       0x34 /tmp/cc2WPJcw.o
+ .debug_frame   0x000000000000042c       0xd8 /tmp/ccmhdOsf.o
+ .debug_frame   0x0000000000000504       0xc8 /tmp/ccEiCvm7.o
+ .debug_frame   0x00000000000005cc      0x148 /tmp/ccA55zsZ.o
+ .debug_frame   0x0000000000000714      0x23c /tmp/ccTV8ALR.o
+ .debug_frame   0x0000000000000950      0x83c /tmp/cczi1glK.o
+ .debug_frame   0x000000000000118c      0x11c /tmp/ccXd1F8C.o
+ .debug_frame   0x00000000000012a8      0xe54 /tmp/cc4LERjw.o
+ .debug_frame   0x00000000000020fc      0x490 /tmp/ccNPE7Lp.o
+ .debug_frame   0x000000000000258c       0x28 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .debug_frame   0x00000000000025b4       0x2c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .debug_frame   0x00000000000025e0       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .debug_frame   0x0000000000002614       0x5c /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x0000000000002670       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .debug_frame   0x0000000000002690       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .debug_frame   0x00000000000026c4       0xb0 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .debug_frame   0x0000000000002774       0x34 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .debug_frame   0x00000000000027a8       0x20 /usr/bin/../lib/gcc/arm-none-eabi/6.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
 
 .debug_ranges   0x0000000000000000       0x38
- .debug_ranges  0x0000000000000000       0x18 /tmp/ccU3JPZR.o
- .debug_ranges  0x0000000000000018       0x20 /tmp/ccpp3u14.o
+ .debug_ranges  0x0000000000000000       0x18 /tmp/cciSMKGn.o
+ .debug_ranges  0x0000000000000018       0x20 /tmp/cciUNmKn.o

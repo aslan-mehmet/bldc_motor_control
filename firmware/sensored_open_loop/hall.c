@@ -78,6 +78,8 @@ void EXTI15_10_IRQHandler(void)
 	}
 
 	motor_commutate(data);
-	
-	GPIOD->ODR ^= LED_RED_ODR;
+
+	if (data == 5) {
+		GPIOD->ODR ^= LED_RED_ODR;
+	}
 }

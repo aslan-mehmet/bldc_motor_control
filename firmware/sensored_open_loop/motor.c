@@ -17,7 +17,14 @@ uint8_t motor_state = ENABLE;
  * phb out2
  * phc out3
  */
-uint32_t pwm_en_seq[] = {TIM_CH2, TIM_CH1, TIM_CH1, TIM_CH3, TIM_CH2, TIM_CH3};
+#define IN_S5 TIM_CH2
+#define IN_S4 TIM_CH3
+#define IN_S6 TIM_CH3
+#define IN_S2 TIM_CH1
+#define IN_S3 TIM_CH1
+#define IN_S1 TIM_CH2
+
+uint32_t pwm_en_seq[] = {IN_S1, IN_S2, IN_S3, IN_S4, IN_S5, IN_S6};
 
 /* 
  * l6230 enable
