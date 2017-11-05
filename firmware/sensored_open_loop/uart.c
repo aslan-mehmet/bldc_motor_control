@@ -72,7 +72,7 @@ void USART1_IRQHandler(void)
 			motor_set_pwm(val);
 			break;
 		case '-':
-			if (val > 500) {
+			if (val >= 500) {
 				val -= 500;
 			}
 			motor_set_pwm(val);

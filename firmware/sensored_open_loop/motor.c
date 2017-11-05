@@ -5,24 +5,17 @@
 #define PIN_IN2 GPIO_ODR_ODR_11
 #define PIN_IN3 GPIO_ODR_ODR_13
 
-#define TIM_PWM TIM1
-#define TIM_CH1 TIM_CCER_CC1E
-#define TIM_CH2 TIM_CCER_CC2E
-#define TIM_CH3 TIM_CCER_CC3E
-#define TIM_CH_MASK (TIM_CH1 | TIM_CH2 | TIM_CH3)
-
-uint8_t motor_state = ENABLE;
 /* cw 
  * pha out1
  * phb out2
  * phc out3
  */
-#define IN_S5 TIM_CH2
-#define IN_S4 TIM_CH3
-#define IN_S6 TIM_CH3
-#define IN_S2 TIM_CH1
-#define IN_S3 TIM_CH1
-#define IN_S1 TIM_CH2
+#define IN_S5 PIN_IN2
+#define IN_S4 PIN_IN3
+#define IN_S6 PIN_IN3
+#define IN_S2 PIN_IN1
+#define IN_S3 PIN_IN1
+#define IN_S1 PIN_IN2
 
 uint32_t pwm_en_seq[] = {IN_S1, IN_S2, IN_S3, IN_S4, IN_S5, IN_S6};
 
@@ -49,15 +42,18 @@ uint32_t pwm_en_seq[] = {IN_S1, IN_S2, IN_S3, IN_S4, IN_S5, IN_S6};
 
 uint32_t fet_en_seq[] = {EN_S1, EN_S2, EN_S3, EN_S4, EN_S5, EN_S6};
 
+#define TIM_PWM TIM1
+uint16_t pwm_val = 0;
+
 void motor_start(void)
 {
-	motor_state = ENABLE;	
+	/* carefull because open drain */
+	PORT_EN->ODR |= PIN_DIAG;
 }
 
 void motor_stop(void)
 {
-	motor_state = DISABLE;
-	TIM_PWM->CCER &= ~TIM_CH_MASK;
+	PORT_EN->ODR &= ~PIN_DIAG;
 }
 
 void tim_pwm_init(void)
@@ -98,9 +94,9 @@ void tim_pwm_init(void)
 
 	/* PWM mode 1 - In upcounting, channel 1 is active as long as TIMx_CNT<TIMx_CCR1 */
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Disable;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable;
-	TIM_OCInitStructure.TIM_Pulse = 1;
+	TIM_OCInitStructure.TIM_Pulse = pwm_val;
 	/* ccer, cc1p active high */
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 	TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
@@ -125,7 +121,7 @@ void motor_init(void)
 {
 	tim_pwm_init();
 
-		/* set up a timer(one pulse mode) and pins */
+	/* set up a timer(one pulse mode) and pins */
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6, ENABLE);
 
@@ -143,32 +139,46 @@ void motor_init(void)
 	GPIO_InitStructure.GPIO_Pin = PIN_DIAG;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
 	GPIO_Init(PORT_EN, &GPIO_InitStructure);
-	/* carefull because open drain */
-	PORT_EN->ODR |= PIN_DIAG;
+	PORT_EN->ODR &= ~PIN_DIAG;
 }
 
 void motor_set_pwm(uint16_t val)
 {
-	if (val >= PWM_MAX) {
-		val = PWM_MAX -1;
-	} else if (val == 0){
-		val = 1;
+	if (val > PWM_MAX) {
+		val = PWM_MAX;
 	}
+
+	pwm_val = val;
 	
-	TIM_SetCompare1(TIM1, val);
-	TIM_SetCompare2(TIM1, val);
-	TIM_SetCompare3(TIM1, val);
+	TIM_SetCompare1(TIM1, pwm_val);
+	TIM_SetCompare2(TIM1, pwm_val);
+	TIM_SetCompare3(TIM1, pwm_val);
 }
 
 void motor_commutate(uint8_t step_number)
 {
-	if (motor_state == DISABLE) {
+	if (step_number > 6 || step_number == 0) {
 		return;
 	}
 	
+	/* float all half bridges */
 	PORT_EN->ODR &= ~EN_MASK;
-	TIM_PWM->CCER &= ~TIM_CH_MASK;
-
+	/* in pins pwm duty 0 */
+	TIM_PWM->CCR1 = 0;
+	TIM_PWM->CCR2 = 0;
+	TIM_PWM->CCR3 = 0;
+	
 	PORT_EN->ODR |= fet_en_seq[step_number-1];
-        TIM_PWM->CCER |= pwm_en_seq[step_number-1];
+
+	switch (pwm_en_seq[step_number-1]) {
+	case PIN_IN1:
+		TIM_PWM->CCR1 = pwm_val;
+		break;
+	case PIN_IN2:
+		TIM_PWM->CCR2 = pwm_val;
+		break;
+	case PIN_IN3:
+		TIM_PWM->CCR3 = pwm_val;
+		break;
+      	}
 }
