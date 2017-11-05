@@ -11,6 +11,9 @@
 #define LED_ORANGE_ODR GPIO_ODR_ODR_13
 #define LED_RED_ODR GPIO_ODR_ODR_14
 #define LED_BLUE_ODR GPIO_ODR_ODR_15
+#define LED_ODR_MASK (LED_GREEN_ODR | LED_ORANGE_ODR | LED_RED_ODR | LED_BLUE_ODR)
+
+#define PORT_LED GPIOD
 
 void board_led_init(void);
 

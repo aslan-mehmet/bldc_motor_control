@@ -13,6 +13,11 @@
 #define PIN_IN2 GPIO_ODR_ODR_11
 #define PIN_IN3 GPIO_ODR_ODR_13
 
+#define TIM_PWM TIM1
+#define TIM_CH1 TIM_CCER_CC1E
+#define TIM_CH2 TIM_CCER_CC2E
+#define TIM_CH3 TIM_CCER_CC3E
+#define TIM_CH_MASK (TIM_CH1 | TIM_CH2 | TIM_CH3)
 #define PWM_MAX 2000
 
 void tim1_pwm_init(void)
@@ -53,7 +58,7 @@ void tim1_pwm_init(void)
 
 	/* PWM mode 1 - In upcounting, channel 1 is active as long as TIMx_CNT<TIMx_CCR1 */
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Disable;
 	TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable;
 	TIM_OCInitStructure.TIM_Pulse = 0;
 	/* ccer, cc1p active high */
@@ -87,33 +92,20 @@ int main(void)
 	board_led_init();
 	tim1_pwm_init();
 
-	uint32_t seq[] = {PIN_IN1, PIN_IN2, PIN_IN3};
+	TIM_PWM->CCER &= ~TIM_CH_MASK;
+	PORT_LED->ODR &= ~LED_RED_ODR;
 
-	uint8_t i = 0;
+	/* suppose to always inactive */
+	TIM_SetCompare1(TIM1, 0);
+	/* always active */
+	TIM_SetCompare2(TIM1, PWM_MAX + 200);
+	/* quarter pulse */
+	TIM_SetCompare3(TIM1, PWM_MAX / 4);
+	
 	while (1) {
 		delay(2);
-
-		if (i == 3) {
-			i = 0;
-		}
-
-		TIM1->CCR1 = 0;
-		TIM1->CCR2 = 0;
-		TIM1->CCR3 = 0;
-
-		switch (seq[i]) {
-		case PIN_IN1:
-			TIM1->CCR1 = 500;
-			break;
-		case PIN_IN2:
-			TIM1->CCR2 = 500;
-			break;
-		case PIN_IN3:
-			TIM1->CCR3 = 500;
-			break;			
-		}
-
+				
+		TIM_PWM->CCER ^= TIM_CH_MASK;
 		PORT_LED->ODR ^= LED_RED_ODR;
-		++i;
 	}
 }
