@@ -1,13 +1,37 @@
+/**
+ * @file folder.c
+ * @author Mehmet ASLAN
+ * @date December 3, 2017
+ * @copyright Gnu General Public License Version 3 or Later
+ */
 #include <dirent.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/stat.h>
-
+#include "folder.h"
+/* temp folder name base, max number at the end 9999 */
 static char _temp_folder_name[] = "/tmp/serial_comm0000";
+/* each instance creates temp folder and keep all files*/
+volatile static int _keep_temp_files = 0;
 
-int remove_temp_folder(void)
+static int remove_temp_folder(void);
+
+void exit_folder(void)
+{
+	if (_keep_temp_files == 0 && remove_temp_folder() != 0) {
+		puts("fail: remove_temp_folder");
+	}
+
+}
+
+void keep_temp_folder(void)
+{
+	_keep_temp_files = 1;
+}
+
+static int remove_temp_folder(void)
 {
 	DIR *dir = opendir(_temp_folder_name);
 	if (dir == NULL) {

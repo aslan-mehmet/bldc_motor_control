@@ -59,7 +59,7 @@ extern "C" {
 #include <windows.h>
 
 #endif
-
+// it was already existed, oops
 int get_comport_number(char *port_name);
 int RS232_OpenComport(int, int, const char *);
 int RS232_PollComport(int, unsigned char *, int);
