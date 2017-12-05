@@ -19,4 +19,5 @@ void board_led_init(void)
 	g.GPIO_Speed = GPIO_Speed_100MHz;                  
 	g.GPIO_PuPd = GPIO_PuPd_NOPULL;                    
 	GPIO_Init(GPIOD, &g);
+
 }
