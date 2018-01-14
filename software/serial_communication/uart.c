@@ -43,7 +43,7 @@ void exit_uart(void)
 	uart_close();
 }
 
-void uart_set_default(void)
+void default_uart(void)
 {
 	strcpy(my_uart.name, "/dev/tty0");
 	my_uart.mode[UART_SIZE] = '8'; /* 8 bits comm */
@@ -117,19 +117,6 @@ int uart_read(uint8_t *bfr, int bfr_len)
 	len = RS232_PollComport(my_uart.port_number, bfr, bfr_len);
 
 	return len;
-}
-
-int uart_loop(uint8_t *bfr, int bfr_len)
-{
-	int r = uart_read(bfr, bfr_len);
-
-	for (int i = 0; i < r; ++i) {
-		serial_receives_byte(bfr[i]);
-	}
-
-	serial_loop();
-
-	return r;
 }
 
 void serial_send_byte(uint8_t byt)

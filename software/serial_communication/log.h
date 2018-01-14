@@ -15,6 +15,6 @@ void exit_log(void);
 /** @brief open log files with append */
 void start_log(void);
 /** @brief if logging not started nothing will happen */
-void loop_log(uint8_t *ptr, int len);
+void log_loop(uint8_t *ptr, int len);
 
 #endif /* __LOG_H */
