@@ -20,6 +20,13 @@ tim1 and tim2 freq = relavent bus * 2
 {SYSCLK_Frequency = 168000000, HCLK_Frequency = 168000000, 
   PCLK1_Frequency = 42000000, PCLK2_Frequency = 84000000}
 
+**************************************************
+
+after adding prescaler for hclk, pclk1, pclk2
+
+{SYSCLK_Frequency = 168000000, HCLK_Frequency = 168000000, 
+  PCLK1_Frequency = 42000000, PCLK2_Frequency = 84000000}
+
 
 
 

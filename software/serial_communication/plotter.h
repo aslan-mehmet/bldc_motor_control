@@ -5,6 +5,8 @@
 int plotter_create(int mem);
 /* no longer needed, delete from existence*/
 void plotter_destroy(void);
+/* only once at the beginning */
+void default_plotter(void);
 /* user wants out */
 void exit_plotter(void);
 
@@ -16,5 +18,5 @@ void plotter_set_yrange(double min, double max);
 void plotter_put_data(double data);
 /* redraw if new data received */
 void plotter_loop(void);
-void default_plotter(void);
+
 #endif

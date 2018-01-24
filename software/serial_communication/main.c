@@ -31,6 +31,7 @@ void exit_main(void)
 void default_main(void)
 {
         default_uart();
+        default_plotter();
 }
 
 static void signal_handler(int signum)
@@ -131,8 +132,9 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	plotter_create(1000, 0, 4095);
-
+	plotter_create(1000);
+        plotter_set_yrange(0, 4095);
+        
         int n_read = 0;
 	while (1) {
 		n_read = uart_read(uart_rx_bfr, UART_RX_SIZE);

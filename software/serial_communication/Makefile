@@ -1,7 +1,7 @@
 NAME=serial_comm
 
 all:
-	gcc -g -D_POSIX_C_SOURCE=199309L  *.c -o $(NAME) -lslope -lm `pkg-config --cflags --libs gtk+-3.0`
+	gcc -g -D__PLOTTER_SERIAL_PACKET_DEBUG -D_POSIX_C_SOURCE=199309L  *.c -o $(NAME) -lslope -lm `pkg-config --cflags --libs gtk+-3.0` 
 clean:
 	rm $(NAME)
 # found the bug
