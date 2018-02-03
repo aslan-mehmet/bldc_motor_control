@@ -1,112 +1,169 @@
+#include <stdlib.h>
 #include <slope/slope.h>
+#include "plotter.h"
 
-double *_x = NULL, *_y = NULL;
-/* number of points to draw */
-/* y_len = x_len */
-int _x_len;
-/* y axis borders */
-double _y_min, _y_max;
-int _x_index = 0;
+SlopeScale *_scale;
+SlopeItem *_series;
+GtkWidget *_chart;
 
-SlopeScale *scale;
-SlopeItem *series;
-GtkWidget *chart;
+/* if NULL plotter not created or destroyed */
+static double *_x = NULL, *_y = NULL;
+static int _n_pts = 0;
+static double _y_range[2] = {0, 1};
 
-static void plotter_create_figure(void)
+static void plotter_close(GtkWidget *widget, gpointer data)
 {
-	gtk_init(NULL, NULL);
-	chart = slope_chart_new();
-	g_signal_connect(G_OBJECT(chart), "destroy", G_CALLBACK(gtk_main_quit), NULL);
-
-	scale = slope_xyscale_new();
-	slope_chart_add_scale(SLOPE_CHART(chart), scale);
-
-	series = slope_xyseries_new_filled("Data", _x, _y, _x_len, "b-");
-	slope_scale_add_item(scale, series);
-	slope_xyscale_set_x_range(SLOPE_XYSCALE(scale), _x[0], _x[_x_len - 1]);
-	slope_xyscale_set_y_range(SLOPE_XYSCALE(scale), _y_min, _y_max);
-
-	gtk_widget_show_all(chart);
+        if (_x == NULL) {
+                return;
+        }
+        plotter_destroy();
+        puts("chart closed");
 }
 
-int plotter_create(int x_len,
-                  double y_min,
-                  double y_max)
+/* create plotter, allocate memory */
+int plotter_create(int mem)
 {
-	_y_min = y_min;
-	_y_max = y_max;
-	_x_len = x_len;
+        /* so alread created */
+        if (_x != NULL) {
+                plotter_destroy();
+        }
+        
+        _x = (double *) malloc(sizeof(double) * mem);
+        _y = (double *) malloc(sizeof(double) * mem);
+        /* default show all points in memory */
+        _n_pts = mem;
+        
+        if (_x == NULL || _y == NULL) {
+                if (_x != NULL) {
+                        free(_x);
+                }
 
-	_x = (double *) g_malloc(sizeof(double) * x_len);
-	_y = (double *) g_malloc(sizeof(double) * x_len);
+                if (_y != NULL) {
+                        free(_y);
+                }
 
-	if (_x == NULL | _y == NULL) {
-		return -1;
-	}
+                return -1;
+        }
 
-	for (int i = 0; i < _x_len; i++) {
-		_x[i] = i;
-		_y[i] = 0;
-	}
+        for (int i = 0; i < _n_pts; ++i) {
+                _x[i] = 0;
+                _y[i] = 0;
+        }
+        _x[_n_pts-1] = 1;
 
-	plotter_create_figure();
+        /* _chart is a widget */
+        _chart = slope_chart_new();        
 
-	return 0;
+        g_signal_connect(G_OBJECT(_chart), "destroy", G_CALLBACK(plotter_close), NULL);
+
+
+        /* DONT HAVE CLUE HOW GObject WORKS */
+        /* return SLOPE_SCALE(self) */
+        /* #define SLOPE_SCALE(obj) \ */
+        /* (G_TYPE_CHECK_INSTANCE_CAST((obj), SLOPE_SCALE_TYPE, SlopeScale)) */
+        /* #define SLOPE_SCALE_TYPE (slope_scale_get_type()) */
+        _scale = slope_xyscale_new();
+        slope_chart_add_scale(SLOPE_CHART(_chart), _scale);
+        _series = slope_xyseries_new_filled("data", _x, _y, _n_pts, "b-");
+        slope_scale_add_item(_scale, _series);
+        slope_xyscale_set_x_range(SLOPE_XYSCALE(_scale), _x[0], _x[_n_pts - 1]);
+        slope_xyscale_set_y_range(SLOPE_XYSCALE(_scale), _y_range[0], _y_range[1]);
+
+        gtk_widget_show_all(_chart);
 }
 
-
-
+/* no longer needed, delete from existence*/
 void plotter_destroy(void)
 {
-	if (_x == NULL) {
-		return;
-	}
+        if (_x != NULL) {
+                free(_x);
+                _x = NULL;
+        }
 
-	g_free(_x);
-	g_free(_y);
+        if (_y != NULL) {
+                free(_y);
+                _y = NULL;
+        }
 
-	_x = NULL;
-	_y = NULL;
+        /* SlopeScale *_scale; */
+        /* SlopeItem *_series; */
+        /* GtkWidget *_chart; */
+}
+
+
+void default_plotter(void)
+{
+        gtk_init(NULL, NULL);        
+}
+/* user wants out */
+void exit_plotter(void)
+{
+        if (_x == NULL) {
+                return;
+        }
+                
+        plotter_destroy();
+}
+
+/* number of points to display before last received data */
+void plotter_set_n_points(int n_pts)
+{
+        if (_x == NULL) {
+                return;
+        }
+        
+        plotter_destroy();
+        plotter_create(n_pts);
+}
+
+void plotter_set_yrange(double min, double max)
+{
+        if (_x == NULL) {
+                return;
+        }
+        
+        _y_range[0] = min;
+        _y_range[1] = max;
 }
 
 static void plotter_redraw(void)
 {
-	slope_xyseries_update_data(SLOPE_XYSERIES(series), _x, _y, _x_len);
-	slope_xyscale_set_x_range(SLOPE_XYSCALE(scale), _x[0], _x[_x_len - 1]);
-	slope_xyscale_set_y_range(SLOPE_XYSCALE(scale), _y_min, _y_max);
-	slope_chart_redraw(SLOPE_CHART(chart));
+        if (_x == NULL) {
+                return;
+        }
+        
+	slope_xyseries_update_data(SLOPE_XYSERIES(_series), _x, _y, _n_pts);
+	slope_xyscale_set_x_range(SLOPE_XYSCALE(_scale), _x[0], _x[_n_pts - 1]);
+	slope_xyscale_set_y_range(SLOPE_XYSCALE(_scale), _y_range[0], _y_range[1]);
+	slope_chart_redraw(SLOPE_CHART(_chart));
 }
 
+/* put incoming data to be plotted */
 void plotter_put_data(double data)
 {
-	if (_x == NULL) {
-		return;
-	}
+        if (_x == NULL) {
+                return;
+        }
 
-	if (_x_index < _x_len) {
-		_y[_x_index++] = data;
-	} else  {
-		int last = _x_len - 1;
+        int last = _n_pts - 1;
+        
+        for (int i = 0; i < last; ++i) {
+                _x[i] = _x[i+1];
+                _y[i] = _y[i+1];
+        }
 
-		for (int i = 0; i < last; i++) {
-			_x[i] = _x[i+1];
-			_y[i] = _y[i+1];
-		}
-
-		_x[last] = _x_index;
-		_y[last] = data;
-
-		_x_index++;
-	}
-	plotter_redraw();
+        _x[last]++;
+        _y[last] = data;
+        plotter_redraw();
 }
 
+/* redraw if new data received */
 void plotter_loop(void)
 {
-	gtk_main_iteration_do(FALSE);
-}
-
-void exit_plotter(void)
-{
-	plotter_destroy();
+        if (_x == NULL) {
+                return;
+        }
+        /* single iteration of the main loop */
+        /* if event not avaliable get out */
+        gtk_main_iteration_do(FALSE);
 }

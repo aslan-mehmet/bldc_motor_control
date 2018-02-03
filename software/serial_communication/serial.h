@@ -50,6 +50,8 @@ void serial_init(void);
  * @brief packages data w/ given parameters and puts into tx buffer 
  */
 void serial_encode(uint8_t payload_id, uint8_t payload_size, void *payload_ptr);
+/** @brief when hardware received byte array, pass w/ this function to serial  */
+void serial_receives_buf(uint8_t *buf, int len);
 /** @brief when hardware received byte, pass w/ this function to serial  */
 void serial_receives_byte(uint8_t byt);
 /** 

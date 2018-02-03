@@ -26,6 +26,11 @@ void exit_folder(void)
 
 }
 
+void show_temp_folder_loc(void)
+{
+        puts(_temp_folder_name);
+}
+
 void keep_temp_folder(void)
 {
 	_keep_temp_files = 1;
@@ -94,6 +99,5 @@ int chdir_temp_folder(void)
 		return -2;
 	}
 
-	puts(_temp_folder_name);
 	return 0;
 }

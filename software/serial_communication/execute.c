@@ -12,6 +12,7 @@ static char _exec_names[N_EXECS][100] = {"help", /* 0 */
 };
 
 /* first word is name of the execution */
+/* like command in bash */
 int get_exec_number(char *str)
 {
 	int r = -1;
@@ -25,6 +26,10 @@ int get_exec_number(char *str)
 	return r;
 }
 
+/* 
+ * print execution help string
+ * which is what you can do interactively
+ */
 static void print_help(void)
 {
 	puts("execution names");
@@ -33,7 +38,7 @@ static void print_help(void)
 		printf("%d->%s\n", i, _exec_names[i]);
 	}
 }
-
+/* do words separated as in argv */
 static void test_word(void)
 {
 	for (int i = 0; i < _argc; ++i) {
@@ -41,6 +46,10 @@ static void test_word(void)
 	}
 }
 
+/* 
+ * execution is similar to command in bash 
+ * it uses getopt long to parse options
+ */
 static void test_opt(void)
 {
 	optind = 0;
@@ -66,10 +75,12 @@ static void test_opt(void)
 
 void execute(int n_words, char **words)
 {
-	_argc = n_words;
+        /* _argc and _argv static pointers */
+        _argc = n_words;
 	_argv = words;
 
 	switch (get_exec_number(words[0])) {
+                /* executions know options with above static pointers */
 	case 0:
 		print_help();
 		break;

@@ -41,7 +41,7 @@ void write_log(uint8_t *ptr, int len)
 	}
 }
 
-void loop_log(uint8_t *ptr, int len)
+void log_loop(uint8_t *ptr, int len)
 {
 	if (len <= 0) {
 		return;

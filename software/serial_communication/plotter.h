@@ -1,10 +1,22 @@
 #ifndef __PLOTTER_H
 #define __PLOTTER_H
 
-int plotter_create(int x_len, double y_min, double y_max);
+/* create plotter, allocate memory */
+int plotter_create(int mem);
+/* no longer needed, delete from existence*/
 void plotter_destroy(void);
-void plotter_put_data(double data);
-void plotter_loop(void);
+/* only once at the beginning */
+void default_plotter(void);
+/* user wants out */
 void exit_plotter(void);
+
+/* number of points to display before last received data */
+void plotter_show_n_points(int n_pts);
+void plotter_set_yrange(double min, double max);
+
+/* put incoming data to be plotted */
+void plotter_put_data(double data);
+/* redraw if new data received */
+void plotter_loop(void);
 
 #endif

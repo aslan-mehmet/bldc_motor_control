@@ -38,7 +38,11 @@ static int allocate_words(void) {
 
 static void free_words(void)
 {
-	for (int i = 0; i < MAX_N_WORDS; ++i) {
+        if (_words == NULL) {
+                return;
+        }
+
+        for (int i = 0; i < MAX_N_WORDS; ++i) {
 		if (_words[i] != NULL) {
 			free(_words[i]);
 			_words[i] = NULL;

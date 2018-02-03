@@ -177,6 +177,13 @@ void serial_loop(void)
 
 }
 
+void serial_receives_buf(uint8_t *buf, int len)
+{
+        for (int i = 0; i < len; ++i) {
+                serial_receives_byte(buf[i]);
+        }
+}
+
 void serial_receives_byte(uint8_t byt)
 {
 	write_fifo(&_rx_fifo, byt);
