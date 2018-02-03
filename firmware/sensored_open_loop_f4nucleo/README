@@ -1,0 +1,7 @@
+nucleo-f401re board
+stm32f40ret6u uc
+
+why change boards?
+f4discovery board filled with jumper cables. dont like it
+
+
