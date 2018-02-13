@@ -1,0 +1,6 @@
+#ifndef __HALL_H
+#define __HALL_H
+
+void hall_init(void);
+
+#endif

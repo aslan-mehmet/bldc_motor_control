@@ -44,10 +44,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../delay.h" />
-		<Unit filename="../f4nucleo_board.c">
+		<Unit filename="../hall.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../f4nucleo_board.h" />
+		<Unit filename="../hall.h" />
 		<Unit filename="../lib/cmsis/inc/arm_common_tables.h" />
 		<Unit filename="../lib/cmsis/inc/arm_const_structs.h" />
 		<Unit filename="../lib/cmsis/inc/arm_math.h" />
@@ -233,10 +233,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../main.h" />
-		<Unit filename="../morse.c">
+		<Unit filename="../motor.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../morse.h" />
+		<Unit filename="../motor.h" />
 		<Unit filename="../startup_stm32f401xx.s" />
 		<Unit filename="../stm32f401re.ld" />
 		<Unit filename="../stm32f4xx.h" />
@@ -249,6 +249,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../system_stm32f4xx.h" />
+		<Unit filename="../uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../uart.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

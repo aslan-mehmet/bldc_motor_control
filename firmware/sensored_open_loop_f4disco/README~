@@ -1,0 +1,11 @@
+hall.c
+init hall pins
+speed sensor
+
+uart.c
+init uart
+protocol setup
+
+motor.c
+init pwms
+commutate

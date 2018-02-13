@@ -1,0 +1,5 @@
+#include "stm32f4xx.h"
+
+#define POS ((uint8_t)1)
+#define NEG ((uint8_t)2)
+#define FLT ((uint8_t)3)

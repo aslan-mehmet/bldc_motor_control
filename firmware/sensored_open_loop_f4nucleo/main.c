@@ -5,16 +5,12 @@
  * use it at your own risk
  */
 #include "stm32f4xx.h"
-#include "delay.h"
-#include "f4nucleo_board.h"
-#include "bits.h"
-#include "morse.h"
+#include "hall.h"
+#include "uart.h"
+#include "motor.h"
 
 int main(void)
 {
-        RCC_ClocksTypeDef r;
-        RCC_GetClocksFreq(&r);
-
         /* 1ms tick */
 	if (SysTick_Config(SystemCoreClock / 1000)) {
 		while (1)
@@ -24,17 +20,14 @@ int main(void)
         /* @arg NVIC_PriorityGroup_2: 2 bits for pre-emption priority */
         /*                            2 bits for subpriority */
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	/* syscfg reset, so only change interrupt you use*/
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
-	board_led_init();
+	uart_init();
+	hall_sensor_init();
+	motor_init();
+	motor_set_pwm(500);
 
-        char arr[2]={'\0', '\0'};
-        for (int i = 'a'; i <= 'z'; ++i) {
-                arr[0] = i;
-                buz_word(arr);
-        }
-
-        for (int i = '0'; i <= '9'; ++i) {
-                arr[0] = i;
-                buz_word(arr);
-        }
+	while (1)
+                ;
 }
