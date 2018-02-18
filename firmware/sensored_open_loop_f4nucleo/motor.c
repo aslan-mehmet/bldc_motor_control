@@ -12,6 +12,7 @@
 
 /* for rotation direction look pins through output shaft */
 /* ccw in commutation_seq.png */
+/* S state */
 #define IN_S5 PIN_IN2
 #define IN_S4 PIN_IN3
 #define IN_S6 PIN_IN3
@@ -36,6 +37,7 @@ uint32_t pwm_en_seq[] = {IN_S1, IN_S2, IN_S3, IN_S4, IN_S5, IN_S6};
 #define PIN_DIAG GPIO_ODR_ODR_5
 #define EN_MASK (PIN_EN1 | PIN_EN2 | PIN_EN3)
 
+/* S state */
 /* ccw in commutation_seq.png */
 #define EN_S5 (PIN_EN1 | PIN_EN2)
 #define EN_S4 (PIN_EN1 | PIN_EN3)
