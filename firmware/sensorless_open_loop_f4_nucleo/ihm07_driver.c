@@ -81,23 +81,31 @@ uint8_t ihm07_hall_read(void)
         return (val & 0x07);
 }
 
-#define PORT_IN GPIOA
-#define PIN_IN1 GPIO_Pin_8
-#define PIN_IN2 GPIO_Pin_9
-#define PIN_IN3 GPIO_Pin_10
+void ihm07_board_and_pins_init(void)
+{
+        RCC_AHB1PeriphClockCmd(PORT_DIAG_EN_CLK, ENABLE);
+	RCC_AHB1PeriphClockCmd(PORT_GPIO_BEMF_CLK, ENABLE);
+	
+	GPIO_InitTypeDef GPIO_InitStructure;
+	
+	GPIO_InitStructure.GPIO_Pin = PIN_DIAG_EN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(PORT_DIAG_EN, &GPIO_InitStructure);
 
-#define PORT_EN GPIOC
-#define PIN_EN1 GPIO_Pin_10
-#define PIN_EN2 GPIO_Pin_11
-#define PIN_EN3 GPIO_Pin_12
+	        /* float all the channels */
+	PORT_DIAG_EN->ODR &= ~PIN_DIAG_EN_ODR;
 
-#define PORT_DIAG_EN GPIOA
-#define PIN_DIAG GPIO_Pin_5
+	GPIO_InitStructure.GPIO_Pin = PIN_GPIO_BEMF;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_Init(PORT_GPIO_BEMF, &GPIO_InitStructure);
 
-#define PORT_GPIO_BEMF GPIO_Pin_12
-#define PIN_GPIO_BEMF GPIOA
+	PORT_GPIO_BEMF &= ~PIN_GPIO_BEMF_ODR;
+}
 
-void ihm07_pwm_init(void)
+void ihm07_pwm_and_pins_init(void)
 {
         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
@@ -113,16 +121,9 @@ void ihm07_pwm_init(void)
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(PORT_EN, &GPIO_InitStructure);
         /* float each channel */
-	PORT_EN->ODR &= ~(GPIO_ODR_ODR_10 | GPIO_ODR_ODR_11 | GPIO_ODR_ODR_12);
+	PORT_EN->ODR &= ~(PIN_EN1_ODR | PIN_EN2_ODR | PIN_EN3_ODR); 
 
-        GPIO_InitStructure.GPIO_Pin =
-
-	GPIO_InitStructure.GPIO_Pin = PIN_DIAG;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
-	GPIO_Init(PORT_DIAG_EN, &GPIO_InitStructure);
-        /* float all the channels */
-	PORT_DIAG_EN->ODR &= ~PIN_DIAG;
-
+	
 	GPIO_InitStructure.GPIO_Pin = PIN_IN1 | PIN_IN2 | PIN_IN3;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
