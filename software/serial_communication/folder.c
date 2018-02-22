@@ -14,7 +14,7 @@
 /* temp folder name base, max number at the end 9999 */
 static char _temp_folder_name[] = "/tmp/serial_comm0000";
 /* each instance creates temp folder and keep all files*/
-volatile static int _keep_temp_files = 0;
+static int _keep_temp_files = 0;
 
 static int remove_temp_folder(void);
 
@@ -45,16 +45,16 @@ static int remove_temp_folder(void)
 
 	size_t buf_size = sizeof(char) * (strlen(_temp_folder_name) + 500);
 	char *buf = (char *) malloc(buf_size);
-	
+
 	getcwd(buf, buf_size);
-	
+
 	if (strcmp(buf, _temp_folder_name) != 0) { /* cwd not temp folder */
 		closedir(dir);
 		return -2;
 	}
-	
+
 	struct dirent *ent = NULL;
-	
+
 	while ((ent = readdir(dir)) != NULL) {
 		if (strcmp(ent->d_name, ".") == 0) {
 			continue;
@@ -69,8 +69,8 @@ static int remove_temp_folder(void)
 	/* dir must be empty */
 	if (rmdir(_temp_folder_name) != 0) {
 		return -3; 	/* means fail to delete */
-	} 
-	    
+	}
+
 	return 0;
 }
 
@@ -81,10 +81,10 @@ int chdir_temp_folder(void)
 	char *folder_number = _temp_folder_name + strlen("/tmp/serial_comm");
 
 	struct stat buf;
-	
+
 	for (int i = 0; i < 9999; ++i) {
 		snprintf(folder_number, sizeof(char) * 4, "%d", i);
-		
+
 		if (stat(_temp_folder_name, &buf)) { /* directory not exist */
 			break;
 		}
@@ -94,7 +94,7 @@ int chdir_temp_folder(void)
 	if (mkdir(_temp_folder_name, S_IRWXU) != 0) {
 		return -1;
 	}
-	
+
 	if (chdir(_temp_folder_name) != 0) {
 		return -2;
 	}

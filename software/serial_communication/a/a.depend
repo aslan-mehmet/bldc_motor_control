@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1518992937 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/command.c
+	<getopt.h>
+	<string.h>
+	<stdio.h>
+	"serial.h"
+
+1517688499 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/serial.h
+	<stdint.h>
+
+1517688499 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/fifo.c
+	"fifo.h"
+
+1517688499 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/fifo.h
+	<stdint.h>
+
+1518990425 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/folder.c
+	<dirent.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<stdio.h>
+	<sys/stat.h>
+	"folder.h"
+
+1518988157 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/folder.h
+
+1517688499 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/help.c
+
+1518995500 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/input_fifo.c
+	<sys/stat.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	"command.h"
+
+1518990716 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/command.h
+
+1517688499 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/log.c
+	<stdio.h>
+	<stdint.h>
+
+1518994713 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/main.c
+	"folder.h"
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	<getopt.h>
+	<time.h>
+	"log.h"
+	"uart.h"
+	"input_fifo.h"
+	"serial.h"
+
+1517688499 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/log.h
+	<stdint.h>
+
+1517688499 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/uart.h
+	<stdint.h>
+
+1518994557 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/input_fifo.h
+
+1516636651 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/rs232.c
+	"rs232.h"
+	<string.h>
+
+1516636651 /home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/rs232.h
+	<stdio.h>
+	<string.h>
+	<termios.h>
+	<sys/ioctl.h>
+	<unistd.h>
+	<fcntl.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<limits.h>
+	<sys/file.h>
+	<errno.h>
+	<windows.h>
+
+1517688499 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/serial.c
+	"serial.h"
+	"fifo.h"
+
+1517688499 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/syscheck.c
+	<stdint.h>
+
+1518989161 source:/home/mehmet_aslan/Documents/bldc_motor_control/software/serial_communication/uart.c
+	<string.h>
+	"rs232.h"
+	"uart.h"
+	"serial.h"
+

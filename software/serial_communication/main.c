@@ -12,15 +12,13 @@
 #include <time.h>
 #include "log.h"
 #include "uart.h"
-#include "server.h"
+#include "input_fifo.h"
 #include "serial.h"
-#include "plotter.h"
 
 /* call all exit function in every src file */
 void exit_main(void)
 {
-	exit_plotter();
-	exit_server();
+	input_fifo_close();
 	exit_uart();
 	exit_log();
 	exit_folder();
@@ -31,7 +29,6 @@ void exit_main(void)
 void default_main(void)
 {
         default_uart();
-        default_plotter();
 }
 
 static void signal_handler(int signum)
@@ -75,7 +72,7 @@ int main(int argc, char **argv)
 	signal(SIGINT, signal_handler);
 
         default_main();
-        
+
 	struct option long_options[] = {
 		{"baudrate", required_argument, NULL, 'b'},
 		{"port_name", required_argument, NULL, 'p'},
@@ -83,7 +80,7 @@ int main(int argc, char **argv)
 		{"keep_temp_files", no_argument, NULL, 'k'},
 		{"log_received_data", no_argument, NULL, 'l'},
 		{"help", no_argument, NULL, 'h'},
-		{"show_avail_bauds", no_argument, NULL, 'z'},                
+		{"show_avail_bauds", no_argument, NULL, 'z'},
 		/* You have to terminate the longopts array with an entry that is all zeros,
 		   otherwise getopt_long doesn't know when it ends.
 		   Your code is crashing because getopt_long is just iterating through
@@ -119,7 +116,7 @@ int main(int argc, char **argv)
                 case 'z':
                         puts(help_avaliable_baud_str);
                         exit_main();
-                        break;       
+                        break;
 		}
 	}
 
@@ -128,37 +125,21 @@ int main(int argc, char **argv)
 	uint8_t uart_rx_bfr[UART_RX_SIZE];
 	uart_connect();
 
-	if (server_create()) {
+	if (input_fifo_open()) {
 		return -1;
 	}
 
-	plotter_create(1000);
-        plotter_set_yrange(0, 4095);
-        
         int n_read = 0;
 	while (1) {
 		n_read = uart_read(uart_rx_bfr, UART_RX_SIZE);
 
                 serial_receives_buf(uart_rx_bfr, n_read);
                 serial_loop();
-                
+
                 log_loop(uart_rx_bfr, n_read);
-		server_loop();
-      		plotter_loop();
+		input_fifo_process();
 
                 delay_ms(10);
-
-
-
-#ifdef __PLOTTER_SERIAL_PACKET_DEBUG
-/* connect ttyUSB chip RX TX PINS */		
-static uint16_t data = 0;
-data+=100;
-if (data > 4096)
-	data = 0;
-		
-uart_encode(0x32, sizeof(data), &data);
-#endif
 	}
 
 	/* should not come here */

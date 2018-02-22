@@ -142,17 +142,24 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
-volatile uint64_t msTicks = 0;
+volatile uint64_t _ms_ticks = 0;
 void SysTick_Handler(void)
 {
 	/* overflows in eternity */
-	++msTicks;
+	++_ms_ticks;
 }
 
 /* return time in ms, from startup */
 uint64_t get_time(void)
 {
-	return msTicks;
+	return _ms_ticks;
+}
+
+void delay(uint32_t ms)
+{
+	uint64_t hold_time = _ms_ticks;
+	while (_ms_ticks - hold_time <= ms)
+		;
 }
 
 /******************************************************************************/
@@ -170,6 +177,56 @@ uint64_t get_time(void)
 /*void PPP_IRQHandler(void)
 {
 }*/
+/* ihm07_driver.c */
+void ihm07_hall_state_change_callback(void) __attribute__ ((weak));
+extern void ihm07_hall_state_change_callback(void);
+void EXTI15_10_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 0;
+         * NVIC_IRQChannelSubPriority = 0;
+         */
+
+        if (EXTI_GetITStatus(EXTI_Line15) == SET) {
+
+                EXTI_ClearITPendingBit(EXTI_Line15);
+                ihm07_hall_state_change_callback();
+        }
+
+        if (EXTI_GetITStatus(EXTI_Line10) == SET) {
+                EXTI_ClearITPendingBit(EXTI_Line10);
+                ihm07_hall_state_change_callback();
+        }
+}
+
+void EXTI3_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 0;
+         * NVIC_IRQChannelSubPriority = 0;
+         */
+
+        if (EXTI_GetITStatus(EXTI_Line3) == SET) {
+
+                EXTI_ClearITPendingBit(EXTI_Line3);
+                ihm07_hall_state_change_callback();
+        }
+}
+
+/* serial_driver.c */
+extern void serial_receives_byte(uint8_t byt);
+void USART1_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 1;
+         * NVIC_IRQChannelSubPriority = 0;
+	 */
+
+        if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET) {
+		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
+                serial_receives_byte((uint8_t) USART_ReceiveData(USART1));
+	}
+}
 
 /**
   * @}

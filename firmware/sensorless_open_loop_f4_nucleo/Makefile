@@ -50,7 +50,7 @@ SRCS+=$(wildcard *.s)
 # creates huge binary file
 # for optimization only choose which used
 SRCS+=misc.c
-#SRCS+=stm32f4xx_adc.c
+SRCS+=stm32f4xx_adc.c
 #SRCS+=stm32f4xx_can.c
 #SRCS+=stm32f4xx_cec.c
 #SRCS+=stm32f4xx_crc.c

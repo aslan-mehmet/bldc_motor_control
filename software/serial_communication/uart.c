@@ -8,7 +8,6 @@
 #include "rs232.h"
 #include "uart.h"
 #include "serial.h"
-#include "plotter.h"
 
 #define UART_NAME_BUFFER_SIZE 256 // with null char
 /* mode index meanings */
@@ -134,14 +133,12 @@ void serial_payload_handler(uint8_t payload_id, uint8_t payload_size
 {
 	uint16_t u16;
 	double d;
-	
+
 	switch (payload_id) {
 	case 0x32:
 		if (payload_size == 2) {
 			safe_memory_copy(&u16, payload, payload_size);
 			d = (double) u16;
-
-			plotter_put_data(d);
 		}
 		break;
 	}

@@ -40,14 +40,14 @@
 		<Unit filename="../Makefile" />
 		<Unit filename="../README" />
 		<Unit filename="../bits.h" />
-		<Unit filename="../delay.c">
+		<Unit filename="../fifo.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../delay.h" />
-		<Unit filename="../hall.c">
+		<Unit filename="../fifo.h" />
+		<Unit filename="../ihm07_driver.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../hall.h" />
+		<Unit filename="../ihm07_driver.h" />
 		<Unit filename="../lib/cmsis/inc/arm_common_tables.h" />
 		<Unit filename="../lib/cmsis/inc/arm_const_structs.h" />
 		<Unit filename="../lib/cmsis/inc/arm_math.h" />
@@ -233,10 +233,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../main.h" />
-		<Unit filename="../motor.c">
+		<Unit filename="../serial.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../motor.h" />
+		<Unit filename="../serial.h" />
+		<Unit filename="../serial_driver.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../serial_driver.h" />
 		<Unit filename="../startup_stm32f401xx.s" />
 		<Unit filename="../stm32f401re.ld" />
 		<Unit filename="../stm32f4xx.h" />
@@ -249,10 +253,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../system_stm32f4xx.h" />
-		<Unit filename="../uart.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../uart.h" />
+		<Unit filename="../time.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
