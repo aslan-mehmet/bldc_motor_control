@@ -1,0 +1,101 @@
+#ifndef __IHM07_DRIVER_PINS_H
+#define __IHM07_DRIVER_PINS_H
+
+#include "stm32f4xx.h"
+
+/**
+ * hall sensor input
+ * PA15 - H1 - S1
+ * PB3  - H2 - S2
+ * PB10 - H3 - S3
+ */
+#define PORT_HALL1 GPIOA
+#define PORT_HALL2_HALL3 GPIOB
+
+#define PIN_HALL1 GPIO_Pin_15
+#define PIN_HALL2 GPIO_Pin_3
+#define PIN_HALL3 GPIO_Pin_10
+
+#define PORT_HALL1_CLK RCC_AHB1Periph_GPIOA
+#define PORT_HALL2_HALL3_CLK RCC_AHB1Periph_GPIOB
+
+#define EXTI_PortSourceHALL1 EXTI_PortSourceGPIOA
+#define EXTI_PortSourceHALL2_HALL3 EXTI_PortSourceGPIOB
+
+#define EXTI_PinSourceHALL1 EXTI_PinSource15
+#define EXTI_PinSourceHALL2 EXTI_PinSource3
+#define EXTI_PinSourceHALL3 EXTI_PinSource10
+
+#define EXTI_LineHALL1 EXTI_Line15
+#define EXTI_LineHALL2 EXTI_Line3
+#define EXTI_LineHALL3 EXTI_Line10
+
+#define EXTI_HALL1_HALL3_IRQn EXTI15_10_IRQn
+#define EXTI_HALL2_IRQn EXTI3_IRQn
+
+#define PORT_LED_RED GPIOB
+#define PIN_LED_RED GPIO_Pin_2
+#define PORT_LED_RED_CLK RCC_AHB1Periph_GPIOB
+
+/**
+ * IN1 - UH_PWM - OUT1 - PHASE_A - PA8
+ * IN2 - VH_PWM - OUT2 - PHASE_B - PA9
+ * IN3 - WH_PWM - OUT3 - PHASE_C - PA10
+ */
+#define PORT_IN1_IN2_IN3 GPIOA
+#define PIN_IN1 GPIO_Pin_8
+#define PIN_IN2 GPIO_Pin_9
+#define PIN_IN3 GPIO_Pin_10
+#define PORT_IN1_IN2_IN3_CLK RCC_AHB1Periph_GPIOA
+
+#define GPIO_PinSourceIN1 GPIO_PinSource8
+#define GPIO_PinSourceIN2 GPIO_PinSource9
+#define GPIO_PinSourceIN3 GPIO_PinSource10
+
+#define PORT_EN1_EN2_EN3 GPIOC
+#define PIN_EN1 GPIO_Pin_10
+#define PIN_EN2 GPIO_Pin_11
+#define PIN_EN3 GPIO_Pin_12
+#define PORT_EN1_EN2_EN3_CLK RCC_AHB1Periph_GPIOC
+
+#define PORT_DIAG_EN GPIOA
+#define PIN_DIAG_EN GPIO_Pin_6
+#define PORT_DIAG_EN_CLK RCC_AHB1Periph_GPIOA
+
+#define PORT_GPIO_BEMF GPIOC
+#define PIN_GPIO_BEMF GPIO_Pin_9
+#define PORT_GPIO_BEMF_CLK RCC_AHB1Periph_GPIOC
+
+#define PORT_CURR_FDBCK1 GPIOA
+#define PIN_CURR_FDBCK1 GPIO_Pin_0
+#define PORT_CURR_FDBCK1_CLK RCC_AHB1Periph_GPIOA
+#define IHM07_ADC_CH_FDBCK1 ADC_Channel_0
+
+#define PORT_CURR_FDBCK2_FDBCK3 GPIOC
+#define PIN_CURR_FDBCK2 GPIO_Pin_1
+#define PIN_CURR_FDBCK3 GPIO_Pin_0
+#define PORT_CURR_FDBCK2_FDBCK3_CLK RCC_AHB1Periph_GPIOC
+#define IHM07_ADC_CH_FDBCK2 ADC_Channel_11
+#define IHM07_ADC_CH_FDBCK3 ADC_Channel_10
+
+#define PORT_BEMF1 GPIOC
+#define PIN_BEMF1 GPIO_Pin_3
+#define PORT_BEMF1_CLK RCC_AHB1Periph_GPIOC
+#define IHM07_ADC_CH_BEMF1 ADC_Channel_13
+
+#define PORT_BEMF2 GPIOB
+#define PIN_BEMF2 GPIO_Pin_0
+#define PORT_BEMF2_CLK RCC_AHB1Periph_GPIOB
+#define IHM07_ADC_CH_BEMF2 ADC_Channel_8
+
+#define PORT_BEMF3 GPIOA
+#define PIN_BEMF3 GPIO_Pin_7
+#define PORT_BEMF3_CLK RCC_AHB1Periph_GPIOA
+#define IHM07_ADC_CH_BEMF3 ADC_Channel_7
+
+#define PORT_POT GPIOB
+#define PIN_POT GPIO_Pin_1
+#define PORT_POT_CLK RCC_AHB1Periph_GPIOB
+#define IHM07_ADC_CH_POT ADC_Channel_9
+
+#endif /* __IHM07_DRIVER_PINS_H */

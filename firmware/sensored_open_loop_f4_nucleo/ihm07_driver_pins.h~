@@ -1,0 +1,34 @@
+#ifndef __IHM07_DRIVER_H
+#define __IHM07_DRIVER_H
+
+/**
+ * IN1 - UH_PWM - OUT1 - PHASE_A - PA8
+ * IN2 - VH_PWM - OUT2 - PHASE_B - PA9
+ * IN3 - WH_PWM - OUT3 - PHASE_C - PA10
+ */
+#define PORT_IN GPIOA
+#define PIN_IN1 GPIO_Pin_8
+#define PIN_IN2 GPIO_Pin_9
+#define PIN_IN3 GPIO_Pin_10
+
+#define PORT_EN GPIOC
+#define PIN_EN1 GPIO_Pin_10
+#define PIN_EN2 GPIO_Pin_11
+#define PIN_EN3 GPIO_Pin_12
+#define PIN_EN1_ODR GPIO_ODR_ODR_10
+#define PIN_EN2_ODR GPIO_ODR_ODR_11
+#define PIN_EN3_ODR GPIO_ODR_ODR_12
+
+#define PORT_DIAG_EN GPIOA
+#define PIN_DIAG GPIO_Pin_6
+#define PIN_DIAG_ODR GPIO_ODR_ODR_6
+
+#define PORT_GPIO_BEMF GPIOC
+#define PIN_GPIO_BEMF GPIO_Pin_9
+#define PIN_GPIO_BEMF_ODR GPIO_ODR_ODR_9
+
+#define PORT_LED_RED GPIOB
+#define PIN_LED_RED GPIO_Pin_2
+#define PIN_LED_RED_ODR GPIO_ODR_ODR_2
+
+#endif /* __IHM07_DRIVER_PINS_H */
