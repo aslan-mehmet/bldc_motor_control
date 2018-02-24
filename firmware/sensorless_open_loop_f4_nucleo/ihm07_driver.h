@@ -38,7 +38,11 @@ void ihm07_l6230_pins_init(void);
 #define ihm07_l6230_ch2_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN2
 #define ihm07_l6230_ch3_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN3
 
-
+void ihm07_analog_pins_init(void);
+void ihm07_adc_single_mode_init(void);
+#define ihm07_adc_state(state) ADC_Cmd(ADC1, (state))
+/* IHM07_ADC_CH_x */
+uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 
 
 #endif /* __IHM07_DRIVER_H */
