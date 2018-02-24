@@ -24,15 +24,9 @@ int main(void)
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
         serial_driver_init();
-        ihm07_hall_pins_init();
-        ihm07_hall_interrupt_init();
-        ihm07_hall_interrupt_connection_state(ENABLE);
-
+        ihm07_led_red_init();
         while (1) {
+                delay(100);
+                ihm07_led_red_toggle();
         }
-}
-
-void ihm07_hall_state_change_callback(void)
-{
-        serial_driver_send_byte_poll('0' + ihm07_hall_read());
 }

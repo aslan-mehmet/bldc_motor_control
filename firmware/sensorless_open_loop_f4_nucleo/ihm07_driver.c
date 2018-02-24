@@ -71,3 +71,16 @@ uint8_t ihm07_hall_read(void)
 
         return hall_state;
 }
+
+void ihm07_led_red_init(void)
+{
+        RCC_AHB1PeriphClockCmd(PORT_LED_RED_CLK, ENABLE);
+
+        GPIO_InitTypeDef GPIO_InitStructure;
+        GPIO_InitStructure.GPIO_Pin = PIN_LED_RED;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+        GPIO_Init(PORT_LED_RED, &GPIO_InitStructure);
+}
