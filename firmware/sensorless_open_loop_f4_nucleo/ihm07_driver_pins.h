@@ -37,4 +37,24 @@
 #define PIN_LED_RED GPIO_Pin_2
 #define PORT_LED_RED_CLK RCC_AHB1Periph_GPIOB
 
+#define PORT_IN1_IN2_IN3 GPIOA
+#define PIN_IN1 GPIO_Pin_8
+#define PIN_IN2 GPIO_Pin_9
+#define PIN_IN3 GPIO_Pin_10
+#define PORT_IN1_IN2_IN3_CLK RCC_AHB1Periph_GPIOA
+
+#define GPIO_PinSourceIN1 GPIO_PinSource8
+#define GPIO_PinSourceIN2 GPIO_PinSource9
+#define GPIO_PinSourceIN3 GPIO_PinSource10
+
+#define PORT_EN1_EN2_EN3 GPIOC
+#define PIN_EN1 GPIO_Pin_10
+#define PIN_EN2 GPIO_Pin_11
+#define PIN_EN3 GPIO_Pin_12
+#define PORT_EN1_EN2_EN3_CLK RCC_AHB1Periph_GPIOA
+
+#define PORT_DIAG_EN GPIOA
+#define PIN_DIAG_EN GPIO_Pin_6
+#define PORT_DIAG_EN_CLK RCC_AHB1Periph_GPIOA
+
 #endif /* __IHM07_DRIVER_PINS_H */

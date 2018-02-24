@@ -84,3 +84,61 @@ void ihm07_led_red_init(void)
         GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
         GPIO_Init(PORT_LED_RED, &GPIO_InitStructure);
 }
+
+void ihm07_pwm_and_pins_init(void)
+{
+        RCC_AHB1PeriphClockCmd(PORT_IN1_IN2_IN3_CLK, ENABLE);
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+
+        GPIO_InitTypeDef GPIO_InitStructure;
+        GPIO_InitStructure.GPIO_Pin = PIN_IN1 | PIN_IN2 | PIN_IN3;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+        GPIO_Init(PORT_IN1_IN2_IN3, &GPIO_InitStructure);
+
+        GPIO_PinAFConfig(PORT_IN1_IN2_IN3, GPIO_PinSourceIN1, GPIO_AF_TIM1);
+        GPIO_PinAFConfig(PORT_IN1_IN2_IN3, GPIO_PinSourceIN2, GPIO_AF_TIM1);
+        GPIO_PinAFConfig(PORT_IN1_IN2_IN3, GPIO_PinSourceIN3, GPIO_AF_TIM1);
+
+        TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+        TIM_TimeBaseStructure.TIM_Prescaler = 0;
+        TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+        TIM_TimeBaseStructure.TIM_Period = PWM_MAX_VAL;
+        TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+        TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;
+        TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure);
+
+        TIM_OCInitTypeDef TIM_OCInitStructure;
+        TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
+        TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+        TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable;
+        TIM_OCInitStructure.TIM_Pulse = 0;
+        TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+        TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+        TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;
+        TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
+
+        TIM_OC1Init(TIM1, &TIM_OCInitStructure);
+        TIM_OC2Init(TIM1, &TIM_OCInitStructure);
+        TIM_OC3Init(TIM1, &TIM_OCInitStructure);
+
+        TIM_OC1PreloadConfig(TIM1, TIM_OCPreload_Enable);
+        TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);
+        TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
+
+        TIM_CtrlPWMOutputs(TIM1, ENABLE);
+	TIM_Cmd(TIM1, ENABLE);
+}
+
+
+
+
+
+
+
+
+
+
+
