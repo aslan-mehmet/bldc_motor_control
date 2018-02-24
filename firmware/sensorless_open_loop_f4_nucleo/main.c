@@ -5,10 +5,9 @@
  * use it at your own risk
  */
 #include "stm32f4xx.h"
+#include "time.h"
 #include "ihm07_driver.h"
 #include "serial_driver.h"
-#include "serial.h"
-#include "time.h"
 
 int main(void)
 {
@@ -24,39 +23,16 @@ int main(void)
 	/* syscfg reset, so only change interrupt you use*/
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
-        if (serial_driver_syscheck()) {
-                while (1)
-                        ;
-        }
-
         serial_driver_init();
-        serial_init();
-        ihm07_led_red_init();
-        ihm07_led_red_on();
-        ihm07_adc_init();
-        uint8_t arr[3] = {0xAA};
+        ihm07_hall_pins_init();
+        ihm07_hall_interrupt_init();
+        ihm07_hall_interrupt_connection_state(ENABLE);
 
-	while (1) {
-                serial_flush();
-                //ihm07_led_red_on();
-                uint16_t pot_val = ihm07_adc_read_single_channel(IHM07_ADC_CH_POT);
-                //ihm07_led_red_off();
-                safe_memory_copy(arr+1, &pot_val, 2);
-                serial_driver_send_buffer_poll(arr, 3);
-                delay(100);
+        while (1) {
         }
 }
 
-void serial_send_byte(uint8_t byt)
+void ihm07_hall_state_change_callback(void)
 {
-        serial_driver_send_byte_poll(byt);
-}
-
-void serial_payload_handler(uint8_t payload_id, uint8_t payload_size
-			    , void *payload)
-{
-        static union VARS var;
-        if (payload_size <= sizeof(var)) {
-                safe_memory_copy(&var.u8, payload, payload_size);
-        }
+        serial_driver_send_byte_poll('0' + ihm07_hall_read());
 }

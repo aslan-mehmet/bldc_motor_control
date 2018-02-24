@@ -158,7 +158,7 @@ uint64_t get_time(void)
 void delay(uint32_t ms)
 {
 	uint64_t hold_time = _ms_ticks;
-	while (_ms_ticks - hold_time <= ms)
+	while (_ms_ticks < hold_time + ms)
 		;
 }
 
@@ -177,16 +177,13 @@ void delay(uint32_t ms)
 /*void PPP_IRQHandler(void)
 {
 }*/
-/* ihm07_driver.c */
 void ihm07_hall_state_change_callback(void) __attribute__ ((weak));
-extern void ihm07_hall_state_change_callback(void);
 void EXTI15_10_IRQHandler(void)
 {
         /**
          * NVIC_IRQChannelPreemptionPriority = 0;
          * NVIC_IRQChannelSubPriority = 0;
          */
-
         if (EXTI_GetITStatus(EXTI_Line15) == SET) {
 
                 EXTI_ClearITPendingBit(EXTI_Line15);
@@ -212,22 +209,6 @@ void EXTI3_IRQHandler(void)
                 ihm07_hall_state_change_callback();
         }
 }
-
-/* serial_driver.c */
-extern void serial_receives_byte(uint8_t byt);
-void USART1_IRQHandler(void)
-{
-        /**
-         * NVIC_IRQChannelPreemptionPriority = 1;
-         * NVIC_IRQChannelSubPriority = 0;
-	 */
-
-        if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET) {
-		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-                serial_receives_byte((uint8_t) USART_ReceiveData(USART1));
-	}
-}
-
 /**
   * @}
   */

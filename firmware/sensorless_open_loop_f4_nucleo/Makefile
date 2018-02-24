@@ -121,3 +121,4 @@ erase:
 
 rebuild: clean all
 reflash: erase flash
+rerun: rebuild reflash

@@ -48,6 +48,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../ihm07_driver.h" />
+		<Unit filename="../ihm07_driver_pins.h" />
 		<Unit filename="../lib/cmsis/inc/arm_common_tables.h" />
 		<Unit filename="../lib/cmsis/inc/arm_const_structs.h" />
 		<Unit filename="../lib/cmsis/inc/arm_math.h" />
