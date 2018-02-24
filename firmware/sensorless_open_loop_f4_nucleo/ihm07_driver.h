@@ -21,4 +21,18 @@ void ihm07_pwm_and_pins_init(void);
 #define ihm07_pwm_set_ch2(val) TIM1->CCR2 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 #define ihm07_pwm_set_ch3(val) TIM1->CCR3 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 
+/* put them also reset state */
+void ihm07_l6230_pins_init(void);
+
+#define ihm07_l6230_enable() PORT_DIAG_EN->ODR |= PIN_DIAG_EN
+#define ihm07_l6230_disable() PORT_DIAG_EN->ODR &= ~PIN_DIAG_EN
+
+#define ihm07_l6230_ch1_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN1
+#define ihm07_l6230_ch2_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN2
+#define ihm07_l6230_ch3_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN3
+#define ihm07_l6230_ch1_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN1
+#define ihm07_l6230_ch2_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN2
+#define ihm07_l6230_ch3_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN3
+
+
 #endif /* __IHM07_DRIVER_H */

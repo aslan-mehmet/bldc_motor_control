@@ -132,6 +132,31 @@ void ihm07_pwm_and_pins_init(void)
 	TIM_Cmd(TIM1, ENABLE);
 }
 
+void ihm07_l6230_pins_init(void)
+{
+        RCC_AHB1PeriphClockCmd(PORT_EN1_EN2_EN3_CLK, ENABLE);
+        RCC_AHB1PeriphClockCmd(PORT_GPIO_BEMF_CLK, ENABLE);
+        RCC_AHB1PeriphClockCmd(PORT_DIAG_EN_CLK, ENABLE);
+
+        GPIO_InitTypeDef GPIO_InitStructure;
+        GPIO_InitStructure.GPIO_Pin = PIN_EN1 | PIN_EN2 | PIN_EN3;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+        GPIO_Init(PORT_EN1_EN2_EN3, &GPIO_InitStructure);
+
+        PORT_EN1_EN2_EN3->ODR &= (PIN_EN1 | PIN_EN2 | PIN_EN3);
+
+        GPIO_InitStructure.GPIO_Pin = PIN_GPIO_BEMF;
+        GPIO_Init(PORT_GPIO_BEMF, &GPIO_InitStructure);
+
+        PORT_GPIO_BEMF->ODR &= ~PIN_GPIO_BEMF;
+
+        GPIO_InitStructure.GPIO_Pin = PIN_DIAG_EN;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
+        GPIO_Init(PORT_DIAG_EN, &GPIO_InitStructure);
+}
 
 
 

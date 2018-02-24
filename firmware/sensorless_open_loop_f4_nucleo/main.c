@@ -25,10 +25,12 @@ int main(void)
 
         serial_driver_init();
         ihm07_led_red_init();
-        ihm07_pwm_and_pins_init();
-        ihm07_pwm_set_ch1(250);
-        ihm07_pwm_set_ch2(500);
-        ihm07_pwm_set_ch3(750);
+
+        ihm07_l6230_pins_init();
+        ihm07_l6230_enable();
+        ihm07_l6230_ch1_enable();
+        ihm07_l6230_ch2_disable();
+        ihm07_l6230_ch3_enable();
 
         while (1) {
                 delay(100);
