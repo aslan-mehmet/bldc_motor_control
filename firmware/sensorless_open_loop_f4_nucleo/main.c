@@ -27,13 +27,17 @@ int main(void)
         ihm07_led_red_init();
 
         ihm07_l6230_pins_init();
-        ihm07_l6230_enable();
-        ihm07_l6230_ch1_enable();
-        ihm07_l6230_ch2_disable();
-        ihm07_l6230_ch3_enable();
+        ihm07_pwm_and_pins_init();
+        ihm07_pwm_duty_interrupt_init();
+        ihm07_pwm_duty_interrupt_connection_state(ENABLE);
 
         while (1) {
                 delay(100);
                 ihm07_led_red_toggle();
         }
+}
+
+void ihm07_pwm_duty_interrupt_callback(void)
+{
+        PORT_EN1_EN2_EN3->ODR ^= PIN_EN1;
 }

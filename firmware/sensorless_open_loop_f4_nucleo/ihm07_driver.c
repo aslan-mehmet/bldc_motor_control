@@ -158,6 +158,35 @@ void ihm07_l6230_pins_init(void)
         GPIO_Init(PORT_DIAG_EN, &GPIO_InitStructure);
 }
 
+void ihm07_pwm_duty_interrupt_init(void)
+{
+        TIM_OCInitTypeDef TIM_OCInitStructure;
+        TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Active;
+        TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Disable;
+        TIM_OCInitStructure.TIM_OutputNState = TIM_OutputNState_Disable;
+        TIM_OCInitStructure.TIM_Pulse = 1;
+        TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
+        TIM_OCInitStructure.TIM_OCNPolarity = TIM_OCNPolarity_High;
+        TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;
+        TIM_OCInitStructure.TIM_OCNIdleState = TIM_OCNIdleState_Reset;
+
+        TIM_OC4Init(TIM1, &TIM_OCInitStructure);
+        TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);
+
+        TIM_ITConfig(TIM1, TIM_IT_CC4, ENABLE);
+}
+
+
+void ihm07_pwm_duty_interrupt_connection_state(FunctionalState state)
+{
+        NVIC_InitTypeDef NVIC_InitStructure;
+
+        NVIC_InitStructure.NVIC_IRQChannel = TIM1_CC_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = state;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 
 

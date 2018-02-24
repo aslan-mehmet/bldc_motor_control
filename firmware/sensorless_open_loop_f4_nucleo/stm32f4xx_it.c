@@ -209,6 +209,19 @@ void EXTI3_IRQHandler(void)
                 ihm07_hall_state_change_callback();
         }
 }
+
+void ihm07_pwm_duty_interrupt_callback(void) __attribute__ ((weak));
+void TIM1_CC_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 0;
+         * NVIC_IRQChannelSubPriority = 1;
+         */
+        if (TIM_GetITStatus(TIM1, TIM_IT_CC4) == SET) {
+                TIM_ClearITPendingBit(TIM1, TIM_IT_CC4);
+                ihm07_pwm_duty_interrupt_callback();
+        }
+}
 /**
   * @}
   */
