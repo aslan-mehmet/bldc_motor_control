@@ -62,6 +62,21 @@
 		<Unit filename="../lib/cmsis/inc/core_cmSimd.h" />
 		<Unit filename="../lib/cmsis/inc/core_sc000.h" />
 		<Unit filename="../lib/cmsis/inc/core_sc300.h" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f401xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f40_41xxx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f40xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f410xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f411xe.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f412xg.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f413_423xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f427_437xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f427xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f429_439xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f446xx.s" />
+		<Unit filename="../lib/cmsis/startup_SW4STM32/startup_stm32f469_479xx.s" />
+		<Unit filename="../lib/cmsis/system_stm32f4xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../lib/std_periph/inc/misc.h" />
 		<Unit filename="../lib/std_periph/inc/stm32f4xx_adc.h" />
 		<Unit filename="../lib/std_periph/inc/stm32f4xx_can.h" />
@@ -234,14 +249,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../main.h" />
-		<Unit filename="../serial.c">
+		<Unit filename="../serial_packet.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../serial.h" />
-		<Unit filename="../serial_driver.c">
+		<Unit filename="../serial_packet.h" />
+		<Unit filename="../serial_packet_handler.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../serial_driver.h" />
 		<Unit filename="../startup_stm32f401xx.s" />
 		<Unit filename="../stm32f401re.ld" />
 		<Unit filename="../stm32f4xx.h" />
@@ -254,7 +268,50 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../system_stm32f4xx.h" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f401xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f40_41xxx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f40xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f410xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f411xe.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f412xg.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f413_423xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f427_437xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f427xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f429_439xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f446xx.s" />
+		<Unit filename="../tests/adc/lib/cmsis/startup_SW4STM32/startup_stm32f469_479xx.s" />
+		<Unit filename="../tests/adc/startup_stm32f401xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f401xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f40_41xxx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f40xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f410xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f411xe.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f412xg.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f413_423xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f427_437xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f427xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f429_439xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f446xx.s" />
+		<Unit filename="../tests/timing_start/lib/cmsis/startup_SW4STM32/startup_stm32f469_479xx.s" />
+		<Unit filename="../tests/timing_start/startup_stm32f401xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f401xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f40_41xxx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f40xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f410xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f411xe.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f412xg.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f413_423xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f427_437xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f427xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f429_439xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f446xx.s" />
+		<Unit filename="../tests/uart/lib/cmsis/startup_SW4STM32/startup_stm32f469_479xx.s" />
+		<Unit filename="../tests/uart/startup_stm32f401xx.s" />
 		<Unit filename="../time.h" />
+		<Unit filename="../uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../uart.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

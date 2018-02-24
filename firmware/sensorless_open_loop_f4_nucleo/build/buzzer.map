@@ -1,11 +1,5 @@
 Archive member included to satisfy reference by file (symbol)
 
-/usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-                              /tmp/ccTHmnWB.o (__aeabi_i2d)
-/usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
-                              /tmp/ccTHmnWB.o (__aeabi_dmul)
-/usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
-                              /tmp/ccTHmnWB.o (__aeabi_d2uiz)
 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
                               /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o (atexit)
 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
@@ -25,6 +19,20 @@ Archive member included to satisfy reference by file (symbol)
 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
                               /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o) (_exit)
 
+Allocating common symbols
+Common symbol       size              file
+
+_u32                0x4               /tmp/cc6PhcjP.o
+_i8                 0x1               /tmp/cc6PhcjP.o
+_i16                0x2               /tmp/cc6PhcjP.o
+_u16                0x2               /tmp/cc6PhcjP.o
+_d                  0x8               /tmp/cc6PhcjP.o
+_i32                0x4               /tmp/cc6PhcjP.o
+_u8                 0x1               /tmp/cc6PhcjP.o
+_i64                0x8               /tmp/cc6PhcjP.o
+_f                  0x4               /tmp/cc6PhcjP.o
+_u64                0x8               /tmp/cc6PhcjP.o
+
 Memory Configuration
 
 Name             Origin             Length             Attributes
@@ -37,22 +45,23 @@ Linker script and memory map
 LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
 LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-LOAD /tmp/ccbrwlVV.o
-LOAD /tmp/ccLQ1FQg.o
-LOAD /tmp/ccTHmnWB.o
-LOAD /tmp/cc6v3FeX.o
-LOAD /tmp/ccxNHkFi.o
-LOAD /tmp/ccYV8tcE.o
-LOAD /tmp/ccnJXPVZ.o
-LOAD /tmp/ccUfeNGl.o
-LOAD /tmp/ccAfArCH.o
-LOAD /tmp/cc7oiOR3.o
-LOAD /tmp/cco0zGiq.o
-LOAD /tmp/ccpYwAXM.o
-LOAD /tmp/ccFGX7W9.o
-LOAD /tmp/ccoDGsax.o
-LOAD /tmp/ccD6BZSU.o
-LOAD /tmp/ccU6neVi.o
+LOAD /tmp/ccr0UnS1.o
+LOAD /tmp/ccgUSXSC.o
+LOAD /tmp/ccce5vZd.o
+LOAD /tmp/cc6PhcjP.o
+LOAD /tmp/cclmmuQq.o
+LOAD /tmp/ccqkQmt2.o
+LOAD /tmp/ccqxi6fE.o
+LOAD /tmp/ccxiEvfg.o
+LOAD /tmp/ccGoVWfS.o
+LOAD /tmp/ccL4Bqsu.o
+LOAD /tmp/ccCsYkY6.o
+LOAD /tmp/ccBqKdIJ.o
+LOAD /tmp/ccX5PoHm.o
+LOAD /tmp/ccgM381Z.o
+LOAD /tmp/ccefzWAD.o
+LOAD /tmp/ccpBmFHh.o
+LOAD /tmp/cci5p37V.o
 START GROUP
 LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a
 LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a
@@ -68,7 +77,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 
 .isr_vector     0x0000000008000000      0x194
  *(.isr_vector)
- .isr_vector    0x0000000008000000      0x194 /tmp/ccUfeNGl.o
+ .isr_vector    0x0000000008000000      0x194 /tmp/ccGoVWfS.o
                 0x0000000008000000                g_pfnVectors
                 0x0000000008000194                . = ALIGN (0x4)
 
@@ -82,7 +91,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 .ARM.exidx      0x0000000008000198        0x8
  .ARM.exidx     0x0000000008000198        0x8 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
 
-.text           0x00000000080001a0     0x34a4
+.text           0x00000000080001a0     0x2dc0
  *(.vectors)
  *(.text*)
  .text          0x00000000080001a0        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
@@ -90,486 +99,462 @@ LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  .text          0x0000000008000228       0x68 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
                 0x0000000008000228                _mainCRTStartup
                 0x0000000008000228                _start
- .text          0x0000000008000290      0x430 /tmp/ccbrwlVV.o
-                0x0000000008000290                ihm07_hall_pins_init
-                0x00000000080002e4                ihm07_hall_interrupt_init
-                0x000000000800033a                ihm07_hall_interrupt_connection_state
-                0x000000000800036a                ihm07_hall_read
-                0x00000000080003a0                ihm07_led_red_init
-                0x00000000080003d8                ihm07_pwm_and_pins_init
-                0x00000000080004bc                ihm07_l6230_pins_init
-                0x0000000008000538                ihm07_pwm_duty_interrupt_init
-                0x0000000008000584                ihm07_pwm_duty_interrupt_connection_state
-                0x00000000080005aa                ihm07_analog_pins_init
-                0x000000000800064c                ihm07_adc_single_mode_init
-                0x0000000008000690                ihm07_adc_single_read_channel
- .text          0x00000000080006c0      0x184 /tmp/ccLQ1FQg.o
-                0x00000000080006c0                serial_driver_init
-                0x000000000800077c                serial_driver_send_byte_poll
-                0x000000000800079c                serial_driver_send_buffer_poll
-                0x00000000080007b4                serial_driver_syscheck
- *fill*         0x0000000008000844        0x4 
- .text          0x0000000008000848       0xb4 /tmp/ccTHmnWB.o
-                0x0000000008000848                main
- .text          0x00000000080008fc       0xd4 /tmp/cc6v3FeX.o
-                0x00000000080008fc                NMI_Handler
-                0x00000000080008fe                HardFault_Handler
-                0x0000000008000900                MemManage_Handler
-                0x0000000008000902                BusFault_Handler
-                0x0000000008000904                UsageFault_Handler
-                0x0000000008000906                SVC_Handler
-                0x0000000008000908                DebugMon_Handler
-                0x000000000800090a                PendSV_Handler
-                0x000000000800090c                SysTick_Handler
-                0x000000000800092c                get_time
-                0x0000000008000938                delay
-                0x000000000800095c                EXTI15_10_IRQHandler
-                0x0000000008000994                EXTI3_IRQHandler
-                0x00000000080009ae                TIM1_CC_IRQHandler
- .text          0x00000000080009d0      0x218 /tmp/ccxNHkFi.o
-                0x0000000008000a40                serial_init
-                0x0000000008000a70                serial_encode
-                0x0000000008000ab0                serial_encode_poll
-                0x0000000008000abc                serial_receives_byte
-                0x0000000008000acc                safe_memory_copy
-                0x0000000008000bdc                serial_flush
- .text          0x0000000008000be8       0x80 /tmp/ccYV8tcE.o
-                0x0000000008000c02                init_fifo
-                0x0000000008000c0a                write_fifo
-                0x0000000008000c3a                read_fifo
-                0x0000000008000c62                flush_fifo
- .text          0x0000000008000c68      0x160 /tmp/ccnJXPVZ.o
-                0x0000000008000ce0                SystemInit
-                0x0000000008000d30                SystemCoreClockUpdate
- .text          0x0000000008000dc8       0x14 /tmp/ccUfeNGl.o
+ .text          0x0000000008000290       0xf4 /tmp/ccr0UnS1.o
+                0x0000000008000290                uart_init
+                0x000000000800034c                uart_send_byte_poll
+                0x000000000800036c                uart_send_buffer_poll
+ .text          0x0000000008000384      0x430 /tmp/ccgUSXSC.o
+                0x0000000008000384                ihm07_hall_pins_init
+                0x00000000080003d8                ihm07_hall_interrupt_init
+                0x000000000800042e                ihm07_hall_interrupt_connection_state
+                0x000000000800045e                ihm07_hall_read
+                0x0000000008000494                ihm07_led_red_init
+                0x00000000080004cc                ihm07_pwm_and_pins_init
+                0x00000000080005b0                ihm07_l6230_pins_init
+                0x000000000800062c                ihm07_pwm_duty_interrupt_init
+                0x0000000008000678                ihm07_pwm_duty_interrupt_connection_state
+                0x000000000800069e                ihm07_analog_pins_init
+                0x0000000008000740                ihm07_adc_single_mode_init
+                0x0000000008000784                ihm07_adc_single_read_channel
+ .text          0x00000000080007b4       0x1c /tmp/ccce5vZd.o
+                0x00000000080007b4                serial_packet_handler
+ .text          0x00000000080007d0      0x160 /tmp/cc6PhcjP.o
+                0x00000000080007d0                test_serial_packet_encode
+                0x00000000080008ac                main
+                0x0000000008000928                serial_packet_print
+ .text          0x0000000008000930      0x104 /tmp/cclmmuQq.o
+                0x0000000008000930                NMI_Handler
+                0x0000000008000932                HardFault_Handler
+                0x0000000008000934                MemManage_Handler
+                0x0000000008000936                BusFault_Handler
+                0x0000000008000938                UsageFault_Handler
+                0x000000000800093a                SVC_Handler
+                0x000000000800093c                DebugMon_Handler
+                0x000000000800093e                PendSV_Handler
+                0x0000000008000940                SysTick_Handler
+                0x0000000008000960                get_time
+                0x000000000800096c                delay
+                0x0000000008000990                EXTI15_10_IRQHandler
+                0x00000000080009c8                EXTI3_IRQHandler
+                0x00000000080009e2                TIM1_CC_IRQHandler
+                0x0000000008000a04                USART1_IRQHandler
+ .text          0x0000000008000a34       0x80 /tmp/ccqkQmt2.o
+                0x0000000008000a4e                init_fifo
+                0x0000000008000a56                write_fifo
+                0x0000000008000a86                read_fifo
+                0x0000000008000aae                flush_fifo
+ .text          0x0000000008000ab4      0x2ac /tmp/ccqxi6fE.o
+                0x0000000008000bb4                serial_packet_init
+                0x0000000008000be8                serial_packet_encode
+                0x0000000008000c28                serial_packet_encode_poll
+                0x0000000008000c34                serial_packet_read
+                0x0000000008000c44                safe_memory_copy
+                0x0000000008000d54                serial_packet_flush
+ .text          0x0000000008000d60      0x160 /tmp/ccxiEvfg.o
+                0x0000000008000dd8                SystemInit
+                0x0000000008000e28                SystemCoreClockUpdate
+ .text          0x0000000008000ec0       0x14 /tmp/ccGoVWfS.o
  .text.Reset_Handler
-                0x0000000008000ddc       0x48 /tmp/ccUfeNGl.o
-                0x0000000008000ddc                Reset_Handler
+                0x0000000008000ed4       0x48 /tmp/ccGoVWfS.o
+                0x0000000008000ed4                Reset_Handler
  .text.Default_Handler
-                0x0000000008000e24        0x2 /tmp/ccUfeNGl.o
-                0x0000000008000e24                RTC_Alarm_IRQHandler
-                0x0000000008000e24                EXTI2_IRQHandler
-                0x0000000008000e24                SPI4_IRQHandler
-                0x0000000008000e24                DMA2_Stream5_IRQHandler
-                0x0000000008000e24                DMA1_Stream5_IRQHandler
-                0x0000000008000e24                PVD_IRQHandler
-                0x0000000008000e24                SDIO_IRQHandler
-                0x0000000008000e24                TAMP_STAMP_IRQHandler
-                0x0000000008000e24                TIM1_UP_TIM10_IRQHandler
-                0x0000000008000e24                I2C3_ER_IRQHandler
-                0x0000000008000e24                EXTI0_IRQHandler
-                0x0000000008000e24                I2C2_EV_IRQHandler
-                0x0000000008000e24                DMA1_Stream2_IRQHandler
-                0x0000000008000e24                FPU_IRQHandler
-                0x0000000008000e24                DMA2_Stream2_IRQHandler
-                0x0000000008000e24                SPI1_IRQHandler
-                0x0000000008000e24                TIM1_BRK_TIM9_IRQHandler
-                0x0000000008000e24                DMA2_Stream3_IRQHandler
-                0x0000000008000e24                USART6_IRQHandler
-                0x0000000008000e24                DMA2_Stream0_IRQHandler
-                0x0000000008000e24                TIM4_IRQHandler
-                0x0000000008000e24                I2C1_EV_IRQHandler
-                0x0000000008000e24                DMA1_Stream6_IRQHandler
-                0x0000000008000e24                DMA1_Stream1_IRQHandler
-                0x0000000008000e24                TIM3_IRQHandler
-                0x0000000008000e24                RCC_IRQHandler
-                0x0000000008000e24                Default_Handler
-                0x0000000008000e24                ADC_IRQHandler
-                0x0000000008000e24                DMA1_Stream7_IRQHandler
-                0x0000000008000e24                TIM5_IRQHandler
-                0x0000000008000e24                DMA2_Stream7_IRQHandler
-                0x0000000008000e24                I2C3_EV_IRQHandler
-                0x0000000008000e24                EXTI9_5_IRQHandler
-                0x0000000008000e24                RTC_WKUP_IRQHandler
-                0x0000000008000e24                SPI2_IRQHandler
-                0x0000000008000e24                DMA1_Stream0_IRQHandler
-                0x0000000008000e24                EXTI4_IRQHandler
-                0x0000000008000e24                WWDG_IRQHandler
-                0x0000000008000e24                TIM2_IRQHandler
-                0x0000000008000e24                OTG_FS_WKUP_IRQHandler
-                0x0000000008000e24                TIM1_TRG_COM_TIM11_IRQHandler
-                0x0000000008000e24                EXTI1_IRQHandler
-                0x0000000008000e24                USART2_IRQHandler
-                0x0000000008000e24                I2C2_ER_IRQHandler
-                0x0000000008000e24                DMA2_Stream1_IRQHandler
-                0x0000000008000e24                FLASH_IRQHandler
-                0x0000000008000e24                DMA2_Stream4_IRQHandler
-                0x0000000008000e24                USART1_IRQHandler
-                0x0000000008000e24                OTG_FS_IRQHandler
-                0x0000000008000e24                SPI3_IRQHandler
-                0x0000000008000e24                DMA1_Stream4_IRQHandler
-                0x0000000008000e24                I2C1_ER_IRQHandler
-                0x0000000008000e24                DMA2_Stream6_IRQHandler
-                0x0000000008000e24                DMA1_Stream3_IRQHandler
- *fill*         0x0000000008000e26        0x2 
- .text          0x0000000008000e28       0xc8 /tmp/ccAfArCH.o
-                0x0000000008000e28                NVIC_PriorityGroupConfig
-                0x0000000008000e3c                NVIC_Init
-                0x0000000008000ea0                NVIC_SetVectorTable
-                0x0000000008000eb4                NVIC_SystemLPConfig
-                0x0000000008000ed0                SysTick_CLKSourceConfig
- .text          0x0000000008000ef0      0x3e0 /tmp/cc7oiOR3.o
-                0x0000000008000ef0                ADC_DeInit
-                0x0000000008000f08                ADC_Init
-                0x0000000008000f58                ADC_StructInit
-                0x0000000008000f6c                ADC_CommonInit
-                0x0000000008000f98                ADC_CommonStructInit
-                0x0000000008000fa4                ADC_Cmd
-                0x0000000008000fba                ADC_AnalogWatchdogCmd
-                0x0000000008000fca                ADC_AnalogWatchdogThresholdsConfig
-                0x0000000008000fd0                ADC_AnalogWatchdogSingleChannelConfig
-                0x0000000008000fdc                ADC_TempSensorVrefintCmd
-                0x0000000008000ffc                ADC_VBATCmd
-                0x000000000800101c                ADC_RegularChannelConfig
-                0x00000000080010ac                ADC_SoftwareStartConv
-                0x00000000080010b6                ADC_GetSoftwareStartConvStatus
-                0x00000000080010c6                ADC_EOCOnEachRegularChannelCmd
-                0x00000000080010dc                ADC_ContinuousModeCmd
-                0x00000000080010f2                ADC_DiscModeChannelCountConfig
-                0x0000000008001102                ADC_DiscModeCmd
-                0x0000000008001118                ADC_GetConversionValue
-                0x000000000800111e                ADC_GetMultiModeConversionValue
-                0x0000000008001128                ADC_DMACmd
-                0x000000000800113e                ADC_DMARequestAfterLastTransferCmd
-                0x0000000008001154                ADC_MultiModeDMARequestAfterLastTransferCmd
-                0x0000000008001174                ADC_InjectedChannelConfig
-                0x00000000080011d2                ADC_InjectedSequencerLengthConfig
-                0x00000000080011e2                ADC_SetInjectedOffset
-                0x00000000080011f8                ADC_ExternalTrigInjectedConvConfig
-                0x0000000008001204                ADC_ExternalTrigInjectedConvEdgeConfig
-                0x0000000008001210                ADC_SoftwareStartInjectedConv
-                0x000000000800121a                ADC_GetSoftwareStartInjectedConvCmdStatus
-                0x000000000800122a                ADC_AutoInjectedConvCmd
-                0x0000000008001240                ADC_InjectedDiscModeCmd
-                0x0000000008001256                ADC_GetInjectedConversionValue
-                0x0000000008001270                ADC_ITConfig
-                0x000000000800128c                ADC_GetFlagStatus
-                0x000000000800129a                ADC_ClearFlag
-                0x00000000080012a0                ADC_GetITStatus
-                0x00000000080012c6                ADC_ClearITPendingBit
- .text          0x00000000080012d0      0x108 /tmp/cco0zGiq.o
-                0x00000000080012d0                EXTI_DeInit
-                0x00000000080012ec                EXTI_Init
-                0x000000000800137c                EXTI_StructInit
-                0x000000000800138a                EXTI_GenerateSWInterrupt
-                0x0000000008001398                EXTI_GetFlagStatus
-                0x00000000080013ac                EXTI_ClearFlag
-                0x00000000080013b8                EXTI_GetITStatus
-                0x00000000080013cc                EXTI_ClearITPendingBit
- .text          0x00000000080013d8      0x278 /tmp/ccpYwAXM.o
-                0x00000000080013d8                GPIO_DeInit
-                0x000000000800151c                GPIO_Init
-                0x00000000080015a6                GPIO_StructInit
-                0x00000000080015b8                GPIO_PinLockConfig
-                0x00000000080015dc                GPIO_ReadInputDataBit
-                0x00000000080015ea                GPIO_ReadInputData
-                0x00000000080015f0                GPIO_ReadOutputDataBit
-                0x00000000080015fe                GPIO_ReadOutputData
-                0x0000000008001604                GPIO_SetBits
-                0x0000000008001608                GPIO_ResetBits
-                0x000000000800160c                GPIO_WriteBit
-                0x0000000008001616                GPIO_Write
-                0x000000000800161a                GPIO_ToggleBits
-                0x0000000008001622                GPIO_PinAFConfig
- .text          0x0000000008001650      0x530 /tmp/ccFGX7W9.o
-                0x0000000008001650                RCC_DeInit
-                0x0000000008001690                RCC_HSEConfig
-                0x00000000080016a0                RCC_AdjustHSICalibrationValue
-                0x00000000080016b4                RCC_HSICmd
-                0x00000000080016c0                RCC_LSEConfig
-                0x00000000080016e8                RCC_LSICmd
-                0x00000000080016f4                RCC_PLLConfig
-                0x0000000008001714                RCC_PLLCmd
-                0x0000000008001720                RCC_PLLI2SConfig
-                0x0000000008001734                RCC_PLLI2SCmd
-                0x0000000008001740                RCC_PLLSAIConfig
-                0x0000000008001758                RCC_PLLSAICmd
-                0x0000000008001764                RCC_ClockSecuritySystemCmd
-                0x0000000008001770                RCC_MCO1Config
-                0x0000000008001784                RCC_MCO2Config
-                0x0000000008001798                RCC_SYSCLKConfig
-                0x00000000080017ac                RCC_GetSYSCLKSource
-                0x00000000080017bc                RCC_HCLKConfig
-                0x00000000080017d0                RCC_PCLK1Config
-                0x00000000080017e4                RCC_PCLK2Config
-                0x00000000080017f8                RCC_GetClocksFreq
-                0x00000000080018ac                RCC_RTCCLKConfig
-                0x00000000080018e0                RCC_RTCCLKCmd
-                0x00000000080018ec                RCC_BackupResetCmd
-                0x00000000080018f8                RCC_I2SCLKConfig
-                0x0000000008001904                RCC_SAIPLLI2SClkDivConfig
-                0x000000000800191c                RCC_SAIPLLSAIClkDivConfig
-                0x0000000008001938                RCC_LTDCCLKDivConfig
-                0x0000000008001950                RCC_TIMCLKPresConfig
-                0x000000000800195c                RCC_AHB1PeriphClockCmd
-                0x0000000008001978                RCC_AHB2PeriphClockCmd
-                0x0000000008001994                RCC_APB1PeriphClockCmd
-                0x00000000080019b0                RCC_APB2PeriphClockCmd
-                0x00000000080019cc                RCC_AHB1PeriphResetCmd
-                0x00000000080019e8                RCC_AHB2PeriphResetCmd
-                0x0000000008001a04                RCC_APB1PeriphResetCmd
-                0x0000000008001a20                RCC_APB2PeriphResetCmd
-                0x0000000008001a3c                RCC_AHB1PeriphClockLPModeCmd
-                0x0000000008001a58                RCC_AHB2PeriphClockLPModeCmd
-                0x0000000008001a74                RCC_APB1PeriphClockLPModeCmd
-                0x0000000008001a90                RCC_APB2PeriphClockLPModeCmd
-                0x0000000008001aac                RCC_LSEModeConfig
-                0x0000000008001acc                RCC_ITConfig
-                0x0000000008001ae8                RCC_GetFlagStatus
-                0x0000000008001b1c                RCC_WaitForHSEStartUp
-                0x0000000008001b50                RCC_ClearFlag
-                0x0000000008001b60                RCC_GetITStatus
-                0x0000000008001b74                RCC_ClearITPendingBit
- .text          0x0000000008001b80       0x94 /tmp/ccoDGsax.o
-                0x0000000008001b80                SYSCFG_DeInit
-                0x0000000008001b98                SYSCFG_MemoryRemapConfig
-                0x0000000008001ba4                SYSCFG_MemorySwappingBank
-                0x0000000008001bb0                SYSCFG_EXTILineConfig
-                0x0000000008001be4                SYSCFG_ETH_MediaInterfaceConfig
-                0x0000000008001bf0                SYSCFG_CompensationCellCmd
-                0x0000000008001bfc                SYSCFG_GetCompensationCellStatus
- .text          0x0000000008001c14      0xb4c /tmp/ccD6BZSU.o
-                0x0000000008001cfe                TIM_DeInit
-                0x0000000008001e94                TIM_TimeBaseInit
-                0x0000000008001f10                TIM_TimeBaseStructInit
-                0x0000000008001f22                TIM_PrescalerConfig
-                0x0000000008001f28                TIM_CounterModeConfig
-                0x0000000008001f36                TIM_SetCounter
-                0x0000000008001f3a                TIM_SetAutoreload
-                0x0000000008001f3e                TIM_GetCounter
-                0x0000000008001f42                TIM_GetPrescaler
-                0x0000000008001f46                TIM_UpdateDisableConfig
-                0x0000000008001f60                TIM_UpdateRequestConfig
-                0x0000000008001f7a                TIM_ARRPreloadConfig
-                0x0000000008001f94                TIM_SelectOnePulseMode
-                0x0000000008001fa8                TIM_SetClockDivision
-                0x0000000008001fbc                TIM_Cmd
-                0x0000000008001fd6                TIM_OC1Init
-                0x0000000008002040                TIM_OC2Init
-                0x00000000080020c8                TIM_OC3Init
-                0x000000000800214c                TIM_OC4Init
-                0x00000000080021b4                TIM_OCStructInit
-                0x00000000080021c8                TIM_SelectOCxM
-                0x0000000008002218                TIM_SetCompare1
-                0x000000000800221c                TIM_SetCompare2
-                0x0000000008002220                TIM_SetCompare3
-                0x0000000008002224                TIM_SetCompare4
-                0x0000000008002228                TIM_ForcedOC1Config
-                0x0000000008002236                TIM_ForcedOC2Config
-                0x0000000008002248                TIM_ForcedOC3Config
-                0x0000000008002256                TIM_ForcedOC4Config
-                0x0000000008002268                TIM_OC1PreloadConfig
-                0x0000000008002276                TIM_OC2PreloadConfig
-                0x0000000008002288                TIM_OC3PreloadConfig
-                0x0000000008002296                TIM_OC4PreloadConfig
-                0x00000000080022a8                TIM_OC1FastConfig
-                0x00000000080022b6                TIM_OC2FastConfig
-                0x00000000080022c8                TIM_OC3FastConfig
-                0x00000000080022d6                TIM_OC4FastConfig
-                0x00000000080022e8                TIM_ClearOC1Ref
-                0x00000000080022f6                TIM_ClearOC2Ref
-                0x0000000008002306                TIM_ClearOC3Ref
-                0x0000000008002314                TIM_ClearOC4Ref
-                0x0000000008002324                TIM_OC1PolarityConfig
-                0x0000000008002332                TIM_OC1NPolarityConfig
-                0x0000000008002340                TIM_OC2PolarityConfig
-                0x0000000008002352                TIM_OC2NPolarityConfig
-                0x0000000008002364                TIM_OC3PolarityConfig
-                0x0000000008002376                TIM_OC3NPolarityConfig
-                0x0000000008002388                TIM_OC4PolarityConfig
-                0x000000000800239a                TIM_CCxCmd
-                0x00000000080023bc                TIM_CCxNCmd
-                0x00000000080023de                TIM_ICStructInit
-                0x00000000080023ee                TIM_GetCapture1
-                0x00000000080023f2                TIM_GetCapture2
-                0x00000000080023f6                TIM_GetCapture3
-                0x00000000080023fa                TIM_GetCapture4
-                0x00000000080023fe                TIM_SetIC1Prescaler
-                0x0000000008002412                TIM_SetIC2Prescaler
-                0x000000000800242a                TIM_PWMIConfig
-                0x0000000008002496                TIM_SetIC3Prescaler
-                0x00000000080024aa                TIM_SetIC4Prescaler
-                0x00000000080024c2                TIM_ICInit
-                0x0000000008002524                TIM_BDTRConfig
-                0x000000000800254c                TIM_BDTRStructInit
-                0x000000000800255e                TIM_CtrlPWMOutputs
-                0x000000000800257c                TIM_SelectCOM
-                0x0000000008002596                TIM_CCPreloadControl
-                0x00000000080025b0                TIM_ITConfig
-                0x00000000080025c4                TIM_GenerateEvent
-                0x00000000080025c8                TIM_GetFlagStatus
-                0x00000000080025d6                TIM_ClearFlag
-                0x00000000080025de                TIM_GetITStatus
-                0x00000000080025f6                TIM_ClearITPendingBit
-                0x00000000080025fe                TIM_DMAConfig
-                0x0000000008002606                TIM_DMACmd
-                0x000000000800261a                TIM_SelectCCDMA
-                0x0000000008002634                TIM_InternalClockConfig
-                0x0000000008002642                TIM_SelectInputTrigger
-                0x0000000008002650                TIM_ITRxExternalClockConfig
-                0x0000000008002662                TIM_TIxExternalClockConfig
-                0x000000000800268e                TIM_SelectOutputTrigger
-                0x00000000080026a2                TIM_SelectSlaveMode
-                0x00000000080026b6                TIM_SelectMasterSlaveMode
-                0x00000000080026ca                TIM_ETRConfig
-                0x00000000080026e2                TIM_ETRClockMode1Config
-                0x00000000080026f4                TIM_ETRClockMode2Config
-                0x0000000008002706                TIM_EncoderInterfaceConfig
-                0x0000000008002740                TIM_SelectHallSensor
-                0x000000000800275a                TIM_RemapConfig
- .text          0x0000000008002760      0x43c /tmp/ccU6neVi.o
-                0x0000000008002760                USART_DeInit
-                0x000000000800285c                USART_Init
-                0x000000000800292c                USART_StructInit
-                0x0000000008002942                USART_ClockInit
-                0x0000000008002964                USART_ClockStructInit
-                0x0000000008002970                USART_Cmd
-                0x000000000800298a                USART_SetPrescaler
-                0x000000000800299a                USART_OverSampling8Cmd
-                0x00000000080029b0                USART_OneBitMethodCmd
-                0x00000000080029ca                USART_SendData
-                0x00000000080029d2                USART_ReceiveData
-                0x00000000080029da                USART_SetAddress
-                0x00000000080029ee                USART_ReceiverWakeUpCmd
-                0x0000000008002a08                USART_WakeUpConfig
-                0x0000000008002a1c                USART_LINBreakDetectLengthConfig
-                0x0000000008002a30                USART_LINCmd
-                0x0000000008002a4a                USART_SendBreak
-                0x0000000008002a54                USART_HalfDuplexCmd
-                0x0000000008002a6e                USART_SetGuardTime
-                0x0000000008002a7e                USART_SmartCardCmd
-                0x0000000008002a98                USART_SmartCardNACKCmd
-                0x0000000008002ab2                USART_IrDAConfig
-                0x0000000008002ac6                USART_IrDACmd
-                0x0000000008002ae0                USART_DMACmd
-                0x0000000008002af4                USART_ITConfig
-                0x0000000008002b2e                USART_GetFlagStatus
-                0x0000000008002b3c                USART_ClearFlag
-                0x0000000008002b44                USART_GetITStatus
-                0x0000000008002b8a                USART_ClearITPendingBit
- .text          0x0000000008002b9c      0x378 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-                0x0000000008002b9c                __aeabi_drsub
-                0x0000000008002ba4                __aeabi_dsub
-                0x0000000008002ba4                __subdf3
-                0x0000000008002ba8                __adddf3
-                0x0000000008002ba8                __aeabi_dadd
-                0x0000000008002e20                __aeabi_ui2d
-                0x0000000008002e20                __floatunsidf
-                0x0000000008002e40                __floatsidf
-                0x0000000008002e40                __aeabi_i2d
-                0x0000000008002e64                __extendsfdf2
-                0x0000000008002e64                __aeabi_f2d
-                0x0000000008002ea8                __aeabi_ul2d
-                0x0000000008002ea8                __floatundidf
-                0x0000000008002eb8                __floatdidf
-                0x0000000008002eb8                __aeabi_l2d
- .text          0x0000000008002f14      0x424 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
-                0x0000000008002f14                __aeabi_dmul
-                0x0000000008002f14                __muldf3
-                0x0000000008003168                __aeabi_ddiv
-                0x0000000008003168                __divdf3
- .text          0x0000000008003338       0x40 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
-                0x0000000008003338                __fixunsdfsi
-                0x0000000008003338                __aeabi_d2uiz
- .text          0x0000000008003378        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .text.atexit   0x0000000008003378        0xc /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
-                0x0000000008003378                atexit
- .text          0x0000000008003384        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .text.exit     0x0000000008003384       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
-                0x0000000008003384                exit
- .text          0x00000000080033a4        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+                0x0000000008000f1c        0x2 /tmp/ccGoVWfS.o
+                0x0000000008000f1c                RTC_Alarm_IRQHandler
+                0x0000000008000f1c                EXTI2_IRQHandler
+                0x0000000008000f1c                SPI4_IRQHandler
+                0x0000000008000f1c                DMA2_Stream5_IRQHandler
+                0x0000000008000f1c                DMA1_Stream5_IRQHandler
+                0x0000000008000f1c                PVD_IRQHandler
+                0x0000000008000f1c                SDIO_IRQHandler
+                0x0000000008000f1c                TAMP_STAMP_IRQHandler
+                0x0000000008000f1c                TIM1_UP_TIM10_IRQHandler
+                0x0000000008000f1c                I2C3_ER_IRQHandler
+                0x0000000008000f1c                EXTI0_IRQHandler
+                0x0000000008000f1c                I2C2_EV_IRQHandler
+                0x0000000008000f1c                DMA1_Stream2_IRQHandler
+                0x0000000008000f1c                FPU_IRQHandler
+                0x0000000008000f1c                DMA2_Stream2_IRQHandler
+                0x0000000008000f1c                SPI1_IRQHandler
+                0x0000000008000f1c                TIM1_BRK_TIM9_IRQHandler
+                0x0000000008000f1c                DMA2_Stream3_IRQHandler
+                0x0000000008000f1c                USART6_IRQHandler
+                0x0000000008000f1c                DMA2_Stream0_IRQHandler
+                0x0000000008000f1c                TIM4_IRQHandler
+                0x0000000008000f1c                I2C1_EV_IRQHandler
+                0x0000000008000f1c                DMA1_Stream6_IRQHandler
+                0x0000000008000f1c                DMA1_Stream1_IRQHandler
+                0x0000000008000f1c                TIM3_IRQHandler
+                0x0000000008000f1c                RCC_IRQHandler
+                0x0000000008000f1c                Default_Handler
+                0x0000000008000f1c                ADC_IRQHandler
+                0x0000000008000f1c                DMA1_Stream7_IRQHandler
+                0x0000000008000f1c                TIM5_IRQHandler
+                0x0000000008000f1c                DMA2_Stream7_IRQHandler
+                0x0000000008000f1c                I2C3_EV_IRQHandler
+                0x0000000008000f1c                EXTI9_5_IRQHandler
+                0x0000000008000f1c                RTC_WKUP_IRQHandler
+                0x0000000008000f1c                SPI2_IRQHandler
+                0x0000000008000f1c                DMA1_Stream0_IRQHandler
+                0x0000000008000f1c                EXTI4_IRQHandler
+                0x0000000008000f1c                WWDG_IRQHandler
+                0x0000000008000f1c                TIM2_IRQHandler
+                0x0000000008000f1c                OTG_FS_WKUP_IRQHandler
+                0x0000000008000f1c                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0000000008000f1c                EXTI1_IRQHandler
+                0x0000000008000f1c                USART2_IRQHandler
+                0x0000000008000f1c                I2C2_ER_IRQHandler
+                0x0000000008000f1c                DMA2_Stream1_IRQHandler
+                0x0000000008000f1c                FLASH_IRQHandler
+                0x0000000008000f1c                DMA2_Stream4_IRQHandler
+                0x0000000008000f1c                OTG_FS_IRQHandler
+                0x0000000008000f1c                SPI3_IRQHandler
+                0x0000000008000f1c                DMA1_Stream4_IRQHandler
+                0x0000000008000f1c                I2C1_ER_IRQHandler
+                0x0000000008000f1c                DMA2_Stream6_IRQHandler
+                0x0000000008000f1c                DMA1_Stream3_IRQHandler
+ *fill*         0x0000000008000f1e        0x2 
+ .text          0x0000000008000f20       0xc8 /tmp/ccL4Bqsu.o
+                0x0000000008000f20                NVIC_PriorityGroupConfig
+                0x0000000008000f34                NVIC_Init
+                0x0000000008000f98                NVIC_SetVectorTable
+                0x0000000008000fac                NVIC_SystemLPConfig
+                0x0000000008000fc8                SysTick_CLKSourceConfig
+ .text          0x0000000008000fe8      0x3e0 /tmp/ccCsYkY6.o
+                0x0000000008000fe8                ADC_DeInit
+                0x0000000008001000                ADC_Init
+                0x0000000008001050                ADC_StructInit
+                0x0000000008001064                ADC_CommonInit
+                0x0000000008001090                ADC_CommonStructInit
+                0x000000000800109c                ADC_Cmd
+                0x00000000080010b2                ADC_AnalogWatchdogCmd
+                0x00000000080010c2                ADC_AnalogWatchdogThresholdsConfig
+                0x00000000080010c8                ADC_AnalogWatchdogSingleChannelConfig
+                0x00000000080010d4                ADC_TempSensorVrefintCmd
+                0x00000000080010f4                ADC_VBATCmd
+                0x0000000008001114                ADC_RegularChannelConfig
+                0x00000000080011a4                ADC_SoftwareStartConv
+                0x00000000080011ae                ADC_GetSoftwareStartConvStatus
+                0x00000000080011be                ADC_EOCOnEachRegularChannelCmd
+                0x00000000080011d4                ADC_ContinuousModeCmd
+                0x00000000080011ea                ADC_DiscModeChannelCountConfig
+                0x00000000080011fa                ADC_DiscModeCmd
+                0x0000000008001210                ADC_GetConversionValue
+                0x0000000008001216                ADC_GetMultiModeConversionValue
+                0x0000000008001220                ADC_DMACmd
+                0x0000000008001236                ADC_DMARequestAfterLastTransferCmd
+                0x000000000800124c                ADC_MultiModeDMARequestAfterLastTransferCmd
+                0x000000000800126c                ADC_InjectedChannelConfig
+                0x00000000080012ca                ADC_InjectedSequencerLengthConfig
+                0x00000000080012da                ADC_SetInjectedOffset
+                0x00000000080012f0                ADC_ExternalTrigInjectedConvConfig
+                0x00000000080012fc                ADC_ExternalTrigInjectedConvEdgeConfig
+                0x0000000008001308                ADC_SoftwareStartInjectedConv
+                0x0000000008001312                ADC_GetSoftwareStartInjectedConvCmdStatus
+                0x0000000008001322                ADC_AutoInjectedConvCmd
+                0x0000000008001338                ADC_InjectedDiscModeCmd
+                0x000000000800134e                ADC_GetInjectedConversionValue
+                0x0000000008001368                ADC_ITConfig
+                0x0000000008001384                ADC_GetFlagStatus
+                0x0000000008001392                ADC_ClearFlag
+                0x0000000008001398                ADC_GetITStatus
+                0x00000000080013be                ADC_ClearITPendingBit
+ .text          0x00000000080013c8      0x108 /tmp/ccBqKdIJ.o
+                0x00000000080013c8                EXTI_DeInit
+                0x00000000080013e4                EXTI_Init
+                0x0000000008001474                EXTI_StructInit
+                0x0000000008001482                EXTI_GenerateSWInterrupt
+                0x0000000008001490                EXTI_GetFlagStatus
+                0x00000000080014a4                EXTI_ClearFlag
+                0x00000000080014b0                EXTI_GetITStatus
+                0x00000000080014c4                EXTI_ClearITPendingBit
+ .text          0x00000000080014d0      0x278 /tmp/ccX5PoHm.o
+                0x00000000080014d0                GPIO_DeInit
+                0x0000000008001614                GPIO_Init
+                0x000000000800169e                GPIO_StructInit
+                0x00000000080016b0                GPIO_PinLockConfig
+                0x00000000080016d4                GPIO_ReadInputDataBit
+                0x00000000080016e2                GPIO_ReadInputData
+                0x00000000080016e8                GPIO_ReadOutputDataBit
+                0x00000000080016f6                GPIO_ReadOutputData
+                0x00000000080016fc                GPIO_SetBits
+                0x0000000008001700                GPIO_ResetBits
+                0x0000000008001704                GPIO_WriteBit
+                0x000000000800170e                GPIO_Write
+                0x0000000008001712                GPIO_ToggleBits
+                0x000000000800171a                GPIO_PinAFConfig
+ .text          0x0000000008001748      0x530 /tmp/ccgM381Z.o
+                0x0000000008001748                RCC_DeInit
+                0x0000000008001788                RCC_HSEConfig
+                0x0000000008001798                RCC_AdjustHSICalibrationValue
+                0x00000000080017ac                RCC_HSICmd
+                0x00000000080017b8                RCC_LSEConfig
+                0x00000000080017e0                RCC_LSICmd
+                0x00000000080017ec                RCC_PLLConfig
+                0x000000000800180c                RCC_PLLCmd
+                0x0000000008001818                RCC_PLLI2SConfig
+                0x000000000800182c                RCC_PLLI2SCmd
+                0x0000000008001838                RCC_PLLSAIConfig
+                0x0000000008001850                RCC_PLLSAICmd
+                0x000000000800185c                RCC_ClockSecuritySystemCmd
+                0x0000000008001868                RCC_MCO1Config
+                0x000000000800187c                RCC_MCO2Config
+                0x0000000008001890                RCC_SYSCLKConfig
+                0x00000000080018a4                RCC_GetSYSCLKSource
+                0x00000000080018b4                RCC_HCLKConfig
+                0x00000000080018c8                RCC_PCLK1Config
+                0x00000000080018dc                RCC_PCLK2Config
+                0x00000000080018f0                RCC_GetClocksFreq
+                0x00000000080019a4                RCC_RTCCLKConfig
+                0x00000000080019d8                RCC_RTCCLKCmd
+                0x00000000080019e4                RCC_BackupResetCmd
+                0x00000000080019f0                RCC_I2SCLKConfig
+                0x00000000080019fc                RCC_SAIPLLI2SClkDivConfig
+                0x0000000008001a14                RCC_SAIPLLSAIClkDivConfig
+                0x0000000008001a30                RCC_LTDCCLKDivConfig
+                0x0000000008001a48                RCC_TIMCLKPresConfig
+                0x0000000008001a54                RCC_AHB1PeriphClockCmd
+                0x0000000008001a70                RCC_AHB2PeriphClockCmd
+                0x0000000008001a8c                RCC_APB1PeriphClockCmd
+                0x0000000008001aa8                RCC_APB2PeriphClockCmd
+                0x0000000008001ac4                RCC_AHB1PeriphResetCmd
+                0x0000000008001ae0                RCC_AHB2PeriphResetCmd
+                0x0000000008001afc                RCC_APB1PeriphResetCmd
+                0x0000000008001b18                RCC_APB2PeriphResetCmd
+                0x0000000008001b34                RCC_AHB1PeriphClockLPModeCmd
+                0x0000000008001b50                RCC_AHB2PeriphClockLPModeCmd
+                0x0000000008001b6c                RCC_APB1PeriphClockLPModeCmd
+                0x0000000008001b88                RCC_APB2PeriphClockLPModeCmd
+                0x0000000008001ba4                RCC_LSEModeConfig
+                0x0000000008001bc4                RCC_ITConfig
+                0x0000000008001be0                RCC_GetFlagStatus
+                0x0000000008001c14                RCC_WaitForHSEStartUp
+                0x0000000008001c48                RCC_ClearFlag
+                0x0000000008001c58                RCC_GetITStatus
+                0x0000000008001c6c                RCC_ClearITPendingBit
+ .text          0x0000000008001c78       0x94 /tmp/ccefzWAD.o
+                0x0000000008001c78                SYSCFG_DeInit
+                0x0000000008001c90                SYSCFG_MemoryRemapConfig
+                0x0000000008001c9c                SYSCFG_MemorySwappingBank
+                0x0000000008001ca8                SYSCFG_EXTILineConfig
+                0x0000000008001cdc                SYSCFG_ETH_MediaInterfaceConfig
+                0x0000000008001ce8                SYSCFG_CompensationCellCmd
+                0x0000000008001cf4                SYSCFG_GetCompensationCellStatus
+ .text          0x0000000008001d0c      0xb4c /tmp/ccpBmFHh.o
+                0x0000000008001df6                TIM_DeInit
+                0x0000000008001f8c                TIM_TimeBaseInit
+                0x0000000008002008                TIM_TimeBaseStructInit
+                0x000000000800201a                TIM_PrescalerConfig
+                0x0000000008002020                TIM_CounterModeConfig
+                0x000000000800202e                TIM_SetCounter
+                0x0000000008002032                TIM_SetAutoreload
+                0x0000000008002036                TIM_GetCounter
+                0x000000000800203a                TIM_GetPrescaler
+                0x000000000800203e                TIM_UpdateDisableConfig
+                0x0000000008002058                TIM_UpdateRequestConfig
+                0x0000000008002072                TIM_ARRPreloadConfig
+                0x000000000800208c                TIM_SelectOnePulseMode
+                0x00000000080020a0                TIM_SetClockDivision
+                0x00000000080020b4                TIM_Cmd
+                0x00000000080020ce                TIM_OC1Init
+                0x0000000008002138                TIM_OC2Init
+                0x00000000080021c0                TIM_OC3Init
+                0x0000000008002244                TIM_OC4Init
+                0x00000000080022ac                TIM_OCStructInit
+                0x00000000080022c0                TIM_SelectOCxM
+                0x0000000008002310                TIM_SetCompare1
+                0x0000000008002314                TIM_SetCompare2
+                0x0000000008002318                TIM_SetCompare3
+                0x000000000800231c                TIM_SetCompare4
+                0x0000000008002320                TIM_ForcedOC1Config
+                0x000000000800232e                TIM_ForcedOC2Config
+                0x0000000008002340                TIM_ForcedOC3Config
+                0x000000000800234e                TIM_ForcedOC4Config
+                0x0000000008002360                TIM_OC1PreloadConfig
+                0x000000000800236e                TIM_OC2PreloadConfig
+                0x0000000008002380                TIM_OC3PreloadConfig
+                0x000000000800238e                TIM_OC4PreloadConfig
+                0x00000000080023a0                TIM_OC1FastConfig
+                0x00000000080023ae                TIM_OC2FastConfig
+                0x00000000080023c0                TIM_OC3FastConfig
+                0x00000000080023ce                TIM_OC4FastConfig
+                0x00000000080023e0                TIM_ClearOC1Ref
+                0x00000000080023ee                TIM_ClearOC2Ref
+                0x00000000080023fe                TIM_ClearOC3Ref
+                0x000000000800240c                TIM_ClearOC4Ref
+                0x000000000800241c                TIM_OC1PolarityConfig
+                0x000000000800242a                TIM_OC1NPolarityConfig
+                0x0000000008002438                TIM_OC2PolarityConfig
+                0x000000000800244a                TIM_OC2NPolarityConfig
+                0x000000000800245c                TIM_OC3PolarityConfig
+                0x000000000800246e                TIM_OC3NPolarityConfig
+                0x0000000008002480                TIM_OC4PolarityConfig
+                0x0000000008002492                TIM_CCxCmd
+                0x00000000080024b4                TIM_CCxNCmd
+                0x00000000080024d6                TIM_ICStructInit
+                0x00000000080024e6                TIM_GetCapture1
+                0x00000000080024ea                TIM_GetCapture2
+                0x00000000080024ee                TIM_GetCapture3
+                0x00000000080024f2                TIM_GetCapture4
+                0x00000000080024f6                TIM_SetIC1Prescaler
+                0x000000000800250a                TIM_SetIC2Prescaler
+                0x0000000008002522                TIM_PWMIConfig
+                0x000000000800258e                TIM_SetIC3Prescaler
+                0x00000000080025a2                TIM_SetIC4Prescaler
+                0x00000000080025ba                TIM_ICInit
+                0x000000000800261c                TIM_BDTRConfig
+                0x0000000008002644                TIM_BDTRStructInit
+                0x0000000008002656                TIM_CtrlPWMOutputs
+                0x0000000008002674                TIM_SelectCOM
+                0x000000000800268e                TIM_CCPreloadControl
+                0x00000000080026a8                TIM_ITConfig
+                0x00000000080026bc                TIM_GenerateEvent
+                0x00000000080026c0                TIM_GetFlagStatus
+                0x00000000080026ce                TIM_ClearFlag
+                0x00000000080026d6                TIM_GetITStatus
+                0x00000000080026ee                TIM_ClearITPendingBit
+                0x00000000080026f6                TIM_DMAConfig
+                0x00000000080026fe                TIM_DMACmd
+                0x0000000008002712                TIM_SelectCCDMA
+                0x000000000800272c                TIM_InternalClockConfig
+                0x000000000800273a                TIM_SelectInputTrigger
+                0x0000000008002748                TIM_ITRxExternalClockConfig
+                0x000000000800275a                TIM_TIxExternalClockConfig
+                0x0000000008002786                TIM_SelectOutputTrigger
+                0x000000000800279a                TIM_SelectSlaveMode
+                0x00000000080027ae                TIM_SelectMasterSlaveMode
+                0x00000000080027c2                TIM_ETRConfig
+                0x00000000080027da                TIM_ETRClockMode1Config
+                0x00000000080027ec                TIM_ETRClockMode2Config
+                0x00000000080027fe                TIM_EncoderInterfaceConfig
+                0x0000000008002838                TIM_SelectHallSensor
+                0x0000000008002852                TIM_RemapConfig
+ .text          0x0000000008002858      0x43c /tmp/cci5p37V.o
+                0x0000000008002858                USART_DeInit
+                0x0000000008002954                USART_Init
+                0x0000000008002a24                USART_StructInit
+                0x0000000008002a3a                USART_ClockInit
+                0x0000000008002a5c                USART_ClockStructInit
+                0x0000000008002a68                USART_Cmd
+                0x0000000008002a82                USART_SetPrescaler
+                0x0000000008002a92                USART_OverSampling8Cmd
+                0x0000000008002aa8                USART_OneBitMethodCmd
+                0x0000000008002ac2                USART_SendData
+                0x0000000008002aca                USART_ReceiveData
+                0x0000000008002ad2                USART_SetAddress
+                0x0000000008002ae6                USART_ReceiverWakeUpCmd
+                0x0000000008002b00                USART_WakeUpConfig
+                0x0000000008002b14                USART_LINBreakDetectLengthConfig
+                0x0000000008002b28                USART_LINCmd
+                0x0000000008002b42                USART_SendBreak
+                0x0000000008002b4c                USART_HalfDuplexCmd
+                0x0000000008002b66                USART_SetGuardTime
+                0x0000000008002b76                USART_SmartCardCmd
+                0x0000000008002b90                USART_SmartCardNACKCmd
+                0x0000000008002baa                USART_IrDAConfig
+                0x0000000008002bbe                USART_IrDACmd
+                0x0000000008002bd8                USART_DMACmd
+                0x0000000008002bec                USART_ITConfig
+                0x0000000008002c26                USART_GetFlagStatus
+                0x0000000008002c34                USART_ClearFlag
+                0x0000000008002c3c                USART_GetITStatus
+                0x0000000008002c82                USART_ClearITPendingBit
+ .text          0x0000000008002c94        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .text.atexit   0x0000000008002c94        0xc /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+                0x0000000008002c94                atexit
+ .text          0x0000000008002ca0        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .text.exit     0x0000000008002ca0       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+                0x0000000008002ca0                exit
+ .text          0x0000000008002cc0        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
  .text.__libc_fini_array
-                0x00000000080033a4       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
-                0x00000000080033a4                __libc_fini_array
- .text          0x00000000080033d8        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
- .text          0x00000000080033d8        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+                0x0000000008002cc0       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+                0x0000000008002cc0                __libc_fini_array
+ .text          0x0000000008002cf4        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .text          0x0000000008002cf4        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
  .text.__libc_init_array
-                0x00000000080033d8       0x48 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
-                0x00000000080033d8                __libc_init_array
- .text          0x0000000008003420        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .text.memset   0x0000000008003420       0x94 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
-                0x0000000008003420                memset
- .text          0x00000000080034b4        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+                0x0000000008002cf4       0x48 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+                0x0000000008002cf4                __libc_init_array
+ .text          0x0000000008002d3c        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .text.memset   0x0000000008002d3c       0x94 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+                0x0000000008002d3c                memset
+ .text          0x0000000008002dd0        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x00000000080034b4       0xa0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
-                0x00000000080034b4                __register_exitproc
- .text          0x0000000008003554        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+                0x0000000008002dd0       0xa0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+                0x0000000008002dd0                __register_exitproc
+ .text          0x0000000008002e70        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
  .text.startup.register_fini
-                0x0000000008003554       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+                0x0000000008002e70       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000008003568       0xd0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
-                0x0000000008003568                __call_exitprocs
- .text          0x0000000008003638        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
- .text._exit    0x0000000008003638        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
-                0x0000000008003638                _exit
- .text          0x000000000800363c        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
- .text          0x000000000800363c        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
-                0x000000000800363c                . = ALIGN (0x4)
+                0x0000000008002e84       0xd0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+                0x0000000008002e84                __call_exitprocs
+ .text          0x0000000008002f54        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .text._exit    0x0000000008002f54        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+                0x0000000008002f54                _exit
+ .text          0x0000000008002f58        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
+ .text          0x0000000008002f58        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+                0x0000000008002f58                . = ALIGN (0x4)
  *(.rodata*)
- .rodata        0x000000000800363c        0x4 /tmp/ccLQ1FQg.o
+ .rodata        0x0000000008002f58        0x4 /tmp/ccqxi6fE.o
  .rodata._global_impure_ptr
-                0x0000000008003640        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
-                0x0000000008003640                _global_impure_ptr
-                0x0000000008003644                . = ALIGN (0x4)
+                0x0000000008002f5c        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+                0x0000000008002f5c                _global_impure_ptr
+                0x0000000008002f60                . = ALIGN (0x4)
 
-.glue_7         0x0000000008003644        0x0
- .glue_7        0x0000000008003644        0x0 linker stubs
+.glue_7         0x0000000008002f60        0x0
+ .glue_7        0x0000000008002f60        0x0 linker stubs
 
-.glue_7t        0x0000000008003644        0x0
- .glue_7t       0x0000000008003644        0x0 linker stubs
+.glue_7t        0x0000000008002f60        0x0
+ .glue_7t       0x0000000008002f60        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008003644        0x0
- .vfp11_veneer  0x0000000008003644        0x0 linker stubs
+.vfp11_veneer   0x0000000008002f60        0x0
+ .vfp11_veneer  0x0000000008002f60        0x0 linker stubs
 
-.v4_bx          0x0000000008003644        0x0
- .v4_bx         0x0000000008003644        0x0 linker stubs
+.v4_bx          0x0000000008002f60        0x0
+ .v4_bx         0x0000000008002f60        0x0 linker stubs
 
-.init           0x0000000008003644        0xc
- .init          0x0000000008003644        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x0000000008003644                _init
- .init          0x0000000008003648        0x8 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+.init           0x0000000008002f60        0xc
+ .init          0x0000000008002f60        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x0000000008002f60                _init
+ .init          0x0000000008002f64        0x8 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 
-.fini           0x0000000008003650        0xc
- .fini          0x0000000008003650        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
-                0x0000000008003650                _fini
- .fini          0x0000000008003654        0x8 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+.fini           0x0000000008002f6c        0xc
+ .fini          0x0000000008002f6c        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
+                0x0000000008002f6c                _fini
+ .fini          0x0000000008002f70        0x8 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 
-.iplt           0x000000000800365c        0x0
- .iplt          0x000000000800365c        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+.iplt           0x0000000008002f78        0x0
+ .iplt          0x0000000008002f78        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.rel.dyn        0x000000000800365c        0x0
- .rel.iplt      0x000000000800365c        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
-                0x000000000800365c                . = ALIGN (0x4)
-                0x000000000800365c                _etext = .
+.rel.dyn        0x0000000008002f78        0x0
+ .rel.iplt      0x0000000008002f78        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
+                0x0000000008002f78                . = ALIGN (0x4)
+                0x0000000008002f78                _etext = .
 
-.data           0x0000000020000000      0x458 load address 0x000000000800365c
+.data           0x0000000020000000      0x458 load address 0x0000000008002f78
                 0x0000000020000000                _sdata = .
  *(.data*)
  .data          0x0000000020000000        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
  .data          0x0000000020000000        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
                 0x0000000020000000                __dso_handle
  .data          0x0000000020000004        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .data          0x0000000020000004        0x0 /tmp/ccbrwlVV.o
- .data          0x0000000020000004        0x0 /tmp/ccLQ1FQg.o
- .data          0x0000000020000004        0x0 /tmp/ccTHmnWB.o
- .data          0x0000000020000004        0x0 /tmp/cc6v3FeX.o
- .data          0x0000000020000004        0x0 /tmp/ccxNHkFi.o
- .data          0x0000000020000004        0x0 /tmp/ccYV8tcE.o
- .data          0x0000000020000004       0x14 /tmp/ccnJXPVZ.o
+ .data          0x0000000020000004        0x0 /tmp/ccr0UnS1.o
+ .data          0x0000000020000004        0x0 /tmp/ccgUSXSC.o
+ .data          0x0000000020000004        0x0 /tmp/ccce5vZd.o
+ .data          0x0000000020000004        0x0 /tmp/cc6PhcjP.o
+ .data          0x0000000020000004        0x0 /tmp/cclmmuQq.o
+ .data          0x0000000020000004        0x0 /tmp/ccqkQmt2.o
+ .data          0x0000000020000004        0x0 /tmp/ccqxi6fE.o
+ .data          0x0000000020000004       0x14 /tmp/ccxiEvfg.o
                 0x0000000020000004                SystemCoreClock
                 0x0000000020000008                AHBPrescTable
- .data          0x0000000020000018        0x0 /tmp/ccUfeNGl.o
- .data          0x0000000020000018        0x0 /tmp/ccAfArCH.o
- .data          0x0000000020000018        0x0 /tmp/cc7oiOR3.o
- .data          0x0000000020000018        0x0 /tmp/cco0zGiq.o
- .data          0x0000000020000018        0x0 /tmp/ccpYwAXM.o
- .data          0x0000000020000018       0x10 /tmp/ccFGX7W9.o
- .data          0x0000000020000028        0x0 /tmp/ccoDGsax.o
- .data          0x0000000020000028        0x0 /tmp/ccD6BZSU.o
- .data          0x0000000020000028        0x0 /tmp/ccU6neVi.o
- .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
+ .data          0x0000000020000018        0x0 /tmp/ccGoVWfS.o
+ .data          0x0000000020000018        0x0 /tmp/ccL4Bqsu.o
+ .data          0x0000000020000018        0x0 /tmp/ccCsYkY6.o
+ .data          0x0000000020000018        0x0 /tmp/ccBqKdIJ.o
+ .data          0x0000000020000018        0x0 /tmp/ccX5PoHm.o
+ .data          0x0000000020000018       0x10 /tmp/ccgM381Z.o
+ .data          0x0000000020000028        0x0 /tmp/ccefzWAD.o
+ .data          0x0000000020000028        0x0 /tmp/ccpBmFHh.o
+ .data          0x0000000020000028        0x0 /tmp/cci5p37V.o
  .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
  .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
  .data          0x0000000020000028        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
@@ -589,74 +574,84 @@ LOAD /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  .data          0x0000000020000458        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
                 0x0000000020000458                . = ALIGN (0x4)
                 0x0000000020000458                _edata = .
-                0x000000000800365c                _sidata = LOADADDR (.data)
+                0x0000000008002f78                _sidata = LOADADDR (.data)
 
-.init_array     0x0000000020000458        0x4 load address 0x0000000008003ab4
+.init_array     0x0000000020000458        0x4 load address 0x00000000080033d0
  .init_array    0x0000000020000458        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
-.fini_array     0x000000002000045c        0x4 load address 0x0000000008003ab8
+.fini_array     0x000000002000045c        0x4 load address 0x00000000080033d4
  .fini_array    0x000000002000045c        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
 .tm_clone_table
-                0x0000000020000460        0x0 load address 0x0000000008003abc
+                0x0000000020000460        0x0 load address 0x00000000080033d8
  .tm_clone_table
                 0x0000000020000460        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
  .tm_clone_table
                 0x0000000020000460        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
 
-.igot.plt       0x0000000020000460        0x0 load address 0x0000000008003abc
+.igot.plt       0x0000000020000460        0x0 load address 0x00000000080033d8
  .igot.plt      0x0000000020000460        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 
 .init_array.00000
-                0x0000000020000460        0x4 load address 0x0000000008003abc
+                0x0000000020000460        0x4 load address 0x00000000080033d8
  .init_array.00000
                 0x0000000020000460        0x4 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
 
-.bss            0x0000000020000468       0xe0 load address 0x0000000008003ac0
+.bss            0x0000000020000468      0x158 load address 0x00000000080033dc
                 0x0000000020000468                __bss_start__ = .
                 0x0000000020000468                _sbss = .
  *(.bss*)
  .bss           0x0000000020000468        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
  .bss           0x0000000020000468       0x1c /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
  .bss           0x0000000020000484        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .bss           0x0000000020000484        0x0 /tmp/ccbrwlVV.o
- .bss           0x0000000020000484        0x0 /tmp/ccLQ1FQg.o
- .bss           0x0000000020000484        0x0 /tmp/ccTHmnWB.o
+ .bss           0x0000000020000484        0x0 /tmp/ccr0UnS1.o
+ .bss           0x0000000020000484        0x0 /tmp/ccgUSXSC.o
+ .bss           0x0000000020000484        0x0 /tmp/ccce5vZd.o
+ .bss           0x0000000020000484        0x0 /tmp/cc6PhcjP.o
  *fill*         0x0000000020000484        0x4 
- .bss           0x0000000020000488        0x8 /tmp/cc6v3FeX.o
+ .bss           0x0000000020000488        0x8 /tmp/cclmmuQq.o
                 0x0000000020000488                _ms_ticks
- .bss           0x0000000020000490       0xb8 /tmp/ccxNHkFi.o
- .bss           0x0000000020000548        0x0 /tmp/ccYV8tcE.o
- .bss           0x0000000020000548        0x0 /tmp/ccnJXPVZ.o
- .bss           0x0000000020000548        0x0 /tmp/ccUfeNGl.o
- .bss           0x0000000020000548        0x0 /tmp/ccAfArCH.o
- .bss           0x0000000020000548        0x0 /tmp/cc7oiOR3.o
- .bss           0x0000000020000548        0x0 /tmp/cco0zGiq.o
- .bss           0x0000000020000548        0x0 /tmp/ccpYwAXM.o
- .bss           0x0000000020000548        0x0 /tmp/ccFGX7W9.o
- .bss           0x0000000020000548        0x0 /tmp/ccoDGsax.o
- .bss           0x0000000020000548        0x0 /tmp/ccD6BZSU.o
- .bss           0x0000000020000548        0x0 /tmp/ccU6neVi.o
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
- .bss           0x0000000020000548        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+ .bss           0x0000000020000490        0x0 /tmp/ccqkQmt2.o
+ .bss           0x0000000020000490       0xf4 /tmp/ccqxi6fE.o
+ .bss           0x0000000020000584        0x0 /tmp/ccxiEvfg.o
+ .bss           0x0000000020000584        0x0 /tmp/ccGoVWfS.o
+ .bss           0x0000000020000584        0x0 /tmp/ccL4Bqsu.o
+ .bss           0x0000000020000584        0x0 /tmp/ccCsYkY6.o
+ .bss           0x0000000020000584        0x0 /tmp/ccBqKdIJ.o
+ .bss           0x0000000020000584        0x0 /tmp/ccX5PoHm.o
+ .bss           0x0000000020000584        0x0 /tmp/ccgM381Z.o
+ .bss           0x0000000020000584        0x0 /tmp/ccefzWAD.o
+ .bss           0x0000000020000584        0x0 /tmp/ccpBmFHh.o
+ .bss           0x0000000020000584        0x0 /tmp/cci5p37V.o
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
+ .bss           0x0000000020000584        0x0 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
  *(COMMON)
-                0x0000000020000548                . = ALIGN (0x4)
-                0x0000000020000548                _ebss = .
-                0x0000000020000548                __bss_end__ = .
-                0x0000000020000548                . = ALIGN (0x4)
-                0x0000000020000548                end = .
+ *fill*         0x0000000020000584        0x4 
+ COMMON         0x0000000020000588       0x38 /tmp/cc6PhcjP.o
+                0x0000000020000588                _u32
+                0x000000002000058c                _i8
+                0x000000002000058e                _i16
+                0x0000000020000590                _u16
+                0x0000000020000598                _d
+                0x00000000200005a0                _i32
+                0x00000000200005a4                _u8
+                0x00000000200005a8                _i64
+                0x00000000200005b0                _f
+                0x00000000200005b8                _u64
+                0x00000000200005c0                . = ALIGN (0x4)
+                0x00000000200005c0                _ebss = .
+                0x00000000200005c0                __bss_end__ = .
+                0x00000000200005c0                . = ALIGN (0x4)
+                0x00000000200005c0                end = .
                 0x0000000020018000                PROVIDE (_estack, (ORIGIN (ram) + LENGTH (ram)))
 OUTPUT(build/buzzer.elf elf32-littlearm)
 
@@ -669,84 +664,81 @@ OUTPUT(build/buzzer.elf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000054       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
  .ARM.attributes
-                0x0000000000000074       0x37 /tmp/ccbrwlVV.o
+                0x0000000000000074       0x37 /tmp/ccr0UnS1.o
  .ARM.attributes
-                0x00000000000000ab       0x37 /tmp/ccLQ1FQg.o
+                0x00000000000000ab       0x37 /tmp/ccgUSXSC.o
  .ARM.attributes
-                0x00000000000000e2       0x37 /tmp/ccTHmnWB.o
+                0x00000000000000e2       0x37 /tmp/ccce5vZd.o
  .ARM.attributes
-                0x0000000000000119       0x37 /tmp/cc6v3FeX.o
+                0x0000000000000119       0x37 /tmp/cc6PhcjP.o
  .ARM.attributes
-                0x0000000000000150       0x37 /tmp/ccxNHkFi.o
+                0x0000000000000150       0x37 /tmp/cclmmuQq.o
  .ARM.attributes
-                0x0000000000000187       0x37 /tmp/ccYV8tcE.o
+                0x0000000000000187       0x37 /tmp/ccqkQmt2.o
  .ARM.attributes
-                0x00000000000001be       0x37 /tmp/ccnJXPVZ.o
+                0x00000000000001be       0x37 /tmp/ccqxi6fE.o
  .ARM.attributes
-                0x00000000000001f5       0x21 /tmp/ccUfeNGl.o
+                0x00000000000001f5       0x37 /tmp/ccxiEvfg.o
  .ARM.attributes
-                0x0000000000000216       0x37 /tmp/ccAfArCH.o
+                0x000000000000022c       0x21 /tmp/ccGoVWfS.o
  .ARM.attributes
-                0x000000000000024d       0x37 /tmp/cc7oiOR3.o
+                0x000000000000024d       0x37 /tmp/ccL4Bqsu.o
  .ARM.attributes
-                0x0000000000000284       0x37 /tmp/cco0zGiq.o
+                0x0000000000000284       0x37 /tmp/ccCsYkY6.o
  .ARM.attributes
-                0x00000000000002bb       0x37 /tmp/ccpYwAXM.o
+                0x00000000000002bb       0x37 /tmp/ccBqKdIJ.o
  .ARM.attributes
-                0x00000000000002f2       0x37 /tmp/ccFGX7W9.o
+                0x00000000000002f2       0x37 /tmp/ccX5PoHm.o
  .ARM.attributes
-                0x0000000000000329       0x37 /tmp/ccoDGsax.o
+                0x0000000000000329       0x37 /tmp/ccgM381Z.o
  .ARM.attributes
-                0x0000000000000360       0x37 /tmp/ccD6BZSU.o
+                0x0000000000000360       0x37 /tmp/ccefzWAD.o
  .ARM.attributes
-                0x0000000000000397       0x37 /tmp/ccU6neVi.o
+                0x0000000000000397       0x37 /tmp/ccpBmFHh.o
  .ARM.attributes
-                0x00000000000003ce       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
+                0x00000000000003ce       0x37 /tmp/cci5p37V.o
  .ARM.attributes
-                0x00000000000003f0       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000000405       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
  .ARM.attributes
-                0x0000000000000412       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
+                0x0000000000000437       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
  .ARM.attributes
-                0x0000000000000434       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+                0x0000000000000469       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
  .ARM.attributes
-                0x0000000000000466       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+                0x000000000000049b       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000000000000498       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+                0x00000000000004cd       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
  .ARM.attributes
-                0x00000000000004ca       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+                0x00000000000004ff       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
  .ARM.attributes
-                0x00000000000004fc       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+                0x0000000000000531       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
  .ARM.attributes
-                0x000000000000052e       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+                0x0000000000000563       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
  .ARM.attributes
-                0x0000000000000560       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+                0x0000000000000595       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
  .ARM.attributes
-                0x0000000000000592       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+                0x00000000000005c7       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
  .ARM.attributes
-                0x00000000000005c4       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
- .ARM.attributes
-                0x00000000000005f6       0x32 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
- .ARM.attributes
-                0x0000000000000628       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
+                0x00000000000005f9       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtn.o
 
 .comment        0x0000000000000000       0x42
  .comment       0x0000000000000000       0x21 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
                                          0x22 (size before relaxing)
- .comment       0x0000000000000021       0x22 /tmp/ccbrwlVV.o
- .comment       0x0000000000000021       0x22 /tmp/ccLQ1FQg.o
- .comment       0x0000000000000021       0x22 /tmp/ccTHmnWB.o
- .comment       0x0000000000000021       0x22 /tmp/cc6v3FeX.o
- .comment       0x0000000000000021       0x22 /tmp/ccxNHkFi.o
- .comment       0x0000000000000021       0x22 /tmp/ccYV8tcE.o
- .comment       0x0000000000000021       0x22 /tmp/ccnJXPVZ.o
- .comment       0x0000000000000021       0x22 /tmp/ccAfArCH.o
- .comment       0x0000000000000021       0x22 /tmp/cc7oiOR3.o
- .comment       0x0000000000000021       0x22 /tmp/cco0zGiq.o
- .comment       0x0000000000000021       0x22 /tmp/ccpYwAXM.o
- .comment       0x0000000000000021       0x22 /tmp/ccFGX7W9.o
- .comment       0x0000000000000021       0x22 /tmp/ccoDGsax.o
- .comment       0x0000000000000021       0x22 /tmp/ccD6BZSU.o
- .comment       0x0000000000000021       0x22 /tmp/ccU6neVi.o
+ .comment       0x0000000000000021       0x22 /tmp/ccr0UnS1.o
+ .comment       0x0000000000000021       0x22 /tmp/ccgUSXSC.o
+ .comment       0x0000000000000021       0x22 /tmp/ccce5vZd.o
+ .comment       0x0000000000000021       0x22 /tmp/cc6PhcjP.o
+ .comment       0x0000000000000021       0x22 /tmp/cclmmuQq.o
+ .comment       0x0000000000000021       0x22 /tmp/ccqkQmt2.o
+ .comment       0x0000000000000021       0x22 /tmp/ccqxi6fE.o
+ .comment       0x0000000000000021       0x22 /tmp/ccxiEvfg.o
+ .comment       0x0000000000000021       0x22 /tmp/ccL4Bqsu.o
+ .comment       0x0000000000000021       0x22 /tmp/ccCsYkY6.o
+ .comment       0x0000000000000021       0x22 /tmp/ccBqKdIJ.o
+ .comment       0x0000000000000021       0x22 /tmp/ccX5PoHm.o
+ .comment       0x0000000000000021       0x22 /tmp/ccgM381Z.o
+ .comment       0x0000000000000021       0x22 /tmp/ccefzWAD.o
+ .comment       0x0000000000000021       0x22 /tmp/ccpBmFHh.o
+ .comment       0x0000000000000021       0x22 /tmp/cci5p37V.o
  .comment       0x0000000000000021       0x21 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
                                          0x22 (size before relaxing)
  .comment       0x0000000000000042       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
@@ -759,265 +751,255 @@ OUTPUT(build/buzzer.elf elf32-littlearm)
  .comment       0x0000000000000042       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
  .comment       0x0000000000000042       0x22 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
 
-.debug_line     0x0000000000000000     0x2c2d
+.debug_line     0x0000000000000000     0x2959
  .debug_line    0x0000000000000000       0x84 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .debug_line    0x0000000000000084      0x22b /tmp/ccbrwlVV.o
- .debug_line    0x00000000000002af      0x1b5 /tmp/ccLQ1FQg.o
- .debug_line    0x0000000000000464      0x186 /tmp/ccTHmnWB.o
- .debug_line    0x00000000000005ea      0x15b /tmp/cc6v3FeX.o
- .debug_line    0x0000000000000745      0x156 /tmp/ccxNHkFi.o
- .debug_line    0x000000000000089b       0xcd /tmp/ccYV8tcE.o
- .debug_line    0x0000000000000968      0x129 /tmp/ccnJXPVZ.o
- .debug_line    0x0000000000000a91       0x72 /tmp/ccUfeNGl.o
- .debug_line    0x0000000000000b03      0x144 /tmp/ccAfArCH.o
- .debug_line    0x0000000000000c47      0x2cc /tmp/cc7oiOR3.o
- .debug_line    0x0000000000000f13      0x177 /tmp/cco0zGiq.o
- .debug_line    0x000000000000108a      0x1d5 /tmp/ccpYwAXM.o
- .debug_line    0x000000000000125f      0x2e1 /tmp/ccFGX7W9.o
- .debug_line    0x0000000000001540      0x14d /tmp/ccoDGsax.o
- .debug_line    0x000000000000168d      0x50c /tmp/ccD6BZSU.o
- .debug_line    0x0000000000001b99      0x284 /tmp/ccU6neVi.o
- .debug_line    0x0000000000001e1d      0x192 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .debug_line    0x0000000000001faf      0x1ab /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .debug_line    0x000000000000215a       0x82 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .debug_line    0x00000000000021dc      0x147 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .debug_line    0x0000000000002323      0x158 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .debug_line    0x000000000000247b       0xa5 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .debug_line    0x0000000000002520       0xe7 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
- .debug_line    0x0000000000002607       0xbf /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .debug_line    0x00000000000026c6      0x1de /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .debug_line    0x00000000000028a4      0x17a /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_line    0x0000000000002a1e      0x1ae /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .debug_line    0x0000000000002bcc       0x61 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .debug_line    0x0000000000000084      0x16e /tmp/ccr0UnS1.o
+ .debug_line    0x00000000000001f2      0x22b /tmp/ccgUSXSC.o
+ .debug_line    0x000000000000041d       0xc1 /tmp/ccce5vZd.o
+ .debug_line    0x00000000000004de      0x18c /tmp/cc6PhcjP.o
+ .debug_line    0x000000000000066a      0x177 /tmp/cclmmuQq.o
+ .debug_line    0x00000000000007e1       0xcd /tmp/ccqkQmt2.o
+ .debug_line    0x00000000000008ae      0x1a5 /tmp/ccqxi6fE.o
+ .debug_line    0x0000000000000a53      0x129 /tmp/ccxiEvfg.o
+ .debug_line    0x0000000000000b7c       0x72 /tmp/ccGoVWfS.o
+ .debug_line    0x0000000000000bee      0x144 /tmp/ccL4Bqsu.o
+ .debug_line    0x0000000000000d32      0x2cc /tmp/ccCsYkY6.o
+ .debug_line    0x0000000000000ffe      0x177 /tmp/ccBqKdIJ.o
+ .debug_line    0x0000000000001175      0x1d5 /tmp/ccX5PoHm.o
+ .debug_line    0x000000000000134a      0x2e1 /tmp/ccgM381Z.o
+ .debug_line    0x000000000000162b      0x14d /tmp/ccefzWAD.o
+ .debug_line    0x0000000000001778      0x50c /tmp/ccpBmFHh.o
+ .debug_line    0x0000000000001c84      0x284 /tmp/cci5p37V.o
+ .debug_line    0x0000000000001f08      0x147 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .debug_line    0x000000000000204f      0x158 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_line    0x00000000000021a7       0xa5 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_line    0x000000000000224c       0xe7 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .debug_line    0x0000000000002333       0xbf /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_line    0x00000000000023f2      0x1de /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_line    0x00000000000025d0      0x17a /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_line    0x000000000000274a      0x1ae /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .debug_line    0x00000000000028f8       0x61 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
 
-.debug_info     0x0000000000000000     0xd581
+.debug_info     0x0000000000000000     0xd80e
  .debug_info    0x0000000000000000       0xb8 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .debug_info    0x00000000000000b8     0x1261 /tmp/ccbrwlVV.o
- .debug_info    0x0000000000001319      0x92e /tmp/ccLQ1FQg.o
- .debug_info    0x0000000000001c47      0x93f /tmp/ccTHmnWB.o
- .debug_info    0x0000000000002586      0x53e /tmp/cc6v3FeX.o
- .debug_info    0x0000000000002ac4      0x677 /tmp/ccxNHkFi.o
- .debug_info    0x000000000000313b      0x218 /tmp/ccYV8tcE.o
- .debug_info    0x0000000000003353      0x5c6 /tmp/ccnJXPVZ.o
- .debug_info    0x0000000000003919       0x86 /tmp/ccUfeNGl.o
- .debug_info    0x000000000000399f      0x54b /tmp/ccAfArCH.o
- .debug_info    0x0000000000003eea      0xc8d /tmp/cc7oiOR3.o
- .debug_info    0x0000000000004b77      0x356 /tmp/cco0zGiq.o
- .debug_info    0x0000000000004ecd      0x852 /tmp/ccpYwAXM.o
- .debug_info    0x000000000000571f      0xd93 /tmp/ccFGX7W9.o
- .debug_info    0x00000000000064b2      0x2e3 /tmp/ccoDGsax.o
- .debug_info    0x0000000000006795     0x2105 /tmp/ccD6BZSU.o
- .debug_info    0x000000000000889a      0xb9f /tmp/ccU6neVi.o
- .debug_info    0x0000000000009439       0xd7 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .debug_info    0x0000000000009510       0xd7 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .debug_info    0x00000000000095e7       0xd7 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .debug_info    0x00000000000096be      0x90c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .debug_info    0x0000000000009fca      0x941 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .debug_info    0x000000000000a90b       0xf3 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .debug_info    0x000000000000a9fe      0x8a9 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
- .debug_info    0x000000000000b2a7      0x109 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .debug_info    0x000000000000b3b0      0xe22 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .debug_info    0x000000000000c1d2      0x955 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_info    0x000000000000cb27      0x9c0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .debug_info    0x000000000000d4e7       0x9a /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .debug_info    0x00000000000000b8      0x848 /tmp/ccr0UnS1.o
+ .debug_info    0x0000000000000900     0x1261 /tmp/ccgUSXSC.o
+ .debug_info    0x0000000000001b61      0x214 /tmp/ccce5vZd.o
+ .debug_info    0x0000000000001d75      0xa6f /tmp/cc6PhcjP.o
+ .debug_info    0x00000000000027e4      0x6d2 /tmp/cclmmuQq.o
+ .debug_info    0x0000000000002eb6      0x218 /tmp/ccqkQmt2.o
+ .debug_info    0x00000000000030ce      0x78d /tmp/ccqxi6fE.o
+ .debug_info    0x000000000000385b      0x5c6 /tmp/ccxiEvfg.o
+ .debug_info    0x0000000000003e21       0x90 /tmp/ccGoVWfS.o
+ .debug_info    0x0000000000003eb1      0x54b /tmp/ccL4Bqsu.o
+ .debug_info    0x00000000000043fc      0xc8d /tmp/ccCsYkY6.o
+ .debug_info    0x0000000000005089      0x356 /tmp/ccBqKdIJ.o
+ .debug_info    0x00000000000053df      0x852 /tmp/ccX5PoHm.o
+ .debug_info    0x0000000000005c31      0xd93 /tmp/ccgM381Z.o
+ .debug_info    0x00000000000069c4      0x2e3 /tmp/ccefzWAD.o
+ .debug_info    0x0000000000006ca7     0x2105 /tmp/ccpBmFHh.o
+ .debug_info    0x0000000000008dac      0xb9f /tmp/cci5p37V.o
+ .debug_info    0x000000000000994b      0x90c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .debug_info    0x000000000000a257      0x941 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_info    0x000000000000ab98       0xf3 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_info    0x000000000000ac8b      0x8a9 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .debug_info    0x000000000000b534      0x109 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_info    0x000000000000b63d      0xe22 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_info    0x000000000000c45f      0x955 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_info    0x000000000000cdb4      0x9c0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .debug_info    0x000000000000d774       0x9a /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
 
-.debug_abbrev   0x0000000000000000     0x27bf
+.debug_abbrev   0x0000000000000000     0x288e
  .debug_abbrev  0x0000000000000000       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
- .debug_abbrev  0x0000000000000014      0x1bf /tmp/ccbrwlVV.o
- .debug_abbrev  0x00000000000001d3      0x20a /tmp/ccLQ1FQg.o
- .debug_abbrev  0x00000000000003dd      0x1fc /tmp/ccTHmnWB.o
- .debug_abbrev  0x00000000000005d9      0x17c /tmp/cc6v3FeX.o
- .debug_abbrev  0x0000000000000755      0x17e /tmp/ccxNHkFi.o
- .debug_abbrev  0x00000000000008d3      0x135 /tmp/ccYV8tcE.o
- .debug_abbrev  0x0000000000000a08      0x140 /tmp/ccnJXPVZ.o
- .debug_abbrev  0x0000000000000b48       0x12 /tmp/ccUfeNGl.o
- .debug_abbrev  0x0000000000000b5a      0x183 /tmp/ccAfArCH.o
- .debug_abbrev  0x0000000000000cdd      0x1e8 /tmp/cc7oiOR3.o
- .debug_abbrev  0x0000000000000ec5      0x1de /tmp/cco0zGiq.o
- .debug_abbrev  0x00000000000010a3      0x1f7 /tmp/ccpYwAXM.o
- .debug_abbrev  0x000000000000129a      0x1f7 /tmp/ccFGX7W9.o
- .debug_abbrev  0x0000000000001491      0x174 /tmp/ccoDGsax.o
- .debug_abbrev  0x0000000000001605      0x1d3 /tmp/ccD6BZSU.o
- .debug_abbrev  0x00000000000017d8      0x1ce /tmp/ccU6neVi.o
- .debug_abbrev  0x00000000000019a6       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .debug_abbrev  0x00000000000019ba       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .debug_abbrev  0x00000000000019ce       0x14 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .debug_abbrev  0x00000000000019e2      0x201 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .debug_abbrev  0x0000000000001be3      0x1f0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .debug_abbrev  0x0000000000001dd3       0xbd /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .debug_abbrev  0x0000000000001e90      0x192 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
- .debug_abbrev  0x0000000000002022       0xba /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .debug_abbrev  0x00000000000020dc      0x1de /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .debug_abbrev  0x00000000000022ba      0x22b /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_abbrev  0x00000000000024e5      0x279 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .debug_abbrev  0x000000000000275e       0x61 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .debug_abbrev  0x0000000000000014      0x1cf /tmp/ccr0UnS1.o
+ .debug_abbrev  0x00000000000001e3      0x1bf /tmp/ccgUSXSC.o
+ .debug_abbrev  0x00000000000003a2       0xba /tmp/ccce5vZd.o
+ .debug_abbrev  0x000000000000045c      0x22d /tmp/cc6PhcjP.o
+ .debug_abbrev  0x0000000000000689      0x192 /tmp/cclmmuQq.o
+ .debug_abbrev  0x000000000000081b      0x135 /tmp/ccqkQmt2.o
+ .debug_abbrev  0x0000000000000950      0x1c3 /tmp/ccqxi6fE.o
+ .debug_abbrev  0x0000000000000b13      0x140 /tmp/ccxiEvfg.o
+ .debug_abbrev  0x0000000000000c53       0x12 /tmp/ccGoVWfS.o
+ .debug_abbrev  0x0000000000000c65      0x183 /tmp/ccL4Bqsu.o
+ .debug_abbrev  0x0000000000000de8      0x1e8 /tmp/ccCsYkY6.o
+ .debug_abbrev  0x0000000000000fd0      0x1de /tmp/ccBqKdIJ.o
+ .debug_abbrev  0x00000000000011ae      0x1f7 /tmp/ccX5PoHm.o
+ .debug_abbrev  0x00000000000013a5      0x1f7 /tmp/ccgM381Z.o
+ .debug_abbrev  0x000000000000159c      0x174 /tmp/ccefzWAD.o
+ .debug_abbrev  0x0000000000001710      0x1d3 /tmp/ccpBmFHh.o
+ .debug_abbrev  0x00000000000018e3      0x1ce /tmp/cci5p37V.o
+ .debug_abbrev  0x0000000000001ab1      0x201 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .debug_abbrev  0x0000000000001cb2      0x1f0 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_abbrev  0x0000000000001ea2       0xbd /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_abbrev  0x0000000000001f5f      0x192 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .debug_abbrev  0x00000000000020f1       0xba /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_abbrev  0x00000000000021ab      0x1de /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_abbrev  0x0000000000002389      0x22b /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_abbrev  0x00000000000025b4      0x279 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .debug_abbrev  0x000000000000282d       0x61 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
 
-.debug_aranges  0x0000000000000000      0x3a8
+.debug_aranges  0x0000000000000000      0x368
  .debug_aranges
                 0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
  .debug_aranges
-                0x0000000000000020       0x20 /tmp/ccbrwlVV.o
+                0x0000000000000020       0x20 /tmp/ccr0UnS1.o
  .debug_aranges
-                0x0000000000000040       0x20 /tmp/ccLQ1FQg.o
+                0x0000000000000040       0x20 /tmp/ccgUSXSC.o
  .debug_aranges
-                0x0000000000000060       0x20 /tmp/ccTHmnWB.o
+                0x0000000000000060       0x20 /tmp/ccce5vZd.o
  .debug_aranges
-                0x0000000000000080       0x20 /tmp/cc6v3FeX.o
+                0x0000000000000080       0x20 /tmp/cc6PhcjP.o
  .debug_aranges
-                0x00000000000000a0       0x20 /tmp/ccxNHkFi.o
+                0x00000000000000a0       0x20 /tmp/cclmmuQq.o
  .debug_aranges
-                0x00000000000000c0       0x20 /tmp/ccYV8tcE.o
+                0x00000000000000c0       0x20 /tmp/ccqkQmt2.o
  .debug_aranges
-                0x00000000000000e0       0x20 /tmp/ccnJXPVZ.o
+                0x00000000000000e0       0x20 /tmp/ccqxi6fE.o
  .debug_aranges
-                0x0000000000000100       0x28 /tmp/ccUfeNGl.o
+                0x0000000000000100       0x20 /tmp/ccxiEvfg.o
  .debug_aranges
-                0x0000000000000128       0x20 /tmp/ccAfArCH.o
+                0x0000000000000120       0x28 /tmp/ccGoVWfS.o
  .debug_aranges
-                0x0000000000000148       0x20 /tmp/cc7oiOR3.o
+                0x0000000000000148       0x20 /tmp/ccL4Bqsu.o
  .debug_aranges
-                0x0000000000000168       0x20 /tmp/cco0zGiq.o
+                0x0000000000000168       0x20 /tmp/ccCsYkY6.o
  .debug_aranges
-                0x0000000000000188       0x20 /tmp/ccpYwAXM.o
+                0x0000000000000188       0x20 /tmp/ccBqKdIJ.o
  .debug_aranges
-                0x00000000000001a8       0x20 /tmp/ccFGX7W9.o
+                0x00000000000001a8       0x20 /tmp/ccX5PoHm.o
  .debug_aranges
-                0x00000000000001c8       0x20 /tmp/ccoDGsax.o
+                0x00000000000001c8       0x20 /tmp/ccgM381Z.o
  .debug_aranges
-                0x00000000000001e8       0x20 /tmp/ccD6BZSU.o
+                0x00000000000001e8       0x20 /tmp/ccefzWAD.o
  .debug_aranges
-                0x0000000000000208       0x20 /tmp/ccU6neVi.o
+                0x0000000000000208       0x20 /tmp/ccpBmFHh.o
  .debug_aranges
-                0x0000000000000228       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
+                0x0000000000000228       0x20 /tmp/cci5p37V.o
  .debug_aranges
-                0x0000000000000248       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
+                0x0000000000000248       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
  .debug_aranges
-                0x0000000000000268       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
+                0x0000000000000268       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
  .debug_aranges
-                0x0000000000000288       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+                0x0000000000000288       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
  .debug_aranges
-                0x00000000000002a8       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+                0x00000000000002a8       0x18 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
  .debug_aranges
-                0x00000000000002c8       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+                0x00000000000002c0       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
  .debug_aranges
-                0x00000000000002e8       0x18 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+                0x00000000000002e0       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
  .debug_aranges
-                0x0000000000000300       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+                0x0000000000000300       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
  .debug_aranges
-                0x0000000000000320       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+                0x0000000000000320       0x28 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
  .debug_aranges
-                0x0000000000000340       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_aranges
-                0x0000000000000360       0x28 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .debug_aranges
-                0x0000000000000388       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+                0x0000000000000348       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
 
-.debug_loc      0x0000000000000000     0x4982
- .debug_loc     0x0000000000000000       0xa6 /tmp/ccbrwlVV.o
- .debug_loc     0x00000000000000a6      0x233 /tmp/ccLQ1FQg.o
- .debug_loc     0x00000000000002d9       0x7c /tmp/ccTHmnWB.o
- .debug_loc     0x0000000000000355       0x18 /tmp/cc6v3FeX.o
- .debug_loc     0x000000000000036d      0x299 /tmp/ccxNHkFi.o
- .debug_loc     0x0000000000000606      0x106 /tmp/ccYV8tcE.o
- .debug_loc     0x000000000000070c      0x13e /tmp/ccnJXPVZ.o
- .debug_loc     0x000000000000084a      0x128 /tmp/ccAfArCH.o
- .debug_loc     0x0000000000000972      0x919 /tmp/cc7oiOR3.o
- .debug_loc     0x000000000000128b      0x144 /tmp/cco0zGiq.o
- .debug_loc     0x00000000000013cf      0x3db /tmp/ccpYwAXM.o
- .debug_loc     0x00000000000017aa      0xa90 /tmp/ccFGX7W9.o
- .debug_loc     0x000000000000223a       0x9b /tmp/ccoDGsax.o
- .debug_loc     0x00000000000022d5     0x18f5 /tmp/ccD6BZSU.o
- .debug_loc     0x0000000000003bca      0x7fc /tmp/ccU6neVi.o
- .debug_loc     0x00000000000043c6       0x2c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .debug_loc     0x00000000000043f2       0x1e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .debug_loc     0x0000000000004410       0x5c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .debug_loc     0x000000000000446c       0xa2 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .debug_loc     0x000000000000450e      0x175 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .debug_loc     0x0000000000004683      0x151 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_loc     0x00000000000047d4      0x1ae /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+.debug_loc      0x0000000000000000     0x4a01
+ .debug_loc     0x0000000000000000       0x7f /tmp/ccr0UnS1.o
+ .debug_loc     0x000000000000007f       0xa6 /tmp/ccgUSXSC.o
+ .debug_loc     0x0000000000000125       0x6e /tmp/ccce5vZd.o
+ .debug_loc     0x0000000000000193       0x7a /tmp/cc6PhcjP.o
+ .debug_loc     0x000000000000020d       0x2b /tmp/cclmmuQq.o
+ .debug_loc     0x0000000000000238      0x106 /tmp/ccqkQmt2.o
+ .debug_loc     0x000000000000033e      0x44d /tmp/ccqxi6fE.o
+ .debug_loc     0x000000000000078b      0x13e /tmp/ccxiEvfg.o
+ .debug_loc     0x00000000000008c9      0x128 /tmp/ccL4Bqsu.o
+ .debug_loc     0x00000000000009f1      0x919 /tmp/ccCsYkY6.o
+ .debug_loc     0x000000000000130a      0x144 /tmp/ccBqKdIJ.o
+ .debug_loc     0x000000000000144e      0x3db /tmp/ccX5PoHm.o
+ .debug_loc     0x0000000000001829      0xa90 /tmp/ccgM381Z.o
+ .debug_loc     0x00000000000022b9       0x9b /tmp/ccefzWAD.o
+ .debug_loc     0x0000000000002354     0x18f5 /tmp/ccpBmFHh.o
+ .debug_loc     0x0000000000003c49      0x7fc /tmp/cci5p37V.o
+ .debug_loc     0x0000000000004445       0x2c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .debug_loc     0x0000000000004471       0x1e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_loc     0x000000000000448f       0x5c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_loc     0x00000000000044eb       0xa2 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_loc     0x000000000000458d      0x175 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_loc     0x0000000000004702      0x151 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_loc     0x0000000000004853      0x1ae /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
 
-.debug_str      0x0000000000000000     0x3cfa
- .debug_str     0x0000000000000000      0xe66 /tmp/ccbrwlVV.o
-                                        0xed5 (size before relaxing)
- .debug_str     0x0000000000000e66      0x174 /tmp/ccLQ1FQg.o
-                                        0x99b (size before relaxing)
- .debug_str     0x0000000000000fda      0x107 /tmp/ccTHmnWB.o
-                                        0x7db (size before relaxing)
- .debug_str     0x00000000000010e1      0x191 /tmp/cc6v3FeX.o
-                                        0x42c (size before relaxing)
- .debug_str     0x0000000000001272      0x1c8 /tmp/ccxNHkFi.o
-                                        0x387 (size before relaxing)
- .debug_str     0x000000000000143a       0x1f /tmp/ccYV8tcE.o
-                                        0x200 (size before relaxing)
- .debug_str     0x0000000000001459      0x160 /tmp/ccnJXPVZ.o
-                                        0x3b6 (size before relaxing)
- .debug_str     0x00000000000015b9       0xce /tmp/ccAfArCH.o
-                                        0x400 (size before relaxing)
- .debug_str     0x0000000000001687      0x48a /tmp/cc7oiOR3.o
-                                        0x84d (size before relaxing)
- .debug_str     0x0000000000001b11       0xaa /tmp/cco0zGiq.o
-                                        0x37e (size before relaxing)
- .debug_str     0x0000000000001bbb      0x175 /tmp/ccpYwAXM.o
-                                        0x4e9 (size before relaxing)
- .debug_str     0x0000000000001d30      0x580 /tmp/ccFGX7W9.o
-                                        0x93e (size before relaxing)
- .debug_str     0x00000000000022b0      0x143 /tmp/ccoDGsax.o
-                                        0x357 (size before relaxing)
- .debug_str     0x00000000000023f3      0x8f7 /tmp/ccD6BZSU.o
-                                        0xe30 (size before relaxing)
- .debug_str     0x0000000000002cea      0x33f /tmp/ccU6neVi.o
-                                        0x701 (size before relaxing)
- .debug_str     0x0000000000003029      0x54e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+.debug_str      0x0000000000000000     0x3d58
+ .debug_str     0x0000000000000000      0x8ec /tmp/ccr0UnS1.o
+                                        0x94d (size before relaxing)
+ .debug_str     0x00000000000008ec      0x6a7 /tmp/ccgUSXSC.o
+                                        0xedf (size before relaxing)
+ .debug_str     0x0000000000000f93       0x72 /tmp/ccce5vZd.o
+                                        0x25e (size before relaxing)
+ .debug_str     0x0000000000001005      0x184 /tmp/cc6PhcjP.o
+                                        0x7fd (size before relaxing)
+ .debug_str     0x0000000000001189      0x1e7 /tmp/cclmmuQq.o
+                                        0x4c1 (size before relaxing)
+ .debug_str     0x0000000000001370       0x48 /tmp/ccqkQmt2.o
+                                        0x20a (size before relaxing)
+ .debug_str     0x00000000000013b8      0x133 /tmp/ccqxi6fE.o
+                                        0x402 (size before relaxing)
+ .debug_str     0x00000000000014eb      0x160 /tmp/ccxiEvfg.o
+                                        0x3c0 (size before relaxing)
+ .debug_str     0x000000000000164b       0xce /tmp/ccL4Bqsu.o
+                                        0x40a (size before relaxing)
+ .debug_str     0x0000000000001719      0x492 /tmp/ccCsYkY6.o
+                                        0x857 (size before relaxing)
+ .debug_str     0x0000000000001bab       0xaa /tmp/ccBqKdIJ.o
+                                        0x388 (size before relaxing)
+ .debug_str     0x0000000000001c55      0x175 /tmp/ccX5PoHm.o
+                                        0x4f3 (size before relaxing)
+ .debug_str     0x0000000000001dca      0x580 /tmp/ccgM381Z.o
+                                        0x948 (size before relaxing)
+ .debug_str     0x000000000000234a      0x143 /tmp/ccefzWAD.o
+                                        0x361 (size before relaxing)
+ .debug_str     0x000000000000248d      0x8f7 /tmp/ccpBmFHh.o
+                                        0xe3a (size before relaxing)
+ .debug_str     0x0000000000002d84      0x303 /tmp/cci5p37V.o
+                                        0x70b (size before relaxing)
+ .debug_str     0x0000000000003087      0x54e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
                                         0x62c (size before relaxing)
- .debug_str     0x0000000000003577       0x72 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_str     0x00000000000035d5       0x72 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
                                         0x62d (size before relaxing)
- .debug_str     0x00000000000035e9       0xda /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_str     0x0000000000003647       0xda /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
                                         0x23b (size before relaxing)
- .debug_str     0x00000000000036c3       0xad /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
+ .debug_str     0x0000000000003721       0xad /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
                                         0x5e1 (size before relaxing)
- .debug_str     0x0000000000003770       0x93 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_str     0x00000000000037ce       0x93 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
                                         0x265 (size before relaxing)
- .debug_str     0x0000000000003803      0x322 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_str     0x0000000000003861      0x322 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
                                         0x90e (size before relaxing)
- .debug_str     0x0000000000003b25       0x4c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_str     0x0000000000003b83       0x4c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
                                         0x646 (size before relaxing)
- .debug_str     0x0000000000003b71       0x6b /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .debug_str     0x0000000000003bcf       0x6b /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
                                         0x657 (size before relaxing)
- .debug_str     0x0000000000003bdc      0x11e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+ .debug_str     0x0000000000003c3a      0x11e /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
                                         0x1b4 (size before relaxing)
 
-.debug_frame    0x0000000000000000     0x1994
- .debug_frame   0x0000000000000000      0x170 /tmp/ccbrwlVV.o
- .debug_frame   0x0000000000000170       0x84 /tmp/ccLQ1FQg.o
- .debug_frame   0x00000000000001f4       0x28 /tmp/ccTHmnWB.o
- .debug_frame   0x000000000000021c      0x128 /tmp/cc6v3FeX.o
- .debug_frame   0x0000000000000344      0x154 /tmp/ccxNHkFi.o
- .debug_frame   0x0000000000000498       0x6c /tmp/ccYV8tcE.o
- .debug_frame   0x0000000000000504       0x48 /tmp/ccnJXPVZ.o
- .debug_frame   0x000000000000054c       0x60 /tmp/ccAfArCH.o
- .debug_frame   0x00000000000005ac      0x2d4 /tmp/cc7oiOR3.o
- .debug_frame   0x0000000000000880       0xa0 /tmp/cco0zGiq.o
- .debug_frame   0x0000000000000920      0x120 /tmp/ccpYwAXM.o
- .debug_frame   0x0000000000000a40      0x32c /tmp/ccFGX7W9.o
- .debug_frame   0x0000000000000d6c       0x94 /tmp/ccoDGsax.o
- .debug_frame   0x0000000000000e00      0x6cc /tmp/ccD6BZSU.o
- .debug_frame   0x00000000000014cc      0x224 /tmp/ccU6neVi.o
- .debug_frame   0x00000000000016f0       0xac /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x000000000000179c       0x50 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00000000000017ec       0x24 /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
- .debug_frame   0x0000000000001810       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
- .debug_frame   0x0000000000001830       0x28 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
- .debug_frame   0x0000000000001858       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
- .debug_frame   0x000000000000188c       0x2c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
- .debug_frame   0x00000000000018b8       0x38 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
- .debug_frame   0x00000000000018f0       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
- .debug_frame   0x0000000000001924       0x50 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
- .debug_frame   0x0000000000001974       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
+.debug_frame    0x0000000000000000     0x18e8
+ .debug_frame   0x0000000000000000       0x68 /tmp/ccr0UnS1.o
+ .debug_frame   0x0000000000000068      0x170 /tmp/ccgUSXSC.o
+ .debug_frame   0x00000000000001d8       0x2c /tmp/ccce5vZd.o
+ .debug_frame   0x0000000000000204       0x58 /tmp/cc6PhcjP.o
+ .debug_frame   0x000000000000025c      0x140 /tmp/cclmmuQq.o
+ .debug_frame   0x000000000000039c       0x6c /tmp/ccqkQmt2.o
+ .debug_frame   0x0000000000000408      0x170 /tmp/ccqxi6fE.o
+ .debug_frame   0x0000000000000578       0x48 /tmp/ccxiEvfg.o
+ .debug_frame   0x00000000000005c0       0x60 /tmp/ccL4Bqsu.o
+ .debug_frame   0x0000000000000620      0x2d4 /tmp/ccCsYkY6.o
+ .debug_frame   0x00000000000008f4       0xa0 /tmp/ccBqKdIJ.o
+ .debug_frame   0x0000000000000994      0x120 /tmp/ccX5PoHm.o
+ .debug_frame   0x0000000000000ab4      0x32c /tmp/ccgM381Z.o
+ .debug_frame   0x0000000000000de0       0x94 /tmp/ccefzWAD.o
+ .debug_frame   0x0000000000000e74      0x6cc /tmp/ccpBmFHh.o
+ .debug_frame   0x0000000000001540      0x224 /tmp/cci5p37V.o
+ .debug_frame   0x0000000000001764       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
+ .debug_frame   0x0000000000001784       0x28 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+ .debug_frame   0x00000000000017ac       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
+ .debug_frame   0x00000000000017e0       0x2c /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
+ .debug_frame   0x000000000000180c       0x38 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
+ .debug_frame   0x0000000000001844       0x34 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000001878       0x50 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000000018c8       0x20 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
 
 .debug_ranges   0x0000000000000000      0x160
- .debug_ranges  0x0000000000000000       0x48 /tmp/ccLQ1FQg.o
- .debug_ranges  0x0000000000000048       0x48 /tmp/ccxNHkFi.o
- .debug_ranges  0x0000000000000090       0x20 /tmp/ccUfeNGl.o
+ .debug_ranges  0x0000000000000000       0x90 /tmp/ccqxi6fE.o
+ .debug_ranges  0x0000000000000090       0x20 /tmp/ccGoVWfS.o
  .debug_ranges  0x00000000000000b0       0x10 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
  .debug_ranges  0x00000000000000c0       0x10 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
  .debug_ranges  0x00000000000000d0       0x10 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
@@ -1030,400 +1012,380 @@ OUTPUT(build/buzzer.elf elf32-littlearm)
 Cross Reference Table
 
 Symbol                                            File
-ADC_AnalogWatchdogCmd                             /tmp/cc7oiOR3.o
-ADC_AnalogWatchdogSingleChannelConfig             /tmp/cc7oiOR3.o
-ADC_AnalogWatchdogThresholdsConfig                /tmp/cc7oiOR3.o
-ADC_AutoInjectedConvCmd                           /tmp/cc7oiOR3.o
-ADC_ClearFlag                                     /tmp/cc7oiOR3.o
-ADC_ClearITPendingBit                             /tmp/cc7oiOR3.o
-ADC_Cmd                                           /tmp/cc7oiOR3.o
-                                                  /tmp/ccTHmnWB.o
-ADC_CommonInit                                    /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_CommonStructInit                              /tmp/cc7oiOR3.o
-ADC_ContinuousModeCmd                             /tmp/cc7oiOR3.o
-ADC_DMACmd                                        /tmp/cc7oiOR3.o
-ADC_DMARequestAfterLastTransferCmd                /tmp/cc7oiOR3.o
-ADC_DeInit                                        /tmp/cc7oiOR3.o
-ADC_DiscModeChannelCountConfig                    /tmp/cc7oiOR3.o
-ADC_DiscModeCmd                                   /tmp/cc7oiOR3.o
-ADC_EOCOnEachRegularChannelCmd                    /tmp/cc7oiOR3.o
-ADC_ExternalTrigInjectedConvConfig                /tmp/cc7oiOR3.o
-ADC_ExternalTrigInjectedConvEdgeConfig            /tmp/cc7oiOR3.o
-ADC_GetConversionValue                            /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_GetFlagStatus                                 /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_GetITStatus                                   /tmp/cc7oiOR3.o
-ADC_GetInjectedConversionValue                    /tmp/cc7oiOR3.o
-ADC_GetMultiModeConversionValue                   /tmp/cc7oiOR3.o
-ADC_GetSoftwareStartConvStatus                    /tmp/cc7oiOR3.o
-ADC_GetSoftwareStartInjectedConvCmdStatus         /tmp/cc7oiOR3.o
-ADC_IRQHandler                                    /tmp/ccUfeNGl.o
-ADC_ITConfig                                      /tmp/cc7oiOR3.o
-ADC_Init                                          /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_InjectedChannelConfig                         /tmp/cc7oiOR3.o
-ADC_InjectedDiscModeCmd                           /tmp/cc7oiOR3.o
-ADC_InjectedSequencerLengthConfig                 /tmp/cc7oiOR3.o
-ADC_MultiModeDMARequestAfterLastTransferCmd       /tmp/cc7oiOR3.o
-ADC_RegularChannelConfig                          /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_SetInjectedOffset                             /tmp/cc7oiOR3.o
-ADC_SoftwareStartConv                             /tmp/cc7oiOR3.o
-                                                  /tmp/ccbrwlVV.o
-ADC_SoftwareStartInjectedConv                     /tmp/cc7oiOR3.o
-ADC_StructInit                                    /tmp/cc7oiOR3.o
-ADC_TempSensorVrefintCmd                          /tmp/cc7oiOR3.o
-ADC_VBATCmd                                       /tmp/cc7oiOR3.o
-AHBPrescTable                                     /tmp/ccnJXPVZ.o
-BusFault_Handler                                  /tmp/cc6v3FeX.o
-DMA1_Stream0_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream1_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream2_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream3_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream4_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream5_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream6_IRQHandler                           /tmp/ccUfeNGl.o
-DMA1_Stream7_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream0_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream1_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream2_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream3_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream4_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream5_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream6_IRQHandler                           /tmp/ccUfeNGl.o
-DMA2_Stream7_IRQHandler                           /tmp/ccUfeNGl.o
-DebugMon_Handler                                  /tmp/cc6v3FeX.o
-Default_Handler                                   /tmp/ccUfeNGl.o
-EXTI0_IRQHandler                                  /tmp/ccUfeNGl.o
-EXTI15_10_IRQHandler                              /tmp/cc6v3FeX.o
-EXTI1_IRQHandler                                  /tmp/ccUfeNGl.o
-EXTI2_IRQHandler                                  /tmp/ccUfeNGl.o
-EXTI3_IRQHandler                                  /tmp/cc6v3FeX.o
-EXTI4_IRQHandler                                  /tmp/ccUfeNGl.o
-EXTI9_5_IRQHandler                                /tmp/ccUfeNGl.o
-EXTI_ClearFlag                                    /tmp/cco0zGiq.o
-EXTI_ClearITPendingBit                            /tmp/cco0zGiq.o
-                                                  /tmp/cc6v3FeX.o
-EXTI_DeInit                                       /tmp/cco0zGiq.o
-EXTI_GenerateSWInterrupt                          /tmp/cco0zGiq.o
-EXTI_GetFlagStatus                                /tmp/cco0zGiq.o
-EXTI_GetITStatus                                  /tmp/cco0zGiq.o
-                                                  /tmp/cc6v3FeX.o
-EXTI_Init                                         /tmp/cco0zGiq.o
-                                                  /tmp/ccbrwlVV.o
-EXTI_StructInit                                   /tmp/cco0zGiq.o
-FLASH_IRQHandler                                  /tmp/ccUfeNGl.o
-FPU_IRQHandler                                    /tmp/ccUfeNGl.o
-GPIO_DeInit                                       /tmp/ccpYwAXM.o
-GPIO_Init                                         /tmp/ccpYwAXM.o
-                                                  /tmp/ccLQ1FQg.o
-                                                  /tmp/ccbrwlVV.o
-GPIO_PinAFConfig                                  /tmp/ccpYwAXM.o
-                                                  /tmp/ccLQ1FQg.o
-                                                  /tmp/ccbrwlVV.o
-GPIO_PinLockConfig                                /tmp/ccpYwAXM.o
-GPIO_ReadInputData                                /tmp/ccpYwAXM.o
-GPIO_ReadInputDataBit                             /tmp/ccpYwAXM.o
-GPIO_ReadOutputData                               /tmp/ccpYwAXM.o
-GPIO_ReadOutputDataBit                            /tmp/ccpYwAXM.o
-GPIO_ResetBits                                    /tmp/ccpYwAXM.o
-GPIO_SetBits                                      /tmp/ccpYwAXM.o
-GPIO_StructInit                                   /tmp/ccpYwAXM.o
-GPIO_ToggleBits                                   /tmp/ccpYwAXM.o
-GPIO_Write                                        /tmp/ccpYwAXM.o
-GPIO_WriteBit                                     /tmp/ccpYwAXM.o
-HardFault_Handler                                 /tmp/cc6v3FeX.o
-I2C1_ER_IRQHandler                                /tmp/ccUfeNGl.o
-I2C1_EV_IRQHandler                                /tmp/ccUfeNGl.o
-I2C2_ER_IRQHandler                                /tmp/ccUfeNGl.o
-I2C2_EV_IRQHandler                                /tmp/ccUfeNGl.o
-I2C3_ER_IRQHandler                                /tmp/ccUfeNGl.o
-I2C3_EV_IRQHandler                                /tmp/ccUfeNGl.o
-MemManage_Handler                                 /tmp/cc6v3FeX.o
-NMI_Handler                                       /tmp/cc6v3FeX.o
-NVIC_Init                                         /tmp/ccAfArCH.o
-                                                  /tmp/ccLQ1FQg.o
-                                                  /tmp/ccbrwlVV.o
-NVIC_PriorityGroupConfig                          /tmp/ccAfArCH.o
-                                                  /tmp/ccTHmnWB.o
-NVIC_SetVectorTable                               /tmp/ccAfArCH.o
-NVIC_SystemLPConfig                               /tmp/ccAfArCH.o
-OTG_FS_IRQHandler                                 /tmp/ccUfeNGl.o
-OTG_FS_WKUP_IRQHandler                            /tmp/ccUfeNGl.o
-PVD_IRQHandler                                    /tmp/ccUfeNGl.o
-PendSV_Handler                                    /tmp/cc6v3FeX.o
-RCC_AHB1PeriphClockCmd                            /tmp/ccFGX7W9.o
-                                                  /tmp/ccLQ1FQg.o
-                                                  /tmp/ccbrwlVV.o
-RCC_AHB1PeriphClockLPModeCmd                      /tmp/ccFGX7W9.o
-RCC_AHB1PeriphResetCmd                            /tmp/ccFGX7W9.o
-                                                  /tmp/ccpYwAXM.o
-RCC_AHB2PeriphClockCmd                            /tmp/ccFGX7W9.o
-RCC_AHB2PeriphClockLPModeCmd                      /tmp/ccFGX7W9.o
-RCC_AHB2PeriphResetCmd                            /tmp/ccFGX7W9.o
-RCC_APB1PeriphClockCmd                            /tmp/ccFGX7W9.o
-RCC_APB1PeriphClockLPModeCmd                      /tmp/ccFGX7W9.o
-RCC_APB1PeriphResetCmd                            /tmp/ccFGX7W9.o
-                                                  /tmp/ccU6neVi.o
-                                                  /tmp/ccD6BZSU.o
-RCC_APB2PeriphClockCmd                            /tmp/ccFGX7W9.o
-                                                  /tmp/ccTHmnWB.o
-                                                  /tmp/ccLQ1FQg.o
-                                                  /tmp/ccbrwlVV.o
-RCC_APB2PeriphClockLPModeCmd                      /tmp/ccFGX7W9.o
-RCC_APB2PeriphResetCmd                            /tmp/ccFGX7W9.o
-                                                  /tmp/ccU6neVi.o
-                                                  /tmp/ccD6BZSU.o
-                                                  /tmp/ccoDGsax.o
-                                                  /tmp/cc7oiOR3.o
-RCC_AdjustHSICalibrationValue                     /tmp/ccFGX7W9.o
-RCC_BackupResetCmd                                /tmp/ccFGX7W9.o
-RCC_ClearFlag                                     /tmp/ccFGX7W9.o
-RCC_ClearITPendingBit                             /tmp/ccFGX7W9.o
-RCC_ClockSecuritySystemCmd                        /tmp/ccFGX7W9.o
-RCC_DeInit                                        /tmp/ccFGX7W9.o
-RCC_GetClocksFreq                                 /tmp/ccFGX7W9.o
-                                                  /tmp/ccU6neVi.o
-RCC_GetFlagStatus                                 /tmp/ccFGX7W9.o
-RCC_GetITStatus                                   /tmp/ccFGX7W9.o
-RCC_GetSYSCLKSource                               /tmp/ccFGX7W9.o
-RCC_HCLKConfig                                    /tmp/ccFGX7W9.o
-RCC_HSEConfig                                     /tmp/ccFGX7W9.o
-RCC_HSICmd                                        /tmp/ccFGX7W9.o
-RCC_I2SCLKConfig                                  /tmp/ccFGX7W9.o
-RCC_IRQHandler                                    /tmp/ccUfeNGl.o
-RCC_ITConfig                                      /tmp/ccFGX7W9.o
-RCC_LSEConfig                                     /tmp/ccFGX7W9.o
-RCC_LSEModeConfig                                 /tmp/ccFGX7W9.o
-RCC_LSICmd                                        /tmp/ccFGX7W9.o
-RCC_LTDCCLKDivConfig                              /tmp/ccFGX7W9.o
-RCC_MCO1Config                                    /tmp/ccFGX7W9.o
-RCC_MCO2Config                                    /tmp/ccFGX7W9.o
-RCC_PCLK1Config                                   /tmp/ccFGX7W9.o
-RCC_PCLK2Config                                   /tmp/ccFGX7W9.o
-RCC_PLLCmd                                        /tmp/ccFGX7W9.o
-RCC_PLLConfig                                     /tmp/ccFGX7W9.o
-RCC_PLLI2SCmd                                     /tmp/ccFGX7W9.o
-RCC_PLLI2SConfig                                  /tmp/ccFGX7W9.o
-RCC_PLLSAICmd                                     /tmp/ccFGX7W9.o
-RCC_PLLSAIConfig                                  /tmp/ccFGX7W9.o
-RCC_RTCCLKCmd                                     /tmp/ccFGX7W9.o
-RCC_RTCCLKConfig                                  /tmp/ccFGX7W9.o
-RCC_SAIPLLI2SClkDivConfig                         /tmp/ccFGX7W9.o
-RCC_SAIPLLSAIClkDivConfig                         /tmp/ccFGX7W9.o
-RCC_SYSCLKConfig                                  /tmp/ccFGX7W9.o
-RCC_TIMCLKPresConfig                              /tmp/ccFGX7W9.o
-RCC_WaitForHSEStartUp                             /tmp/ccFGX7W9.o
-RTC_Alarm_IRQHandler                              /tmp/ccUfeNGl.o
-RTC_WKUP_IRQHandler                               /tmp/ccUfeNGl.o
-Reset_Handler                                     /tmp/ccUfeNGl.o
-SDIO_IRQHandler                                   /tmp/ccUfeNGl.o
-SPI1_IRQHandler                                   /tmp/ccUfeNGl.o
-SPI2_IRQHandler                                   /tmp/ccUfeNGl.o
-SPI3_IRQHandler                                   /tmp/ccUfeNGl.o
-SPI4_IRQHandler                                   /tmp/ccUfeNGl.o
-SVC_Handler                                       /tmp/cc6v3FeX.o
-SYSCFG_CompensationCellCmd                        /tmp/ccoDGsax.o
-SYSCFG_DeInit                                     /tmp/ccoDGsax.o
-SYSCFG_ETH_MediaInterfaceConfig                   /tmp/ccoDGsax.o
-SYSCFG_EXTILineConfig                             /tmp/ccoDGsax.o
-                                                  /tmp/ccbrwlVV.o
-SYSCFG_GetCompensationCellStatus                  /tmp/ccoDGsax.o
-SYSCFG_MemoryRemapConfig                          /tmp/ccoDGsax.o
-SYSCFG_MemorySwappingBank                         /tmp/ccoDGsax.o
-SysTick_CLKSourceConfig                           /tmp/ccAfArCH.o
-SysTick_Handler                                   /tmp/cc6v3FeX.o
-SystemCoreClock                                   /tmp/ccnJXPVZ.o
-                                                  /tmp/ccTHmnWB.o
-SystemCoreClockUpdate                             /tmp/ccnJXPVZ.o
-SystemInit                                        /tmp/ccnJXPVZ.o
-                                                  /tmp/ccUfeNGl.o
-TAMP_STAMP_IRQHandler                             /tmp/ccUfeNGl.o
-TIM1_BRK_TIM9_IRQHandler                          /tmp/ccUfeNGl.o
-TIM1_CC_IRQHandler                                /tmp/cc6v3FeX.o
-TIM1_TRG_COM_TIM11_IRQHandler                     /tmp/ccUfeNGl.o
-TIM1_UP_TIM10_IRQHandler                          /tmp/ccUfeNGl.o
-TIM2_IRQHandler                                   /tmp/ccUfeNGl.o
-TIM3_IRQHandler                                   /tmp/ccUfeNGl.o
-TIM4_IRQHandler                                   /tmp/ccUfeNGl.o
-TIM5_IRQHandler                                   /tmp/ccUfeNGl.o
-TIM_ARRPreloadConfig                              /tmp/ccD6BZSU.o
-TIM_BDTRConfig                                    /tmp/ccD6BZSU.o
-TIM_BDTRStructInit                                /tmp/ccD6BZSU.o
-TIM_CCPreloadControl                              /tmp/ccD6BZSU.o
-TIM_CCxCmd                                        /tmp/ccD6BZSU.o
-TIM_CCxNCmd                                       /tmp/ccD6BZSU.o
-TIM_ClearFlag                                     /tmp/ccD6BZSU.o
-TIM_ClearITPendingBit                             /tmp/ccD6BZSU.o
-                                                  /tmp/cc6v3FeX.o
-TIM_ClearOC1Ref                                   /tmp/ccD6BZSU.o
-TIM_ClearOC2Ref                                   /tmp/ccD6BZSU.o
-TIM_ClearOC3Ref                                   /tmp/ccD6BZSU.o
-TIM_ClearOC4Ref                                   /tmp/ccD6BZSU.o
-TIM_Cmd                                           /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_CounterModeConfig                             /tmp/ccD6BZSU.o
-TIM_CtrlPWMOutputs                                /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_DMACmd                                        /tmp/ccD6BZSU.o
-TIM_DMAConfig                                     /tmp/ccD6BZSU.o
-TIM_DeInit                                        /tmp/ccD6BZSU.o
-TIM_ETRClockMode1Config                           /tmp/ccD6BZSU.o
-TIM_ETRClockMode2Config                           /tmp/ccD6BZSU.o
-TIM_ETRConfig                                     /tmp/ccD6BZSU.o
-TIM_EncoderInterfaceConfig                        /tmp/ccD6BZSU.o
-TIM_ForcedOC1Config                               /tmp/ccD6BZSU.o
-TIM_ForcedOC2Config                               /tmp/ccD6BZSU.o
-TIM_ForcedOC3Config                               /tmp/ccD6BZSU.o
-TIM_ForcedOC4Config                               /tmp/ccD6BZSU.o
-TIM_GenerateEvent                                 /tmp/ccD6BZSU.o
-TIM_GetCapture1                                   /tmp/ccD6BZSU.o
-TIM_GetCapture2                                   /tmp/ccD6BZSU.o
-TIM_GetCapture3                                   /tmp/ccD6BZSU.o
-TIM_GetCapture4                                   /tmp/ccD6BZSU.o
-TIM_GetCounter                                    /tmp/ccD6BZSU.o
-TIM_GetFlagStatus                                 /tmp/ccD6BZSU.o
-TIM_GetITStatus                                   /tmp/ccD6BZSU.o
-                                                  /tmp/cc6v3FeX.o
-TIM_GetPrescaler                                  /tmp/ccD6BZSU.o
-TIM_ICInit                                        /tmp/ccD6BZSU.o
-TIM_ICStructInit                                  /tmp/ccD6BZSU.o
-TIM_ITConfig                                      /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_ITRxExternalClockConfig                       /tmp/ccD6BZSU.o
-TIM_InternalClockConfig                           /tmp/ccD6BZSU.o
-TIM_OC1FastConfig                                 /tmp/ccD6BZSU.o
-TIM_OC1Init                                       /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC1NPolarityConfig                            /tmp/ccD6BZSU.o
-TIM_OC1PolarityConfig                             /tmp/ccD6BZSU.o
-TIM_OC1PreloadConfig                              /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC2FastConfig                                 /tmp/ccD6BZSU.o
-TIM_OC2Init                                       /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC2NPolarityConfig                            /tmp/ccD6BZSU.o
-TIM_OC2PolarityConfig                             /tmp/ccD6BZSU.o
-TIM_OC2PreloadConfig                              /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC3FastConfig                                 /tmp/ccD6BZSU.o
-TIM_OC3Init                                       /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC3NPolarityConfig                            /tmp/ccD6BZSU.o
-TIM_OC3PolarityConfig                             /tmp/ccD6BZSU.o
-TIM_OC3PreloadConfig                              /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC4FastConfig                                 /tmp/ccD6BZSU.o
-TIM_OC4Init                                       /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OC4PolarityConfig                             /tmp/ccD6BZSU.o
-TIM_OC4PreloadConfig                              /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_OCStructInit                                  /tmp/ccD6BZSU.o
-TIM_PWMIConfig                                    /tmp/ccD6BZSU.o
-TIM_PrescalerConfig                               /tmp/ccD6BZSU.o
-TIM_RemapConfig                                   /tmp/ccD6BZSU.o
-TIM_SelectCCDMA                                   /tmp/ccD6BZSU.o
-TIM_SelectCOM                                     /tmp/ccD6BZSU.o
-TIM_SelectHallSensor                              /tmp/ccD6BZSU.o
-TIM_SelectInputTrigger                            /tmp/ccD6BZSU.o
-TIM_SelectMasterSlaveMode                         /tmp/ccD6BZSU.o
-TIM_SelectOCxM                                    /tmp/ccD6BZSU.o
-TIM_SelectOnePulseMode                            /tmp/ccD6BZSU.o
-TIM_SelectOutputTrigger                           /tmp/ccD6BZSU.o
-TIM_SelectSlaveMode                               /tmp/ccD6BZSU.o
-TIM_SetAutoreload                                 /tmp/ccD6BZSU.o
-TIM_SetClockDivision                              /tmp/ccD6BZSU.o
-TIM_SetCompare1                                   /tmp/ccD6BZSU.o
-TIM_SetCompare2                                   /tmp/ccD6BZSU.o
-TIM_SetCompare3                                   /tmp/ccD6BZSU.o
-TIM_SetCompare4                                   /tmp/ccD6BZSU.o
-TIM_SetCounter                                    /tmp/ccD6BZSU.o
-TIM_SetIC1Prescaler                               /tmp/ccD6BZSU.o
-TIM_SetIC2Prescaler                               /tmp/ccD6BZSU.o
-TIM_SetIC3Prescaler                               /tmp/ccD6BZSU.o
-TIM_SetIC4Prescaler                               /tmp/ccD6BZSU.o
-TIM_TIxExternalClockConfig                        /tmp/ccD6BZSU.o
-TIM_TimeBaseInit                                  /tmp/ccD6BZSU.o
-                                                  /tmp/ccbrwlVV.o
-TIM_TimeBaseStructInit                            /tmp/ccD6BZSU.o
-TIM_UpdateDisableConfig                           /tmp/ccD6BZSU.o
-TIM_UpdateRequestConfig                           /tmp/ccD6BZSU.o
-USART1_IRQHandler                                 /tmp/ccUfeNGl.o
-USART2_IRQHandler                                 /tmp/ccUfeNGl.o
-USART6_IRQHandler                                 /tmp/ccUfeNGl.o
-USART_ClearFlag                                   /tmp/ccU6neVi.o
-USART_ClearITPendingBit                           /tmp/ccU6neVi.o
-USART_ClockInit                                   /tmp/ccU6neVi.o
-USART_ClockStructInit                             /tmp/ccU6neVi.o
-USART_Cmd                                         /tmp/ccU6neVi.o
-                                                  /tmp/ccLQ1FQg.o
-USART_DMACmd                                      /tmp/ccU6neVi.o
-USART_DeInit                                      /tmp/ccU6neVi.o
-USART_GetFlagStatus                               /tmp/ccU6neVi.o
-                                                  /tmp/ccLQ1FQg.o
-USART_GetITStatus                                 /tmp/ccU6neVi.o
-USART_HalfDuplexCmd                               /tmp/ccU6neVi.o
-USART_ITConfig                                    /tmp/ccU6neVi.o
-                                                  /tmp/ccLQ1FQg.o
-USART_Init                                        /tmp/ccU6neVi.o
-                                                  /tmp/ccLQ1FQg.o
-USART_IrDACmd                                     /tmp/ccU6neVi.o
-USART_IrDAConfig                                  /tmp/ccU6neVi.o
-USART_LINBreakDetectLengthConfig                  /tmp/ccU6neVi.o
-USART_LINCmd                                      /tmp/ccU6neVi.o
-USART_OneBitMethodCmd                             /tmp/ccU6neVi.o
-USART_OverSampling8Cmd                            /tmp/ccU6neVi.o
-USART_ReceiveData                                 /tmp/ccU6neVi.o
-USART_ReceiverWakeUpCmd                           /tmp/ccU6neVi.o
-USART_SendBreak                                   /tmp/ccU6neVi.o
-USART_SendData                                    /tmp/ccU6neVi.o
-                                                  /tmp/ccLQ1FQg.o
-USART_SetAddress                                  /tmp/ccU6neVi.o
-USART_SetGuardTime                                /tmp/ccU6neVi.o
-USART_SetPrescaler                                /tmp/ccU6neVi.o
-USART_SmartCardCmd                                /tmp/ccU6neVi.o
-USART_SmartCardNACKCmd                            /tmp/ccU6neVi.o
-USART_StructInit                                  /tmp/ccU6neVi.o
-USART_WakeUpConfig                                /tmp/ccU6neVi.o
-UsageFault_Handler                                /tmp/cc6v3FeX.o
-WWDG_IRQHandler                                   /tmp/ccUfeNGl.o
+ADC_AnalogWatchdogCmd                             /tmp/ccCsYkY6.o
+ADC_AnalogWatchdogSingleChannelConfig             /tmp/ccCsYkY6.o
+ADC_AnalogWatchdogThresholdsConfig                /tmp/ccCsYkY6.o
+ADC_AutoInjectedConvCmd                           /tmp/ccCsYkY6.o
+ADC_ClearFlag                                     /tmp/ccCsYkY6.o
+ADC_ClearITPendingBit                             /tmp/ccCsYkY6.o
+ADC_Cmd                                           /tmp/ccCsYkY6.o
+ADC_CommonInit                                    /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_CommonStructInit                              /tmp/ccCsYkY6.o
+ADC_ContinuousModeCmd                             /tmp/ccCsYkY6.o
+ADC_DMACmd                                        /tmp/ccCsYkY6.o
+ADC_DMARequestAfterLastTransferCmd                /tmp/ccCsYkY6.o
+ADC_DeInit                                        /tmp/ccCsYkY6.o
+ADC_DiscModeChannelCountConfig                    /tmp/ccCsYkY6.o
+ADC_DiscModeCmd                                   /tmp/ccCsYkY6.o
+ADC_EOCOnEachRegularChannelCmd                    /tmp/ccCsYkY6.o
+ADC_ExternalTrigInjectedConvConfig                /tmp/ccCsYkY6.o
+ADC_ExternalTrigInjectedConvEdgeConfig            /tmp/ccCsYkY6.o
+ADC_GetConversionValue                            /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_GetFlagStatus                                 /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_GetITStatus                                   /tmp/ccCsYkY6.o
+ADC_GetInjectedConversionValue                    /tmp/ccCsYkY6.o
+ADC_GetMultiModeConversionValue                   /tmp/ccCsYkY6.o
+ADC_GetSoftwareStartConvStatus                    /tmp/ccCsYkY6.o
+ADC_GetSoftwareStartInjectedConvCmdStatus         /tmp/ccCsYkY6.o
+ADC_IRQHandler                                    /tmp/ccGoVWfS.o
+ADC_ITConfig                                      /tmp/ccCsYkY6.o
+ADC_Init                                          /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_InjectedChannelConfig                         /tmp/ccCsYkY6.o
+ADC_InjectedDiscModeCmd                           /tmp/ccCsYkY6.o
+ADC_InjectedSequencerLengthConfig                 /tmp/ccCsYkY6.o
+ADC_MultiModeDMARequestAfterLastTransferCmd       /tmp/ccCsYkY6.o
+ADC_RegularChannelConfig                          /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_SetInjectedOffset                             /tmp/ccCsYkY6.o
+ADC_SoftwareStartConv                             /tmp/ccCsYkY6.o
+                                                  /tmp/ccgUSXSC.o
+ADC_SoftwareStartInjectedConv                     /tmp/ccCsYkY6.o
+ADC_StructInit                                    /tmp/ccCsYkY6.o
+ADC_TempSensorVrefintCmd                          /tmp/ccCsYkY6.o
+ADC_VBATCmd                                       /tmp/ccCsYkY6.o
+AHBPrescTable                                     /tmp/ccxiEvfg.o
+BusFault_Handler                                  /tmp/cclmmuQq.o
+DMA1_Stream0_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream1_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream2_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream3_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream4_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream5_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream6_IRQHandler                           /tmp/ccGoVWfS.o
+DMA1_Stream7_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream0_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream1_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream2_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream3_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream4_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream5_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream6_IRQHandler                           /tmp/ccGoVWfS.o
+DMA2_Stream7_IRQHandler                           /tmp/ccGoVWfS.o
+DebugMon_Handler                                  /tmp/cclmmuQq.o
+Default_Handler                                   /tmp/ccGoVWfS.o
+EXTI0_IRQHandler                                  /tmp/ccGoVWfS.o
+EXTI15_10_IRQHandler                              /tmp/cclmmuQq.o
+EXTI1_IRQHandler                                  /tmp/ccGoVWfS.o
+EXTI2_IRQHandler                                  /tmp/ccGoVWfS.o
+EXTI3_IRQHandler                                  /tmp/cclmmuQq.o
+EXTI4_IRQHandler                                  /tmp/ccGoVWfS.o
+EXTI9_5_IRQHandler                                /tmp/ccGoVWfS.o
+EXTI_ClearFlag                                    /tmp/ccBqKdIJ.o
+EXTI_ClearITPendingBit                            /tmp/ccBqKdIJ.o
+                                                  /tmp/cclmmuQq.o
+EXTI_DeInit                                       /tmp/ccBqKdIJ.o
+EXTI_GenerateSWInterrupt                          /tmp/ccBqKdIJ.o
+EXTI_GetFlagStatus                                /tmp/ccBqKdIJ.o
+EXTI_GetITStatus                                  /tmp/ccBqKdIJ.o
+                                                  /tmp/cclmmuQq.o
+EXTI_Init                                         /tmp/ccBqKdIJ.o
+                                                  /tmp/ccgUSXSC.o
+EXTI_StructInit                                   /tmp/ccBqKdIJ.o
+FLASH_IRQHandler                                  /tmp/ccGoVWfS.o
+FPU_IRQHandler                                    /tmp/ccGoVWfS.o
+GPIO_DeInit                                       /tmp/ccX5PoHm.o
+GPIO_Init                                         /tmp/ccX5PoHm.o
+                                                  /tmp/ccgUSXSC.o
+                                                  /tmp/ccr0UnS1.o
+GPIO_PinAFConfig                                  /tmp/ccX5PoHm.o
+                                                  /tmp/ccgUSXSC.o
+                                                  /tmp/ccr0UnS1.o
+GPIO_PinLockConfig                                /tmp/ccX5PoHm.o
+GPIO_ReadInputData                                /tmp/ccX5PoHm.o
+GPIO_ReadInputDataBit                             /tmp/ccX5PoHm.o
+GPIO_ReadOutputData                               /tmp/ccX5PoHm.o
+GPIO_ReadOutputDataBit                            /tmp/ccX5PoHm.o
+GPIO_ResetBits                                    /tmp/ccX5PoHm.o
+GPIO_SetBits                                      /tmp/ccX5PoHm.o
+GPIO_StructInit                                   /tmp/ccX5PoHm.o
+GPIO_ToggleBits                                   /tmp/ccX5PoHm.o
+GPIO_Write                                        /tmp/ccX5PoHm.o
+GPIO_WriteBit                                     /tmp/ccX5PoHm.o
+HardFault_Handler                                 /tmp/cclmmuQq.o
+I2C1_ER_IRQHandler                                /tmp/ccGoVWfS.o
+I2C1_EV_IRQHandler                                /tmp/ccGoVWfS.o
+I2C2_ER_IRQHandler                                /tmp/ccGoVWfS.o
+I2C2_EV_IRQHandler                                /tmp/ccGoVWfS.o
+I2C3_ER_IRQHandler                                /tmp/ccGoVWfS.o
+I2C3_EV_IRQHandler                                /tmp/ccGoVWfS.o
+MemManage_Handler                                 /tmp/cclmmuQq.o
+NMI_Handler                                       /tmp/cclmmuQq.o
+NVIC_Init                                         /tmp/ccL4Bqsu.o
+                                                  /tmp/ccgUSXSC.o
+                                                  /tmp/ccr0UnS1.o
+NVIC_PriorityGroupConfig                          /tmp/ccL4Bqsu.o
+                                                  /tmp/cc6PhcjP.o
+NVIC_SetVectorTable                               /tmp/ccL4Bqsu.o
+NVIC_SystemLPConfig                               /tmp/ccL4Bqsu.o
+OTG_FS_IRQHandler                                 /tmp/ccGoVWfS.o
+OTG_FS_WKUP_IRQHandler                            /tmp/ccGoVWfS.o
+PVD_IRQHandler                                    /tmp/ccGoVWfS.o
+PendSV_Handler                                    /tmp/cclmmuQq.o
+RCC_AHB1PeriphClockCmd                            /tmp/ccgM381Z.o
+                                                  /tmp/ccgUSXSC.o
+                                                  /tmp/ccr0UnS1.o
+RCC_AHB1PeriphClockLPModeCmd                      /tmp/ccgM381Z.o
+RCC_AHB1PeriphResetCmd                            /tmp/ccgM381Z.o
+                                                  /tmp/ccX5PoHm.o
+RCC_AHB2PeriphClockCmd                            /tmp/ccgM381Z.o
+RCC_AHB2PeriphClockLPModeCmd                      /tmp/ccgM381Z.o
+RCC_AHB2PeriphResetCmd                            /tmp/ccgM381Z.o
+RCC_APB1PeriphClockCmd                            /tmp/ccgM381Z.o
+RCC_APB1PeriphClockLPModeCmd                      /tmp/ccgM381Z.o
+RCC_APB1PeriphResetCmd                            /tmp/ccgM381Z.o
+                                                  /tmp/cci5p37V.o
+                                                  /tmp/ccpBmFHh.o
+RCC_APB2PeriphClockCmd                            /tmp/ccgM381Z.o
+                                                  /tmp/cc6PhcjP.o
+                                                  /tmp/ccgUSXSC.o
+                                                  /tmp/ccr0UnS1.o
+RCC_APB2PeriphClockLPModeCmd                      /tmp/ccgM381Z.o
+RCC_APB2PeriphResetCmd                            /tmp/ccgM381Z.o
+                                                  /tmp/cci5p37V.o
+                                                  /tmp/ccpBmFHh.o
+                                                  /tmp/ccefzWAD.o
+                                                  /tmp/ccCsYkY6.o
+RCC_AdjustHSICalibrationValue                     /tmp/ccgM381Z.o
+RCC_BackupResetCmd                                /tmp/ccgM381Z.o
+RCC_ClearFlag                                     /tmp/ccgM381Z.o
+RCC_ClearITPendingBit                             /tmp/ccgM381Z.o
+RCC_ClockSecuritySystemCmd                        /tmp/ccgM381Z.o
+RCC_DeInit                                        /tmp/ccgM381Z.o
+RCC_GetClocksFreq                                 /tmp/ccgM381Z.o
+                                                  /tmp/cci5p37V.o
+RCC_GetFlagStatus                                 /tmp/ccgM381Z.o
+RCC_GetITStatus                                   /tmp/ccgM381Z.o
+RCC_GetSYSCLKSource                               /tmp/ccgM381Z.o
+RCC_HCLKConfig                                    /tmp/ccgM381Z.o
+RCC_HSEConfig                                     /tmp/ccgM381Z.o
+RCC_HSICmd                                        /tmp/ccgM381Z.o
+RCC_I2SCLKConfig                                  /tmp/ccgM381Z.o
+RCC_IRQHandler                                    /tmp/ccGoVWfS.o
+RCC_ITConfig                                      /tmp/ccgM381Z.o
+RCC_LSEConfig                                     /tmp/ccgM381Z.o
+RCC_LSEModeConfig                                 /tmp/ccgM381Z.o
+RCC_LSICmd                                        /tmp/ccgM381Z.o
+RCC_LTDCCLKDivConfig                              /tmp/ccgM381Z.o
+RCC_MCO1Config                                    /tmp/ccgM381Z.o
+RCC_MCO2Config                                    /tmp/ccgM381Z.o
+RCC_PCLK1Config                                   /tmp/ccgM381Z.o
+RCC_PCLK2Config                                   /tmp/ccgM381Z.o
+RCC_PLLCmd                                        /tmp/ccgM381Z.o
+RCC_PLLConfig                                     /tmp/ccgM381Z.o
+RCC_PLLI2SCmd                                     /tmp/ccgM381Z.o
+RCC_PLLI2SConfig                                  /tmp/ccgM381Z.o
+RCC_PLLSAICmd                                     /tmp/ccgM381Z.o
+RCC_PLLSAIConfig                                  /tmp/ccgM381Z.o
+RCC_RTCCLKCmd                                     /tmp/ccgM381Z.o
+RCC_RTCCLKConfig                                  /tmp/ccgM381Z.o
+RCC_SAIPLLI2SClkDivConfig                         /tmp/ccgM381Z.o
+RCC_SAIPLLSAIClkDivConfig                         /tmp/ccgM381Z.o
+RCC_SYSCLKConfig                                  /tmp/ccgM381Z.o
+RCC_TIMCLKPresConfig                              /tmp/ccgM381Z.o
+RCC_WaitForHSEStartUp                             /tmp/ccgM381Z.o
+RTC_Alarm_IRQHandler                              /tmp/ccGoVWfS.o
+RTC_WKUP_IRQHandler                               /tmp/ccGoVWfS.o
+Reset_Handler                                     /tmp/ccGoVWfS.o
+SDIO_IRQHandler                                   /tmp/ccGoVWfS.o
+SPI1_IRQHandler                                   /tmp/ccGoVWfS.o
+SPI2_IRQHandler                                   /tmp/ccGoVWfS.o
+SPI3_IRQHandler                                   /tmp/ccGoVWfS.o
+SPI4_IRQHandler                                   /tmp/ccGoVWfS.o
+SVC_Handler                                       /tmp/cclmmuQq.o
+SYSCFG_CompensationCellCmd                        /tmp/ccefzWAD.o
+SYSCFG_DeInit                                     /tmp/ccefzWAD.o
+SYSCFG_ETH_MediaInterfaceConfig                   /tmp/ccefzWAD.o
+SYSCFG_EXTILineConfig                             /tmp/ccefzWAD.o
+                                                  /tmp/ccgUSXSC.o
+SYSCFG_GetCompensationCellStatus                  /tmp/ccefzWAD.o
+SYSCFG_MemoryRemapConfig                          /tmp/ccefzWAD.o
+SYSCFG_MemorySwappingBank                         /tmp/ccefzWAD.o
+SysTick_CLKSourceConfig                           /tmp/ccL4Bqsu.o
+SysTick_Handler                                   /tmp/cclmmuQq.o
+SystemCoreClock                                   /tmp/ccxiEvfg.o
+                                                  /tmp/cc6PhcjP.o
+SystemCoreClockUpdate                             /tmp/ccxiEvfg.o
+SystemInit                                        /tmp/ccxiEvfg.o
+                                                  /tmp/ccGoVWfS.o
+TAMP_STAMP_IRQHandler                             /tmp/ccGoVWfS.o
+TIM1_BRK_TIM9_IRQHandler                          /tmp/ccGoVWfS.o
+TIM1_CC_IRQHandler                                /tmp/cclmmuQq.o
+TIM1_TRG_COM_TIM11_IRQHandler                     /tmp/ccGoVWfS.o
+TIM1_UP_TIM10_IRQHandler                          /tmp/ccGoVWfS.o
+TIM2_IRQHandler                                   /tmp/ccGoVWfS.o
+TIM3_IRQHandler                                   /tmp/ccGoVWfS.o
+TIM4_IRQHandler                                   /tmp/ccGoVWfS.o
+TIM5_IRQHandler                                   /tmp/ccGoVWfS.o
+TIM_ARRPreloadConfig                              /tmp/ccpBmFHh.o
+TIM_BDTRConfig                                    /tmp/ccpBmFHh.o
+TIM_BDTRStructInit                                /tmp/ccpBmFHh.o
+TIM_CCPreloadControl                              /tmp/ccpBmFHh.o
+TIM_CCxCmd                                        /tmp/ccpBmFHh.o
+TIM_CCxNCmd                                       /tmp/ccpBmFHh.o
+TIM_ClearFlag                                     /tmp/ccpBmFHh.o
+TIM_ClearITPendingBit                             /tmp/ccpBmFHh.o
+                                                  /tmp/cclmmuQq.o
+TIM_ClearOC1Ref                                   /tmp/ccpBmFHh.o
+TIM_ClearOC2Ref                                   /tmp/ccpBmFHh.o
+TIM_ClearOC3Ref                                   /tmp/ccpBmFHh.o
+TIM_ClearOC4Ref                                   /tmp/ccpBmFHh.o
+TIM_Cmd                                           /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_CounterModeConfig                             /tmp/ccpBmFHh.o
+TIM_CtrlPWMOutputs                                /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_DMACmd                                        /tmp/ccpBmFHh.o
+TIM_DMAConfig                                     /tmp/ccpBmFHh.o
+TIM_DeInit                                        /tmp/ccpBmFHh.o
+TIM_ETRClockMode1Config                           /tmp/ccpBmFHh.o
+TIM_ETRClockMode2Config                           /tmp/ccpBmFHh.o
+TIM_ETRConfig                                     /tmp/ccpBmFHh.o
+TIM_EncoderInterfaceConfig                        /tmp/ccpBmFHh.o
+TIM_ForcedOC1Config                               /tmp/ccpBmFHh.o
+TIM_ForcedOC2Config                               /tmp/ccpBmFHh.o
+TIM_ForcedOC3Config                               /tmp/ccpBmFHh.o
+TIM_ForcedOC4Config                               /tmp/ccpBmFHh.o
+TIM_GenerateEvent                                 /tmp/ccpBmFHh.o
+TIM_GetCapture1                                   /tmp/ccpBmFHh.o
+TIM_GetCapture2                                   /tmp/ccpBmFHh.o
+TIM_GetCapture3                                   /tmp/ccpBmFHh.o
+TIM_GetCapture4                                   /tmp/ccpBmFHh.o
+TIM_GetCounter                                    /tmp/ccpBmFHh.o
+TIM_GetFlagStatus                                 /tmp/ccpBmFHh.o
+TIM_GetITStatus                                   /tmp/ccpBmFHh.o
+                                                  /tmp/cclmmuQq.o
+TIM_GetPrescaler                                  /tmp/ccpBmFHh.o
+TIM_ICInit                                        /tmp/ccpBmFHh.o
+TIM_ICStructInit                                  /tmp/ccpBmFHh.o
+TIM_ITConfig                                      /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_ITRxExternalClockConfig                       /tmp/ccpBmFHh.o
+TIM_InternalClockConfig                           /tmp/ccpBmFHh.o
+TIM_OC1FastConfig                                 /tmp/ccpBmFHh.o
+TIM_OC1Init                                       /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC1NPolarityConfig                            /tmp/ccpBmFHh.o
+TIM_OC1PolarityConfig                             /tmp/ccpBmFHh.o
+TIM_OC1PreloadConfig                              /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC2FastConfig                                 /tmp/ccpBmFHh.o
+TIM_OC2Init                                       /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC2NPolarityConfig                            /tmp/ccpBmFHh.o
+TIM_OC2PolarityConfig                             /tmp/ccpBmFHh.o
+TIM_OC2PreloadConfig                              /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC3FastConfig                                 /tmp/ccpBmFHh.o
+TIM_OC3Init                                       /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC3NPolarityConfig                            /tmp/ccpBmFHh.o
+TIM_OC3PolarityConfig                             /tmp/ccpBmFHh.o
+TIM_OC3PreloadConfig                              /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC4FastConfig                                 /tmp/ccpBmFHh.o
+TIM_OC4Init                                       /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OC4PolarityConfig                             /tmp/ccpBmFHh.o
+TIM_OC4PreloadConfig                              /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_OCStructInit                                  /tmp/ccpBmFHh.o
+TIM_PWMIConfig                                    /tmp/ccpBmFHh.o
+TIM_PrescalerConfig                               /tmp/ccpBmFHh.o
+TIM_RemapConfig                                   /tmp/ccpBmFHh.o
+TIM_SelectCCDMA                                   /tmp/ccpBmFHh.o
+TIM_SelectCOM                                     /tmp/ccpBmFHh.o
+TIM_SelectHallSensor                              /tmp/ccpBmFHh.o
+TIM_SelectInputTrigger                            /tmp/ccpBmFHh.o
+TIM_SelectMasterSlaveMode                         /tmp/ccpBmFHh.o
+TIM_SelectOCxM                                    /tmp/ccpBmFHh.o
+TIM_SelectOnePulseMode                            /tmp/ccpBmFHh.o
+TIM_SelectOutputTrigger                           /tmp/ccpBmFHh.o
+TIM_SelectSlaveMode                               /tmp/ccpBmFHh.o
+TIM_SetAutoreload                                 /tmp/ccpBmFHh.o
+TIM_SetClockDivision                              /tmp/ccpBmFHh.o
+TIM_SetCompare1                                   /tmp/ccpBmFHh.o
+TIM_SetCompare2                                   /tmp/ccpBmFHh.o
+TIM_SetCompare3                                   /tmp/ccpBmFHh.o
+TIM_SetCompare4                                   /tmp/ccpBmFHh.o
+TIM_SetCounter                                    /tmp/ccpBmFHh.o
+TIM_SetIC1Prescaler                               /tmp/ccpBmFHh.o
+TIM_SetIC2Prescaler                               /tmp/ccpBmFHh.o
+TIM_SetIC3Prescaler                               /tmp/ccpBmFHh.o
+TIM_SetIC4Prescaler                               /tmp/ccpBmFHh.o
+TIM_TIxExternalClockConfig                        /tmp/ccpBmFHh.o
+TIM_TimeBaseInit                                  /tmp/ccpBmFHh.o
+                                                  /tmp/ccgUSXSC.o
+TIM_TimeBaseStructInit                            /tmp/ccpBmFHh.o
+TIM_UpdateDisableConfig                           /tmp/ccpBmFHh.o
+TIM_UpdateRequestConfig                           /tmp/ccpBmFHh.o
+USART1_IRQHandler                                 /tmp/cclmmuQq.o
+USART2_IRQHandler                                 /tmp/ccGoVWfS.o
+USART6_IRQHandler                                 /tmp/ccGoVWfS.o
+USART_ClearFlag                                   /tmp/cci5p37V.o
+USART_ClearITPendingBit                           /tmp/cci5p37V.o
+                                                  /tmp/cclmmuQq.o
+USART_ClockInit                                   /tmp/cci5p37V.o
+USART_ClockStructInit                             /tmp/cci5p37V.o
+USART_Cmd                                         /tmp/cci5p37V.o
+                                                  /tmp/ccr0UnS1.o
+USART_DMACmd                                      /tmp/cci5p37V.o
+USART_DeInit                                      /tmp/cci5p37V.o
+USART_GetFlagStatus                               /tmp/cci5p37V.o
+                                                  /tmp/ccr0UnS1.o
+USART_GetITStatus                                 /tmp/cci5p37V.o
+                                                  /tmp/cclmmuQq.o
+USART_HalfDuplexCmd                               /tmp/cci5p37V.o
+USART_ITConfig                                    /tmp/cci5p37V.o
+                                                  /tmp/ccr0UnS1.o
+USART_Init                                        /tmp/cci5p37V.o
+                                                  /tmp/ccr0UnS1.o
+USART_IrDACmd                                     /tmp/cci5p37V.o
+USART_IrDAConfig                                  /tmp/cci5p37V.o
+USART_LINBreakDetectLengthConfig                  /tmp/cci5p37V.o
+USART_LINCmd                                      /tmp/cci5p37V.o
+USART_OneBitMethodCmd                             /tmp/cci5p37V.o
+USART_OverSampling8Cmd                            /tmp/cci5p37V.o
+USART_ReceiveData                                 /tmp/cci5p37V.o
+                                                  /tmp/cclmmuQq.o
+USART_ReceiverWakeUpCmd                           /tmp/cci5p37V.o
+USART_SendBreak                                   /tmp/cci5p37V.o
+USART_SendData                                    /tmp/cci5p37V.o
+                                                  /tmp/ccr0UnS1.o
+USART_SetAddress                                  /tmp/cci5p37V.o
+USART_SetGuardTime                                /tmp/cci5p37V.o
+USART_SetPrescaler                                /tmp/cci5p37V.o
+USART_SmartCardCmd                                /tmp/cci5p37V.o
+USART_SmartCardNACKCmd                            /tmp/cci5p37V.o
+USART_StructInit                                  /tmp/cci5p37V.o
+USART_WakeUpConfig                                /tmp/cci5p37V.o
+UsageFault_Handler                                /tmp/cclmmuQq.o
+WWDG_IRQHandler                                   /tmp/ccGoVWfS.o
 _ITM_deregisterTMCloneTable                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 _ITM_registerTMCloneTable                         /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 __TMC_END__                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtend.o
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
-__adddf3                                          /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_d2uiz                                     /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
-                                                  /tmp/ccTHmnWB.o
-__aeabi_dadd                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_ddiv                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
-__aeabi_dmul                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
-                                                  /tmp/ccTHmnWB.o
-__aeabi_drsub                                     /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_dsub                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_f2d                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_i2d                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-                                                  /tmp/ccTHmnWB.o
-__aeabi_l2d                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_ui2d                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__aeabi_ul2d                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
 __bss_end__                                       /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
 __bss_start__                                     /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
 __call_exitprocs                                  /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
 __deregister_frame_info                           /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
-__divdf3                                          /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
 __dso_handle                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
-__extendsfdf2                                     /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
 __fini_array_end                                  /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
 __fini_array_start                                /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
-__fixunsdfsi                                      /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_fixunsdfsi.o)
-__floatdidf                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__floatsidf                                       /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__floatundidf                                     /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-__floatunsidf                                     /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
 __init_array_end                                  /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
 __init_array_start                                /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
 __libc_fini                                       /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
@@ -1431,90 +1393,102 @@ __libc_fini_array                                 /usr/lib/gcc/arm-none-eabi/7.1
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
 __libc_init_array                                 /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
-                                                  /tmp/ccUfeNGl.o
+                                                  /tmp/ccGoVWfS.o
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-__muldf3                                          /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_muldivdf3.o)
 __preinit_array_end                               /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
 __preinit_array_start                             /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
 __register_exitproc                               /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
 __register_frame_info                             /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crtbegin.o
 __stack                                           /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-__subdf3                                          /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/libgcc.a(_arm_addsubdf3.o)
-_ebss                                             /tmp/ccUfeNGl.o
-_edata                                            /tmp/ccUfeNGl.o
-_estack                                           /tmp/ccUfeNGl.o
+_d                                                /tmp/cc6PhcjP.o
+_ebss                                             /tmp/ccGoVWfS.o
+_edata                                            /tmp/ccGoVWfS.o
+_estack                                           /tmp/ccGoVWfS.o
 _exit                                             /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libnosys.a(_exit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+_f                                                /tmp/cc6PhcjP.o
 _fini                                             /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-fini.o)
 _global_impure_ptr                                /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
+_i16                                              /tmp/cc6PhcjP.o
+_i32                                              /tmp/cc6PhcjP.o
+_i64                                              /tmp/cc6PhcjP.o
+_i8                                               /tmp/cc6PhcjP.o
 _impure_ptr                                       /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-impure.o)
 _init                                             /usr/lib/gcc/arm-none-eabi/7.1.0/thumb/v7e-m/fpv4-sp/softfp/crti.o
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-init.o)
 _mainCRTStartup                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-_ms_ticks                                         /tmp/cc6v3FeX.o
-_sbss                                             /tmp/ccUfeNGl.o
-_sdata                                            /tmp/ccUfeNGl.o
-_sidata                                           /tmp/ccUfeNGl.o
+_ms_ticks                                         /tmp/cclmmuQq.o
+_sbss                                             /tmp/ccGoVWfS.o
+_sdata                                            /tmp/ccGoVWfS.o
+_sidata                                           /tmp/ccGoVWfS.o
 _start                                            /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
+_u16                                              /tmp/cc6PhcjP.o
+_u32                                              /tmp/cc6PhcjP.o
+_u64                                              /tmp/cc6PhcjP.o
+_u8                                               /tmp/cc6PhcjP.o
 atexit                                            /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-delay                                             /tmp/cc6v3FeX.o
-                                                  /tmp/ccTHmnWB.o
+delay                                             /tmp/cclmmuQq.o
+                                                  /tmp/cc6PhcjP.o
 exit                                              /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-exit.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-flush_fifo                                        /tmp/ccYV8tcE.o
+flush_fifo                                        /tmp/ccqkQmt2.o
 free                                              /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__call_atexit.o)
-g_pfnVectors                                      /tmp/ccUfeNGl.o
-get_time                                          /tmp/cc6v3FeX.o
+g_pfnVectors                                      /tmp/ccGoVWfS.o
+get_time                                          /tmp/cclmmuQq.o
 hardware_init_hook                                /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-ihm07_adc_single_mode_init                        /tmp/ccbrwlVV.o
-                                                  /tmp/ccTHmnWB.o
-ihm07_adc_single_read_channel                     /tmp/ccbrwlVV.o
-                                                  /tmp/ccTHmnWB.o
-ihm07_analog_pins_init                            /tmp/ccbrwlVV.o
-                                                  /tmp/ccTHmnWB.o
-ihm07_hall_interrupt_connection_state             /tmp/ccbrwlVV.o
-ihm07_hall_interrupt_init                         /tmp/ccbrwlVV.o
-ihm07_hall_pins_init                              /tmp/ccbrwlVV.o
-ihm07_hall_read                                   /tmp/ccbrwlVV.o
-ihm07_hall_state_change_callback                  /tmp/cc6v3FeX.o
-ihm07_l6230_pins_init                             /tmp/ccbrwlVV.o
-ihm07_led_red_init                                /tmp/ccbrwlVV.o
-                                                  /tmp/ccTHmnWB.o
-ihm07_pwm_and_pins_init                           /tmp/ccbrwlVV.o
-ihm07_pwm_duty_interrupt_callback                 /tmp/cc6v3FeX.o
-ihm07_pwm_duty_interrupt_connection_state         /tmp/ccbrwlVV.o
-ihm07_pwm_duty_interrupt_init                     /tmp/ccbrwlVV.o
-init_fifo                                         /tmp/ccYV8tcE.o
-                                                  /tmp/ccxNHkFi.o
-main                                              /tmp/ccTHmnWB.o
-                                                  /tmp/ccUfeNGl.o
+ihm07_adc_single_mode_init                        /tmp/ccgUSXSC.o
+ihm07_adc_single_read_channel                     /tmp/ccgUSXSC.o
+ihm07_analog_pins_init                            /tmp/ccgUSXSC.o
+ihm07_hall_interrupt_connection_state             /tmp/ccgUSXSC.o
+ihm07_hall_interrupt_init                         /tmp/ccgUSXSC.o
+ihm07_hall_pins_init                              /tmp/ccgUSXSC.o
+ihm07_hall_read                                   /tmp/ccgUSXSC.o
+ihm07_hall_state_change_callback                  /tmp/cclmmuQq.o
+ihm07_l6230_pins_init                             /tmp/ccgUSXSC.o
+ihm07_led_red_init                                /tmp/ccgUSXSC.o
+                                                  /tmp/cc6PhcjP.o
+ihm07_pwm_and_pins_init                           /tmp/ccgUSXSC.o
+ihm07_pwm_duty_interrupt_callback                 /tmp/cclmmuQq.o
+ihm07_pwm_duty_interrupt_connection_state         /tmp/ccgUSXSC.o
+ihm07_pwm_duty_interrupt_init                     /tmp/ccgUSXSC.o
+init_fifo                                         /tmp/ccqkQmt2.o
+                                                  /tmp/ccqxi6fE.o
+main                                              /tmp/cc6PhcjP.o
+                                                  /tmp/ccGoVWfS.o
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
 malloc                                            /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-__atexit.o)
 memset                                            /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/libg.a(lib_a-memset.o)
                                                   /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-read_fifo                                         /tmp/ccYV8tcE.o
-                                                  /tmp/ccxNHkFi.o
-safe_memory_copy                                  /tmp/ccxNHkFi.o
-serial_driver_init                                /tmp/ccLQ1FQg.o
-                                                  /tmp/ccTHmnWB.o
-serial_driver_send_buffer_poll                    /tmp/ccLQ1FQg.o
-serial_driver_send_byte_poll                      /tmp/ccLQ1FQg.o
-                                                  /tmp/ccTHmnWB.o
-serial_driver_syscheck                            /tmp/ccLQ1FQg.o
-serial_encode                                     /tmp/ccxNHkFi.o
-serial_encode_poll                                /tmp/ccxNHkFi.o
-serial_flush                                      /tmp/ccxNHkFi.o
-serial_init                                       /tmp/ccxNHkFi.o
-serial_payload_handler                            /tmp/ccxNHkFi.o
-serial_receives_byte                              /tmp/ccxNHkFi.o
-serial_send_byte                                  /tmp/ccxNHkFi.o
+read_fifo                                         /tmp/ccqkQmt2.o
+                                                  /tmp/ccqxi6fE.o
+safe_memory_copy                                  /tmp/ccqxi6fE.o
+                                                  /tmp/ccce5vZd.o
+serial_packet_encode                              /tmp/ccqxi6fE.o
+serial_packet_encode_poll                         /tmp/ccqxi6fE.o
+                                                  /tmp/cc6PhcjP.o
+serial_packet_flush                               /tmp/ccqxi6fE.o
+                                                  /tmp/cc6PhcjP.o
+serial_packet_handler                             /tmp/ccce5vZd.o
+                                                  /tmp/ccqxi6fE.o
+serial_packet_init                                /tmp/ccqxi6fE.o
+                                                  /tmp/cc6PhcjP.o
+serial_packet_print                               /tmp/cc6PhcjP.o
+                                                  /tmp/ccqxi6fE.o
+serial_packet_read                                /tmp/ccqxi6fE.o
+                                                  /tmp/cclmmuQq.o
 software_init_hook                                /usr/lib/gcc/arm-none-eabi/7.1.0/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/softfp/crt0.o
-write_fifo                                        /tmp/ccYV8tcE.o
-                                                  /tmp/ccxNHkFi.o
+test_serial_packet_encode                         /tmp/cc6PhcjP.o
+uart_init                                         /tmp/ccr0UnS1.o
+                                                  /tmp/cc6PhcjP.o
+uart_send_buffer_poll                             /tmp/ccr0UnS1.o
+uart_send_byte_poll                               /tmp/ccr0UnS1.o
+                                                  /tmp/cc6PhcjP.o
+write_fifo                                        /tmp/ccqkQmt2.o
+                                                  /tmp/ccqxi6fE.o

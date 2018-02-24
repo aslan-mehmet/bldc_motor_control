@@ -222,6 +222,16 @@ void TIM1_CC_IRQHandler(void)
                 ihm07_pwm_duty_interrupt_callback();
         }
 }
+
+extern void serial_packet_read(uint8_t byt);
+void USART1_IRQHandler(void)
+{
+	if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET) {
+		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
+		uint16_t data = USART_ReceiveData(USART1);
+                serial_packet_read((uint8_t) data);
+        }
+}
 /**
   * @}
   */
