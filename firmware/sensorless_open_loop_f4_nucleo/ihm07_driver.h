@@ -34,9 +34,11 @@ void ihm07_l6230_pins_init(void);
 #define ihm07_l6230_ch1_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN1
 #define ihm07_l6230_ch2_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN2
 #define ihm07_l6230_ch3_enable() PORT_EN1_EN2_EN3->ODR |= PIN_EN3
+
 #define ihm07_l6230_ch1_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN1
 #define ihm07_l6230_ch2_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN2
 #define ihm07_l6230_ch3_disable() PORT_EN1_EN2_EN3->ODR &= ~PIN_EN3
+#define ihm07_l6230_ch_all_disable() PORT_EN1_EN2_EN3->ODR &= ~(PIN_EN1 | PIN_EN2 | PIN_EN3)
 
 void ihm07_analog_pins_init(void);
 void ihm07_adc_single_mode_init(void);

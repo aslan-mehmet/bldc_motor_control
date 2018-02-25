@@ -34,13 +34,18 @@ int main(void)
         ihm07_led_red_init();
         six_step_hall_init();
         six_step_hall_set_direction(SIX_STEP_HALL_DIRECTION_CCW);
-        six_step_hall_set_speed(500);
+        six_step_hall_set_pwm_val(500);
         six_step_hall_start();
 
+        uint64_t hold_time = get_time();
+
         while (1) {
-                delay(100);
-                ihm07_led_red_toggle();
                 serial_packet_flush();
+
+                if (get_time() - hold_time > 100) {
+                        hold_time = get_time();
+                        ihm07_led_red_toggle();
+                }
         }
 }
 

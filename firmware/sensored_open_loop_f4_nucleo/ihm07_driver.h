@@ -14,8 +14,9 @@ void ihm07_led_red_init(void);
 #define ihm07_led_red_on() PORT_LED_RED->ODR |= PIN_LED_RED
 #define ihm07_led_red_off() PORT_LED_RED->ODR &= ~PIN_LED_RED
 #define ihm07_led_red_toggle() PORT_LED_RED->ODR ^= PIN_LED_RED
-
+/* single inc 23.81ns */
 #define PWM_MAX_VAL ((uint16_t) 1e3)
+/* pwm freq 42kHz, freq 23.81us */
 void ihm07_pwm_and_pins_init(void);
 #define ihm07_pwm_set_ch1(val) TIM1->CCR1 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 #define ihm07_pwm_set_ch2(val) TIM1->CCR2 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
@@ -43,7 +44,7 @@ void ihm07_l6230_pins_init(void);
 void ihm07_analog_pins_init(void);
 void ihm07_adc_single_mode_init(void);
 #define ihm07_adc_state(state) ADC_Cmd(ADC1, (state))
-/* IHM07_ADC_CH_x */
+/* conversion time 2.25us */
 uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 
 

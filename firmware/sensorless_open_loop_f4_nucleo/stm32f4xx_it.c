@@ -226,6 +226,10 @@ void TIM1_CC_IRQHandler(void)
 extern void serial_packet_read(uint8_t byt);
 void USART1_IRQHandler(void)
 {
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 0;
+         * NVIC_IRQChannelSubPriority = 2;
+         */
 	if (USART_GetITStatus(USART1, USART_IT_RXNE) == SET) {
 		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
 		uint16_t data = USART_ReceiveData(USART1);

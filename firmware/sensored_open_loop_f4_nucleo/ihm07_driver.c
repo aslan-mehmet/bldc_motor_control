@@ -103,7 +103,7 @@ void ihm07_pwm_and_pins_init(void)
         GPIO_PinAFConfig(PORT_IN1_IN2_IN3, GPIO_PinSourceIN3, GPIO_AF_TIM1);
 
         TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
-        TIM_TimeBaseStructure.TIM_Prescaler = 0;
+        TIM_TimeBaseStructure.TIM_Prescaler = 1;
         TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
         TIM_TimeBaseStructure.TIM_Period = PWM_MAX_VAL;
         TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;

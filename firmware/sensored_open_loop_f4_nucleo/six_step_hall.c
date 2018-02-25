@@ -2,7 +2,7 @@
 
 void ihm07_hall_state_change_callback(void);
 
-static uint16_t _speed = 0;
+static uint16_t _pwm_val = 0;
 static uint8_t _direction = SIX_STEP_HALL_DIRECTION_CCW;
 
 void six_step_hall_init(void)
@@ -29,32 +29,32 @@ static void six_step_commutate_cw(uint8_t state)
         case 6:
                 ihm07_l6230_ch2_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch2(_speed);
+                ihm07_pwm_set_ch2(_pwm_val);
                 break;
         case 4:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch1(_speed);
+                ihm07_pwm_set_ch1(_pwm_val);
                 break;
         case 5:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch2_enable();
-                ihm07_pwm_set_ch1(_speed);
+                ihm07_pwm_set_ch1(_pwm_val);
                 break;
         case 1:
                 ihm07_l6230_ch2_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch3(_speed);
+                ihm07_pwm_set_ch3(_pwm_val);
                 break;
         case 3:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch3(_speed);
+                ihm07_pwm_set_ch3(_pwm_val);
                 break;
         case 2:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch2_enable();
-                ihm07_pwm_set_ch2(_speed);
+                ihm07_pwm_set_ch2(_pwm_val);
                 break;
         }
 }
@@ -70,32 +70,32 @@ static void six_step_commutate_ccw(uint8_t state)
         case 5:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch2_enable();
-                ihm07_pwm_set_ch2(_speed);
+                ihm07_pwm_set_ch2(_pwm_val);
                 break;
         case 4:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch3(_speed);
+                ihm07_pwm_set_ch3(_pwm_val);
                 break;
         case 6:
                 ihm07_l6230_ch2_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch3(_speed);
+                ihm07_pwm_set_ch3(_pwm_val);
                 break;
         case 2:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch2_enable();
-                ihm07_pwm_set_ch1(_speed);
+                ihm07_pwm_set_ch1(_pwm_val);
                 break;
         case 3:
                 ihm07_l6230_ch1_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch1(_speed);
+                ihm07_pwm_set_ch1(_pwm_val);
                 break;
         case 1:
                 ihm07_l6230_ch2_enable();
                 ihm07_l6230_ch3_enable();
-                ihm07_pwm_set_ch2(_speed);
+                ihm07_pwm_set_ch2(_pwm_val);
                 break;
         }
 }
@@ -111,9 +111,9 @@ void ihm07_hall_state_change_callback(void)
         }
 }
 
-void six_step_hall_set_speed(uint16_t val)
+void six_step_hall_set_pwm_val(uint16_t val)
 {
-        _speed = val;
+        _pwm_val = val;
 }
 
 void six_step_hall_set_direction(uint8_t SIX_STEP_HALL_DIRECTION_x)

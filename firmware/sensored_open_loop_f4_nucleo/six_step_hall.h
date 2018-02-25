@@ -8,7 +8,7 @@ void six_step_hall_init(void);
 void six_step_hall_start(void);
 #define six_step_hall_stop() ihm07_l6230_disable()
 
-void six_step_hall_set_speed(uint16_t val);
+void six_step_hall_set_pwm_val(uint16_t pwm_val);
 
 #define SIX_STEP_HALL_DIRECTION_CCW 1
 #define SIX_STEP_HALL_DIRECTION_CW 0
