@@ -44,8 +44,16 @@ void ihm07_l6230_pins_init(void);
 void ihm07_analog_pins_init(void);
 void ihm07_adc_single_mode_init(void);
 #define ihm07_adc_state(state) ADC_Cmd(ADC1, (state))
+#define ihm07_adc_get_conversion_val() ADC_GetConversionValue(ADC1)
+#define ihm07_adc_start_conversion() ADC_SoftwareStartConv(ADC1)
+#define ihm07_adc_wait_conversion() while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET)
 /* conversion time 2.25us */
 uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
+
+void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels);
+void ihm07_adc_group_mode_interrupt_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels);
+/* void ihm07_adc_group_mode_interrupt_callback(void) */
+void ihm07_adc_group_mode_interrupt_connection_state(FunctionalState state);
 
 
 #endif /* __IHM07_DRIVER_H */

@@ -247,14 +247,40 @@ uint16_t ihm07_adc_single_read_channel(uint8_t channel)
 {
         ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_3Cycles);
 
-        ADC_SoftwareStartConv(ADC1);
+        ihm07_adc_start_conversion();
 
-        while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET)
-                ;
+        ihm07_adc_wait_conversion();
 
-        return ADC_GetConversionValue(ADC1);
+        return ihm07_adc_get_conversion_val();
 }
 
+void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels)
+{
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+
+        ADC_InitTypeDef ADC_InitStructure;
+        ADC_InitStructure.ADC_Resolution = ADC_Resolution_12b;
+        ADC_InitStructure.ADC_ScanConvMode = ENABLE;
+        ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+        ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
+        ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
+        ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+        ADC_InitStructure.ADC_NbrOfConversion = number_of_channels;
+        ADC_Init(ADC1, &ADC_InitStructure);
+
+        ADC_CommonInitTypeDef ADC_CommonInitStructure;
+        ADC_CommonInitStructure.ADC_Mode = ADC_Mode_Independent;
+        ADC_CommonInitStructure.ADC_Prescaler = ADC_Prescaler_Div2;
+        ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
+        ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
+        ADC_CommonInit(&ADC_CommonInitStructure);
+
+        for (int i = 0; i < number_of_channels; ++i) {
+                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_3Cycles);
+        }
+
+        ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);
+}
 
 
 
