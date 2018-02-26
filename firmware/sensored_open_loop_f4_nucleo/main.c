@@ -45,8 +45,9 @@ int main(void)
         while (1) {
                 serial_packet_flush();
 
+                ihm07_adc_start_conversion();
+
                 for (int i = 0; i < 3; ++i) {
-                        ihm07_adc_start_conversion();
                         ihm07_adc_wait_conversion();
                         buffer[i+1] = ihm07_adc_get_conversion_val();
                 }
