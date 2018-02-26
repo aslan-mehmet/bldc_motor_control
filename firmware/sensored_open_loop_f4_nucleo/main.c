@@ -11,6 +11,8 @@
 #include "uart.h"
 #include "six_step_hall.h"
 
+uint16_t buffer[2];
+
 int main(void)
 {
         /* 1ms tick */
@@ -34,10 +36,11 @@ int main(void)
         ihm07_l6230_pins_init();
 
         ihm07_analog_pins_init();
-        uint8_t adc_channels[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
-        ihm07_adc_group_mode_init(adc_channels, 3);
+        ihm07_adc_single_mode_init(IHM07_ADC_CH_POT);
+        ihm07_adc_interrupt_init();
+        ihm07_adc_interrupt_connection_state(ENABLE);
         ihm07_adc_state(ENABLE);
-        uint16_t buffer[4];
+
         buffer[0] = 0xaabb;
 
         uint64_t hold_time = get_time();
@@ -45,20 +48,19 @@ int main(void)
         while (1) {
                 serial_packet_flush();
 
-                ihm07_adc_start_conversion();
-
-                for (int i = 0; i < 3; ++i) {
-                        ihm07_adc_wait_conversion();
-                        buffer[i+1] = ihm07_adc_get_conversion_val();
-                }
-
-                uart_send_buffer_poll((uint8_t *) buffer, sizeof(uint16_t) * 4);
+                uart_send_buffer_poll((uint8_t *) buffer, sizeof(uint16_t) * 2);
 
                 if (get_time() - hold_time > 100) {
                         hold_time = get_time();
                         ihm07_led_red_toggle();
+                        ihm07_adc_start_conversion();
                 }
         }
+}
+
+void ihm07_adc_eoc_callback(void)
+{
+        buffer[1] = ihm07_adc_get_conversion_val();
 }
 
 void serial_packet_print(uint8_t byt)

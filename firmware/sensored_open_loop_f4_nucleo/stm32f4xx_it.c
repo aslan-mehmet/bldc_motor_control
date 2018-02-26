@@ -236,6 +236,19 @@ void USART1_IRQHandler(void)
                 serial_packet_read((uint8_t) data);
         }
 }
+
+void ihm07_adc_eoc_callback(void) __attribute__ ((weak));
+void ADC_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 1;
+         * NVIC_IRQChannelSubPriority = 0;
+         */
+        if (ADC_GetITStatus(ADC1, ADC_IT_EOC) == SET) {
+                ADC_ClearITPendingBit(ADC1, ADC_IT_EOC);
+                ihm07_adc_eoc_callback();
+        }
+}
 /**
   * @}
   */

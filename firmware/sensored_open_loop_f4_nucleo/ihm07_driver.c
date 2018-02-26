@@ -221,7 +221,7 @@ void ihm07_analog_pins_init(void)
         GPIO_Init(PORT_POT, &GPIO_InitStructure);
 }
 
-void ihm07_adc_single_mode_init(void)
+void ihm07_adc_single_mode_init(uint8_t IHM07_ADC_CH_x)
 {
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
 
@@ -241,6 +241,8 @@ void ihm07_adc_single_mode_init(void)
         ADC_CommonInitStructure.ADC_DMAAccessMode = ADC_DMAAccessMode_Disabled;
         ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
         ADC_CommonInit(&ADC_CommonInitStructure);
+
+        ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x, 1, ADC_SampleTime_3Cycles);
 }
 
 uint16_t ihm07_adc_single_read_channel(uint8_t channel)
@@ -282,7 +284,16 @@ void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels)
         ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);
 }
 
+void ihm07_adc_interrupt_connection_state(FunctionalState state)
+{
+        NVIC_InitTypeDef NVIC_InitStructure;
 
+        NVIC_InitStructure.NVIC_IRQChannel = ADC_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = state;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 
 
