@@ -256,7 +256,7 @@ uint16_t ihm07_adc_single_read_channel(uint8_t channel)
         return ihm07_adc_get_conversion_val();
 }
 
-void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels)
+void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t number_of_channels)
 {
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
 
@@ -278,7 +278,7 @@ void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels)
         ADC_CommonInit(&ADC_CommonInitStructure);
 
         for (int i = 0; i < number_of_channels; ++i) {
-                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_3Cycles);
+                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_480Cycles);
         }
 
         ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);

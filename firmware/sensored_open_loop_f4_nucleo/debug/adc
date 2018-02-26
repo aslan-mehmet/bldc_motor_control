@@ -1,0 +1,95 @@
+make -B debug
+gnome-terminal --command="st-util"
+Option “--command” is deprecated and might be removed in a later version of gnome-terminal.
+Use “-- ” to terminate the options and put the command line to execute after it.
+arm-none-eabi-gdb -q build/buzzer.elf -ex "tar extended-remote :4242" -ex "load"
+Reading symbols from /home/mehmet_aslan/Documents/bldc_motor_control/firmware/sensored_open_loop_f4_nucleo/build/buzzer.elf...done.
+Remote debugging using :4242
+Reset_Handler () at startup_stm32f401xx.s:79
+79	  str  r3, [r0, r1]
+Loading section .isr_vector, size 0x194 lma 0x8000000
+Loading section .eh_frame, size 0x4 lma 0x8000194
+Loading section .ARM.exidx, size 0x8 lma 0x8000198
+Loading section .text, size 0x30fc lma 0x80001a0
+Loading section .init, size 0xc lma 0x800329c
+Loading section .fini, size 0xc lma 0x80032a8
+Loading section .data, size 0x458 lma 0x80032b4
+Loading section .init_array, size 0x4 lma 0x800370c
+Loading section .fini_array, size 0x4 lma 0x8003710
+Loading section .init_array.00000, size 0x4 lma 0x8003714
+Start address 0x800120c, load size 14104
+Transfer rate: 9 KB/sec, 1410 bytes/write.
+(gdb) x 0x40012000
+0x40012000:	0x00000000
+(gdb) x/w 0x40012000
+0x40012000:	0x00000000
+(gdb) b ihm07_adc_
+ihm07_adc_eoc_callback                ihm07_adc_single_mode_init
+ihm07_adc_group_mode_init             ihm07_adc_single_read_channel
+ihm07_adc_interrupt_connection_state  
+(gdb) b ihm07_adc_eoc_callback 
+Breakpoint 1 at 0x8000c0a: file main.c, line 66.
+(gdb) c
+Continuing.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+Breakpoint 1, ihm07_adc_eoc_callback () at main.c:66
+66	        _adc_buffer[_adc_iter++] = ihm07_adc_get_conversion_val();
+(gdb) p _adc_iter 
+$1 = 0 '\000'
+(gdb) c
+Continuing.
+^C
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x0800035e in uart_send_byte_poll (byt=<optimized out>) at uart.c:53
+53	        while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) != SET)
+(gdb) n
+55	        USART_SendData(USART1, byt);
+(gdb) n
+56	}
+(gdb) n
+uart_send_buffer_poll (
+    buffer=buffer@entry=0x20000584 <_adc_buffer> "\376\017", 
+    len=len@entry=8 '\b') at uart.c:60
+60	        for (int i = 0; i < len; ++i) {
+(gdb) n
+61	                uart_send_byte_poll(buffer[i]);
+(gdb) n
+60	        for (int i = 0; i < len; ++i) {
+(gdb) n
+63	}
+(gdb) c
+Continuing.
+^C
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x08002dfe in USART_SendData (USARTx=USARTx@entry=0x40011000, 
+    Data=Data@entry=0) at ./lib/std_periph/src/stm32f4xx_usart.c:564
+564	  USARTx->DR = (Data & (uint16_t)0x01FF);
+(gdb) n
+565	}
+(gdb) n
+uart_send_byte_poll (byt=<optimized out>) at uart.c:56
+56	}
+(gdb) n
+uart_send_buffer_poll (
+    buffer=buffer@entry=0x20000584 <_adc_buffer> "\376\017", 
+    len=len@entry=8 '\b') at uart.c:60
+60	        for (int i = 0; i < len; ++i) {
+(gdb) c
+Continuing.
+^C
+Program received signal SIGTRAP, Trace/breakpoint trap.
+0x08000358 in uart_send_byte_poll (byt=<optimized out>) at uart.c:53
+53	        while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) != SET)
+(gdb) x/w 0x40012000
+0x40012000:	0x00000030
+(gdb) x/w 0x40012000
+0x40012000:	0x00000030
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [Remote target] will be killed.
+
+Quit anyway? (y or n) y
+
+[mehmet_a

@@ -44,7 +44,7 @@ void ihm07_l6230_pins_init(void);
 void ihm07_analog_pins_init(void);
 void ihm07_adc_single_mode_init(uint8_t IHM07_ADC_CH_x);
 /* start conversion scans all given channels in group */
-void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, int number_of_channels);
+void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t number_of_channels);
 #define ihm07_adc_state(state) ADC_Cmd(ADC1, (state))
 
 #define ihm07_adc_get_conversion_val() ADC_GetConversionValue(ADC1)
