@@ -1,7 +1,6 @@
 #include <getopt.h>
 #include <string.h>
 #include <stdio.h>
-#include "serial.h"
 
 static int _argc;
 static char **_argv;
@@ -10,7 +9,7 @@ static char _command_names[][100] = {
 "test_command_argv_separation",
 "test_say_hi",
 "motor",
-"end"
+"end" /* always last name, represent names end */
 };
 
 /* first word is name of the command */
@@ -72,7 +71,7 @@ static void test_say_hi(void)
 		}
 	}
 
-        printf("hello %s %s", name, surname);
+        printf("hello %s %s\n", name, surname);
 }
 
 static void motor(void)

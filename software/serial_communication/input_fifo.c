@@ -57,23 +57,22 @@ static void free_argv(void)
 
 int input_fifo_open(void)
 {
-allocate_argv();
+        allocate_argv();
 
 	mkfifo("input_fifo", 0666);
 
 	_input_fifo = open("input_fifo", 0666);
 
 	if (_input_fifo < 0) {
-		puts("fail: input fifo not created");
+		puts("fail: input fifo open");
 		return -1;
 	}
-
-
-	puts("input fifo ready");
 
 	/* read in non blocking mode */
 	int flags = fcntl(_input_fifo, F_GETFL, 0);
 	fcntl(_input_fifo, F_SETFL, flags | O_NONBLOCK);
+
+        puts("input fifo ready");
 
 	return 0;
 }
@@ -135,6 +134,7 @@ void input_fifo_close(void)
 {
 	if (_input_fifo >= 0) {
 		close(_input_fifo);
+                _input_fifo = -1;
 	}
 
 	free_argv();

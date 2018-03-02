@@ -1,147 +1,119 @@
-/**
- * @file main.c
- * @author Mehmet ASLAN
- * @date December 3, 2017
- * @copyright Gnu General Public License Version 3 or Later
- */
-#include "folder.h"
 #include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <getopt.h>
-#include <time.h>
-#include "log.h"
-#include "uart.h"
 #include "input_fifo.h"
-#include "serial.h"
+#include "rs232.h"
 
-/* call all exit function in every src file */
-void exit_main(void)
-{
-	input_fifo_close();
-	exit_uart();
-	exit_log();
-	exit_folder();
-	exit(0);
-}
+int _rs232_port_number = -1;
+#define RS232_PORT_MODE_DATABITS_INDEX 0
+#define RS232_PORT_MODE_PARITY_INDEX 1
+#define RS232_PORT_MODE_STOP_BITS_INDEX 2
+#define RS232_PORT_MODE_DONT_USE_INDEX 3
+char _rs232_port_mode[4] = {'8', 'N', '1', 0};
+int _rs232_port_baudrate = -1;
+#define RS232_PORT_STATE_OPEN 1
+#define RS232_PORT_STATE_CLOSE 0
+int _rs232_port_state = RS232_PORT_STATE_CLOSE;
+FILE *_file_record = NULL;
 
-/* default vars before program starts */
-void default_main(void)
+static void main_exit(void)
 {
-        default_uart();
+        if (_rs232_port_state == RS232_PORT_STATE_OPEN) {
+                RS232_CloseComport(_rs232_port_number);
+        }
+
+        if (_file_record != NULL) {
+                fclose(_file_record);
+        }
+
+        input_fifo_close();
+        putchar('\n');
+        exit(0);
 }
 
 static void signal_handler(int signum)
 {
 	if (signum == SIGINT) {
-		exit_main();
+                main_exit();
 	}
 }
 
-static void delay_ms(int ms)
-{
-	struct timespec t;
-
-	t.tv_sec = 0;
-	/* max 1 sec */
-	t.tv_nsec = 1e+6;
-
-	for (int i = 0; i < ms; ++i) {
-		nanosleep(&t, NULL);
-	}
-}
-
-extern char help_str[];
-extern char help_avaliable_baud_str[];
+extern const char help_str[];
 int main(int argc, char **argv)
 {
 	fclose(stdin);
 	fclose(stderr);
 
-	/** used for get options  */
-	char optarg_str[256];
-	int func_return;
-	int number;
-
-	/* change directory to temp folder, after this all relative path referenced this */
-	if (chdir_temp_folder() != 0) {
-		puts("fail: chdir_temp_folder");
-	        return -1;
-	}
-
 	signal(SIGINT, signal_handler);
 
-        default_main();
-
 	struct option long_options[] = {
-		{"baudrate", required_argument, NULL, 'b'},
-		{"port_name", required_argument, NULL, 'p'},
-		{"stop_bits", required_argument, NULL, 's'},
-		{"keep_temp_files", no_argument, NULL, 'k'},
-		{"log_received_data", no_argument, NULL, 'l'},
+		{"baudrate", required_argument, NULL, 'a'},
+		{"port_name", required_argument, NULL, 'b'},
+		{"stop_bits", required_argument, NULL, 'c'},
+                {"record", required_argument, NULL, 'd'},
 		{"help", no_argument, NULL, 'h'},
-		{"show_avail_bauds", no_argument, NULL, 'z'},
-		/* You have to terminate the longopts array with an entry that is all zeros,
-		   otherwise getopt_long doesn't know when it ends.
-		   Your code is crashing because getopt_long is just iterating through
-		   random memory at that point because it has fallen off the end of longopts.
+		/* You have to terminate the longopts array with an entry that is all zeros
 		   https://stackoverflow.com/questions/30956582/segfault-for-invalid-long-option */
 		{NULL, 0, NULL, 0}
 	};
 
-	while ((func_return = getopt_long(argc, argv, "b:p:s:klhz", long_options, NULL)) != EOF) {
-		switch (func_return) {
-		case 'b':
-			sscanf(optarg, "%d", &number);
-			uart_set_baudrate(number);
-			break;
-		case 'p':
-			sscanf(optarg, "%s", optarg_str);
-			uart_set_name(optarg_str);
-			break;
-		case 's':
-			sscanf(optarg, "%d", &number);
-			uart_set_stop_bits(number);
-			break;
-		case 'k':
-			keep_temp_folder();
-			break;
-		case 'h':
-			puts(help_str);
-			exit_main();
-			break;
-		case 'l':
-			start_log();
-			break;
-                case 'z':
-                        puts(help_avaliable_baud_str);
-                        exit_main();
+        int getopt_char;
+	while ((getopt_char = getopt_long(argc, argv, "a:b:c:d:h", long_options, NULL)) != EOF) {
+                int tmp;
+                switch (getopt_char) {
+                case 'a':
+                        sscanf(optarg, "%d", &_rs232_port_baudrate);
+                        break;
+                case 'b':
+                        _rs232_port_number = RS232_GetPortnr(optarg);
+                        break;
+                case 'c':
+                        sscanf(optarg, "%c", &_rs232_port_mode[RS232_PORT_MODE_STOP_BITS_INDEX]);
+                        break;
+                case 'd':
+                        _file_record = fopen(optarg, "wb");
+                        if (_file_record == NULL) {
+                                puts("fail: file record");
+                                main_exit();
+                        }
+                        break;
+                case 'h':
+                        puts(help_str);
+                        main_exit();
                         break;
 		}
 	}
 
-        show_temp_folder_loc();
-	#define UART_RX_SIZE 256
-	uint8_t uart_rx_bfr[UART_RX_SIZE];
-	uart_connect();
+        if (input_fifo_open()) {
+                main_exit();
+        }
 
-	if (input_fifo_open()) {
-		return -1;
-	}
+        _rs232_port_state = RS232_PORT_STATE_OPEN;
+        if (RS232_OpenComport(_rs232_port_number, _rs232_port_baudrate, _rs232_port_mode)) {
+                puts("fail: rs232 port open");
+                _rs232_port_state = RS232_PORT_STATE_CLOSE;
+        }
 
-        int n_read = 0;
+        int rs232_number_of_read_bytes = 0;
+        #define RS232_INPUT_BUFFER_LEN 256
+        unsigned char rs232_input_buffer[RS232_INPUT_BUFFER_LEN];
+
+        //RS232_SendBuf(_rs232_port_number, buf, len);
+
 	while (1) {
-		n_read = uart_read(uart_rx_bfr, UART_RX_SIZE);
+                if (_rs232_port_state == RS232_PORT_STATE_OPEN) {
+                        rs232_number_of_read_bytes = RS232_PollComport(_rs232_port_number, rs232_input_buffer, RS232_INPUT_BUFFER_LEN);
+                }
 
-                serial_receives_buf(uart_rx_bfr, n_read);
-                serial_loop();
+                if (rs232_number_of_read_bytes >= 0) {
+                        if (_file_record != NULL) {
+                                fwrite(rs232_input_buffer, sizeof(unsigned char), rs232_number_of_read_bytes, _file_record);
+                        }
+                }
 
-                log_loop(uart_rx_bfr, n_read);
-		input_fifo_process();
-
-                delay_ms(10);
+                input_fifo_process();
 	}
 
-	/* should not come here */
 	return -1;
 }

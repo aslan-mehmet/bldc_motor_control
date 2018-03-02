@@ -55,17 +55,6 @@ char *comports[RS232_PORTNR]={"/dev/ttyS0","/dev/ttyS1","/dev/ttyS2","/dev/ttyS3
                        "/dev/cuau0","/dev/cuau1","/dev/cuau2","/dev/cuau3",
                        "/dev/cuaU0","/dev/cuaU1","/dev/cuaU2","/dev/cuaU3"};
 
-int get_comport_number(char *port_name)
-{
-	for (int i = 0; i < RS232_PORTNR; ++i) {
-		if (strcmp(port_name, comports[i]) == 0) {
-			return i;
-		}
-	}
-
-	return -1;
-}
-
 int RS232_OpenComport(int comport_number, int baudrate, const char *mode)
 {
   int baudr,

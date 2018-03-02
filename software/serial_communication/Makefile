@@ -1,13 +1,6 @@
 NAME=serial_comm
 
 all:
-	gcc -g -D__PLOTTER_SERIAL_PACKET_DEBUG -D_POSIX_C_SOURCE=199309L  *.c -o $(NAME) -lslope -lm `pkg-config --cflags --libs gtk+-3.0` 
+	gcc -g *.c -o $(NAME)
 clean:
 	rm $(NAME)
-# found the bug
-server_debug:
-	gnome-terminal
-	gcc -g -D_POSIX_C_SOURCE=199309L *.c -o $(NAME)
-	./$(NAME)
-open:
-	./$(NAME) --baudrate 38400 --port_name "/dev/ttyUSB0" --stop_bits 1
