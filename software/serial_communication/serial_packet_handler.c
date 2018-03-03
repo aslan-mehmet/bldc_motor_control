@@ -44,7 +44,7 @@ void print_bemfs(uint8_t payload_id, uint8_t payload_size, void *payload)
         safe_memory_copy(bemfs, payload + sizeof(time), sizeof(bemfs));
 
         if (f != NULL) {
-                fprintf(f, "%d, %d, %d, %d, %d\n", (int)payload_id, (int)time, (int)bemfs[0], (int)bemfs[1], (int)bemfs[1]);
+                fprintf(f, "%d, %d, %d, %d, %d\n", (int)payload_id, (int)time, (int)bemfs[0], (int)bemfs[1], (int)bemfs[2]);
         }
 }
 
