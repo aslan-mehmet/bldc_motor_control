@@ -1,6 +1,9 @@
 #include <getopt.h>
 #include <string.h>
 #include <stdio.h>
+#include "serial_packet_handler.h"
+#include "serial_packet.h"
+#include "main.h"
 
 static int _argc;
 static char **_argv;
@@ -8,8 +11,23 @@ static char _command_names[][100] = {
 "help",
 "test_command_argv_separation",
 "test_say_hi",
+"comment_serial_packet_record",
+"stop_listening_rs232_port",
+"start_listening_rs232_port",
 "motor",
+"main_exit",
 "end" /* always last name, represent names end */
+};
+
+static char _command_names_short_brief[][100] = {
+"help no options, prints this str",
+"test_command_argv_separation no options, displays space separated words",
+"test_say_hi have options, more --help",
+"comment_serial_packet_record no options",
+"stop_listening_rs232_port no options",
+"start_listening_rs232_port no options, default listening",
+"motor have options, more --help",
+"main_exit no options, closes program"
 };
 
 /* first word is name of the command */
@@ -34,6 +52,8 @@ static void help(void)
 
         for (int i = 0; strcmp(_command_names[i], "end") != 0; ++i) {
                 puts(_command_names[i]);
+                printf("    ");
+                puts(_command_names_short_brief[i]);
         }
 }
 
@@ -43,6 +63,7 @@ static void test_command_argv_separation(void)
 		puts(_argv[i]);
 	}
 }
+
 
 /*
  * execution is similar to command in bash
@@ -57,10 +78,21 @@ static void test_say_hi(void)
 	struct option long_options[] = {
 		{"name", required_argument, NULL, 'a'},
 		{"surname", required_argument, NULL, 'b'},
+                {"help", no_argument, NULL, 'h'},
 		{NULL, 0, NULL, 0}
 	};
 
-	while ((option_char = getopt_long(_argc, _argv, "a:b:", long_options, NULL)) != EOF) {
+        static const char help_str[] = {
+                "name\n"
+                "    required_argument\n"
+                "surname\n"
+                "    required_argument\n"
+                "help\n"
+                "    no_argument\n"
+                "    prints this string"
+        };
+
+	while ((option_char = getopt_long(_argc, _argv, "a:b:h", long_options, NULL)) != EOF) {
 		switch (option_char) {
 		case 'a':
 			strcpy(name, optarg);
@@ -68,14 +100,116 @@ static void test_say_hi(void)
 		case 'b':
 			strcpy(surname, optarg);
 			break;
+                case 'h':
+                        puts(help_str);
+                        break;
 		}
 	}
 
         printf("hello %s %s\n", name, surname);
 }
 
+static void comment_serial_packet_record(void)
+{
+        char str[500] = "";
+        for (int i = 1; i < _argc; ++i) {
+                strcat(str, _argv[i]);
+        }
+
+        serial_packet_handler_record_comment(str);
+}
+
+extern int _rs232_port_listening_status;
+static void stop_listening_rs232_port(void)
+{
+        _rs232_port_listening_status = 0;
+}
+
+static void start_listening_rs232_port(void)
+{
+        _rs232_port_listening_status = 1;
+}
+
+#define MOTOR_SET_STATE 0
+#define MOTOR_SET_PWM 1
+#define MOTOR_SET_DIRECTION 2
+
 static void motor(void)
-{}
+{
+	optind = 0;
+	int option_char = EOF;
+
+	struct option long_options[] = {
+		{"set_state", required_argument, NULL, 'a'},
+                {"set_pwm", required_argument, NULL, 'b'},
+                {"set_direction", required_argument, NULL, 'c'},
+                {"help", no_argument, NULL, 'h'},
+		{NULL, 0, NULL, 0}
+	};
+
+        static const char help_str[] = {
+                "set_state\n"
+                "    required_argument\n"
+                "    enable 1\n"
+                "    disable 0\n"
+                "set_pwm\n"
+                "    required_argument\n"
+                "    max 1000\n"
+                "set_direction\n"
+                "    required_argument\n"
+                "    ccw 1\n"
+                "    cw 0\n"
+                "help\n"
+                "    no_argument\n"
+                "    prints this string"
+        };
+
+        uint8_t u8;
+        uint16_t u16;
+	while ((option_char = getopt_long(_argc, _argv, "a:b:c:h", long_options, NULL)) != EOF) {
+                int tmp = -1;
+		switch (option_char) {
+		case 'a':
+                        sscanf(optarg, "%d", &tmp);
+                        u8 = 2;
+                        if (tmp >= 0) {
+                                u8 = (uint8_t) tmp;
+                        }
+                        if (u8 == 0 || u8 == 1) {
+                                serial_packet_encode_poll(MOTOR_SET_STATE, sizeof(u8), &u8);
+                        } else {
+                                puts("fail: motor --set_state invalid_argument");
+                        }
+			break;
+		case 'b':
+                        sscanf(optarg, "%d", &tmp);
+                        if (tmp >= 0) {
+                                u16 = (uint16_t) tmp;
+                        } else {
+                                puts("fail: motor --set_pwm invalid_argument");
+                                break;
+                        }
+
+                        serial_packet_encode_poll(MOTOR_SET_PWM, sizeof(u16), &u16);
+			break;
+                case 'c':
+                        sscanf(optarg, "%d", &tmp);
+                        u8 = 2;
+                        if (tmp >= 0) {
+                                u8 = (uint8_t) tmp;
+                        }
+                        if (u8 == 0 || u8 == 1) {
+                                serial_packet_encode_poll(MOTOR_SET_DIRECTION, sizeof(u8), &u8);
+                        } else {
+                                puts("fail: motor --set_direction invalid_argument");
+                        }
+                        break;
+                case 'h':
+                        puts(help_str);
+                        break;
+		}
+	}
+}
 
 int command_run(int argc, char **argv)
 {
@@ -94,7 +228,19 @@ int command_run(int argc, char **argv)
 		test_say_hi();
 		break;
         case 3:
+                comment_serial_packet_record();
+                break;
+        case 4:
+                stop_listening_rs232_port();
+                break;
+        case 5:
+                start_listening_rs232_port();
+                break;
+        case 6:
                 motor();
+                break;
+        case 7:
+                main_exit();
                 break;
 	default:
 		puts("fail: undefined command");

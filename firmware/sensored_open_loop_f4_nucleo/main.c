@@ -36,37 +36,37 @@ int main(void)
         ihm07_led_red_init();
         ihm07_l6230_pins_init();
 
+        six_step_hall_init();
+        six_step_hall_set_direction(SIX_STEP_HALL_DIRECTION_CCW);
+        //six_step_hall_start();
+
         ihm07_analog_pins_init();
-        uint8_t adc_channels[4] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2,
-                                        IHM07_ADC_CH_BEMF3, IHM07_ADC_CH_POT};
-        ihm07_adc_group_mode_init(adc_channels, 4);
-        ihm07_adc_interrupt_init();
-        ihm07_adc_interrupt_connection_state(ENABLE);
+        ihm07_adc_single_mode_init(IHM07_ADC_CH_BEMF1);
         ihm07_adc_state(ENABLE);
 
         uint64_t hold_time = get_time();
+        uint16_t bemfs[3];
+        uint64_t time;
 
+        uint8_t buffer[sizeof(bemfs) + sizeof(time)];
+        #define PRINT_BEMFS 0
         while (1) {
                 serial_packet_flush();
 
-                uart_send_byte_poll(0xbb);
-                uart_send_byte_poll(0xaa);
-                uart_send_buffer_poll((uint8_t *) _adc_buffer, sizeof(uint16_t) * 4);
+                time = get_time();
+                bemfs[0] = ihm07_adc_single_read_channel(IHM07_ADC_CH_BEMF1);
+                bemfs[1] = ihm07_adc_single_read_channel(IHM07_ADC_CH_BEMF2);
+                bemfs[2] = ihm07_adc_single_read_channel(IHM07_ADC_CH_BEMF3);
+
+                safe_memory_copy(buffer, &time, sizeof(time));
+                safe_memory_copy(buffer+sizeof(time), bemfs, sizeof(bemfs));
+
+                serial_packet_encode_poll(PRINT_BEMFS, sizeof(time) + sizeof(bemfs), buffer);
 
                 if (get_time() - hold_time > 100) {
                         hold_time = get_time();
                         ihm07_led_red_toggle();
-                        ihm07_adc_start_conversion();
                 }
-        }
-}
-
-void ihm07_adc_eoc_callback(void)
-{
-        _adc_buffer[_adc_iter++] = ihm07_adc_get_conversion_val();
-
-        if (_adc_iter == 4) {
-                _adc_iter = 0;
         }
 }
 

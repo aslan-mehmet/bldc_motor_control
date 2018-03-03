@@ -18,7 +18,7 @@
 #include <stdint.h>
 /* @brief only change this values */
 #define SERIAL_PACKET_MAX_PAYLOAD_SIZE 25
-#define SERIAL_PACKET_MAX_PACKET_COUNT 3
+#define SERIAL_PACKET_MAX_PACKET_COUNT 30
 
 /**
  * @brief

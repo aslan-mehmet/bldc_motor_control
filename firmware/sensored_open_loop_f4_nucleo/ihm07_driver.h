@@ -50,7 +50,6 @@ void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t number_of_channe
 #define ihm07_adc_get_conversion_val() ADC_GetConversionValue(ADC1)
 #define ihm07_adc_start_conversion() ADC_SoftwareStartConv(ADC1)
 #define ihm07_adc_wait_conversion() while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET)
-/* conversion time 2.25us */
 uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 
 #define ihm07_adc_interrupt_init() ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE)

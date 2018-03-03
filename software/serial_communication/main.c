@@ -4,6 +4,8 @@
 #include <getopt.h>
 #include "input_fifo.h"
 #include "rs232.h"
+#include "serial_packet.h"
+#include "serial_packet_handler.h"
 
 int _rs232_port_number = -1;
 #define RS232_PORT_MODE_DATABITS_INDEX 0
@@ -15,9 +17,17 @@ int _rs232_port_baudrate = -1;
 #define RS232_PORT_STATE_OPEN 1
 #define RS232_PORT_STATE_CLOSE 0
 int _rs232_port_state = RS232_PORT_STATE_CLOSE;
+#define RS232_PORT_LISTENING_ACTIVE 1
+#define RS232_PORT_LISTENING_INACTIVE 0
+int _rs232_port_listening_status = RS232_PORT_LISTENING_ACTIVE;
 FILE *_file_record = NULL;
 
-static void main_exit(void)
+void rs232_port_listening_status_set(int RS232_PORT_LISTENING_x)
+{
+        _rs232_port_listening_status = RS232_PORT_LISTENING_x;
+}
+
+void main_exit(void)
 {
         if (_rs232_port_state == RS232_PORT_STATE_OPEN) {
                 RS232_CloseComport(_rs232_port_number);
@@ -25,7 +35,10 @@ static void main_exit(void)
 
         if (_file_record != NULL) {
                 fclose(_file_record);
+                _file_record = NULL;
         }
+
+        serial_packet_handler_record_close();
 
         input_fifo_close();
         putchar('\n');
@@ -95,25 +108,43 @@ int main(int argc, char **argv)
                 _rs232_port_state = RS232_PORT_STATE_CLOSE;
         }
 
+        if (serial_packet_init()) {
+                puts("fail: serial packet init");
+                main_exit();
+        }
+
+        serial_packet_handler_record_open();
+
         int rs232_number_of_read_bytes = 0;
-        #define RS232_INPUT_BUFFER_LEN 256
+        #define RS232_INPUT_BUFFER_LEN SERIAL_PACKET_MAX_PAYLOAD_SIZE*SERIAL_PACKET_MAX_PACKET_COUNT
         unsigned char rs232_input_buffer[RS232_INPUT_BUFFER_LEN];
 
-        //RS232_SendBuf(_rs232_port_number, buf, len);
-
 	while (1) {
+                input_fifo_process();
+
                 if (_rs232_port_state == RS232_PORT_STATE_OPEN) {
                         rs232_number_of_read_bytes = RS232_PollComport(_rs232_port_number, rs232_input_buffer, RS232_INPUT_BUFFER_LEN);
                 }
 
-                if (rs232_number_of_read_bytes >= 0) {
+                if (rs232_number_of_read_bytes >= 0 && _rs232_port_listening_status == RS232_PORT_LISTENING_ACTIVE) {
                         if (_file_record != NULL) {
                                 fwrite(rs232_input_buffer, sizeof(unsigned char), rs232_number_of_read_bytes, _file_record);
                         }
+
+                        for (int i = 0; i < rs232_number_of_read_bytes; ++i) {
+                                serial_packet_read(rs232_input_buffer[i]);
+                        }
                 }
 
-                input_fifo_process();
+                serial_packet_flush();
 	}
 
 	return -1;
+}
+
+void serial_packet_print(uint8_t byt)
+{
+        if (_rs232_port_state == RS232_PORT_STATE_OPEN) {
+                RS232_SendBuf(_rs232_port_number, &byt, 1);
+        }
 }

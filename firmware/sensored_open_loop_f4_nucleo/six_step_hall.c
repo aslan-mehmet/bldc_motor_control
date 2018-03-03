@@ -4,6 +4,9 @@ void ihm07_hall_state_change_callback(void);
 
 static uint16_t _pwm_val = 0;
 static uint8_t _direction = SIX_STEP_HALL_DIRECTION_CCW;
+#define SIX_STEP_STATE_ACTIVE 1
+#define SIX_STEP_STATE_INACTIVE 0
+static uint8_t _six_step_state = SIX_STEP_STATE_INACTIVE;
 
 void six_step_hall_init(void)
 {
@@ -17,6 +20,13 @@ void six_step_hall_start(void)
 {
         ihm07_l6230_enable();
         ihm07_hall_state_change_callback();
+        _six_step_state = SIX_STEP_STATE_ACTIVE;
+}
+
+void six_step_hall_stop(void)
+{
+        _six_step_state = SIX_STEP_STATE_INACTIVE;
+        ihm07_l6230_disable();
 }
 static void six_step_commutate_cw(uint8_t state)
 {
@@ -114,9 +124,15 @@ void ihm07_hall_state_change_callback(void)
 void six_step_hall_set_pwm_val(uint16_t val)
 {
         _pwm_val = val;
+        if (_six_step_state == SIX_STEP_STATE_ACTIVE) {
+                ihm07_hall_state_change_callback();
+        }
 }
 
 void six_step_hall_set_direction(uint8_t SIX_STEP_HALL_DIRECTION_x)
 {
         _direction = SIX_STEP_HALL_DIRECTION_x;
+        if (_six_step_state == SIX_STEP_STATE_ACTIVE) {
+                ihm07_hall_state_change_callback();
+        }
 }

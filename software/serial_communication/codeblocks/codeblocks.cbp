@@ -36,6 +36,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../command.h" />
+		<Unit filename="../fifo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../fifo.h" />
 		<Unit filename="../help_str.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -46,10 +50,19 @@
 		<Unit filename="../main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../main.h" />
 		<Unit filename="../rs232.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../rs232.h" />
+		<Unit filename="../serial_packet.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../serial_packet.h" />
+		<Unit filename="../serial_packet_handler.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../serial_packet_handler.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

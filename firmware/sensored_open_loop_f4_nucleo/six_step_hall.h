@@ -5,13 +5,16 @@
 #include "stm32f4xx.h"
 
 void six_step_hall_init(void);
+/* make motor spin */
 void six_step_hall_start(void);
-#define six_step_hall_stop() ihm07_l6230_disable()
+void six_step_hall_stop(void);
 
+/* default pwm_val 0 */
 void six_step_hall_set_pwm_val(uint16_t pwm_val);
 
 #define SIX_STEP_HALL_DIRECTION_CCW 1
 #define SIX_STEP_HALL_DIRECTION_CW 0
+/* default ccw */
 void six_step_hall_set_direction(uint8_t SIX_STEP_HALL_DIRECTION_x);
 
 #endif /* __SIX_STEP_HALL_H */
