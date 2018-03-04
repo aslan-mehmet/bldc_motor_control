@@ -55,6 +55,10 @@ uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 #define ihm07_adc_interrupt_init() ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE)
 /* void ihm07_adc_eoc_callback(void) */
 void ihm07_adc_interrupt_connection_state(FunctionalState state);
+/* constantly reads and writes to memory. start with ihm07_adc_start_conversion*/
+/* memory_base address of the buffer */
+void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base, uint8_t number_of_channels);
+
 
 
 #endif /* __IHM07_DRIVER_H */

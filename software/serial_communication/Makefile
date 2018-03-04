@@ -1,6 +1,7 @@
 NAME=serial_comm
 
 all:
-	gcc -g *.c -o $(NAME)
+	mkdir -p build
+	gcc -g *.c -o build/$(NAME)
 clean:
 	rm $(NAME)

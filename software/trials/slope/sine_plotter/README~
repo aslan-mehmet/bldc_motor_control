@@ -1,4 +1,0 @@
-all:
-	gcc *.c -lslope -lm `pkg-config --cflags --libs gtk+-3.0`
-clean:
-	rm a.out
