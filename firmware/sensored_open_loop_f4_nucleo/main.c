@@ -11,7 +11,7 @@
 #include "uart.h"
 #include "six_step_hall.h"
 
-uint8_t _adc_pot_val = 0;
+uint8_t _adc_bemfs_readings[3];
 
 int main(void)
 {
@@ -38,16 +38,18 @@ int main(void)
         /* write after this line */
 
         ihm07_analog_pins_init();
-        uint8_t adc_ch = IHM07_ADC_CH_POT;
-        ihm07_adc_dma_group_mode_init(&adc_ch,(uint32_t) &_adc_pot_val, 1);
+        uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
+        ihm07_adc_dma_group_mode_init(adc_bemf_chs,(uint32_t) _adc_bemfs_readings, 3);
         ihm07_adc_state(ENABLE);
         ihm07_adc_start_conversion();
 
+        six_step_hall_init();
+        six_step_hall_set_pwm_val(500);
+        six_step_hall_start();
 
         while (1) {
                 uart_send_byte_poll(0xaa);
-                uart_send_byte_poll(_adc_pot_val);
-
+                uart_send_buffer_poll(_adc_bemfs_readings, 3);
 
                 /* dont touch this lines */
                 if (get_time() - hold_time > 100) {

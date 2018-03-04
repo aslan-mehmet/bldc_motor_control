@@ -308,8 +308,8 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base
         DMA_InitStructure.DMA_Memory0BaseAddr = memory_base;
         DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
         DMA_InitStructure.DMA_BufferSize = number_of_channels;
-        DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralBurst_Single;
-        DMA_InitStructure.DMA_MemoryInc = DMA_MemoryBurst_Single;
+        DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+        DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
         DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
         DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
         DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
@@ -340,9 +340,10 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base
         ADC_CommonInit(&ADC_CommonInitStructure);
 
         for (int i = 0; i < number_of_channels; ++i) {
-                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_3Cycles);
+                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_56Cycles);
         }
 
+        ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);
         ADC_DMARequestAfterLastTransferCmd(ADC1, ENABLE);
         ADC_DMACmd(ADC1, ENABLE);
 }
