@@ -62,32 +62,32 @@ void uart_send_buffer_poll(uint8_t *buffer, uint8_t len)
         }
 }
 
-void uart6_stream_init(uint8_t *buf, uint8_t size)
+void uart_stream_init(uint8_t *buf, uint8_t size)
 {
         /**
-         * USART6
-         * PC6 TX
-         * AF08
+         * USART2
+         * PA2 TX
+         * AF07
          * ref. man pg 170 table 29
-         * DMA TX CH5 STREAM6
+         * DMA1 TX CH4 STREAM6
          */
 
         GPIO_InitTypeDef GPIO_InitStructure;
         USART_InitTypeDef USART_InitStructure;
         DMA_InitTypeDef DMA_InitStructure;
 
-        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-        RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
-        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+        RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);
 
-        GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_USART6);
+        GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
 
         GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
         USART_InitStructure.USART_BaudRate = 1e6;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
@@ -95,11 +95,10 @@ void uart6_stream_init(uint8_t *buf, uint8_t size)
 	USART_InitStructure.USART_Parity = USART_Parity_No;
 	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
 	USART_InitStructure.USART_Mode = USART_Mode_Tx;
-	USART_Init(USART6, &USART_InitStructure);
+	USART_Init(USART2, &USART_InitStructure);
 
-        DMA_InitTypeDef DMA_InitStructure;
-        DMA_InitStructure.DMA_Channel = DMA_Channel_5;
-        DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART6->DR;
+        DMA_InitStructure.DMA_Channel = DMA_Channel_4;
+        DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART2->DR;
         DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)buf;
         DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;
         DMA_InitStructure.DMA_BufferSize = size;
@@ -113,7 +112,16 @@ void uart6_stream_init(uint8_t *buf, uint8_t size)
         DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
         DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
         DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
-        DMA_Init(DMA2_Stream6, &DMA_InitStructure);
+        DMA_Init(DMA1_Stream6, &DMA_InitStructure);
 
-        USART_DMACmd(USART6, USART_DMAReq_Tx, ENABLE);
+        USART_DMACmd(USART2, USART_DMAReq_Tx, ENABLE);
+        USART_Cmd(USART2, ENABLE);
+}
+
+void uart_stream_start()
+{
+        DMA_Cmd(DMA1_Stream6, ENABLE);
+
+        while (DMA_GetCmdStatus(DMA1_Stream6) != ENABLE)
+                ;
 }
