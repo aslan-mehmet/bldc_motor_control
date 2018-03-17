@@ -9,4 +9,7 @@ void uart_send_buffer_poll(uint8_t *buffer, uint8_t len);
 void uart_stream_init(uint8_t *buf, uint8_t size);
 void uart_stream_start();
 
+void uart2_send_byte_poll(uint8_t byt);
+void uart2_init(void);
+
 #endif

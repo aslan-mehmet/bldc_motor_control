@@ -62,6 +62,41 @@ void uart_send_buffer_poll(uint8_t *buffer, uint8_t len)
         }
 }
 
+void uart2_init(void)
+{
+        GPIO_InitTypeDef GPIO_InitStructure;
+        USART_InitTypeDef USART_InitStructure;
+
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
+        RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
+
+        GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
+
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+        USART_InitStructure.USART_BaudRate = 9600;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+	USART_Init(USART2, &USART_InitStructure);
+
+        USART_Cmd(USART2, ENABLE);
+}
+
+void uart2_send_byte_poll(uint8_t byt)
+{
+        while (USART_GetFlagStatus(USART2, USART_FLAG_TXE) != SET)
+                ;
+        USART_SendData(USART2, byt);
+}
+
 void uart_stream_init(uint8_t *buf, uint8_t size)
 {
         /**
@@ -80,8 +115,6 @@ void uart_stream_init(uint8_t *buf, uint8_t size)
         RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2, ENABLE);
         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA1, ENABLE);
 
-        GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
-
         GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -89,7 +122,9 @@ void uart_stream_init(uint8_t *buf, uint8_t size)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-        USART_InitStructure.USART_BaudRate = 1e6;
+        GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
+
+        USART_InitStructure.USART_BaudRate = 9600;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
 	USART_InitStructure.USART_StopBits = USART_StopBits_1;
 	USART_InitStructure.USART_Parity = USART_Parity_No;
@@ -108,14 +143,11 @@ void uart_stream_init(uint8_t *buf, uint8_t size)
         DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
         DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;
         DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;
-        DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Disable;
+        DMA_InitStructure.DMA_FIFOMode = DMA_FIFOMode_Enable;
         DMA_InitStructure.DMA_FIFOThreshold = DMA_FIFOThreshold_Full;
         DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
         DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
         DMA_Init(DMA1_Stream6, &DMA_InitStructure);
-
-        USART_DMACmd(USART2, USART_DMAReq_Tx, ENABLE);
-        USART_Cmd(USART2, ENABLE);
 }
 
 void uart_stream_start()
@@ -124,4 +156,6 @@ void uart_stream_start()
 
         while (DMA_GetCmdStatus(DMA1_Stream6) != ENABLE)
                 ;
+        USART_DMACmd(USART2, USART_DMAReq_Tx, ENABLE);
+        USART_Cmd(USART2, ENABLE);
 }
