@@ -62,7 +62,7 @@ void uart_send_buffer_poll(uint8_t *buffer, uint8_t len)
         }
 }
 
-void uart6_stream_init(uint8_t *buf, uint8_t size)
+void uart6_stream_init(uint8_t *buf, uint8_t buf_size)
 {
         /**
          * USART6
@@ -101,7 +101,7 @@ void uart6_stream_init(uint8_t *buf, uint8_t size)
         DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&USART6->DR;
         DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)buf;
         DMA_InitStructure.DMA_DIR = DMA_DIR_MemoryToPeripheral;
-        DMA_InitStructure.DMA_BufferSize = size;
+        DMA_InitStructure.DMA_BufferSize = buf_size;
         DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
         DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
         DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
