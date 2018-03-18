@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <getopt.h>
+#include <time.h>
 #include "input_fifo.h"
 #include "rs232.h"
 #include "serial_packet.h"
@@ -118,6 +119,9 @@ int main(int argc, char **argv)
         int rs232_number_of_read_bytes = 0;
         #define RS232_INPUT_BUFFER_LEN SERIAL_PACKET_MAX_PAYLOAD_SIZE*SERIAL_PACKET_MAX_PACKET_COUNT
         unsigned char rs232_input_buffer[RS232_INPUT_BUFFER_LEN];
+        struct timespec sleep_duration;
+        sleep_duration.tv_nsec = 10e6;
+        sleep_duration.tv_sec = 0;
 
 	while (1) {
                 input_fifo_process();
@@ -137,6 +141,9 @@ int main(int argc, char **argv)
                 }
 
                 serial_packet_flush();
+
+                /* dont use all cpu resources */
+                nanosleep(&sleep_duration, NULL);
 	}
 
 	return -1;
