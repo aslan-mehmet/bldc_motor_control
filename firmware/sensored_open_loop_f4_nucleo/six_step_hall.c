@@ -1,4 +1,5 @@
 #include "six_step_hall.h"
+#include "ang_spd_sensor.h"
 
 void ihm07_hall_state_change_callback(void);
 
@@ -118,6 +119,10 @@ void ihm07_hall_state_change_callback(void)
                 six_step_commutate_cw(state);
         } else {
                 six_step_commutate_ccw(state);
+        }
+
+        if (state == 6) {
+                ang_spd_sensor_on_full_rotation_complete();
         }
 }
 

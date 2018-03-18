@@ -49,6 +49,7 @@ void print_bemfs(uint8_t payload_id, uint8_t payload_size, void *payload)
 }
 
 #define PRINT_BEMFS 0
+#define PRINT_SPD_RPM 1
 void serial_packet_handler(uint8_t payload_id, uint8_t payload_size
 			    , void *payload)
 {
@@ -62,5 +63,8 @@ void serial_packet_handler(uint8_t payload_id, uint8_t payload_size
         case PRINT_BEMFS:
                 print_bemfs(payload_id, payload_size, payload);
         break;
+	case PRINT_SPD_RPM:
+		printf("rpm: %f\n", var.f);
+	break;
         }
 }

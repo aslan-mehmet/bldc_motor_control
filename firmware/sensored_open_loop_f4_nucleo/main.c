@@ -10,6 +10,8 @@
 #include "serial_packet.h"
 #include "uart.h"
 #include "six_step_hall.h"
+#include "serial_packet_sent_cmd_ids.h"
+#include "ang_spd_sensor.h"
 
 /* added extra byte for uart data format */
 uint8_t _adc_bemfs_readings[4];
@@ -52,7 +54,14 @@ int main(void)
         uart6_stream_init(_adc_bemfs_readings, 4);
         uart6_stream_start();
 
+        ang_spd_sensor_init();
+
         while (1) {
+                if (ang_spd_sensor_exist_new_value()) {
+                        float f = ang_spd_sensor_get_in_rpm();
+                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &f);
+                }
+
 
                 /* dont touch this lines */
                 if (get_time() - hold_time > 100) {

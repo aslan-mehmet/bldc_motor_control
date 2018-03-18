@@ -4,6 +4,7 @@
 #include "serial_packet_handler.h"
 #include "serial_packet.h"
 #include "main.h"
+#include "serial_packet_sent_cmd_ids.h"
 
 static int _argc;
 static char **_argv;
@@ -129,10 +130,6 @@ static void start_listening_rs232_port(void)
 {
         _rs232_port_listening_status = 1;
 }
-
-#define MOTOR_SET_STATE 0
-#define MOTOR_SET_PWM 1
-#define MOTOR_SET_DIRECTION 2
 
 static void motor(void)
 {
