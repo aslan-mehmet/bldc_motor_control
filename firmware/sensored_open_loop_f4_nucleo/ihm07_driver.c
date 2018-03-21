@@ -145,7 +145,7 @@ void ihm07_l6230_pins_init(void)
         GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
         GPIO_Init(PORT_EN1_EN2_EN3, &GPIO_InitStructure);
 
-        PORT_EN1_EN2_EN3->ODR &= (PIN_EN1 | PIN_EN2 | PIN_EN3);
+        PORT_EN1_EN2_EN3->ODR &= ~(PIN_EN1 | PIN_EN2 | PIN_EN3);
 
         GPIO_InitStructure.GPIO_Pin = PIN_GPIO_BEMF;
         GPIO_Init(PORT_GPIO_BEMF, &GPIO_InitStructure);
@@ -155,6 +155,8 @@ void ihm07_l6230_pins_init(void)
         GPIO_InitStructure.GPIO_Pin = PIN_DIAG_EN;
         GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;
         GPIO_Init(PORT_DIAG_EN, &GPIO_InitStructure);
+
+        PORT_DIAG_EN->ODR &= ~PIN_DIAG_EN;
 }
 
 void ihm07_pwm_duty_interrupt_init(void)
