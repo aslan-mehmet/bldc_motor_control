@@ -42,7 +42,7 @@ int main(void)
 
         ihm07_analog_pins_init();
         uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
-        ihm07_adc_dma_group_mode_init(adc_bemf_chs,(uint32_t) (_adc_bemfs_readings + 1), 3);
+        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings + 1, 3);
         ihm07_adc_dma_state(ENABLE);
         ihm07_adc_state(ENABLE);
         ihm07_adc_start_conversion();

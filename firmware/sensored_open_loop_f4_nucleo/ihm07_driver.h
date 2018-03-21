@@ -58,8 +58,7 @@ uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 /* void ihm07_adc_eoc_callback(void) */
 void ihm07_adc_interrupt_connection_state(FunctionalState state);
 /* constantly reads and writes to memory. start with ihm07_adc_start_conversion*/
-/* memory_base address of the buffer */
-void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base, uint8_t number_of_channels);
+void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uint8_t number_of_channels);
 void ihm07_adc_dma_state(state) DMA_Cmd(DMA2_Stream0, (state))
 
 

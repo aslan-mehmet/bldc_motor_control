@@ -296,7 +296,7 @@ void ihm07_adc_interrupt_connection_state(FunctionalState state)
 	NVIC_Init(&NVIC_InitStructure);
 }
 
-void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base, uint8_t number_of_channels)
+void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uint8_t number_of_channels)
 {
         RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
         RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
@@ -306,7 +306,7 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base
         DMA_InitTypeDef DMA_InitStructure;
         DMA_InitStructure.DMA_Channel = DMA_Channel_0;
         DMA_InitStructure.DMA_PeripheralBaseAddr = (uint32_t)&ADC1->DR;
-        DMA_InitStructure.DMA_Memory0BaseAddr = memory_base;
+        DMA_InitStructure.DMA_Memory0BaseAddr = (uint32_t)buffer;
         DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
         DMA_InitStructure.DMA_BufferSize = number_of_channels;
         DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
