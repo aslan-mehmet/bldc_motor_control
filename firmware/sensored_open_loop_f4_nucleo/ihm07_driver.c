@@ -129,7 +129,6 @@ void ihm07_pwm_and_pins_init(void)
         TIM_OC3PreloadConfig(TIM1, TIM_OCPreload_Enable);
 
         TIM_CtrlPWMOutputs(TIM1, ENABLE);
-	TIM_Cmd(TIM1, ENABLE);
 }
 
 void ihm07_l6230_pins_init(void)
@@ -319,8 +318,6 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base
         DMA_InitStructure.DMA_MemoryBurst = DMA_MemoryBurst_Single;
         DMA_InitStructure.DMA_PeripheralBurst = DMA_PeripheralBurst_Single;
         DMA_Init(DMA2_Stream0, &DMA_InitStructure);
-        DMA_Cmd(DMA2_Stream0, ENABLE);
-
 
         ADC_InitTypeDef ADC_InitStructure;
         ADC_InitStructure.ADC_Resolution = ADC_Resolution_8b;

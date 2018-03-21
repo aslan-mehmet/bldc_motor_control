@@ -16,6 +16,7 @@ void six_step_hall_init(void)
         ihm07_hall_interrupt_init();
         ihm07_hall_interrupt_connection_state(ENABLE);
         ihm07_pwm_and_pins_init();
+        ihm07_pwm_state(ENABLE);
 }
 void six_step_hall_start(void)
 {

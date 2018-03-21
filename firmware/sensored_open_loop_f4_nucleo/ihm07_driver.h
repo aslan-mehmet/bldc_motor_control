@@ -18,6 +18,8 @@ void ihm07_led_red_init(void);
 #define PWM_MAX_VAL ((uint16_t) 1e3)
 /* pwm freq 42kHz, freq 23.81us */
 void ihm07_pwm_and_pins_init(void);
+#define ihm07_pwm_state(state) TIM_Cmd(TIM1, (state))
+
 #define ihm07_pwm_set_ch1(val) TIM1->CCR1 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 #define ihm07_pwm_set_ch2(val) TIM1->CCR2 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 #define ihm07_pwm_set_ch3(val) TIM1->CCR3 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
@@ -58,6 +60,7 @@ void ihm07_adc_interrupt_connection_state(FunctionalState state);
 /* constantly reads and writes to memory. start with ihm07_adc_start_conversion*/
 /* memory_base address of the buffer */
 void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint32_t memory_base, uint8_t number_of_channels);
+void ihm07_adc_dma_state(state) DMA_Cmd(DMA2_Stream0, (state))
 
 
 
