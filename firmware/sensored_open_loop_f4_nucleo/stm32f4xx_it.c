@@ -249,6 +249,19 @@ void ADC_IRQHandler(void)
                 ihm07_adc_eoc_callback();
         }
 }
+
+void ihm07_adc_dma_transfer_complete_callback(void) __attribute__ ((weak));
+void DMA2_Stream0_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 0;
+         * NVIC_IRQChannelSubPriority = 3;
+         */
+        if (DMA_GetITStatus(DMA2_Stream0, DMA_IT_TCIF0) == SET) {
+                DMA_ClearITPendingBit(DMA2_Stream0, DMA_IT_TCIF0);
+                ihm07_adc_dma_transfer_complete_callback();
+        }
+}
 /**
   * @}
   */

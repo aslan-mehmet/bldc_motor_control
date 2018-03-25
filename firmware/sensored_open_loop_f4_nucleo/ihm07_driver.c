@@ -324,7 +324,7 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uin
         ADC_InitTypeDef ADC_InitStructure;
         ADC_InitStructure.ADC_Resolution = ADC_Resolution_8b;
         ADC_InitStructure.ADC_ScanConvMode = ENABLE;
-        ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
+        ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
         ADC_InitStructure.ADC_ExternalTrigConvEdge = ADC_ExternalTrigConvEdge_None;
         ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
         ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
@@ -347,6 +347,16 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uin
         ADC_DMACmd(ADC1, ENABLE);
 }
 
+void ihm07_adc_dma_interrupt_connection_state(FunctionalState state)
+{
+        NVIC_InitTypeDef NVIC_InitStructure;
+
+        NVIC_InitStructure.NVIC_IRQChannel = DMA2_Stream0_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = state;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 
 

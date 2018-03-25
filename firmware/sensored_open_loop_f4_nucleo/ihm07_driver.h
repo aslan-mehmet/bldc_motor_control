@@ -47,6 +47,7 @@ void ihm07_analog_pins_init(void);
 void ihm07_adc_single_mode_init(uint8_t IHM07_ADC_CH_x);
 /* start conversion scans all given channels in group */
 void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t number_of_channels);
+#define ihm07_adc_continuous_conversion_state(state) ADC_ContinuousModeCmd(ADC1, (state))
 #define ihm07_adc_state(state) ADC_Cmd(ADC1, (state))
 
 #define ihm07_adc_get_conversion_val() ADC_GetConversionValue(ADC1)
@@ -57,10 +58,11 @@ uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x);
 #define ihm07_adc_interrupt_init() ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE)
 /* void ihm07_adc_eoc_callback(void) */
 void ihm07_adc_interrupt_connection_state(FunctionalState state);
-/* constantly reads and writes to memory. start with ihm07_adc_start_conversion*/
+/* start with ihm07_adc_start_conversion */
 void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uint8_t number_of_channels);
+/* void ihm07_adc_dma_transfer_complete_callback(void) */
+#define ihm07_adc_dma_interrupt_init() DMA_ITConfig(DMA2_Stream0, DMA_IT_TC, ENABLE)
+void ihm07_adc_dma_interrupt_connection_state(FunctionalState state);
 #define ihm07_adc_dma_state(state) DMA_Cmd(DMA2_Stream0, (state))
-
-
 
 #endif /* __IHM07_DRIVER_H */
