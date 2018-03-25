@@ -9,8 +9,12 @@
 #include "ihm07_driver.h"
 #include "serial_packet.h"
 #include "uart.h"
+#include "six_step_hall.h"
+#include "ang_spd_sensor.h"
+#include "serial_packet_sent_cmd_ids.h"
 
 uint8_t _dma_transfer_done_flag = 0;
+uint8_t _adc_bemfs_readings[4];
 
 int main(void)
 {
@@ -37,21 +41,31 @@ int main(void)
         /* write after this line */
 
         ihm07_analog_pins_init();
-        uint8_t adc_ch_pot = IHM07_ADC_CH_POT;
-        uint8_t pot_val = 0;
-        ihm07_adc_dma_group_mode_init(&adc_ch_pot, &pot_val, 1);
+        uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
+        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings + 1, 3);
         ihm07_adc_dma_interrupt_init();
         ihm07_adc_dma_interrupt_connection_state(ENABLE);
         ihm07_adc_dma_state(ENABLE);
         ihm07_adc_state(ENABLE);
 
-        ihm07_adc_start_conversion();
+        six_step_hall_init();
+        six_step_hall_set_pwm_val(500);
+        six_step_hall_start();
+
+        /* TODO: six_step_hall_init if not called, pwm timer clk not enabled */
+        /* FIX IT LATER */
+        ihm07_pwm_duty_interrupt_init();
+        ihm07_pwm_duty_interrupt_connection_state(ENABLE);
+        ihm07_pwm_duty_set_val(100);
+
+        _adc_bemfs_readings[0] = 0xaa;
+        uart6_stream_init(_adc_bemfs_readings, 4);
+        uart6_stream_start();
 
         while (1) {
-                if (_dma_transfer_done_flag) {
-                        _dma_transfer_done_flag = 0;
-                        uart_send_byte_poll(pot_val);
-                        ihm07_adc_start_conversion();
+                if (ang_spd_sensor_exist_new_value()) {
+                        float f = ang_spd_sensor_get_in_rpm();
+                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &f);
                 }
 
                 /* dont touch this lines */
@@ -61,6 +75,11 @@ int main(void)
                 }
                 serial_packet_flush();
         }
+}
+
+void ihm07_pwm_duty_interrupt_callback(void)
+{
+        ihm07_adc_start_conversion();
 }
 
 void ihm07_adc_dma_transfer_complete_callback(void)
