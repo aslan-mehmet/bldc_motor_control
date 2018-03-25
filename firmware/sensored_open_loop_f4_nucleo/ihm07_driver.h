@@ -27,6 +27,7 @@ void ihm07_pwm_and_pins_init(void);
 void ihm07_pwm_duty_interrupt_init(void);
 /* void ihm07_pwm_duty_interrupt_callback(void) */
 void ihm07_pwm_duty_interrupt_connection_state(FunctionalState state);
+#define ihm07_pwm_duty_set_val(val) TIM1->CCR4 = (val) > PWM_MAX_VAL ? PWM_MAX_VAL : (val)
 
 /* put them also reset state */
 void ihm07_l6230_pins_init(void);
