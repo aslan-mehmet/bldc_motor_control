@@ -12,9 +12,24 @@
 #include "six_step_hall.h"
 #include "ang_spd_sensor.h"
 #include "serial_packet_sent_cmd_ids.h"
+#define temp_arbitrary_gpio_pin_on() GPIOC->ODR |= GPIO_ODR_ODR_9
+#define temp_arbitrary_gpio_pin_off() GPIOC->ODR &= ~GPIO_ODR_ODR_9
 
 uint8_t _dma_transfer_done_flag = 0;
 uint8_t _adc_bemfs_readings[4];
+
+void temp_arbitrary_gpio_pin_init(void)
+{
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+        /* ihm07 cn10 pin 1 */
+        GPIO_InitTypeDef GPIO_InitStructure;
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+        GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
 
 int main(void)
 {
@@ -62,6 +77,8 @@ int main(void)
         uart6_stream_init(_adc_bemfs_readings, 4);
         uart6_stream_start();
 
+        temp_arbitrary_gpio_pin_init();
+
         while (1) {
                 if (ang_spd_sensor_exist_new_value()) {
                         float f = ang_spd_sensor_get_in_rpm();
@@ -79,12 +96,14 @@ int main(void)
 
 void ihm07_pwm_duty_interrupt_callback(void)
 {
+        temp_arbitrary_gpio_pin_on();
         ihm07_adc_start_conversion();
 }
 
 void ihm07_adc_dma_transfer_complete_callback(void)
 {
         _dma_transfer_done_flag = 1;
+        temp_arbitrary_gpio_pin_off();
 }
 
 void serial_packet_print(uint8_t byt)
