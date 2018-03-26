@@ -4,6 +4,22 @@
 #include "stm32f4xx.h"
 #include "ihm07_driver_pins.h"
 
+/**
+ * ADC_SampleTime_3Cycles
+ * ADC_SampleTime_15Cycles
+ * ADC_SampleTime_28Cycles
+ * ADC_SampleTime_56Cycles
+ * ADC_SampleTime_84Cycles
+ * ADC_SampleTime_112Cycles
+ * ADC_SampleTime_144Cycles
+ * ADC_SampleTime_480Cycles
+ */
+#ifndef IHM07_ADC_SAMPLE_TIME
+/* default, for custom overwrite this */
+#define IHM07_ADC_SAMPLE_TIME ADC_SampleTime_15Cycles
+#endif /* IHM07_ADC_SAMPLE_TIME */
+
+
 void ihm07_hall_pins_init(void);
 void ihm07_hall_interrupt_init(void);
 /* void ihm07_hall_state_change_callback(void) __attribute__ ((weak)) */

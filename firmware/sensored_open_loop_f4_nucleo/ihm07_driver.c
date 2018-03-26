@@ -243,12 +243,12 @@ void ihm07_adc_single_mode_init(uint8_t IHM07_ADC_CH_x)
         ADC_CommonInitStructure.ADC_TwoSamplingDelay = ADC_TwoSamplingDelay_5Cycles;
         ADC_CommonInit(&ADC_CommonInitStructure);
 
-        ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x, 1, ADC_SampleTime_480Cycles);
+        ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x, 1, IHM07_ADC_SAMPLE_TIME);
 }
 
 uint16_t ihm07_adc_single_read_channel(uint8_t IHM07_ADC_CH_x)
 {
-        ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x, 1, ADC_SampleTime_15Cycles);
+        ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x, 1, IHM07_ADC_SAMPLE_TIME);
 
         ihm07_adc_start_conversion();
 
@@ -279,7 +279,7 @@ void ihm07_adc_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t number_of_channe
         ADC_CommonInit(&ADC_CommonInitStructure);
 
         for (int i = 0; i < number_of_channels; ++i) {
-                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_480Cycles);
+                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, IHM07_ADC_SAMPLE_TIME);
         }
 
         ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);
@@ -339,7 +339,7 @@ void ihm07_adc_dma_group_mode_init(uint8_t *IHM07_ADC_CH_x, uint8_t *buffer, uin
         ADC_CommonInit(&ADC_CommonInitStructure);
 
         for (int i = 0; i < number_of_channels; ++i) {
-                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, ADC_SampleTime_56Cycles);
+                ADC_RegularChannelConfig(ADC1, IHM07_ADC_CH_x[i], i + 1, IHM07_ADC_SAMPLE_TIME);
         }
 
         ADC_EOCOnEachRegularChannelCmd(ADC1, ENABLE);
