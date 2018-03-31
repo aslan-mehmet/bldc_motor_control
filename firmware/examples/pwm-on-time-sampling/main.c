@@ -71,7 +71,7 @@ int main(void)
         /* FIX IT LATER */
         ihm07_pwm_duty_interrupt_init();
         ihm07_pwm_duty_interrupt_connection_state(ENABLE);
-        ihm07_pwm_duty_set_val(100);
+        ihm07_pwm_duty_set_val(1);
 
         _adc_bemfs_readings[0] = 0xaa;
         uart6_stream_init(_adc_bemfs_readings, 4);
