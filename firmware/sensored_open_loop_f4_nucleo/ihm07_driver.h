@@ -16,7 +16,7 @@
  */
 #ifndef IHM07_ADC_SAMPLE_TIME
 /* default, for custom overwrite this */
-#define IHM07_ADC_SAMPLE_TIME ADC_SampleTime_15Cycles
+#define IHM07_ADC_SAMPLE_TIME ADC_SampleTime_3Cycles
 #endif /* IHM07_ADC_SAMPLE_TIME */
 
 
