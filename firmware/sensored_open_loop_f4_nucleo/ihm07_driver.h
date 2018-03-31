@@ -30,9 +30,9 @@ void ihm07_led_red_init(void);
 #define ihm07_led_red_on() PORT_LED_RED->ODR |= PIN_LED_RED
 #define ihm07_led_red_off() PORT_LED_RED->ODR &= ~PIN_LED_RED
 #define ihm07_led_red_toggle() PORT_LED_RED->ODR ^= PIN_LED_RED
-/* single inc 23.81ns */
+
 #define PWM_MAX_VAL ((uint16_t) 1e3)
-/* pwm freq 42kHz, freq 23.81us */
+/* pwm freq 28kHz */
 void ihm07_pwm_and_pins_init(void);
 #define ihm07_pwm_state(state) TIM_Cmd(TIM1, (state))
 
