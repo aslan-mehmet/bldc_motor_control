@@ -6,5 +6,6 @@
 
 #define PRINT_BEMFS 0
 #define PRINT_SPD_RPM 1
+#define PRINT_PWM_VAL 2
 
 #endif /* __SERIAL_PACKET_SENT_CMD_IDS */
