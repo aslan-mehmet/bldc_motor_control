@@ -9,6 +9,7 @@ void six_step_hall_init(void);
 void six_step_hall_start(void);
 void six_step_hall_stop(void);
 
+#define SIX_STEP_MAX_PWM_VAL PWM_MAX_VAL
 /* default pwm_val 0 */
 void six_step_hall_set_pwm_val(uint16_t pwm_val);
 
