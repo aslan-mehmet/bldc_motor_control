@@ -14,6 +14,9 @@ DEFS=-DUSE_STDPERIPH_DRIVER
 # target device
 DEFS+=-DSTM32F401xx
 DEFS+=-DHSE_VALUE=16000000
+DEFS+=-DUNALIGNED_SUPPORT_DISABLE
+DEFS+=-DARM_MATH_CM4
+DEFS+=-D__FPU_PRESENT=1
 
 CC=arm-none-eabi-gcc
 OBJCOPY=arm-none-eabi-objcopy
@@ -24,7 +27,7 @@ CFLAGS=-std=c99
 CFLAGS+=-Wall -Wextra -Warray-bounds -Wno-unused-parameter
 CFLAGS+=-Wno-unused-variable -Wno-strict-aliasing
 CFLAGS+=-mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
-CFLAGS+=-mfloat-abi=softfp -mfpu=fpv4-sp-d16
+CFLAGS+=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 # only use if necessary. also w/ -g problem
 #CFLAGS+=-ffunction-sections -fdata-sections -Og -g
 CFLAGS+=-Og -g
@@ -33,6 +36,7 @@ CFLAGS+=-Og -g
 LFLAGS=-Tstm32f401re.ld --specs=nosys.specs
 LFLAGS+=-Wl,-Map=$(BUILD_DIR)/$(PROJ_NAME).map
 LFLAGS+=-Wl,--cref
+LFLAGS+=-L./lib/cmsis/lib/ -larm_cortexM4lf_math
 #LFLAGS+=-Wl,--gc-sections
 #LFLAGS+=-Wl,-print-gc-sections
 
