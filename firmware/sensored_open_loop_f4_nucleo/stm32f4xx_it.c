@@ -262,6 +262,19 @@ void DMA2_Stream0_IRQHandler(void)
                 ihm07_adc_dma_transfer_complete_callback();
         }
 }
+
+void ang_spd_sensor_timer_overflow_callback(void) __attribute__ ((weak));
+void TIM2_IRQHandler(void)
+{
+        /**
+         * NVIC_IRQChannelPreemptionPriority = 1;
+         * NVIC_IRQChannelSubPriority = 1;
+         */
+        if (TIM_GetITStatus(TIM2, TIM_IT_Update) == SET) {
+                TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+                ang_spd_sensor_timer_overflow_callback();
+        }
+}
 /**
   * @}
   */
