@@ -7,5 +7,9 @@
 #define MOTOR_SET_STATE 0
 #define MOTOR_SET_PWM 1
 #define MOTOR_SET_DIRECTION 2
+#define SPEED_PID_SET_KP 3
+#define SPEED_PID_SET_KI 4
+#define SPEED_PID_SET_KD 5
+#define MOTOR_SET_SPEED_IN_RPM 6
 
 #endif /* __SERIAL_PACKET_SENT_CMD_IDS */
