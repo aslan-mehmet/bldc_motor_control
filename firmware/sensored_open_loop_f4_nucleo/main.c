@@ -12,14 +12,25 @@
 #include "six_step_hall.h"
 #include "ang_spd_sensor.h"
 #include "serial_packet_sent_cmd_ids.h"
-#include "arm_math.h"
+#define temp_arbitrary_gpio_pin_on() GPIOC->ODR |= GPIO_ODR_ODR_9
+#define temp_arbitrary_gpio_pin_off() GPIOC->ODR &= ~GPIO_ODR_ODR_9
+#define temp_arbitrary_gpio_pin_toggle() GPIOC->ODR ^= GPIO_ODR_ODR_9
 
-#define SPEED_PID_DEFAULT_KP ((float) 5)
-#define SPEED_PID_DEFAULT_KI ((float) 0)
-#define SPEED_PID_DEFAULT_KD ((float) 0)
+uint8_t _dma_transfer_done_flag = 0;
+uint8_t _adc_bemfs_readings[4];
 
-float _desired_speed = 15000;
-arm_pid_instance_f32 _speed_pid;
+void temp_arbitrary_gpio_pin_init(void)
+{
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+        /* ihm07 cn10 pin 1 */
+        GPIO_InitTypeDef GPIO_InitStructure;
+        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+        GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
 
 int main(void)
 {
@@ -45,38 +56,43 @@ int main(void)
         uint64_t hold_time = get_time();
         /* write after this line */
 
+        ihm07_analog_pins_init();
+        uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
+        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings + 1, 3);
+        ihm07_adc_dma_interrupt_init();
+        ihm07_adc_dma_interrupt_connection_state(ENABLE);
+        ihm07_adc_dma_state(ENABLE);
+        ihm07_adc_state(ENABLE);
+
         six_step_hall_init();
+        six_step_hall_set_pwm_val(500);
         six_step_hall_start();
 
-        uint64_t hold_time_for_pid_controller = get_time();
+        /* TODO: six_step_hall_init if not called, pwm timer clk not enabled */
+        /* FIX IT LATER */
+        ihm07_pwm_duty_interrupt_init();
+        ihm07_pwm_duty_interrupt_connection_state(ENABLE);
+        ihm07_pwm_duty_set_val(1);
 
-        _speed_pid.Kp = SPEED_PID_DEFAULT_KP;
-        _speed_pid.Ki = SPEED_PID_DEFAULT_KI;
-        _speed_pid.Kd = SPEED_PID_DEFAULT_KD;
-        /* if any pid param changed, ALWAYS HAVE TO INIT: changes internal params */
-        arm_pid_init_f32(&_speed_pid, 1);
+        _adc_bemfs_readings[0] = 0xaa;
+
+        temp_arbitrary_gpio_pin_init();
+        uart6_stream_single_periph_init();
 
         while (1) {
-                if (get_time() - hold_time_for_pid_controller > 100) {
-                        hold_time_for_pid_controller = get_time();
+                if (ang_spd_sensor_exist_new_value()) {
+                        float f = ang_spd_sensor_get_in_rpm();
+                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &f);
+                }
 
-                        static float current_speed, error_speed, pwm_val;
+                if (_dma_transfer_done_flag == 5) {
+                        _dma_transfer_done_flag = 0;
+                        temp_arbitrary_gpio_pin_on();
 
-                        current_speed = ang_spd_sensor_get_in_rpm();
-                        error_speed = _desired_speed - current_speed;
-                        pwm_val = arm_pid_f32(&_speed_pid, error_speed);
+                        uart6_stream_single_config_dma(_adc_bemfs_readings, 4);
+                        uart6_stream_start();
 
-                        if (pwm_val < 0) {
-                                pwm_val = 0;
-                        } else if (pwm_val > SIX_STEP_MAX_PWM_VAL) {
-                                pwm_val = SIX_STEP_MAX_PWM_VAL;
-                        }
-
-                        six_step_hall_set_pwm_val((uint16_t) pwm_val);
-
-                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &current_speed);
-                        uint16_t u16 = (uint16_t) pwm_val;
-                        serial_packet_encode_poll(PRINT_PWM_VAL, sizeof(u16), &u16);
+                        temp_arbitrary_gpio_pin_off();
                 }
 
                 /* dont touch this lines */
@@ -88,7 +104,22 @@ int main(void)
         }
 }
 
-/* dont touch this lines */
+void ihm07_pwm_duty_interrupt_callback(void)
+{
+        //temp_arbitrary_gpio_pin_on();
+        ihm07_adc_start_conversion();
+}
+
+void ihm07_adc_dma_transfer_complete_callback(void)
+{
+        _dma_transfer_done_flag++;
+
+        if (_dma_transfer_done_flag == 20) {
+                _dma_transfer_done_flag = 0;
+        }
+        //temp_arbitrary_gpio_pin_off();
+}
+
 void serial_packet_print(uint8_t byt)
 {
         uart_send_byte_poll(byt);
