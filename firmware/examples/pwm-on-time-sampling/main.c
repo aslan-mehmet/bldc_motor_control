@@ -12,24 +12,13 @@
 #include "six_step_hall.h"
 #include "ang_spd_sensor.h"
 #include "serial_packet_sent_cmd_ids.h"
-#define temp_arbitrary_gpio_pin_on() GPIOC->ODR |= GPIO_ODR_ODR_9
-#define temp_arbitrary_gpio_pin_off() GPIOC->ODR &= ~GPIO_ODR_ODR_9
 
 uint8_t _dma_transfer_done_flag = 0;
-uint8_t _adc_bemfs_readings[4];
-
-void temp_arbitrary_gpio_pin_init(void)
-{
-        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-        /* ihm07 cn10 pin 1 */
-        GPIO_InitTypeDef GPIO_InitStructure;
-        GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-        GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-        GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-        GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-        GPIO_Init(GPIOC, &GPIO_InitStructure);
-}
+#define UART6_STREAM_BUFFER_SIZE 8
+uint8_t _uart6_stream_buffer[UART6_STREAM_BUFFER_SIZE] = {0x01,
+                                   0xff, 0xff, 0xff,
+                                   0x00};
+#define _adc_bemfs_readings ((uint8_t *)(_uart6_stream_buffer+5))
 
 int main(void)
 {
@@ -57,7 +46,7 @@ int main(void)
 
         ihm07_analog_pins_init();
         uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
-        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings + 1, 3);
+        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings, 3);
         ihm07_adc_dma_interrupt_init();
         ihm07_adc_dma_interrupt_connection_state(ENABLE);
         ihm07_adc_dma_state(ENABLE);
@@ -71,13 +60,10 @@ int main(void)
         /* FIX IT LATER */
         ihm07_pwm_duty_interrupt_init();
         ihm07_pwm_duty_interrupt_connection_state(ENABLE);
-        ihm07_pwm_duty_set_val(1);
+        ihm07_pwm_duty_set_val(250);
 
-        _adc_bemfs_readings[0] = 0xaa;
-        uart6_stream_init(_adc_bemfs_readings, 4);
+        uart6_stream_init(_uart6_stream_buffer, UART6_STREAM_BUFFER_SIZE);
         uart6_stream_start();
-
-        temp_arbitrary_gpio_pin_init();
 
         while (1) {
                 if (ang_spd_sensor_exist_new_value()) {
@@ -96,14 +82,12 @@ int main(void)
 
 void ihm07_pwm_duty_interrupt_callback(void)
 {
-        temp_arbitrary_gpio_pin_on();
         ihm07_adc_start_conversion();
 }
 
 void ihm07_adc_dma_transfer_complete_callback(void)
 {
         _dma_transfer_done_flag = 1;
-        temp_arbitrary_gpio_pin_off();
 }
 
 void serial_packet_print(uint8_t byt)
