@@ -18,4 +18,7 @@ void six_step_hall_set_pwm_val(uint16_t pwm_val);
 /* default ccw */
 void six_step_hall_set_direction(uint8_t SIX_STEP_HALL_DIRECTION_x);
 
+/* READONLY */
+extern uint8_t _six_step_hall_current_step;
+
 #endif /* __SIX_STEP_HALL_H */

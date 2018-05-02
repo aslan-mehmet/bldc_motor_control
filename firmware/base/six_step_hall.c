@@ -8,6 +8,7 @@ static uint8_t _direction = SIX_STEP_HALL_DIRECTION_CCW;
 #define SIX_STEP_STATE_ACTIVE 1
 #define SIX_STEP_STATE_INACTIVE 0
 static uint8_t _six_step_state = SIX_STEP_STATE_INACTIVE;
+uint8_t _six_step_hall_current_step = 0;
 
 void six_step_hall_init(void)
 {
@@ -117,6 +118,7 @@ static void six_step_commutate_ccw(uint8_t state)
 void ihm07_hall_state_change_callback(void)
 {
         uint8_t state = ihm07_hall_read();
+        _six_step_hall_current_step = state;
 
         if (_direction == SIX_STEP_HALL_DIRECTION_CW) {
                 six_step_commutate_cw(state);

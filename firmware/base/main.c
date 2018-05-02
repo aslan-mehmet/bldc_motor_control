@@ -14,11 +14,10 @@
 #include "serial_packet_sent_cmd_ids.h"
 
 uint8_t _dma_transfer_done_flag = 0;
-#define UART6_STREAM_BUFFER_SIZE 8
-uint8_t _uart6_stream_buffer[UART6_STREAM_BUFFER_SIZE] = {0x01,
-                                   0xff, 0xff, 0xff,
-                                   0x00};
-#define _adc_bemfs_readings ((uint8_t *)(_uart6_stream_buffer+5))
+#define UART6_STREAM_BUFFER_SIZE 6
+uint8_t _uart6_stream_buffer[UART6_STREAM_BUFFER_SIZE] = {0xaa, 0xbb};
+#define _adc_bemfs_readings ((uint8_t *)(_uart6_stream_buffer+2))
+#define _hall_current_step ((uint8_t *) (_uart6_stream_buffer+5))
 
 int main(void)
 {
@@ -60,7 +59,7 @@ int main(void)
         /* FIX IT LATER */
         ihm07_pwm_duty_interrupt_init();
         ihm07_pwm_duty_interrupt_connection_state(ENABLE);
-        ihm07_pwm_duty_set_val(250);
+        ihm07_pwm_duty_set_val(100);
 
         uart6_stream_init(_uart6_stream_buffer, UART6_STREAM_BUFFER_SIZE);
         uart6_stream_start();
@@ -83,6 +82,7 @@ int main(void)
 void ihm07_pwm_duty_interrupt_callback(void)
 {
         ihm07_adc_start_conversion();
+        *_hall_current_step = _six_step_hall_current_step;
 }
 
 void ihm07_adc_dma_transfer_complete_callback(void)
