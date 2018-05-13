@@ -126,9 +126,9 @@ void ihm07_hall_state_change_callback(void)
                 six_step_commutate_ccw(state);
         }
 
-        if (state == 6) {
-                ang_spd_sensor_on_full_rotation_complete();
-        }
+        /* speed sensor response time was poor */
+        /* now measuring each step */
+        ang_spd_sensor_on_full_rotation_complete();
 }
 
 void six_step_hall_set_pwm_val(uint16_t val)

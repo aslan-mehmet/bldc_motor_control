@@ -8,6 +8,7 @@
 /* min rpm val can be measured 6000 */
 #define SENSOR_TIM_PERIOD 420000
 static uint32_t _full_rotation_period = SENSOR_TIM_PERIOD;
+static uint32_t _last4_full_rotation_periods[4];
 static uint8_t _new_full_rotation_period_flag = 0;
 static uint8_t _ang_spd_sensor_init_complete = 0;
 
@@ -39,7 +40,14 @@ void ang_spd_sensor_init(void)
 
 void ang_spd_sensor_timer_overflow_callback(void)
 {
-        _full_rotation_period = SENSOR_TIM_PERIOD;
+        /* _full_rotation_period = SENSOR_TIM_PERIOD; */
+
+        for (int i = 0; i < 3; ++i) {
+                _last4_full_rotation_periods[i] = _last4_full_rotation_periods[i+1];
+        }
+
+        _last4_full_rotation_periods[3] = SENSOR_TIM_PERIOD;
+
         _new_full_rotation_period_flag = 1;
 }
 
@@ -49,7 +57,13 @@ void ang_spd_sensor_on_full_rotation_complete(void)
                 return;
         }
 
-        _full_rotation_period = TIM_GetCounter(SENSOR_TIM);
+        /* _full_rotation_period = TIM_GetCounter(SENSOR_TIM); */
+
+        for (int i = 0; i < 3; ++i) {
+                _last4_full_rotation_periods[i] = _last4_full_rotation_periods[i+1];
+        }
+
+        _last4_full_rotation_periods[3] = TIM_GetCounter(SENSOR_TIM);
 
         TIM_SetCounter(SENSOR_TIM, 0);
 
@@ -62,6 +76,11 @@ void ang_spd_sensor_on_full_rotation_complete(void)
 
 float ang_spd_sensor_get_in_rpm(void)
 {
+        _full_rotation_period = (_last4_full_rotation_periods[0] +
+                                 _last4_full_rotation_periods[1] +
+                                 _last4_full_rotation_periods[2] +
+                                 _last4_full_rotation_periods[3]) / 4.0;
+
         float period_in_min = _full_rotation_period * PERIOD_UNIT_TIME / 60.0;
         float rpm = 1.0 / period_in_min;
 
@@ -71,6 +90,11 @@ float ang_spd_sensor_get_in_rpm(void)
 
 float ang_spd_sensor_get_in_rad_per_sec(void)
 {
+        _full_rotation_period = (_last4_full_rotation_periods[0] +
+                                 _last4_full_rotation_periods[1] +
+                                 _last4_full_rotation_periods[2] +
+                                 _last4_full_rotation_periods[3]) / 4.0;
+
         float period_in_sec = _full_rotation_period * PERIOD_UNIT_TIME;
         float rad_per_sec = 2 * CONSTANT_PI / period_in_sec;
 

@@ -14,11 +14,12 @@
 #include "serial_packet_sent_cmd_ids.h"
 #include "arm_math.h"
 
-#define SPEED_PID_DEFAULT_KP ((float) 5)
-#define SPEED_PID_DEFAULT_KI ((float) 0)
+#define SPEED_PID_DEFAULT_KP ((float) 0.1)
+#define SPEED_PID_DEFAULT_KI ((float) 0.1)
 #define SPEED_PID_DEFAULT_KD ((float) 0)
+#define MOTOR_POLE_PAIR_COUNT 5
 
-float _desired_speed = 15000;
+float _desired_speed = 500;
 arm_pid_instance_f32 _speed_pid;
 
 int main(void)
@@ -44,6 +45,7 @@ int main(void)
         ihm07_l6230_pins_init();
         uint64_t hold_time = get_time();
         /* write after this line */
+        uart6_init();
 
         six_step_hall_init();
         six_step_hall_start();
@@ -61,8 +63,10 @@ int main(void)
                         hold_time_for_pid_controller = get_time();
 
                         static float current_speed, error_speed, pwm_val;
-
+                        /* returns single hall step in rpm */
                         current_speed = ang_spd_sensor_get_in_rpm();
+                        /* mechanical shaft speed */
+                        current_speed /= ((float)MOTOR_POLE_PAIR_COUNT * 6.0);
                         error_speed = _desired_speed - current_speed;
                         pwm_val = arm_pid_f32(&_speed_pid, error_speed);
 
@@ -74,7 +78,13 @@ int main(void)
 
                         six_step_hall_set_pwm_val((uint16_t) pwm_val);
 
-                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &current_speed);
+                        static uint8_t uart6_comm_header[4] = {0x00, 0x01, 0x02, 0x03};
+                        uart6_send_buffer_poll(uart6_comm_header, 4);
+                        uart6_send_buffer_poll((uint8_t *)(&_desired_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&current_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&error_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&pwm_val), 4);
+
                         uint16_t u16 = (uint16_t) pwm_val;
                         serial_packet_encode_poll(PRINT_PWM_VAL, sizeof(u16), &u16);
                 }

@@ -56,10 +56,64 @@ void uart_send_byte_poll(uint8_t byt)
         USART_SendData(USART1, byt);
 }
 
+
 void uart_send_buffer_poll(uint8_t *buffer, uint8_t len)
 {
         for (int i = 0; i < len; ++i) {
                 uart_send_byte_poll(buffer[i]);
+        }
+}
+
+void uart6_init(void)
+{
+        /**
+         * USART6
+         * PC6 TX
+         * AF08
+         * ref. man pg 170 table 29
+         * DMA TX CH5 STREAM6
+         */
+
+        GPIO_InitTypeDef GPIO_InitStructure;
+        USART_InitTypeDef USART_InitStructure;
+
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART6, ENABLE);
+        RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_DMA2, ENABLE);
+
+        GPIO_PinAFConfig(GPIOC, GPIO_PinSource6, GPIO_AF_USART6);
+
+        GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+
+        USART_InitStructure.USART_BaudRate = 1e6;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+	USART_InitStructure.USART_Mode = USART_Mode_Tx;
+	USART_Init(USART6, &USART_InitStructure);
+
+        USART_Cmd(USART6, ENABLE);
+}
+
+void uart6_send_byte_poll(uint8_t byt)
+{
+        while (USART_GetFlagStatus(USART6, USART_FLAG_TXE) != SET)
+                ;
+        USART_SendData(USART6, byt);
+}
+
+void uart6_send_buffer_poll(uint8_t *buffer, uint8_t len)
+{
+        for (int i = 0; i < len; ++i) {
+                while (USART_GetFlagStatus(USART6, USART_FLAG_TXE) != SET)
+                        ;
+                USART_SendData(USART6, buffer[i]);
         }
 }
 

@@ -12,12 +12,15 @@
 #include "six_step_hall.h"
 #include "ang_spd_sensor.h"
 #include "serial_packet_sent_cmd_ids.h"
+#include "arm_math.h"
 
-uint8_t _dma_transfer_done_flag = 0;
-#define UART6_STREAM_BUFFER_SIZE 6
-uint8_t _uart6_stream_buffer[UART6_STREAM_BUFFER_SIZE] = {0xaa, 0xbb};
-#define _adc_bemfs_readings ((uint8_t *)(_uart6_stream_buffer+2))
-#define _hall_current_step ((uint8_t *) (_uart6_stream_buffer+5))
+#define SPEED_PID_DEFAULT_KP ((float) 0.1)
+#define SPEED_PID_DEFAULT_KI ((float) 0.1)
+#define SPEED_PID_DEFAULT_KD ((float) 0)
+#define MOTOR_POLE_PAIR_COUNT 5
+
+float _desired_speed = 500;
+arm_pid_instance_f32 _speed_pid;
 
 int main(void)
 {
@@ -42,32 +45,48 @@ int main(void)
         ihm07_l6230_pins_init();
         uint64_t hold_time = get_time();
         /* write after this line */
-
-        ihm07_analog_pins_init();
-        uint8_t adc_bemf_chs[3] = {IHM07_ADC_CH_BEMF1, IHM07_ADC_CH_BEMF2, IHM07_ADC_CH_BEMF3};
-        ihm07_adc_dma_group_mode_init(adc_bemf_chs, _adc_bemfs_readings, 3);
-        ihm07_adc_dma_interrupt_init();
-        ihm07_adc_dma_interrupt_connection_state(ENABLE);
-        ihm07_adc_dma_state(ENABLE);
-        ihm07_adc_state(ENABLE);
+        uart6_init();
 
         six_step_hall_init();
-        six_step_hall_set_pwm_val(500);
         six_step_hall_start();
 
-        /* TODO: six_step_hall_init if not called, pwm timer clk not enabled */
-        /* FIX IT LATER */
-        ihm07_pwm_duty_interrupt_init();
-        ihm07_pwm_duty_interrupt_connection_state(ENABLE);
-        ihm07_pwm_duty_set_val(100);
+        uint64_t hold_time_for_pid_controller = get_time();
 
-        uart6_stream_init(_uart6_stream_buffer, UART6_STREAM_BUFFER_SIZE);
-        uart6_stream_start();
+        _speed_pid.Kp = SPEED_PID_DEFAULT_KP;
+        _speed_pid.Ki = SPEED_PID_DEFAULT_KI;
+        _speed_pid.Kd = SPEED_PID_DEFAULT_KD;
+        /* if any pid param changed, ALWAYS HAVE TO INIT: changes internal params */
+        arm_pid_init_f32(&_speed_pid, 1);
 
         while (1) {
-                if (ang_spd_sensor_exist_new_value()) {
-                        float f = ang_spd_sensor_get_in_rpm();
-                        serial_packet_encode_poll(PRINT_SPD_RPM, sizeof(float), &f);
+                if (get_time() - hold_time_for_pid_controller > 100) {
+                        hold_time_for_pid_controller = get_time();
+
+                        static float current_speed, error_speed, pwm_val;
+                        /* returns single hall step in rpm */
+                        current_speed = ang_spd_sensor_get_in_rpm();
+                        /* mechanical shaft speed */
+                        current_speed /= ((float)MOTOR_POLE_PAIR_COUNT * 6.0);
+                        error_speed = _desired_speed - current_speed;
+                        pwm_val = arm_pid_f32(&_speed_pid, error_speed);
+
+                        if (pwm_val < 0) {
+                                pwm_val = 0;
+                        } else if (pwm_val > SIX_STEP_MAX_PWM_VAL) {
+                                pwm_val = SIX_STEP_MAX_PWM_VAL;
+                        }
+
+                        six_step_hall_set_pwm_val((uint16_t) pwm_val);
+
+                        static uint8_t uart6_comm_header[4] = {0x00, 0x01, 0x02, 0x03};
+                        uart6_send_buffer_poll(uart6_comm_header, 4);
+                        uart6_send_buffer_poll((uint8_t *)(&_desired_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&current_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&error_speed), 4);
+                        uart6_send_buffer_poll((uint8_t *)(&pwm_val), 4);
+
+                        uint16_t u16 = (uint16_t) pwm_val;
+                        serial_packet_encode_poll(PRINT_PWM_VAL, sizeof(u16), &u16);
                 }
 
                 /* dont touch this lines */
@@ -79,17 +98,7 @@ int main(void)
         }
 }
 
-void ihm07_pwm_duty_interrupt_callback(void)
-{
-        ihm07_adc_start_conversion();
-        *_hall_current_step = _six_step_hall_current_step;
-}
-
-void ihm07_adc_dma_transfer_complete_callback(void)
-{
-        _dma_transfer_done_flag = 1;
-}
-
+/* dont touch this lines */
 void serial_packet_print(uint8_t byt)
 {
         uart_send_byte_poll(byt);
